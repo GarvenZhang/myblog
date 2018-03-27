@@ -1,0 +1,50 @@
+/* =======================User======================= */
+
+.home-page {
+  min-width: 320px;
+  max-width: 641px;
+  margin: 0 auto;
+}
+.home-page .header {
+  height: 20vh;
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+}
+
+/* 导航 */
+.home-page > .main {
+  height: 75vh;
+  border: 1px solid currentColor;
+}
+.home-page .nav-tabs {
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, transparent 0%, #00F900 50%, transparent 100%);
+}
+.home-page .nav-tabs .nav-item {
+  display: inline-block;
+  width: 25%;
+}
+.home-page .nav-tabs .nav-title {
+  font-size: 18px;
+  color: #00F900;
+}
+.home-page .nav-details-item {
+  position: relative;
+  height: calc(75vh - 36px);
+  overflow: hidden;
+}
+.home-page .nav-details-inner {
+  height: calc(75vh - 36px);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.home-page .nav-details-item::-webkit-scrollbar {
+  display: none;
+}
+
+/* =======================Admin======================= */

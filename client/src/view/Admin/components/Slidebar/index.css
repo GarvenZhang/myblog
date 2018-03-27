@@ -1,0 +1,15 @@
+.slidebar-inner {
+  height: 100%;
+}
+.slidebar-inner .nav-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+.slidebar-inner .link {
+  font-size: 32px;
+  color: #fff;
+}
+

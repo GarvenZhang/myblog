@@ -1,0 +1,11 @@
+.search-wrap {
+  flex-basis: 100%;
+}
+.search-wrap .search-inp {
+  width: 90%;
+  border-bottom: 1px solid #00F900;
+}
+.search-wrap .search-btn {
+  width: 10%;
+  font-size: 20px;
+}
