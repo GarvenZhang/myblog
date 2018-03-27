@@ -3,4 +3,4 @@ fileServer/
 node_modules/
 .answers.md
 .idea
-dist/
+dist/git
