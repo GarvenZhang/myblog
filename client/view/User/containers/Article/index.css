@@ -1,0 +1,76 @@
+.article-page {
+  min-width: 320px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.nav-move-list {
+  position: fixed;
+  right: 30px;
+  top: 30px;
+}
+
+/* 文章开始 */
+.article {
+  margin: 30px 0;
+}
+.article-tt {
+  font-size: 32px;
+  text-align: center;
+}
+.comment-section {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.aside {
+  border: 20px solid;
+  border-image: url("../../../../../dist/img/aside-border-img.gif") 20 / 12px round;
+  background-color: #464141;
+}
+.article strong {
+  color: #1a889a;
+}
+.article p {
+  line-height: 3;
+}
+.article img {
+  padding: 20px;
+  box-shadow: 0 0 10px 0 inset;
+  margin: 20px 0;
+}
+.article h2 {
+  font-size: 24px;
+  line-height: 3;
+}
+.article h3 {
+  font-size: 20px;
+}
+.article pre {
+  color: #4caf50;
+  margin: 5px 0;
+  border: 20px solid;
+  border-image: url("../../../../../dist/img/code-border-img.gif") 20 / 12px round;
+  background-color: #464141;
+}
+.article hr {
+  margin: 20px 0;
+  border-color: #00F900;
+}
+
+/* 评论区开始 */
+.comment-info {
+  float: right;
+}
+
+/* 发表评论开始 */
+.post-area .area-textarea {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid;
+}
+.post-area .form-field {
+  margin-bottom: 10px;
+}
+.post-area .btn-isMemoried {
+  margin-left: 5px;
+}
