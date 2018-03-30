@@ -4,6 +4,7 @@
     "react",
 //    "stage-0",
     "env",
+
 //    "preset-env"
   ],
   "plugins": [

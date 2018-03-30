@@ -18,11 +18,7 @@ class Tag extends Component {
     name: '',
     total: 0
   }
-  static propsType = {
-    link: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    total: PropTypes.number.isRequired
-  }
+
   render () {
     return (
       <li className="category-item">
@@ -30,6 +26,14 @@ class Tag extends Component {
         [<span className="num">{this.props.total}</span>]
       </li>
     )
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  Tag.propsType = {
+    link: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired
   }
 }
 
@@ -41,10 +45,6 @@ class ArticleCategory extends Component {
 
   static defaultProps = {
     tagsList: []
-  }
-
-  static propsType = {
-    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
   componentWillMount () {
@@ -78,6 +78,12 @@ class ArticleCategory extends Component {
 
   componentDidMount () {
     this.props.get_category_list()
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  ArticleCategory.propsType = {
+    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 

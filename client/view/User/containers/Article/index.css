@@ -1,3 +1,4 @@
+/* sprite-loader-enable */
 .article-page {
   min-width: 320px;
   max-width: 1000px;
@@ -24,7 +25,7 @@
 }
 .aside {
   border: 20px solid;
-  border-image: url("../../../../../dist/img/aside-border-img.gif") 20 / 12px round;
+  border-image: url("aside-border-img.png") 20 / 12px round;
   background-color: #464141;
 }
 .article strong {
@@ -49,7 +50,7 @@
   color: #4caf50;
   margin: 5px 0;
   border: 20px solid;
-  border-image: url("../../../../../dist/img/code-border-img.gif") 20 / 12px round;
+  border-image: url("code-border-img.png") 20 / 12px round;
   background-color: #464141;
 }
 .article hr {

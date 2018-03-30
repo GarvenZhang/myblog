@@ -23,10 +23,6 @@ class BestArticle extends Component {
     articleList: []
   }
 
-  static propsTypes = {
-    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
   componentWillMount () {
     document.title = '最佳博文 - 张益铭'
   }
@@ -60,6 +56,12 @@ class BestArticle extends Component {
 
   componentDidMount () {
     this.props.get_best_list(1)
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  BestArticle.propsTypes = {
+    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 

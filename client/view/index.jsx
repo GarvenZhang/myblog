@@ -4,11 +4,11 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { AppContainer } from 'react-hot-loader'
 
-import RouteMap from './router/index'
-import store from './redux/store'
+import RouteMap from '../router/index'
+import store from '../redux/store/index'
 
 import './reset.css'
-import '../dist/fonts/iconfont.css'
+import '../static/fonts/iconfont.css'
 import './index.css'
 
 const render = Component => {

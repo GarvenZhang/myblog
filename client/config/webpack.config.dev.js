@@ -37,7 +37,7 @@ config.plugins.push(
 )
 config.plugins.push(
   new HtmlWebpackPlugin({
-    template: './index.tmpl.html',
+    template: './view/index.tmpl.dev.html',
     inject: true,
     hash: true,
     minify: {
@@ -51,5 +51,9 @@ config.plugins.push(
     filename: 'index.html'
   })
 )
+config.plugins.push(
+  new webpack.NoEmitOnErrorsPlugin()
+)
+
 
 module.exports = config

@@ -28,18 +28,13 @@ const fs = require('fs')
 const path = require('path')
 
 const routers = require('./server/routes/router')
+const config = require('./config')
 const router = new Router()
 
 const app = module.exports = new Koa()
 
 // mysql
-global.connectionPool = mysql.createPool({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '970226',
-  database: 'myblog'
-})
+global.connectionPool = mysql.createPool(config.dbConfig)
 
 app.use(async function mysqlConnection (ctx, next) {
   try {
@@ -60,7 +55,8 @@ app.use(async function mysqlConnection (ctx, next) {
 app.use(logger())
 
 app.use(serve(__dirname, {
-  maxage: 60
+  maxage: 60,
+  gzip: true
 }))
 
 app.use(bodyParser())
@@ -70,12 +66,12 @@ app.use(routers)
 
 // https
 const httpsOptions = {
-  key: fs.readFileSync('./2_www.hellojm.cn.key'),
-  cert: fs.readFileSync('./1_www.hellojm.cn_bundle.crt')
+  key: fs.readFileSync(config.key),
+  cert: fs.readFileSync(config.cert)
 }
 https.createServer(httpsOptions, app.callback(function (err) {
   if (err) {
     console.log(err)
   }
-  console.log(`Listening at localhost: 3000`)
-})).listen(3000)
+  console.log(`Listening at localhost: ${config.serverPort}`)
+})).listen(config.serverPort)

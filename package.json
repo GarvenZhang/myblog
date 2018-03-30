@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "koa": "cross-env NODE_ENV=development node ./app.js",
-    "start": "cd ./client && npm run build && cd ../ && npm run koa"
+    "dev": "cross-env NODE_ENV=development node ./app-myblog.js",
+    "prod": "cross-env NODE_ENV=production node ./app-myblog.js",
+    "start": "cd ./client && npm run build && cd ../ && npm run prod"
   },
   "dependencies": {
     "koa": "^2.5.0",

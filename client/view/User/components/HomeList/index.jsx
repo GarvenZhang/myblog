@@ -17,13 +17,6 @@ class LatestItem extends Component {
     pubtime: '',
     tag: ''
   }
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    pubtime: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired
-  }
 
   render () {
 
@@ -43,6 +36,16 @@ class LatestItem extends Component {
   }
 }
 
+if (process.env.NODE_ENV === 'development') {
+  LatestItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    pubtime: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired
+  }
+}
+
 class BestItem extends Component {
   constructor (props) {
     super(props)
@@ -57,15 +60,7 @@ class BestItem extends Component {
     pubtime: '',
     tag: ''
   }
-  static propTypes = {
-    readNum: PropTypes.number.isRequired,
-    commentsNum: PropTypes.number.isRequired,
-    likedNum: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    pubtime: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired
-  }
+
   render () {
     return (
       <li className="article-item">
@@ -86,6 +81,18 @@ class BestItem extends Component {
   }
 }
 
+if (process.env.NODE_ENV === 'development') {
+  BestItem.propTypes = {
+    readNum: PropTypes.number.isRequired,
+    commentsNum: PropTypes.number.isRequired,
+    likedNum: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    pubtime: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired
+  }
+}
+
 class WorksItem extends Component {
   constructor (props) {
     super(props)
@@ -100,15 +107,7 @@ class WorksItem extends Component {
     demoLink: '',
     githubLink: '',
   }
-  static propTypes = {
-    imgSrc: PropTypes.string.isRequired,
-    imgAlt: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    sourceLink: PropTypes.string.isRequired,
-    demoLink: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired
-  }
+
   render () {
     return (
       <li className="article-item">
@@ -123,6 +122,18 @@ class WorksItem extends Component {
         </p>
       </li>
     )
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  WorksItem.propTypes = {
+    imgSrc: PropTypes.string.isRequired,
+    imgAlt: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    sourceLink: PropTypes.string.isRequired,
+    demoLink: PropTypes.string.isRequired,
+    githubLink: PropTypes.string.isRequired
   }
 }
 

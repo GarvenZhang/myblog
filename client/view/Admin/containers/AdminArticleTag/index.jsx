@@ -20,10 +20,6 @@ class AdminArticleTag extends Component {
     tagList: []
   }
 
-  static propsType = {
-    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
   render () {
     return (
       <div className="admin-article-tag-wrap admin-inner">
@@ -34,6 +30,12 @@ class AdminArticleTag extends Component {
 
   componentDidMount () {
     this.props.get_category_list()
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  AdminArticleTag.propsType = {
+    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 

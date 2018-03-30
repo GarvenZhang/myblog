@@ -9,11 +9,6 @@ class Row extends Component {
     name: ''
   }
 
-  static propsType = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  }
-
   render () {
     return (
       <ul className="table-row">
@@ -25,6 +20,13 @@ class Row extends Component {
         </li>
       </ul>
     )
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  Row.propsType = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
   }
 }
 

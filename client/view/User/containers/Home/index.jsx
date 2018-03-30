@@ -23,14 +23,6 @@ class Home extends Component {
     articleList: []
   }
 
-  static propsTypes = {
-    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
-  componentWillMount () {
-    document.title = '最新文章 - 张益铭'
-  }
-
   render () {
     const {
       articleList
@@ -60,6 +52,12 @@ class Home extends Component {
 
   componentDidMount () {
     this.props.get_latest_list()
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  Home.propsTypes = {
+    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 

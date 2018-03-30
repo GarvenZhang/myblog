@@ -33,17 +33,6 @@ class Article extends Component {
     comments: []
   }
 
-  static propsTypes = {
-    title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    pubtime: PropTypes.string.isRequired,
-    articleType_id: PropTypes.number.isRequired,
-    prevId: PropTypes.number.isRequired,
-    nextId: PropTypes.number.isRequired,
-    comments: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
   handleInputChange (e) {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.valueOf
@@ -197,6 +186,19 @@ class Article extends Component {
         {/*</div>*/}
       </div>
     )
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  Article.propsTypes = {
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    pubtime: PropTypes.string.isRequired,
+    articleType_id: PropTypes.number.isRequired,
+    prevId: PropTypes.number.isRequired,
+    nextId: PropTypes.number.isRequired,
+    comments: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 

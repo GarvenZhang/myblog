@@ -37,11 +37,6 @@ class AdminArticlePost extends Component {
     articleList: []
   }
 
-  static propsType = {
-    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired,
-    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
   handleChange (e) {
     const target = e.target
     const value = target.value
@@ -170,6 +165,13 @@ class AdminArticlePost extends Component {
   componentDidMount () {
     this.props.get_category_list()
     this.props.get_latest_list()
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  AdminArticlePost.propsType = {
+    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    articleList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
 
