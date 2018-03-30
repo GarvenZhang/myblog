@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development node ./app-myblog.js",
     "prod": "cross-env NODE_ENV=production node ./app-myblog.js",
-    "start": "cd ./client && npm run build && cd ../ && npm run prod"
+    "start": "cd ./client && npm run build && cd ../ && npm run prod",
+    "pm2": "pm2 start app-myblog.js"
   },
   "dependencies": {
     "koa": "^2.5.0",
