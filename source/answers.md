@@ -359,3 +359,17 @@ https://developers.google.com/web/fundamentals/performance/optimizing-content-ef
 64.只merge分支的一部分
 
 http://jasonrudolph.com/blog/2009/02/25/git-tip-how-to-merge-specific-files-from-another-branch/
+
+65.不要把文件的名称前缀加上 . ，很容易被系统找不到， 如 .answers.md
+
+66.版本控制：
+
+基本的两个branch：development 和 production
+
+一切在development中开发，没问题后，切换到test分支, 然后把development中重要的文件夹merge，之后测试没问题，再切换到productio，然后merger后，push到github，再在服务器上更新
+
+所有的文件在production分支和服务器中不做修改，修改都在development中搞定
+
+而client中负责的是把dev环境的开发，以及prod环境的build，产出dist文件夹
+
+在test环境或者说线上环境，无需去build，唯一的职责是pull，然后restart服务器
