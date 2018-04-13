@@ -5,21 +5,17 @@ import { connect } from 'react-redux'
 
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
-import Nav from '../../components/Nav'
-import LoadMore from '../../components/LoadMore'
 import { actions } from '../../../../redux/reducers/ArticleList'
-import { debounce } from '../../../../lib/index'
 
 import './index.css'
 
-const { get_latest_list } = actions
+const { get_search_list } = actions
 
-class Home extends Component {
+class SearchList extends Component {
   constructor (props) {
     super(props)
 
-    this.loadMoreHandle = this.loadMoreHandle.bind(this)
-    this.debounce = null
+    this.paginateHandle = this.paginateHandle.bind(this)
   }
 
   static defaultProps = {
@@ -30,8 +26,8 @@ class Home extends Component {
     isEndPage: false
   }
 
-  componentWillMount () {
-    this.debounce = debounce(this.loadMoreHandle, 250).bind(this)
+  paginateHandle () {
+
   }
 
   render () {
@@ -39,8 +35,7 @@ class Home extends Component {
       <div className="home-page">
         <Header/>
         <main className="main">
-          <Nav/>
-          <div className="latest-article-block nav-details-item">
+          <div className="article-search-block nav-details-item">
             <div className="nav-details-inner" ref={div => this.$scrollWrap = div}>
               <ul className="article-list latest--list">
                 {
@@ -48,10 +43,6 @@ class Home extends Component {
                     <LatestItem {...item} key={item.id} />
                   ))
                 }
-                <LoadMore
-                  isEndPage={this.props.isEndPage}
-                  loadMoreRef={area => this.$area = area}
-                />
               </ul>
             </div>
           </div>
@@ -60,29 +51,23 @@ class Home extends Component {
     )
   }
 
-  loadMoreHandle (e) {
-    const sHeight = window.screen.height
-    const top = this.$area.getBoundingClientRect().top
-    if (top && top < sHeight && !this.props.isEndPage) {
-      this.props.get_latest_list(this.props.pageNum + 1, this.props.perPage)
-    }
-  }
-
   componentDidMount () {
-    // 第一页的数据
     if (this.props.data.length === 0) {
-      this.props.get_latest_list(0, 10)
+      // 通过url获取参数
+      const querys = this.props.location.search.slice(1)
+      let paramsObj = {}
+      querys.split('&').forEach(item => {
+        const key = item.split('=')[0]
+        const val = item.split('=')[1]
+        paramsObj[key] = val
+      })
+      this.props.get_search_list(paramsObj.title, paramsObj.pageNum, paramsObj.perPage)
     }
-    this.$scrollWrap.addEventListener('scroll', this.debounce, false)
-  }
-  componentWillUnmount () {
-    this.$scrollWrap.removeEventListener('scroll', this.debounce, false)
-    this.debounce = null
   }
 }
 
 if (process.env.NODE_ENV === 'development') {
-  Home.propsTypes = {
+  SearchList.propsTypes = {
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
     perPage: PropTypes.number.isRequired,
@@ -92,16 +77,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function mapStateToProps (state) {
-  return state.latestReducer
+  return state.searchReducer
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    get_latest_list: bindActionCreators(get_latest_list, dispatch)
+    get_search_list: bindActionCreators(get_search_list, dispatch)
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(SearchList)

@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const config = require('./webpack.config.base')
 
@@ -13,7 +14,7 @@ config.entry = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://0.0.0.0:5000',
     'webpack/hot/only-dev-server',
-    './index.jsx'
+    './view/index.jsx'
   ],
   vendor: [
     'react',
@@ -52,8 +53,8 @@ config.plugins.push(
   })
 )
 config.plugins.push(
-  new webpack.NoEmitOnErrorsPlugin()
+  new webpack.NoEmitOnErrorsPlugin(),
+  new HardSourceWebpackPlugin()
 )
-
 
 module.exports = config

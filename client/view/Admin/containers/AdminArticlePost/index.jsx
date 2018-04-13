@@ -7,18 +7,18 @@ import Button from 'antd/lib/button'
 import Icon from 'antd/lib/icon'
 
 import { actions as ArticleCategoryActions } from '../../../../redux/reducers/ArticleCategory'
-import { actions as ArticleListActions } from '../../../../redux/reducers/ArticleList'
+import { actions as ArticleLinkListActions } from '../../../../redux/reducers/ArticleLinkList'
 import { actions as ArticleActions } from '../../../../redux/reducers/Article'
 import config from '../../../../../config'
 
 import './index.css'
 
 const { get_category_list } = ArticleCategoryActions
-const { get_latest_list } = ArticleListActions
-const { save_article, update_title, update_summary, update_content, update_pubtime, update_article_type_id, update_prev_id, update_next_id } = ArticleActions
+const { get_article_link_list } = ArticleLinkListActions
+const { save_article, update_title, update_summary, update_content, update_pubtime, update_article_type_id, update_prev_id, update_next_id, update_cover } = ArticleActions
 
 const uploadConfig = {
-  action: config.imageUploadApi,
+  action: config.dev.imageUploadApi,
   listType: 'picture'
 };
 
@@ -54,6 +54,7 @@ class AdminArticlePost extends Component {
     data.articleTypeId = this.props.articleTypeId
     data.prevId = this.props.prevId || 0
     data.nextId = this.props.nextId || 0
+    data.cover = this.props.cover
     this.props.save_article(data)
   }
 
@@ -71,7 +72,7 @@ class AdminArticlePost extends Component {
               type="text"
               className="inp-title"
               name="title"
-              value={this.state.title}
+              value={this.props.title}
               onChange={this.handleChange}
               />
           </p>
@@ -81,7 +82,7 @@ class AdminArticlePost extends Component {
               type="date"
               className="inp-date"
               name="pubtime"
-              value={this.state.pubtime}
+              value={this.props.pubtime}
               onChange={this.handleChange}
             />
           </p>
@@ -91,7 +92,7 @@ class AdminArticlePost extends Component {
               type="text"
               className="inp-summary"
               name="summary"
-              value={this.state.summary}
+              value={this.props.summary}
               onChange={this.handleChange}
             />
           </p>
@@ -99,7 +100,7 @@ class AdminArticlePost extends Component {
             <span className="title">类别：</span>
             <select
               name="article_type_id"
-              value={this.state.articleTypeId}
+              value={this.props.articleTypeId}
               onChange={this.handleChange}
               className="select-type">
               {
@@ -113,12 +114,12 @@ class AdminArticlePost extends Component {
             <span className="title">上一篇：</span>
             <select
               name="prev_id"
-              value={this.state.prevId}
+              value={this.props.prevId}
               onChange={this.handleChange}
               className="select-prev">
               {
                 articleList.map(item => (
-                  <option key={item.id} value={item.id}>{item.title}</option>
+                  <option key={item.id} value={item.id}>{item.name}</option>
                 ))
               }
             </select>
@@ -127,20 +128,30 @@ class AdminArticlePost extends Component {
             <span className="title">下一篇：</span>
             <select
               name="next_id"
-              value={this.state.nextId}
+              value={this.props.nextId}
               onChange={this.handleChange}
               className="select-next">
               {
                 articleList.map(item => (
-                  <option key={item.id} value={item.id}>{item.title}</option>
+                  <option key={item.id} value={item.id}>{item.name}</option>
                 ))
               }
             </select>
           </p>
           <p className="field">
+            <span className="title">封面uri：</span>
+            <input
+              type="text"
+              className="inp-cover"
+              name="cover"
+              value={this.props.cover}
+              onChange={this.handleChange}
+            />
+          </p>
+          <p className="field">
             <textarea
               name="content"
-              value={this.state.content}
+              value={this.props.content}
               onChange={this.handleChange}
               className="textarea"/>
           </p>
@@ -164,7 +175,7 @@ class AdminArticlePost extends Component {
   }
   componentDidMount () {
     this.props.get_category_list()
-    this.props.get_latest_list()
+    this.props.get_article_link_list()
   }
 }
 
@@ -178,21 +189,22 @@ if (process.env.NODE_ENV === 'development') {
 function mapStateToProps (state) {
   return {
     tagsList: state.ArticleCategoryReducer.data,
-    articleList: state.ArticleListReducer.data,
+    articleList: state.ArticleLinkListReducer.data,
     title: state.ArticleReducer.title,
     summary: state.ArticleReducer.summary,
     content: state.ArticleReducer.content,
     pubtime: state.ArticleReducer.pubtime,
     articleTypeId: state.ArticleReducer.articleTypeId,
     prevId: state.ArticleReducer.prevId,
-    nextId: state.ArticleReducer.nextId
+    nextId: state.ArticleReducer.nextId,
+    cover: state.ArticleReducer.cover
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
     get_category_list: bindActionCreators(get_category_list, dispatch),
-    get_latest_list: bindActionCreators(get_latest_list, dispatch),
+    get_article_link_list: bindActionCreators(get_article_link_list, dispatch),
     update_title: bindActionCreators(update_title, dispatch),
     update_summary: bindActionCreators(update_summary, dispatch),
     update_content: bindActionCreators(update_content, dispatch),
@@ -200,6 +212,7 @@ function mapDispatchToProps (dispatch) {
     update_article_type_id: bindActionCreators(update_article_type_id, dispatch),
     update_prev_id: bindActionCreators(update_prev_id, dispatch),
     update_next_id: bindActionCreators(update_next_id, dispatch),
+    update_cover: bindActionCreators(update_cover, dispatch),
     save_article: bindActionCreators(save_article, dispatch)
   }
 }

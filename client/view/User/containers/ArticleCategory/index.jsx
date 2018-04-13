@@ -14,16 +14,16 @@ const { get_category_list } = actions
 
 class Tag extends Component {
   static defaultProps = {
-    link: '/',
+    id: 0,
     name: '',
-    total: 0
+    count: 0
   }
 
   render () {
     return (
       <li className="category-item">
-        <Link className="link" to={this.props.link}>{this.props.name}</Link>
-        [<span className="num">{this.props.total}</span>]
+        <Link className="link" to={'/'}>{this.props.name}</Link>
+        [<span className="num">{this.props.count}</span>]
       </li>
     )
   }
@@ -31,7 +31,7 @@ class Tag extends Component {
 
 if (process.env.NODE_ENV === 'development') {
   Tag.propsType = {
-    link: PropTypes.string.isRequired,
+    link: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired
   }
@@ -48,7 +48,7 @@ class ArticleCategory extends Component {
   }
 
   componentWillMount () {
-    document.title = '博文分类 - 张益铭'
+
   }
 
   render () {
@@ -77,6 +77,8 @@ class ArticleCategory extends Component {
   }
 
   componentDidMount () {
+    document.title = '博文分类 - 张益铭'
+
     this.props.get_category_list()
   }
 }

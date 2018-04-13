@@ -92,8 +92,8 @@ config.externals = {
   'react-router-dom': 'ReactRouterDOM',
   'redux': 'Redux',
   'react-redux': 'ReactRedux',
-  'redux-saga': 'ReactSaga',
-  'axios': 'Axios',
+  'redux-saga': 'ReduxSaga',
+  'axios': 'axios',
   'remark': 'remark',
   'remark-react': 'reactRenderer'
 }

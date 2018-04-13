@@ -107,7 +107,7 @@ const config = {
         })
       },
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         use: [
           'babel-loader'
         ],

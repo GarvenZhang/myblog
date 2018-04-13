@@ -1,0 +1,29 @@
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form {
+  width: 320px;
+  height: 240px;
+  border: 1px solid #00F900;
+  padding: 30px;
+}
+.login-form .field:not(:last-child) {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.login-form .inp-account,
+.login-form .inp-password {
+  width: 80%;
+  border: 1px solid currentColor;
+}
+.login-form .inp-account:focus,
+.login-form .inp-password:focus {
+  box-shadow: 0 0 5px 0 currentColor;
+}
+.login-form .btn-submit {
+  float: right;
+}

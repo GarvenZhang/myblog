@@ -3,7 +3,7 @@ const WebpacDevServer = require('webpack-dev-server')
 const config = require('./webpack.config.dev')
 const common = require('../../config')
 
-var createServer = () => {
+const createIndexServer = (port) => {
   let app = new WebpacDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     hot: true,
@@ -12,12 +12,13 @@ var createServer = () => {
       colors: true
     }
   })
-  app.listen(common.clientPort, function (err) {
+  app.listen(port, function (err) {
     if (err) {
       console.log(err)
     }
-    console.log(`Listening at localhost:${common.clientPort}`)
+    console.log(`Listening at localhost:${port}`)
   })
 }
 
-createServer()
+createIndexServer(common.dev.indexPort)
+createIndexServer(common.dev.cmsPort)

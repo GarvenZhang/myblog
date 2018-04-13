@@ -5,7 +5,8 @@ const initialState = {
   pubtime: '',
   articleTypeId: 0,
   prevId: 0,
-  nextId: 0
+  nextId: 0,
+  cover: ''
 }
 
 export const actionTypes = {
@@ -18,7 +19,8 @@ export const actionTypes = {
   UPDATE_PUBTIME: 'UPDATE_PUBTIME',
   UPDATE_ARTICLETYPEID: 'UPDATE_ARTICLETYPEID',
   UPDATE_PREVID: 'UPDATE_PREVID',
-  UPDATE_NEXTID: 'UPDATE_NEXTID'
+  UPDATE_NEXTID: 'UPDATE_NEXTID',
+  UPDATE_COVER: 'UPDATE_COVER'
 }
 
 export const actions = {
@@ -75,6 +77,12 @@ export const actions = {
       type: actionTypes.UPDATE_NEXTID,
       nextId
     }
+  },
+  update_cover: function (cover) {
+    return {
+      type: actionTypes.UPDATE_COVER,
+      cover
+    }
   }
 }
 
@@ -89,7 +97,8 @@ export function reducer (state = initialState, action) {
         pubtime: action.pubtime,
         articleTypeId: action.articleTypeId,
         prevId: action.prevId,
-        nextId: action.nextId
+        nextId: action.nextId,
+        cover: action.cover
       }
     case actionTypes.UPDATE_TITLE:
       return {
@@ -130,6 +139,11 @@ export function reducer (state = initialState, action) {
       return {
         ...state,
         data: action.data
+      }
+    case actionTypes.UPDATE_COVER:
+      return {
+        ...state,
+        cover: action.cover
       }
     default:
       return state

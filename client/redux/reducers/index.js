@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-import { reducer as ArticleListReducer } from './ArticleList'
+import { latestReducer, bestReducer, searchReducer } from './ArticleList'
 import { reducer as ArticleCategoryReducer } from './ArticleCategory'
 import { reducer as ArticleReducer } from './Article'
+import { reducer as ArticleLinkListReducer } from './ArticleLinkList'
 
 const initialState = {
   isFetching: true,
@@ -45,7 +46,10 @@ export function reducer (state = initialState, action) {
 }
 
 export default combineReducers({
-  ArticleListReducer,
+  searchReducer,
+  latestReducer,
+  bestReducer,
   ArticleCategoryReducer,
-  ArticleReducer
+  ArticleReducer,
+  ArticleLinkListReducer
 })

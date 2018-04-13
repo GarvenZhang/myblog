@@ -1,5 +1,6 @@
 .search-wrap {
   flex-basis: 100%;
+  position: relative;
 }
 .search-wrap .search-inp {
   width: 90%;
@@ -8,4 +9,27 @@
 .search-wrap .search-btn {
   width: 10%;
   font-size: 20px;
+}
+.search-wrap .search-list {
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  width: 90%;
+  max-height: 560px;
+  background-color: #000;
+  z-index: 10;
+}
+.search-wrap .search-item {
+  border: 1px solid #00F900;
+  border-top: none;
+}
+.search-wrap .search-item:hover {
+  background-color: #00F900;
+  cursor: pointer;
+}
+.search-wrap .item-link {
+  display: inline-block;
+  width: 100%;
+  font-size: 22px;
+  text-indent: 1em;
 }

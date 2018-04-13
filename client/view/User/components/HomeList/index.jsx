@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+import config from '../../../../../config'
+import { escapeStr } from '../../../../lib/index'
 
 import './index.css'
 
@@ -15,15 +17,19 @@ class LatestItem extends Component {
     link: '',
     summary: '',
     pubtime: '',
-    tag: ''
+    tag: '',
+    cover: ''
   }
 
   render () {
+    let imgSrc = process.env.NODE_ENV === 'development'
+      ? config.dev.imageUploadApi + escapeStr(this.props.cover)
+      : config.prod.imageUploadApi + escapeStr(this.props.cover)
 
     return (
       <li className="article-item">
-        <img src="" alt="" className="item-cover fr"/>
-        <a className="link" target="_blank" href={`/article/${this.props.id}`}>
+        <img src={imgSrc} alt="" className="item-cover fr"/>
+        <a className="link" target="_blank" href={`/article/${escapeStr(this.props.id)}`}>
           <h3 className="item-tt">{this.props.title}</h3>
         </a>
         <p className="item-summary">{this.props.summary}</p>
@@ -42,7 +48,8 @@ if (process.env.NODE_ENV === 'development') {
     link: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     pubtime: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired
+    tag: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired
   }
 }
 

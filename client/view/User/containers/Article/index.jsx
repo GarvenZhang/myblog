@@ -6,7 +6,12 @@ import { connect } from 'react-redux'
 import remark from 'remark'
 import reactRenderer from 'remark-react'
 
+import config from '../../../../../config'
+import { actions as ArticleActions } from '../../../../redux/reducers/Article'
+
 import './index.css'
+
+const { get_article } = ArticleActions
 
 class Article extends Component {
   constructor (props) {
@@ -19,7 +24,6 @@ class Article extends Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   static defaultProps = {
@@ -27,6 +31,9 @@ class Article extends Component {
     summary: '',
     content: '',
     pubtime: '',
+    likedNum: 0,
+    commentNum: 0,
+    readNum: 0,
     articleType_id: 0,
     prev: 0,
     next: 0,
@@ -42,8 +49,26 @@ class Article extends Component {
     })
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  contentHandle () {
+    const content = remark().use(reactRenderer).processSync(this.changeImgUrl(this.props.content)).contents
+    // console.log(content)
+    // console.log(xss(content))
+    // return xss(content, {
+    //   whiteList: {
+    //     a: ['href', 'target'],
+    //     img: ['src', 'alt', 'title']
+    //   }
+    // })
+    return content
+  }
+
+  /**
+   * 改变图片uri链接
+   * @param {String} content - 文章内容
+   * @return {String}
+   */
+  changeImgUrl (content) {
+    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${config.dev.imageUploadApi}$2)`)
   }
 
   render () {
@@ -75,117 +100,20 @@ class Article extends Component {
             <p>发表时间：<time className="pubdate" dateTime={`${this.props.pubtime}T00:00`}>{this.props.pubtime}</time></p>
             <p className="read-num">浏览数：{this.props.readNum}</p>
             <p className="link-num">点赞次数：{this.props.likedNum}</p>
-            <p className="author">评论数：{this.props.commentsNum}</p>
+            <p className="author">评论数：{this.props.commentNum}</p>
             <p className="author">简介：{this.props.summary}</p>
           </aside>
           {
-            remark().use(reactRenderer).processSync(this.props.content).contents
+            this.contentHandle()
           }
         </article>
-        {/* 评论区开始 */}
-        {/*<div className="comment-area">*/}
-          {/*<h2 className="comment-tt">评论区</h2>*/}
-          {/*<section className="comment-section">*/}
-            {/*<p className="comment-info">*/}
-              {/*<span>2018-01-27 10:22:33</span>*/}
-              {/*<span>👍</span>*/}
-              {/*<span>引用</span>*/}
-            {/*</p>*/}
-            {/*<p><span className="comment-speaker">小铭铭</span> 说：</p>*/}
-            {/*<div className="cite">*/}
-              {/*<p>引用来xx的发言：</p>*/}
-              {/*<cite>*/}
-                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-              {/*</cite>*/}
-            {/*</div>*/}
-            {/*<p>*/}
-              {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-            {/*</p>*/}
-          {/*</section>*/}
-          {/*<section className="comment-section">*/}
-            {/*<p className="comment-info">*/}
-              {/*<span>2018-01-27 10:22:33</span>*/}
-              {/*<span>👍</span>*/}
-              {/*<span>引用</span>*/}
-            {/*</p>*/}
-            {/*<p><span className="comment-speaker">小铭铭</span> 说：</p>*/}
-            {/*<div className="cite">*/}
-              {/*<p>引用来xx的发言：</p>*/}
-              {/*<cite>*/}
-                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-              {/*</cite>*/}
-            {/*</div>*/}
-            {/*<p>*/}
-              {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-            {/*</p>*/}
-          {/*</section>*/}
-          {/*<section className="comment-section">*/}
-            {/*<p className="comment-info">*/}
-              {/*<span>2018-01-27 10:22:33</span>*/}
-              {/*<span>👍</span>*/}
-              {/*<span>引用</span>*/}
-            {/*</p>*/}
-            {/*<p><span className="comment-speaker">小铭铭</span> 说：</p>*/}
-            {/*<p>*/}
-              {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-            {/*</p>*/}
-            {/*<div className="cite">*/}
-              {/*<p>引用来xx的发言：</p>*/}
-              {/*<cite>*/}
-                {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.*/}
-              {/*</cite>*/}
-            {/*</div>*/}
-          {/*</section>*/}
-        {/*</div>*/}
-        {/* 发表评论开始 */}
-        {/*<div className="post-area">*/}
-          {/*<h2 className="area-tt">发表评论：</h2>*/}
-          {/*<form className="area-form" onSubmit={this.handleSubmit}>*/}
-            {/*<label className="form-field">*/}
-              {/*<textarea*/}
-                {/*className="area-textarea"*/}
-                {/*name="commentContent"*/}
-                {/*value={this.state.value}*/}
-                {/*onChange={this.handleInputChange} />*/}
-            {/*</label>*/}
-            {/*<label className="form-field">*/}
-              {/*名称：*/}
-              {/*<input*/}
-                {/*type="text"*/}
-                {/*className="inp-name"*/}
-                {/*name="name"*/}
-                {/*value={this.state.name}*/}
-                {/*onChange={this.handleInputChange} />*/}
-            {/*</label>*/}
-            {/*<label className="form-field">*/}
-              {/*邮箱：*/}
-              {/*<input*/}
-                {/*type="text"*/}
-                {/*className="inp-email"*/}
-                {/*name="email"*/}
-                {/*value={this.state.email}*/}
-                {/*onChange={this.handleInputChange} />*/}
-            {/*</label>*/}
-            {/*<label className="fr form-field">*/}
-              {/*<input*/}
-                {/*type="submit"*/}
-                {/*className="btn-post"*/}
-                {/*defaultValue="发表"/>*/}
-            {/*</label>*/}
-            {/*<label className="form-field" htmlFor="btn-isMemoried" >*/}
-              {/*记住个人信息*/}
-              {/*<input*/}
-                {/*type="checkbox"*/}
-                {/*className="btn-isMemoried"*/}
-                {/*name="isMemoried"*/}
-                {/*id="btn-isMemoried"*/}
-                {/*value={this.state.isMemoried}*/}
-                {/*onChange={this.handleInputChange} />*/}
-            {/*</label>*/}
-          {/*</form>*/}
-        {/*</div>*/}
       </div>
     )
+  }
+  componentDidMount () {
+    if (process.env.NODE_ENV === 'development') {
+      this.props.get_article(parseInt(this.props.match.params.id))
+    }
   }
 }
 
@@ -195,6 +123,8 @@ if (process.env.NODE_ENV === 'development') {
     summary: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     pubtime: PropTypes.string.isRequired,
+    likedNum: PropTypes.number.isRequired,
+    commentNum: PropTypes.number.isRequired,
     articleType_id: PropTypes.number.isRequired,
     prevId: PropTypes.number.isRequired,
     nextId: PropTypes.number.isRequired,
@@ -203,28 +133,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 function mapStateToProps (state) {
-  const {
-    title,
-    summary,
-    content,
-    pubtime,
-    articleType_id,
-    prev,
-    next,
-    comments
-  } = state.ArticleReducer
+  return state.ArticleReducer
+}
+
+function mapDispatchToProps (dispatch) {
   return {
-    title,
-    summary,
-    content,
-    pubtime,
-    articleType_id,
-    prev,
-    next,
-    comments
+    get_article: bindActionCreators(get_article, dispatch)
   }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Article)

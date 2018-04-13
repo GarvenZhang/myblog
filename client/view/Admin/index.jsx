@@ -25,12 +25,12 @@ class Admin extends Component {
           <Sildebar />
         </div>
         <div className="admin-wrap">
-          <Route exact path='/admin' component={AdminArticlePost}/>
-          <Route path='/admin/account' component={AdminAccount}/>
-          <Route path='/admin/article-tag' component={AdminArticleTag}/>
-          <Route path='/admin/chatroom' component={AdminChatroom}/>
-          <Route path='/admin/comment' component={AdminComment}/>
-          <Route path='/admin/works' component={AdminWorks}/>
+          <Route path='/post' component={AdminArticlePost}/>
+          <Route path='/account' component={AdminAccount}/>
+          <Route path='/article-tag' component={AdminArticleTag}/>
+          <Route path='/chatroom' component={AdminChatroom}/>
+          <Route path='/comment' component={AdminComment}/>
+          <Route path='/works' component={AdminWorks}/>
         </div>
       </div>
     )
