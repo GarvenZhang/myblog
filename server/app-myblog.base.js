@@ -1,4 +1,4 @@
-// 同构依赖
+// 服务器端解析前端项目所需的手脚架
 require('source-map-support').install()
 require('babel-core/register', {
   ignore: /\.css$/

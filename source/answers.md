@@ -308,6 +308,14 @@ http://www.codingdefined.com/2014/07/readfile-vs-createreadstream-in-nodejs.html
 
 52.使用CDN, 已有优惠券
 
+https://blog.csdn.net/u010472499/article/details/54290505
+
+ping.chinaz.com
+
+https://segmentfault.com/a/1190000010631404
+
+https://cloud.tencent.com/document/product/228/3236
+
 53.图片优化
 
 54.安全组坑

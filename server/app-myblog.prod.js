@@ -1,4 +1,3 @@
-const https = require('https')
 const http2 = require('http2')
 const Router = require('koa-router')
 const Koa = require('koa')
@@ -8,7 +7,6 @@ const path = require('path')
 
 const serverBase = require('./app-myblog.base')
 const config = require('../config')
-const routers = require('./routes/router-index')
 
 module.exports = function (port) {
   const app = new Koa()

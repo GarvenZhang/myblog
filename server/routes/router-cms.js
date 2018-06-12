@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import auth from '../auth/auth'
+import auth from '../middleware/auth'
 
 const router = new Router()
 

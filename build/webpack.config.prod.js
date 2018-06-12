@@ -88,9 +88,6 @@ module.exports = merge(base, {
     new DllReferencePlugin({
       manifest: require(path.resolve(distDir, './js/md5.manifest.json'))
     }),
-    // new DllReferencePlugin({
-    //   manifest: require(path.resolve(distDir, './js/antd.manifest.json'))
-    // }),
 
     new CompressionPlugin({
       asset: '[path].gz[query]',

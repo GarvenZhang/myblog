@@ -25,6 +25,12 @@ git remote add origin 远程仓库地址
 git push -u origin master
 ```
 
+> 取消本地与远程库的关联
+
+```
+git remote remove origin
+```
+
 4. 继续修改本地代码，然后提交并推送到github
 
 > 如果是多人协作开发的话，一定要先 pull ，将 github 的代码拉取到本地，这样在 merge 解决冲突的时候稍微简便些。
@@ -84,4 +90,29 @@ git clone xxxxx [name]
 
 ```
 git clone -b 分支名 git地址
+```
+ 
+## 七.分支
+
+```
+
+// 查看
+
+git checkout [分支名] -a
+
+// 切换
+
+git checkout [分支名]
+
+// 或者：创建并切换
+
+git checkout -b [分支名]
+
+// 删除本地
+git branch -d [分支名]
+
+// 删除远程分支
+// 需注意的是：不能删除远程默认分支，要删除需在setting中修改默认分支
+git push origin :[分支名]
+
 ```

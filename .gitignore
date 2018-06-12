@@ -2,3 +2,7 @@ node_modules/
 .idea/
 dist/
 .DS_Store
+
+## 安全
+config.js
+auth/
