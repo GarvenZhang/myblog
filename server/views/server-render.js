@@ -9,27 +9,29 @@ import Home from '../../client/view/User/containers/Home'
 import BestArticle from '../../client/view/User/containers/BestArticle'
 import ArticleCategory from '../../client/view/User/containers/ArticleCategory'
 import Article from '../../client/view/User/containers/Article'
-import Admin from '../../client/view/Admin'
+import Login from '../../client/view/Admin/containers/Login'
 
 import ArticleModel from '../models/article'
-import CategoryModel from '../models/category'
+import CategoryModel from '../models/tag'
 
 /**
  * 首页
  */
 export async function index (ctx) {
-  let data = await ArticleModel.getLatest()
+  let ret = await ArticleModel.getLatest(0, 10)
   let store = configureStore({
-    ArticleListReducer: {
-      data,
-      pageNum: 1,
-      total: 0
+    latestReducer: {
+      data: ret.data,
+      pageNum: ret.pageNum,
+      perPage: ret.perPage,
+      totalCount: ret.totalCount,
+      isEndPage: ret.isEndPage
     }
   })
   ctx.body = Layout(renderToString(
     <Provider store={store}>
-      <StaticRouter location={ctx.url} content={{}}>
-        <Home/>
+      <StaticRouter location={ctx.url} context={{}}>
+        <Home />
       </StaticRouter>
     </Provider>
   ), store.getState())
@@ -39,18 +41,20 @@ export async function index (ctx) {
  * 最佳博文
  */
 export async function best (ctx) {
-  let data = await ArticleModel.getBest()
+  let ret = await ArticleModel.getBest(0, 10)
   let store = configureStore({
-    ArticleReducer: {
-      data,
-      pageNum: 1,
-      total: 0
+    bestReducer: {
+      data: ret.data,
+      pageNum: ret.pageNum,
+      perPage: ret.perPage,
+      totalCount: ret.totalCount,
+      isEndPage: ret.isEndPage
     }
   })
   ctx.body = Layout(renderToString(
     <Provider store={store}>
-      <StaticRouter location={ctx.url} content={{}}>
-        <BestArticle/>
+      <StaticRouter location={ctx.url} context={{}}>
+        <BestArticle />
       </StaticRouter>
     </Provider>
   ), store.getState())
@@ -70,13 +74,16 @@ export async function article (ctx) {
       pubtime: data.pubtime,
       articleType_id: data.articleType_id,
       prev: data.prev,
-      next: data.next
+      next: data.next,
+      likedNum: data.likedNum,
+      readNum: data.readNum,
+      commentNum: 0
     }
   })
   ctx.body = Layout(renderToString(
     <Provider store={store}>
-      <StaticRouter location={ctx.url} content={{}}>
-        <Article/>
+      <StaticRouter location={ctx.url} context={{}}>
+        <Article />
       </StaticRouter>
     </Provider>
   ), store.getState())
@@ -86,30 +93,63 @@ export async function article (ctx) {
  * 类别
  */
 export async function category (ctx) {
-  let data = await CategoryModel.get()
+  let ret = await CategoryModel.get()
   let store = configureStore({
     ArticleCategoryReducer: {
-      data
+      data: ret.data
     }
   })
   ctx.body = Layout(renderToString(
     <Provider store={store}>
-      <StaticRouter location={ctx.url} content={{}}>
-        <ArticleCategory/>
+      <StaticRouter location={ctx.url} context={{}}>
+        <ArticleCategory />
       </StaticRouter>
     </Provider>
   ), store.getState())
 }
 
 /**
- * CMS
+ * 搜索页
  */
-export async function admin (ctx) {
-  let store = configureStore({})
+export async function search (ctx) {
+  let ret = await ArticleModel.getSearchList(ctx.query.title, ctx.query.pageNum, ctx.query.perPage)
+  let store = configureStore({
+    searchReducer: {
+      data: ret.data,
+      pageNum: ret.pageNum,
+      perPage: ret.perPage,
+      totalCount: ret.totalCount,
+      isEndPage: ret.isEndPage
+    }
+  })
   ctx.body = Layout(renderToString(
     <Provider store={store}>
-      <StaticRouter location={ctx.url} content={{}}>
-        <Admin/>
+      <StaticRouter location={ctx.url} context={{}}>
+        <Home />
+      </StaticRouter>
+    </Provider>
+  ), store.getState())
+}
+
+/**
+ * 登录页
+ */
+export async function login (ctx) {
+  // csrf_token
+  const csrf_token = new Date().getTime()
+  ctx.cookies.set('csrf_token', csrf_token, {
+    httpOnly: true
+  })
+
+  let store = configureStore({
+    UserReducer: {
+      csrf_token
+    }
+  })
+  ctx.body = Layout(renderToString(
+    <Provider store={store}>
+      <StaticRouter location={ctx.url} context={{}}>
+        <Login />
       </StaticRouter>
     </Provider>
   ), store.getState())

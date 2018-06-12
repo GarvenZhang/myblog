@@ -1,14 +1,17 @@
 .slidebar-inner {
   height: 100%;
 }
-.slidebar-inner .nav-list {
+.nav-list {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
 }
-.slidebar-inner .link {
+.nav-item {
+
+}
+.link {
   font-size: 32px;
   color: #fff;
 }

@@ -5,15 +5,11 @@ import './index.css'
 class Catalog extends Component {
   constructor (props) {
     super(props)
-
   }
 
   render () {
-
     return (
-      <div className="">
-
-      </div>
+      <div className='' />
     )
   }
 }

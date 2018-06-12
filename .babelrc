@@ -7,11 +7,11 @@
 //    "preset-env"
   ],
   "plugins": [
-
     "react-hot-loader/babel",
     "transform-runtime",
     "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    "syntax-dynamic-import",
   ]
 //  "env": {
 //    "production":{

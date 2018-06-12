@@ -3,8 +3,8 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_CATEGORY_LIST: 'GET_CATEGORY_LIST',
-  RESPONSE_CATEGORY_LIST: 'RESPONSE_CATEGORY_LIST'
+  GET_CATEGORY_LIST: Symbol(),
+  RESPONSE_CATEGORY_LIST: Symbol()
 }
 
 export const actions = {

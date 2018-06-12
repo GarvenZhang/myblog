@@ -21,12 +21,12 @@ const sqlError = e => {
     case 'ER_DUP_ENTRY':
     case 'ER_ROW_IS_REFERENCED_2':
     case 'ER_NO_REFERENCED_ROW_2':
-      throw new ModelError(403, e.message); // Forbidden
+      throw new ModelError(403, e.message) // Forbidden
     case 'ER_BAD_FIELD_ERROR':
-      throw new ModelError(500, e.message); // Internal Server Error for programming errors
+      throw new ModelError(500, e.message) // Internal Server Error for programming errors
     default:
-      otherError('Team.update', e);
-      throw new ModelError(500, e.message); // Internal Server Error for uncaught exception
+      otherError('Team.update', e)
+      throw new ModelError(500, e.message) // Internal Server Error for uncaught exception
   }
 }
 
