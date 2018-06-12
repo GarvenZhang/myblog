@@ -3,8 +3,8 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_COMMENTS: 'GET_COMMENTS',
-  RESPONSE_COMMENTS: 'RESPONSE_COMMENTS'
+  GET_COMMENTS: Symbol(),
+  RESPONSE_COMMENTS: Symbol()
 }
 
 export const actions = {

@@ -1,4 +1,9 @@
 node_modules/
-node_modules/
-.idea
+.idea/
 dist/
+.DS_Store
+
+## 安全
+config.js
+*.crt
+*.key

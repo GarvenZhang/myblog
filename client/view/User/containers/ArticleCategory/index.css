@@ -1,10 +1,10 @@
-.category-block {
+.category-list {
   padding: 20px;
 }
-.category-block .category-item {
+.category-item {
   padding: 10px;
 }
-.category-block .link {
+.link {
   font-size: 18px;
   margin-right: 5px;
 }

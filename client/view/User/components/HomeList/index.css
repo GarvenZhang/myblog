@@ -1,27 +1,31 @@
+@value hackGreen, shadowGreen from '../../../common.css';
+
 .article-list {
   height: calc(75vh - 36px);
 }
+
 .article-item {
   padding: 10px;
-  background: linear-gradient(to right, transparent 0%, #00F900 50%, transparent 100%) no-repeat;
+  background: linear-gradient(to right, transparent 0%, hackGreen 50%, transparent 100%) no-repeat;
   background-size: 100% 2px;
   background-position: 0 100%;
 }
-.article-list .item-tt {
-  font-size: 18px;
+.item-tt {
+  color: #927777;
+  font: 22px/1 cursive;
 }
-.article-list .item-info {
+.item-info {
   font-size: 14px;
 }
 
 /* LatestList */
-.latest--list .item-cover {
+.item-cover--LatestList {
   width: 100px;
-  height:75px;
+  height: 75px;
   margin: 20px 20px 0;
-  box-shadow: 0 0 3px 1px rgba(0, 249, 0, .5);
+  box-shadow: 0 0 3px 1px shadowGreen;
 }
-.latest--list .item-summary {
+.item-summary {
   font-size: 12px;
   height: 54px;
   overflow-y: hidden;
@@ -29,8 +33,8 @@
 }
 
 /* BestList */
-.best--list .data-read,
-.best--list .data-comments {
+.data-read,
+.data-comments {
   margin-right: 10px;
 }
 
@@ -38,14 +42,14 @@
 .works--list {
   text-align: center;
 }
-.works--list .item-cover {
+.item-cover--WorksItem {
   display: block;
   width: 400px;
   height: 200px;
   margin: 20px auto;
-  box-shadow: 0 0 3px 1px rgba(0, 249, 0, .5);
+  box-shadow: 0 0 3px 1px shadowGreen;
 }
-.works--list .link {
+.link {
   display: inline-block;
   width: 33.3%;
 }

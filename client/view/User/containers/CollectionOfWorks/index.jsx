@@ -9,7 +9,6 @@ import './index.css'
 class CollectionOfWorks extends Component {
   constructor (props) {
     super(props)
-
   }
 
   componentWillMount () {
@@ -17,15 +16,14 @@ class CollectionOfWorks extends Component {
   }
 
   render () {
-
     return (
-      <div className="home-page">
-        <Header/>
-        <main className="main">
-          <Nav/>
-          <div className="collection-block nav-details-item">
-            <div className="nav-details-inner">
-              <WorksList/>
+      <div className='home-page'>
+        <Header />
+        <main className='main'>
+          <Nav />
+          <div className='collection-block nav-details-item'>
+            <div className='nav-details-inner'>
+              <WorksList />
             </div>
           </div>
         </main>

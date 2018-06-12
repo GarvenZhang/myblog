@@ -24,7 +24,7 @@ class Row extends Component {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  Row.propsType = {
+  Row.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired
   }
