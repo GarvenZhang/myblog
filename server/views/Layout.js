@@ -24,7 +24,6 @@ if (process.env.NODE_ENV === 'production') {
         <script src="/js/remark.dll.js"></script>
         <script src="/js/jwt.dll.js"></script>
         <script src="/js/md5.dll.js"></script>
-        <script src="/js/antd.dll.js"></script>
         <script type="text/javascript" src="/js/index.js"></script></body>
       </body>
       </html>

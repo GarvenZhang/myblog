@@ -119,3 +119,15 @@ git push origin :[分支名]
 git merge [分支名]
 
 ```
+
+## 八.回滚
+
+```
+
+// 查看commit历史
+git log
+
+// 从历史记录中复制hash号
+git reset --hard [hash号]
+
+```

@@ -5,26 +5,26 @@
   "main": "app.js",
   "scripts": {
 
-    // 测试
+    "//": "测试",
     "test": "jest",
 
-    // 工具
+    "//": "工具",
     "clean": "rimraf ./dist",
     "seeSize": "webpack --display-modules --sort-modules-by size",
 
-    // 开发环境
+    "//": "开发环境",
     "dev:client": "cross-env NODE_ENV=development node ./build/devServer.js",
     "dev:server": "cross-env NODE_ENV=development nodemon ./app-myblog.js",
     "build:dll": "webpack --config ./build/webpack.config.dll.js",
 
-    // 测试环境
+    "//": "测试环境",
     "test:server": "cross-env NODE_ENV=test nodemon ./app-myblog.js",
     "test:start": "npm run build && npm run test:server",
 
-    // 生产环境
+    "//": "生产环境",
     "build:prod": "webpack --config ./build/webpack.config.prod.js --display-used-exports --optimize-dedupe",
     "prod:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
-    "build": "npm run clean && npm run build:dll && npm run build:webpack",
+    "build": "npm run clean && npm run build:dll && npm run build:prod",
     "prod": "npm run build && npm run prod:server",
     "pm2": "cross-env NODE_ENV=production && pm2 start app-myblog.js"
 
