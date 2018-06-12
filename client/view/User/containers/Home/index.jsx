@@ -3,27 +3,34 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Popup from '../../components/Popup'
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
+import Bg from '../../components/Bg'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
 import { actions } from '../../../../redux/reducers/ArticleList'
-import { debounce } from '../../../../lib/index'
+import debounce from '../../../../lib/debounce'
+import detectWebp from '../../../../lib/detectWebp'
+import { Cookies } from '../../../../lib/cookie'
 
 import './index.css'
 
 const { get_latest_list } = actions
 
 class Home extends Component {
+  
   constructor (props) {
     super(props)
 
     this.loadMoreHandle = this.loadMoreHandle.bind(this)
     this.debounce = null
-  }
 
+  }
+  
+  // === 提供默认值，当父组件没有提供相应的props时就使用此 === //
   static defaultProps = {
-    data: [],
+    data: [{}],
     pageNum: 0,
     perPage: 10,
     totalCount: 10,
@@ -31,12 +38,32 @@ class Home extends Component {
   }
 
   componentWillMount () {
-    this.debounce = debounce(this.loadMoreHandle, 250).bind(this)
+
+    this.debounce = debounce(this.loadMoreHandle, 100).bind(this)
+
+    if (typeof window !== 'undefined') {
+
+      detectWebp('alpha', function (feature, isSupport) {
+
+        if (isSupport) {
+          Cookies.set('supportWebp', true, {
+            maxAge: 60 * 60 * 24 * 7
+          })
+        } else {
+          Cookies.set('supportWebp', false, {})
+        }
+
+
+      })
+
+    }
+
   }
 
   render () {
     return (
-      <div className="home-page">
+      <div className='home-page'>
+        <Bg/>
         <Header/>
         <main className="main">
           <Nav/>
@@ -50,40 +77,54 @@ class Home extends Component {
                 }
                 <LoadMore
                   isEndPage={this.props.isEndPage}
-                  loadMoreRef={area => this.$area = area}
+                  loadMoreRef={area => this.$loadmore = area}
                 />
               </ul>
             </div>
           </div>
         </main>
+        <Popup config={{isOpen: true, header: 'hello world!', content: '出来吧！'}}/>
       </div>
     )
   }
+  
+  /**
+   * 加载更多
+   * // === 判断条件：以底部的下拉提示框为目标，判断它 距离可视区顶部的距离(getBoundingClientRect().top()) 以及 可视区高度，若小于则证明出现在了可视区，此时应该去请求数据 === //
+   */
+  loadMoreHandle () {
 
-  loadMoreHandle (e) {
     const sHeight = window.screen.height
-    const top = this.$area.getBoundingClientRect().top
-    if (top && top < sHeight && !this.props.isEndPage) {
+    const top = this.$loadmore.getBoundingClientRect().top
+
+    if (top < sHeight && !this.props.isEndPage) {
       this.props.get_latest_list(this.props.pageNum + 1, this.props.perPage)
     }
+
   }
 
   componentDidMount () {
+
     // 第一页的数据
     if (this.props.data.length === 0) {
       this.props.get_latest_list(0, 10)
     }
     this.$scrollWrap.addEventListener('scroll', this.debounce, false)
+
   }
+
   componentWillUnmount () {
+
     this.$scrollWrap.removeEventListener('scroll', this.debounce, false)
     this.debounce = null
+
   }
 }
 
+// === propTypes 会在 defaultProps 之后执行，因此对 defaultProps 也会检查 === //
 if (process.env.NODE_ENV === 'development') {
-  Home.propsTypes = {
-    articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  Home.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
     perPage: PropTypes.number.isRequired,
     totalCount: PropTypes.number.isRequired,

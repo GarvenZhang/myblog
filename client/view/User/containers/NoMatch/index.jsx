@@ -5,13 +5,11 @@ import './index.css'
 class NoMatch extends Component {
   constructor (props) {
     super(props)
-
   }
 
   render () {
-
     return (
-      <div className="NoMatch-page">
+      <div className='NoMatch-page'>
         404
       </div>
     )

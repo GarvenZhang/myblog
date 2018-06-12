@@ -67,7 +67,7 @@ class SearchList extends Component {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  SearchList.propsTypes = {
+  SearchList.propTypess = {
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
     perPage: PropTypes.number.isRequired,

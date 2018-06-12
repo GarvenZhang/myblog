@@ -8,7 +8,7 @@ import Header from '../../components/Header'
 import Nav from '../../components/Nav'
 import { actions } from '../../../../redux/reducers/ArticleCategory'
 
-import './index.css'
+import style from './index.css'
 
 const { get_category_list } = actions
 
@@ -21,16 +21,16 @@ class Tag extends Component {
 
   render () {
     return (
-      <li className="category-item">
-        <Link className="link" to={'/'}>{this.props.name}</Link>
-        [<span className="num">{this.props.count}</span>]
+      <li className={style['category-item']}>
+        <Link className={style['link']} to={'/'}>{this.props.name}</Link>
+        [<span className={style['num']}>{this.props.count}</span>]
       </li>
     )
   }
 }
 
 if (process.env.NODE_ENV === 'development') {
-  Tag.propsType = {
+  Tag.propTypes = {
     link: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired
@@ -62,7 +62,7 @@ class ArticleCategory extends Component {
           <Nav/>
           <div className="category-block nav-details-item">
             <div className="nav-details-inner">
-              <ul className="category-list">
+              <ul className={style['category-list']}>
                 {
                   tagsList.map(item => (
                     <Tag key={item.id} {...item}/>
@@ -84,7 +84,7 @@ class ArticleCategory extends Component {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  ArticleCategory.propsType = {
+  ArticleCategory.propTypes = {
     tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }

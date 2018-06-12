@@ -1,0 +1,67 @@
+/* =======================User======================= */
+
+.home-page {
+  min-width: 320px;
+  max-width: 641px;
+  margin: 0 auto;
+}
+
+/* 导航 */
+.main {
+  height: 75vh;
+  border: 1px solid currentColor;
+}
+.nav-tabs {
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, transparent 0%, #00F900 50%, transparent 100%);
+}
+.nav-item {
+  display: inline-block;
+  width: 25%;
+}
+.nav-title {
+  font-size: 18px;
+  color: #00F900;
+}
+.nav-details-item {
+  position: relative;
+  height: calc(75vh - 36px);
+  overflow: hidden;
+}
+.nav-details-inner {
+  height: calc(75vh - 36px);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.nav-details-item::-webkit-scrollbar {
+  display: none;
+}
+
+/* =======================Admin======================= */
+.admin-wrap,
+.sildebar-wrap {
+  height: 100vh;
+  padding: 50px 0;
+}
+
+/*
+// === 两栏布局之 float + margin: === //
+// === 思路：左边定宽浮动, 右边通过设置margin-left并且大于或等于左边的宽度，使得左边浮动元素漂浮在右边元素的margin上，从而不影响内容的显示 === //
+// === 注意点： === //
+// === 1.左边定宽 === //
+// === 2.右边margin-left值大于等于左边宽度 === //
+*/
+.sildebar-wrap {
+  width: 300px;
+  float: left;
+  background-color: #aaa;
+}
+.admin-wrap {
+  margin-left: 300px;
+  background-color: #fff;
+  overflow-x: auto;
+}

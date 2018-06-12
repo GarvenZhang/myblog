@@ -5,7 +5,8 @@ import rootReducer from '../reducers'
 import rootSaga from '../sagas'
 
 const middlewares = []
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = typeof createSagaMiddleware === 'function' ? createSagaMiddleware() : createSagaMiddleware.default()
+
 let storeEnhancers =
   process.env.NODE_ENV === 'development' && typeof window !== 'undefined'
   ? compose(  // 开发环境 + 客户端

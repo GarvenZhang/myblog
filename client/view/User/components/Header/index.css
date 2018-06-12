@@ -1,16 +1,24 @@
+@value hackGreen from '../../../common.css';
+
+.header {
+  height: 20vh;
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+}
 .search-wrap {
   flex-basis: 100%;
   position: relative;
 }
-.search-wrap .search-inp {
+.search-inp {
   width: 90%;
-  border-bottom: 1px solid #00F900;
+  border-bottom: 1px solid hackGreen;
 }
-.search-wrap .search-btn {
+.search-btn {
   width: 10%;
   font-size: 20px;
 }
-.search-wrap .search-list {
+.search-list {
   position: absolute;
   top: 25px;
   left: 0px;
@@ -19,15 +27,15 @@
   background-color: #000;
   z-index: 10;
 }
-.search-wrap .search-item {
-  border: 1px solid #00F900;
+.search-item {
+  border: 1px solid hackGreen;
   border-top: none;
 }
-.search-wrap .search-item:hover {
-  background-color: #00F900;
+.search-item:hover {
+  background-color: hackGreen;
   cursor: pointer;
 }
-.search-wrap .item-link {
+.item-link {
   display: inline-block;
   width: 100%;
   font-size: 22px;

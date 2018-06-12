@@ -3,8 +3,8 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_ARTICLE_LINK_LIST: 'GET_ARTICLE_LINK_LIST',
-  RESPONSE_ARTICLE_LINK_LIST: 'RESPONSE_ARTICLE_LINK_LIST'
+  GET_ARTICLE_LINK_LIST: Symbol(),
+  RESPONSE_ARTICLE_LINK_LIST: Symbol()
 }
 
 export const actions = {

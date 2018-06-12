@@ -8,7 +8,7 @@ import Header from '../../components/Header'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
 import { actions } from '../../../../redux/reducers/ArticleList'
-import { debounce } from '../../../../lib/index'
+import debounce from '../../../../lib/debounce'
 
 import './index.css'
 
@@ -63,7 +63,7 @@ class BestArticle extends Component {
     const sHeight = window.screen.height
     const top = this.$area.getBoundingClientRect().top
 
-    if (top && top < sHeight && !this.props.isEndPage) {
+    if (top < sHeight && !this.props.isEndPage) {
       this.props.get_best_list(this.props.pageNum + 1, this.props.perPage)
     }
   }
@@ -84,7 +84,7 @@ class BestArticle extends Component {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  BestArticle.propsTypes = {
+  BestArticle.propTypess = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
     perPage: PropTypes.number.isRequired,

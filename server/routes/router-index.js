@@ -10,9 +10,9 @@ router.get('/article-category', require('../views/server-render').category)
 router.get('/article-search', require('../views/server-render').search)
 
 // 标签
-router.get('/api/get_article_category', require('../controller/category').get)
-router.get('/api/del_article_category', require('../controller/category').del)
-router.post('/api/add_article_category', require('../controller/category').add)
+router.get('/api/get_article_category', require('../controller/tag').get)
+router.get('/api/del_article_category', require('../controller/tag').del)
+router.post('/api/add_article_category', require('../controller/tag').add)
 
 // 文章
 router.get('/api/get_latest_article', require('../controller/article').getLatest)

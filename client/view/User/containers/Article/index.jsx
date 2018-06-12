@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import remark from 'remark'
-import reactRenderer from 'remark-react'
+import remarkReact from 'remark-react'
 
 import config from '../../../../../config'
 import { actions as ArticleActions } from '../../../../redux/reducers/Article'
 
-import './index.css'
+import style from './index.css'
 
 const { get_article } = ArticleActions
 
@@ -40,6 +40,10 @@ class Article extends Component {
     comments: []
   }
 
+  componentWillMount () {
+
+  }
+
   handleInputChange (e) {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.valueOf
@@ -49,8 +53,14 @@ class Article extends Component {
     })
   }
 
+  getUniqueWordsNum (str) {
+
+    return new Set(str).size
+
+  }
+
   contentHandle () {
-    const content = remark().use(reactRenderer).processSync(this.changeImgUrl(this.props.content)).contents
+    const content = remark().use(remarkReact).processSync(this.changeImgUrl(this.props.content)).contents
     // console.log(content)
     // console.log(xss(content))
     // return xss(content, {
@@ -71,45 +81,77 @@ class Article extends Component {
     return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${config.dev.imageUploadApi}$2)`)
   }
 
+  // === 语义化的优点： === //
+  // === 1.可读性更高，利于团队合作与开发 === //
+  // === 2.利于SEO === //
+  // === 3.利于屏幕阅读软件根据结构来读页面 === //
+  // === 4.一般可让HTML文件变的更小 === //
   render () {
-    console.log(this.props)
     return (
-      <div className="article-page">
-        {/* 导航开始 */}
-        <nav className="nav">
-          <ul className="nav-move-list">
-            <li className="nav-move-item">
-              <span className="search-control">搜索</span>
-            </li>
-            <li className="nav-move-item">
-              <span className="prev">上一篇</span>
-            </li>
-            <li className="nav-move-item">
-              <span className="next">下一篇</span>
-            </li>
-          </ul>
-          <p className="nav-location">
-            所在位置：<Link to='/'>HTML</Link>
-          </p>
-        </nav>
-        {/* 文章开始 */}
-        <article className="article">
-          <h1 className="article-tt">{this.props.title}</h1>
-          <aside className="aside">
-            <p className="author">作者：garven</p>
-            <p>发表时间：<time className="pubdate" dateTime={`${this.props.pubtime}T00:00`}>{this.props.pubtime}</time></p>
-            <p className="read-num">浏览数：{this.props.readNum}</p>
-            <p className="link-num">点赞次数：{this.props.likedNum}</p>
-            <p className="author">评论数：{this.props.commentNum}</p>
-            <p className="author">简介：{this.props.summary}</p>
+      <div className={style['article-page']}>
+        <header className={`header clearfix`}>
+          <div className={style['header-search']}>
+            <input type="text" className={style['search-inp']} placeholder='搜索点啥呗'/>
+            <input type="button" value='🔍'/>
+          </div>
+          <div className={style['header-location']}>
+            <p className={style['location-text']}>
+              所在位置：<Link to='/' className={style['location-link']}>HTML</Link>
+            </p>
+          </div>
+          <div className={style['header-control']}>
+            <ul className={style['control-list']}>
+              <li className={style['control-item']}>
+                <Link className={style['item-link']} to='/'>上一篇</Link>
+              </li>
+              <li className={style['control-item']}>
+                <Link className={style['item-link']} to='/'>下一篇</Link>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <div className={style['container']}>
+          {/* 主体开始 */}
+          <div className={style['main-block']}>
+            <main className={style['main-inner']}>
+              <article className={style['article']}>
+                <h1 className={style['article-tt']}>{this.props.title}</h1>
+                <ul className={`${style['article-desc-list']} clearfix`}>
+                  <li className={style['article-desc-item']}>作者：garven</li>
+                  <li>发表时间：
+                    <time className={style['pubdate']} dateTime={`${this.props.pubtime}T00:00`}>{this.props.pubtime}</time>
+                  </li>
+                  <li className={style['article-desc-item']}>浏览数：{this.props.readNum}</li>
+                  <li className={style['article-desc-item']}>点赞次数：{this.props.likedNum}</li>
+                  <li className={style['article-desc-item']}>评论数：{this.props.commentNum}</li>
+                  <li className={style['article-desc-item']}>有效字数：{this.getUniqueWordsNum(this.props.content)}</li>
+                  <li className={style['article-desc-item']}>简介：{this.props.summary}</li>
+                </ul>
+                {
+                  this.contentHandle()
+                }
+              </article>
+              <div className={style['comment-wrap']}>
+
+              </div>
+            </main>
+          </div>
+          {/* 右边栏开始 */}
+          {/* 左边栏开始 */}
+          <aside className={style['aside']}>
+            树形结构
           </aside>
-          {
-            this.contentHandle()
-          }
-        </article>
+          {/* 左边栏结束 */}
+          <nav className={style['nav']}>
+            导航栏
+          </nav>
+          {/* 右边栏结束 */}
+          {/* 主体结束 */}
+        </div>
       </div>
     )
   }
+
   componentDidMount () {
     if (process.env.NODE_ENV === 'development') {
       this.props.get_article(parseInt(this.props.match.params.id))
@@ -118,7 +160,7 @@ class Article extends Component {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  Article.propsTypes = {
+  Article.propTypess = {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
