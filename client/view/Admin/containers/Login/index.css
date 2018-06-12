@@ -39,7 +39,13 @@
 .login-form [class^="inp-"] {
   box-shadow: 0 0 5px 0 currentColor;
 }
-.inp-captcah {
+.inp-account {
+
+}
+.inp-password {
+
+}
+.login-form .inp-captcah {
   width: auto;
   margin-left: 20px;
 }
