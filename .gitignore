@@ -5,4 +5,4 @@ dist/
 
 ## 安全
 config.js
-auth/
+auth/*
