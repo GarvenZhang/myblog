@@ -131,3 +131,13 @@ git log
 git reset --hard [hash号]
 
 ```
+
+## 九.更新
+
+```
+
+// 更新单个文件夹
+git fetch
+git checkout origin/master -- path/to/file
+
+```
