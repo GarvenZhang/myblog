@@ -1,4 +1,4 @@
-## 1.当以sudo身份install时还是会有permission问题
+## 1.sudo之后install还是permission
 
 ```
 sudo npm i [package name] --unsafe-perm
