@@ -27,7 +27,7 @@
     "build": "npm run clean && npm run build:dll && npm run build:prod",
     "prod": "npm run build && npm run prod:server",
     "prod:node": "cross-env NODE_ENV=production && node ./app-myblog.js",
-    "pm2": "cross-env NODE_ENV=production && pm2 start app-myblog.js"
+    "pm2": "NODE_ENV=production pm2 start app-myblog.js"
 
   },
   "dependencies": {
