@@ -294,6 +294,8 @@ https://segmentfault.com/a/1190000009725518
 
 https://cloud.tencent.com/document/product/400/4143
 
+https://ketao1989.github.io/2015/08/30/nginx-proxy-configure-and-sduty/
+
 47.source 结构+数据 前确保存在表 
 
 48.生产环境中，应该把client编译的过程放在生产环境去做，而在服务器上是直接启动nodejs即可

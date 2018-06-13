@@ -29,6 +29,7 @@ module.exports = function (port) {
     }
   }))
 
+  // === nginx反向代理： === //
   // === 在线上，nodejs只需监听http/1.1的请求，https以及http2会先由nginx处理后，把请求转发给nodejs === //
   // 监听
   app.listen(port, function (err) {
