@@ -62,7 +62,6 @@ const path = require('path')
 const webpack = require('webpack')
 // const precss = require('precss')
 // const postcsseasysprites = require('postcss-easysprites')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FixDynamicScriptSrc = require('./fixDynamicScriptSrc')
 
 // const HappyPack = require('happypack')
@@ -100,41 +99,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        exclude: path.resolve(clientDir, './static'),
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[local]_[hash:base64:5]',
-                importLoaders: 1
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: (loader) => [
-                  require('postcss-icss-values'),
-                  require('autoprefixer')
-                ]
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.css$/,
-        include: path.resolve(clientDir, './static'),
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
-        })
-      },
-      {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
@@ -171,12 +135,6 @@ const config = {
     ]
   },
   plugins: [
-
-    new ExtractTextPlugin({
-      filename: '[name]/index.css',
-      disable: false,
-      allChunks: true
-    }),
 
     new webpack.NoEmitOnErrorsPlugin(),
 

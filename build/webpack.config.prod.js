@@ -5,6 +5,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const merge = require('webpack-merge')
 const ModifyPrefixOfJsOrCss = require('./modifyPrefixOfJsOrCss')
 
@@ -25,7 +26,57 @@ module.exports = merge(base, {
   output: {
     chunkFilename: '[name].js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: path.resolve(clientDir, './static'),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[local]_[hash:base64:5]',
+                importLoaders: 1,
+                minimize: true,
+                // cssnano - 删除注释
+                discardComments: {
+                  removeAll: true,
+                }
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: (loader) => [
+                  require('postcss-icss-values'),
+                  require('autoprefixer')
+                ]
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: /\.css$/,
+        include: path.resolve(clientDir, './static'),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader']
+        })
+      },
+    ]
+  },
   plugins: [
+
+    new ExtractTextPlugin({
+      filename: '[name]/index.css',
+      disable: false,
+      allChunks: true
+    }),
 
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
