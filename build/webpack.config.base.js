@@ -63,7 +63,6 @@ const webpack = require('webpack')
 // const precss = require('precss')
 // const postcsseasysprites = require('postcss-easysprites')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const ModifyPrefixOfJsOrCss = require('./modifyPrefixOfJsOrCss')
 const FixDynamicScriptSrc = require('./fixDynamicScriptSrc')
 
 // const HappyPack = require('happypack')
@@ -182,8 +181,8 @@ const config = {
     new webpack.NoEmitOnErrorsPlugin(),
 
     // new RemoveJsOfCss()
-    // 修改js和css路径
-    new ModifyPrefixOfJsOrCss(),
+
+    // 修复动态脚本src
     new FixDynamicScriptSrc(),
 
     // new HappyPack({

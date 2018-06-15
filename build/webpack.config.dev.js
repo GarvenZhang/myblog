@@ -7,6 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const merge = require('webpack-merge')
+const ModifyPrefixOfJsOrCss = require('./modifyPrefixOfJsOrCss')
 
 const base = require('./webpack.config.base')
 const rootDir = process.cwd()
@@ -64,6 +65,9 @@ module.exports = merge(base, {
       ],
       filename: 'cms/index.html'
     }),
+
+    // 修改js和css路径
+    new ModifyPrefixOfJsOrCss(),
 
     new webpack.HotModuleReplacementPlugin(),
     new ModuleConcatenationPlugin(),

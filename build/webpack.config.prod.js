@@ -6,6 +6,7 @@ const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenat
 const CompressionPlugin = require('compression-webpack-plugin')
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin')
 const merge = require('webpack-merge')
+const ModifyPrefixOfJsOrCss = require('./modifyPrefixOfJsOrCss')
 
 const base = require('./webpack.config.base')
 const rootDir = process.cwd()
@@ -15,7 +16,8 @@ const distDir = path.resolve(rootDir, './dist')
 module.exports = merge(base, {
   mode: 'production',
   entry: {
-    index: path.resolve(clientDir, './view/index.jsx')
+    index: path.resolve(clientDir, './User/index.jsx'),
+    cms: path.resolve(clientDir, './Admin/index.jsx')
   },
   resolve: {
     mainFields: ['jsnext:main', 'browser', 'main']
@@ -30,7 +32,7 @@ module.exports = merge(base, {
     }),
 
     new HtmlWebpackPlugin({
-      template: path.resolve(clientDir, './view/index.tmpl.prod.html'),
+      template: path.resolve(clientDir, './index.tmpl.dev.html'),
       inject: true,
       minify: {
         removeComment: true,
@@ -39,8 +41,24 @@ module.exports = merge(base, {
       chunks: [
         'index'
       ],
-      filename: 'index.html'
+      filename: 'index/index.html'
     }),
+
+    new HtmlWebpackPlugin({
+      template: path.resolve(clientDir, './index.tmpl.dev.html'),
+      inject: true,
+      minify: {
+        removeComment: true,
+        collapseWhitespage: true
+      },
+      chunks: [
+        'cms'
+      ],
+      filename: 'cms/index.html'
+    }),
+
+    // 修改js和css路径
+    new ModifyPrefixOfJsOrCss(),
 
     new ParallelUglifyPlugin({
       // 传递给 UglifyJS 的参数
