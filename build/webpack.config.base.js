@@ -1,3 +1,35 @@
+// === webpack工作原理 === //
+
+// === 1 基础: === //
+// === 1.1 Entry：入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入 === //
+// === 1.2 Module: 模块，在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块 === //
+// === 1.3 Chunk：代码块，一个 Chunk 由多个模块组合而成，用于代码合并与分割 === //
+// === 1.4 Loader：模块转换器，用于把模块原内容按照需求转换成新内容 === //
+// === 1.5 Plugin：扩展插件，在 Webpack 构建流程中的特定时机会广播出对应的事件，插件可以监听这些事件的发生，在特定时机做对应的事情 === //
+
+// === 2 流程: === //
+// === 2.1 初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数 === //
+// === 2.2 开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，执行对象的 run 方法开始执行编译 === //
+// === 2.3 确定入口：根据配置中的 entry 找出所有的入口文件 === //
+// === 2.4 编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理 === //
+// === 2.5 完成模块编译：在经过第4步使用 Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系 === //
+// === 2.6 输出资源：根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk，再把每个 Chunk 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会 === //
+// === 2.7 输出完成：在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统 === //
+// === 2.8 在以上过程中，Webpack 会在特定的时间点广播出特定的事件，插件在监听到感兴趣的事件后会执行特定的逻辑，并且插件可以调用 Webpack 提供的 API 改变 Webpack 的运行结果 === //
+
+// === 3 流程阶段： === //
+// === 3.1 初始化：启动构建，读取与合并配置参数，加载 Plugin，实例化 Compiler === //
+// === 3.2 编译：从 Entry 发出，针对每个 Module 串行调用对应的 Loader 去翻译文件内容，再找到该 Module 依赖的 Module，递归地进行编译处理。 === //
+// === 3.3 输出：对编译后的 Module 组合成 Chunk，把 Chunk 转换成文件，输出到文件系统 === //
+
+// === 4 监听模式下的流程阶段： === //
+/*
+          文件发生变化
+           --------
+           v      |
+初始化 -> 编译 -> 输出
+*/
+
 // === webpack优化 === //
 
 // === 1 css模块化：=== //
@@ -31,8 +63,8 @@ const webpack = require('webpack')
 // const precss = require('precss')
 // const postcsseasysprites = require('postcss-easysprites')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const RemoveJsOfCss = require('./removeJsOfCss')
-const common = require('../config')
+const ModifyPrefixOfJsOrCss = require('./modifyPrefixOfJsOrCss')
+const FixDynamicScriptSrc = require('./fixDynamicScriptSrc')
 
 // const HappyPack = require('happypack')
 //
@@ -62,16 +94,15 @@ const config = {
   },
   output: {
     path: distDir,  // 输出目录
-    // filename: `${jsDir}/[name]-[chunkhash].js`,
-    filename: `js/[name].js`,
+    filename: `[name]/index.js`,
     chunkFilename: '[name].js',
-    publicPath: common.publicPath   // 外部文件前缀
+    publicPath: '/'   // 外部文件前缀
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        exclude: path.resolve(clientDir, './view/static'),
+        exclude: path.resolve(clientDir, './static'),
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -98,7 +129,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(clientDir, './view/static'),
+        include: path.resolve(clientDir, './static'),
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader']
@@ -133,7 +164,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'img/[name].[ext]'
+              name: 'font/[name].[ext]',
             }
           }
         ]
@@ -141,19 +172,27 @@ const config = {
     ]
   },
   plugins: [
+
     new ExtractTextPlugin({
-      filename: 'css/style.css',
+      filename: '[name]/index.css',
       disable: false,
       allChunks: true
     }),
+
     new webpack.NoEmitOnErrorsPlugin(),
-    new RemoveJsOfCss()
+
+    // new RemoveJsOfCss()
+    // 修改js和css路径
+    new ModifyPrefixOfJsOrCss(),
+    new FixDynamicScriptSrc(),
+
     // new HappyPack({
     //   id: 'babel',
     //   loaders: ['babel-loader'],
     //   threadPool: happyThreadPool,
     // })
   ]
+
   // webpack中的代码块优化，搞了很久并未见有什么效果！！
   // optimization: {
   //   splitChunks: {

@@ -1,4 +1,4 @@
-import httpRequest, {ajax, Fetch} from '../../../client/fetch/ajax'
+import httpRequest, {ajax, Fetch} from '../../../client/view/fetch/ajax'
 import Mock from 'mockjs'
 
 describe('test/client/fetch/ajax.test.js', function () {

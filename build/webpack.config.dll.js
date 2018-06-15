@@ -36,14 +36,14 @@ module.exports = {
   output: {
     path: distDir,  // 输出目录
     // filename: `${jsDir}/[name]-[chunkhash].js`,
-    filename: `js/[name].dll.js`,
+    filename: `lib/[name].dll.js`,
     publicPath: config.publicPath,  // 外部文件前缀,
     library: '[name]'
   },
   plugins: [
     new DllPlugin({
       name: '[name]',
-      path: path.resolve(distDir, './js/[name].manifest.json')
+      path: path.resolve(distDir, 'lib/[name].manifest.json')
     }),
     new CompressionPlugin({
       asset: '[path].gz[query]',

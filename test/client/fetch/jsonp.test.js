@@ -1,4 +1,4 @@
-const jsonp = require('../../../client/fetch/jsonp').default
+const jsonp = require('../../../client/view/fetch/jsonp').default
 const config = require('../../../config')
 
 describe('test/client/fetch/jsonp.test.js', function () {

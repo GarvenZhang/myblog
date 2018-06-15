@@ -21,8 +21,14 @@ module.exports = merge(base, {
       'react-hot-loader/patch',
       'webpack-dev-server/client?http://0.0.0.0:5000',
       'webpack/hot/only-dev-server',
-      './client/view/index.jsx'
-    ]
+      './client/User/index.jsx'
+    ],
+    'cms': [
+      'react-hot-loader/patch',
+      'webpack-dev-server/client?http://0.0.0.0:5000',
+      'webpack/hot/only-dev-server',
+      './client/Admin/index.jsx'
+    ],
   },
   resolve: {
     mainFields: ['jsnext:main', 'browser', 'main']
@@ -34,7 +40,7 @@ module.exports = merge(base, {
     }),
 
     new HtmlWebpackPlugin({
-      template: path.resolve(clientDir, './view/index.tmpl.dev.html'),
+      template: path.resolve(clientDir, './index.tmpl.dev.html'),
       inject: true,
       minify: {
         removeComment: true,
@@ -43,7 +49,20 @@ module.exports = merge(base, {
       chunks: [
         'index'
       ],
-      filename: 'index.html'
+      filename: 'index/index.html'
+    }),
+
+    new HtmlWebpackPlugin({
+      template: path.resolve(clientDir, './index.tmpl.dev.html'),
+      inject: true,
+      minify: {
+        removeComment: true,
+        collapseWhitespage: true
+      },
+      chunks: [
+        'cms'
+      ],
+      filename: 'cms/index.html'
     }),
 
     new webpack.HotModuleReplacementPlugin(),

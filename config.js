@@ -8,10 +8,17 @@ module.exports = {
     fileServerIP: 'http://localhost:3001'
   },
 
+  // === 域名： === //
+  // === 1 根域名： . === //
+  // === 2 顶级域名：com gov edu cn com net等 === //
+  // === 3 二级域名: hellojm === //
+  // === 4 三级域名：www blog file === //
+  // === 完整域名：www.hellojm.cn. [通常省略根域名] === //
+
   prod: {
     indexServerIP: 'https://123.207.121.188:3003',
     indexDomain: 'https://www.hellojm.cn',
-    cmsDomain: 'https://www.hellojm.cn:8080',
+    cmsDomain: 'https://blog.hellojm.cn',
     fileServerDomain: 'https://file.hellojm.cn',
     fileServerIP: 'https://120.79.205.192:3001/',
     imageUploadApi: 'https://localhost:3001/'

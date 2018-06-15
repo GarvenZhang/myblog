@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 
 const config = require('../../config')
-const datetime = require('../../client/lib/datetime').default
+const datetime = require('../../client/view/lib/datetime').default
 
 let transporter = nodemailer.createTransport({
   host: 'smtp-mail.outlook.com',

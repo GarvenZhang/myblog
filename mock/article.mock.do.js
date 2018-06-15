@@ -3,6 +3,6 @@
  */
 
 const fs = require('fs')
-const mock = require('../client/mock/article').article
+const mock = require('../client/view/mock/article').article
 
 fs.writeFileSync('./article.mock.js', `const articleMock = ${JSON.stringify(mock)}; export default articleMock;`)

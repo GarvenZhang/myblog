@@ -4,12 +4,12 @@ import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import { Layout } from '../views/Layout.js'
-import configureStore from '../../client/redux/store/configureStore'
-import Home from '../../client/view/User/containers/Home'
-import BestArticle from '../../client/view/User/containers/BestArticle'
-import ArticleCategory from '../../client/view/User/containers/ArticleCategory'
-import Article from '../../client/view/User/containers/Article'
-import Login from '../../client/view/Admin/containers/Login'
+import configureStore from '../../client/User/redux/store/configureStore'
+import Home from '../../client/User/containers/Home'
+import BestArticle from '../../client/User/containers/BestArticle'
+import ArticleCategory from '../../client/User/containers/ArticleCategory'
+import Article from '../../client/User/containers/Article'
+import Login from '../../client/Admin/containers/Login'
 
 import ArticleModel from '../models/article'
 import CategoryModel from '../models/tag'
@@ -34,7 +34,7 @@ export async function index (ctx) {
         <Home />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), store.getState(), 'home')
 }
 
 /**

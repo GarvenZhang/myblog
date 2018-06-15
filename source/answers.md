@@ -804,3 +804,21 @@ https://www.ibm.com/developerworks/cn/web/wa-html5-game8/index.html
 139.fps计算
 
 https://www.cnblogs.com/coco1s/p/8029582.html
+
+140.DNS
+
+https://www.zhihu.com/question/23042131
+
+https://blog.csdn.net/crazw/article/details/8986504
+
+http://blog.51cto.com/369369/812889
+
+https://www.zhihu.com/question/34873227
+
+https://my.oschina.net/sudujuncom/blog/874699
+
+141.按需加载
+
+深入浅出webpack > 4-12
+
+webpack官网 > dynamic import [https://webpack.js.org/api/module-methods/#import-]

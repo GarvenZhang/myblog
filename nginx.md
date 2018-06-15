@@ -54,6 +54,7 @@ server {
 server {
 
   ## 监听ip和端口。当nginx服务器的该ip端口有请求访问，则调用该server的配置来处理该请求
+  ## 使用h2: 加上 ssl http2 
   listen 127.0.0.1:443 ssl http2;
   
   ## 域名。nginx对进入该虚拟主机的请求，检查其请求Host头是否匹配设置的server_name，如果是，则继续处理该请求  

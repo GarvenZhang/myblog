@@ -71,22 +71,22 @@ module.exports = merge(base, {
     new webpack.optimize.AggressiveMergingPlugin(),
 
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/react.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/react.manifest.json'))
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/redux.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/redux.manifest.json'))
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/axios.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/axios.manifest.json'))
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/remark.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/remark.manifest.json'))
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/jwt.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/jwt.manifest.json'))
     }),
     new DllReferencePlugin({
-      manifest: require(path.resolve(distDir, './js/md5.manifest.json'))
+      manifest: require(path.resolve(distDir, 'lib/md5.manifest.json'))
     }),
 
     new CompressionPlugin({
