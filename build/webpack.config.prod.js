@@ -40,10 +40,10 @@ module.exports = merge(base, {
                 modules: true,
                 localIdentName: '[local]_[hash:base64:5]',
                 importLoaders: 1,
-                minimize: true,
-                // cssnano - 删除注释
-                discardComments: {
-                  removeAll: true,
+                minimize: {
+                  discardComments: {
+                    removeAll: true,
+                  }
                 }
               }
             },
@@ -53,7 +53,7 @@ module.exports = merge(base, {
                 ident: 'postcss',
                 plugins: (loader) => [
                   require('postcss-icss-values'),
-                  require('autoprefixer')
+                  require('autoprefixer'),
                 ]
               }
             }
@@ -96,7 +96,7 @@ module.exports = merge(base, {
     }),
 
     new HtmlWebpackPlugin({
-      template: path.resolve(clientDir, './index.tmpl.dev.html'),
+      template: path.resolve(clientDir, './index.tmpl.prod.html'),
       inject: true,
       minify: {
         removeComment: true,

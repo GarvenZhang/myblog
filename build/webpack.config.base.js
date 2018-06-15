@@ -63,6 +63,7 @@ const webpack = require('webpack')
 // const precss = require('precss')
 // const postcsseasysprites = require('postcss-easysprites')
 const FixDynamicScriptSrc = require('./fixDynamicScriptSrc')
+const RemoveCssComment = require('./removeCssComment')
 
 // const HappyPack = require('happypack')
 //
@@ -142,6 +143,9 @@ const config = {
 
     // 修复动态脚本src
     new FixDynamicScriptSrc(),
+
+    // 去除css注释
+    new RemoveCssComment()
 
     // new HappyPack({
     //   id: 'babel',
