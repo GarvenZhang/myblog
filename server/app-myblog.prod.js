@@ -21,10 +21,29 @@ module.exports = function (port) {
     .use(router.allowedMethods())
 
   // 静态文件
-  app.use(serve(path.resolve(__dirname, '../dist'), {
+  // 官网还是cms
+  app.use(serve(path.resolve(__dirname, `../dist/${port === config.cmsPort ? 'cms' : 'index'}`), {
+    maxage: 60,
     gzip: true,
     setHeaders: function (res, path, stat) {
-      res.setHeader('Cache-Control', 'max-age=604800')
+      res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
+    }
+  }))
+
+  // 字体
+  app.use(serve(path.resolve(__dirname, `../dist/font`), {
+    maxage: 60,
+    gzip: true,
+    setHeaders: function (res, path, stat) {
+      res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
+    }
+  }))
+
+  // 第三方库
+  app.use(serve(path.resolve(__dirname, `../dist/lib`), {
+    maxage: 60,
+    gzip: true,
+    setHeaders: function (res, path, stat) {
       res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
     }
   }))

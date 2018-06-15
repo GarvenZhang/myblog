@@ -18,7 +18,7 @@
     "build:dll": "webpack --config ./build/webpack.config.dll.js",
 
     "//": "测试环境",
-    "test:server": "cross-env NODE_ENV=test nodemon ./app-myblog.js",
+    "test:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
     "test:start": "npm run build && npm run test:server",
 
     "//": "生产环境",
