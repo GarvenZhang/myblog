@@ -3,6 +3,8 @@ import type from '../../../lib/type'
 
 import style from './index.css'
 
+import config from '../../../../config'
+
 const ImgItem = function (props) {
   return (
     <li className={style['upload-img-item']}>
@@ -127,7 +129,7 @@ class Upload extends Component {
       }
     }
 
-    xhr.open('post', 'http://127.0.0.1:3001/upload', true)
+    xhr.open('post', process.env.NODE_ENV === 'development' ? config.dev.imageUploadApi : config.prod.imageUploadApi, true)
 
     let data = new FormData()
     data.append('file', item.file)
