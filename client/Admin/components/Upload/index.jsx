@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import type from '../../../lib/type'
 
 import style from './index.css'
 
+import type from '../../../lib/type'
 import config from '../../../../config'
+import { api } from '../../../fetch/axios'
 
 const ImgItem = function (props) {
   return (
@@ -129,7 +130,7 @@ class Upload extends Component {
       }
     }
 
-    xhr.open('post', process.env.NODE_ENV === 'development' ? config.dev.imageUploadApi : config.prod.imageUploadApi, true)
+    xhr.open('post', api.uploadImgApi(), true)
 
     let data = new FormData()
     data.append('file', item.file)

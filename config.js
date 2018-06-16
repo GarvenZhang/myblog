@@ -4,7 +4,6 @@ module.exports = {
   dev: {
     indexServerPort: '3000',
     cmsServerPort: '8081',
-    imageUploadApi: 'http://localhost:3001/',
     fileServerIP: 'http://localhost:3001/'
   },
 
@@ -21,7 +20,6 @@ module.exports = {
     cmsDomain: 'https://blog.hellojm.cn',
     fileServerDomain: 'https://file.hellojm.cn/',
     fileServerIP: 'https://120.79.205.192:3001/',
-    imageUploadApi: 'https://file.hellojm.cn/'
   },
 
   indexPort: '3003',

@@ -78,7 +78,7 @@ class Article extends Component {
    * @return {String}
    */
   changeImgUrl (content) {
-    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${process.env.NODE_ENV === 'development' ? config.dev.imageUploadApi : config.prod.fileServerDomain}$2)`)
+    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${process.env.NODE_ENV === 'development' ? config.dev.fileServerIP : config.prod.fileServerDomain}$2)`)
   }
 
   // === 语义化的优点： === //

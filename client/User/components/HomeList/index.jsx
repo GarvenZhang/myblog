@@ -8,7 +8,7 @@ import { escapeStr } from '../../../lib/index'
 import style from './index.css'
 
 const getSrc = src => process.env.NODE_ENV === 'development'
-  ? config.dev.imageUploadApi + escapeStr(src)
+  ? config.dev.fileServerIP + escapeStr(src)
   : config.prod.fileServerDomain + escapeStr(src)
 
 class LatestItem extends Component {
