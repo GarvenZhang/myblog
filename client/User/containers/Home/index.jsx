@@ -47,10 +47,13 @@ class Home extends Component {
 
         if (isSupport) {
           Cookies.set('supportWebp', true, {
-            maxAge: 60 * 60 * 24 * 7
+            maxAge: 60 * 60 * 24 * 7,
+            domain: '.hellojm.cn'
           })
         } else {
-          Cookies.set('supportWebp', false, {})
+          Cookies.set('supportWebp', false, {
+            domain: '.hellojm.cn'
+          })
         }
 
       })
