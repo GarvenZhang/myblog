@@ -7,6 +7,10 @@ import { escapeStr } from '../../../lib/index'
 
 import style from './index.css'
 
+const getSrc = src => process.env.NODE_ENV === 'development'
+  ? config.dev.imageUploadApi + escapeStr(src)
+  : config.prod.fileServerDomain + escapeStr(src)
+
 class LatestItem extends Component {
   constructor (props) {
     super(props)
@@ -23,13 +27,9 @@ class LatestItem extends Component {
 
   render () {
 
-    let imgSrc = process.env.NODE_ENV === 'development'
-      ? config.dev.imageUploadApi + escapeStr(this.props.cover)
-      : config.prod.imageUploadApi + escapeStr(this.props.cover)
-
     return (
       <li className={style['article-item']}>
-        <img src={imgSrc} alt="" className={`${style['item-cover--LatestList']} fr`}/>
+        <img src={getSrc(this.props.cover)} alt="" className={`${style['item-cover--LatestList']} fr`}/>
         <a className={style['link']} target="_blank" href={`/article/${escapeStr(this.props.id)}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
         </a>
@@ -119,7 +119,7 @@ class WorksItem extends Component {
   render () {
     return (
       <li className={style['article-item']}>
-        <img src={this.props.imgSrc} alt={this.props.imgAlt} className={style['item-cover--WorksItem']}/>
+        <img src={getSrc(this.props.imgSrc)} alt={this.props.imgAlt} className={style['item-cover--WorksItem']}/>
         <Link className={'link'} to={this.props.link}>
           <h3 className={'item-tt'}>{this.props.title}</h3>
         </Link>

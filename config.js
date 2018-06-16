@@ -19,7 +19,7 @@ module.exports = {
     indexServerIP: 'https://123.207.121.188:3003',
     indexDomain: 'https://www.hellojm.cn',
     cmsDomain: 'https://blog.hellojm.cn',
-    fileServerDomain: 'https://file.hellojm.cn',
+    fileServerDomain: 'https://file.hellojm.cn/',
     fileServerIP: 'https://120.79.205.192:3001/',
     imageUploadApi: 'https://localhost:3001/'
   },
