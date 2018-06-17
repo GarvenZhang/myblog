@@ -8,27 +8,41 @@
 
 ## 二 知识点笔记:
 
-### 安全
+### 数据结构
 
-+ [xss](./client/lib/security.js)
-+ [scrf](./client/Admin/containers/Login/index.jsx)
-+ [密码安全](./client/Admin/containers/Login/index.jsx)
-+ [点击劫持](./server/app-myblog.base.js)
-+ [DDOS](./server/app-myblog.base.js)
-+ [SQL注入]
-+ [上传漏洞]
-+ [传输安全](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [BST](./client/lib/bst.js)
++ [TrieTree](./client/Admin/containers/Info/trieTree.js)
+
+### 算法
+
++ [插入排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ [选择排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ [A*寻路]
+
+### 计算机基础
+
++ [补码/反码]
++ [字符编码]
+
+### 计算机网络
+
++ [http2.0]
++ [tcp三次握手]
 
 ### HTML5
 
 + [语义化](./client/User/containers/Article/index.jsx)
++ [浏览器渲染]
 
 ### CSS
 
 + [圣杯布局](./client/User/containers/Article/index.css)
 + [双飞翼布局](./client/User/containers/Article/index.css)
 + [float实现两栏布局](./client/User/containers/Article/index.css)
-+ []
++ [重排/重绘]
 
 ### javascript
 
@@ -42,7 +56,7 @@
 + [寄生组合继承](./client/lib/inheritPrototype.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [箭头函数](./client/Admin/containers/Info/index.jsx)
-+ [原型链继承](https://github.com/GarvenZhang/blog-file/client/Popup/alert.js)
++ [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js)
 + [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
 + [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
 + [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
@@ -53,18 +67,11 @@
 + [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js)
 + [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js)
 
-### 数据结构
+### nodejs
 
-+ [BST](./client/lib/bst.js)
-+ [TrieTree](./client/Admin/containers/Info/trieTree.js)
+### koa
 
-### 算法
-
-+ [插入排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [选择排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
+### mysql
 
 ### React
 
@@ -86,6 +93,30 @@
 + [压缩js](./build/webpack.config.prod.js)
 + [按需加载](./client/Admin/router/index.jsx)
 
+### 设计模式
+
++ [单例模式]
++ [装饰器模式]
++ [模板方法模式]
++ [观察者模式]
++ [MVC]
++ [MVVM]
+
+### 安全
+
++ [xss](./client/lib/security.js)
++ [scrf](./client/Admin/containers/Login/index.jsx)
++ [密码安全](./client/Admin/containers/Login/index.jsx)
++ [点击劫持](./server/app-myblog.base.js)
++ [DDOS](./server/app-myblog.base.js)
++ [SQL注入]
++ [上传漏洞]
++ [传输安全](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
+
+### 测试
+
++ [TTD]
+
 ### 常见功能[原生实现]
 
 + [上传图片插件](./client/Admin/components/Upload/index.jsx)
@@ -99,10 +130,6 @@
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
-
-### 测试
-
-+ [TTD]
 
 ## 三 其它作品链接:
 
