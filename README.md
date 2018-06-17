@@ -16,7 +16,6 @@
 + [BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
 + [图](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/graph.js)
-+ []
 
 ### 算法
 
@@ -36,6 +35,7 @@
 
 + [http2.0]
 + [tcp三次握手]
++ [http缓存]
 
 ### HTML5
 
@@ -58,7 +58,7 @@
 + [new本质](./client/lib/new.js)
 + [promise模拟](./client/lib/promise.js)
 + [判断类型](./client/lib/type.js)
-+ [尾递归](./client/lib/fibonacci.js)
++ [斐波那契/尾递归](./client/lib/fibonacci.js)
 + [寄生组合继承](./client/lib/inheritPrototype.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [箭头函数](./client/Admin/containers/Info/index.jsx)
@@ -76,16 +76,27 @@
 + [懒加载]
 + [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/js/engine/preload.js)
 + [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/js/engine/scene.js)
++ [闭包](./client/User/components/Header/index.jsx)
++ [事件循环机制](./client/User/components/Header/index.jsx)
++ [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
++ [回文](./client/User/components/Header/index.jsx)
++ [跨域]
 
 ### nodejs
+
++ [单点登录]
++ [session]
 
 ### koa
 
 ### mysql
 
++ [ER图]
+
 ### React
 
 + [React直出开发环境热更新优化方案](./build/devServer.js)
++ [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 
 ### Redux
 
@@ -133,6 +144,7 @@
 + [分页插件]
 + [拖放插件](./client/User/components/Popup/index.jsx)
 + [隐藏滚动条](./client/static/styles/index.css)
++ [加载更多](./client/User/containers/Home/index.jsx)
 
 ### 常用命令
 
@@ -144,4 +156,4 @@
 ## 三 其它作品链接:
 
 + gitblog: [https://garvenzhang.github.io](https://garvenzhang.github.io)
-+ 在线坦克对战: 
++ 在线坦克对战: [https://game.hellojm.cn]
