@@ -56,6 +56,7 @@ module.exports = (app) => {
 
   // 限制ip
 
+
   // mysql
   app.use(async function mysqlConnection (ctx, next) {
     try {
@@ -75,14 +76,25 @@ module.exports = (app) => {
   // 日志记录
   app.use(logger())
 
+  // === 点击劫持: 将目标网站放入iframe中，视觉上隐藏，并指导用户操作 === //
+  // === 1 特点: 用户亲手操作, 用户不知情 === //
+  // === 2 危害: 盗取用户资金(转账), 获取用户敏感信息 === //
+  // === 3 防御: === //
+  // === 3.1 Javascript禁止内嵌，但sandbox能禁止js === //
+  // === 3.2 X-Frame-Options === //
+  // === 3.3 其它辅助手段：增加用户操作成本，如验证码 === //
+
   // http header
   app.use(async function (ctx, next) {
-    // xss
-    ctx.set('X-XSS-Protection', '1; mode=block')
 
-    // clickjacking
+    ctx.set('X-XSS-Protection', '1; mode=block')
     ctx.set('X-Frame-Options', 'DENY')
 
     await next()
   })
+
+  // === DDOS: 分布式拒绝服务 === //
+  // === 1 原理: 模拟正常用户, 大量占用服务器资源, 无法服务正常用户 === //
+  // === 2 类型: TCP === //
+
 }

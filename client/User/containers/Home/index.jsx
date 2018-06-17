@@ -45,6 +45,8 @@ class Home extends Component {
 
       detectWebp('alpha', function (feature, isSupport) {
 
+        // === 二级域名cookie共享： === //
+        // === cookie只能读写大于等于自己的域，因此同一级域名间的cookie共享需要将cookie设置到更高的域中 === //
         if (isSupport) {
           Cookies.set('supportWebp', true, {
             maxAge: 60 * 60 * 24 * 7,
