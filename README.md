@@ -17,7 +17,7 @@
 + [DDOS](./server/app-myblog.base.js)
 + [SQL注入]
 + [上传漏洞]
-+ [传输安全](https://github.com/GarvenZhang/blog-file/app-fileServer.js)
++ [传输安全](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 
 ### HTML5
 
@@ -42,16 +42,16 @@
 + [寄生组合继承](./client/lib/inheritPrototype.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [箭头函数](./client/Admin/containers/Info/index.jsx)
-+ [原型链继承](../../blog-file/client/Popup/alert.js)
-+ [组合继承](https://github.com/GarvenZhang/blog-file/client/Popup/confirm.js)
-+ [构造函数继承](https://github.com/GarvenZhang/blog-file/client/Popup/confirm.js)
-+ [链式调用](https://github.com/GarvenZhang/blog-file/client/Popup/main.js)
-+ [添加节点](https://github.com/GarvenZhang/blog-file/client/Popup/main.js)
-+ [生成text](https://github.com/GarvenZhang/blog-file/client/Popup/main.js)
-+ [类名处理](https://github.com/GarvenZhang/blog-file/client/lib/className.js)
-+ [样式处理](https://github.com/GarvenZhang/blog-file/client/lib/style.js)
-+ [获取DOM](https://github.com/GarvenZhang/blog-file/client/lib/$.js)
-+ [事件处理](https://github.com/GarvenZhang/blog-file/client/lib/event.js)
++ [原型链继承](https://github.com/GarvenZhang/blog-file/client/Popup/alert.js)
++ [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
++ [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
++ [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
++ [添加节点](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
++ [生成text](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
++ [类名处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/className.js)
++ [样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js)
++ [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js)
++ [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js)
 
 ### 数据结构
 
