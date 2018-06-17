@@ -10,8 +10,13 @@
 
 ### 数据结构
 
++ [栈](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/stack.js)
++ [队列](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/queue.js)
++ [字典](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/dictionary.js)
 + [BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
++ [图](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/graph.js)
++ []
 
 ### 算法
 
@@ -20,7 +25,7 @@
 + [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [A*寻路]
++ [A*寻路](https://github.com/GarvenZhang/blog-file/blob/development/client/view/game/js/engine/Astar.js)
 
 ### 计算机基础
 
@@ -39,6 +44,7 @@
 
 ### CSS
 
++ [居中 - position + transform](https://github.com/GarvenZhang/blog-file/blob/development/client/view/game/index.css)
 + [圣杯布局](./client/User/containers/Article/index.css)
 + [双飞翼布局](./client/User/containers/Article/index.css)
 + [float实现两栏布局](./client/User/containers/Article/index.css)
@@ -66,6 +72,10 @@
 + [样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js)
 + [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js)
 + [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js)
++ [fps计算](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/fps.js)
++ [懒加载]
++ [预加载](https://github.com/GarvenZhang/blog-file/blob/development/client/view/game/js/engine/preload.js)
++ [动画循环](https://github.com/GarvenZhang/blog-file/blob/development/client/view/game/js/engine/scene.js)
 
 ### nodejs
 
