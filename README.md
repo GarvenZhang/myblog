@@ -1,10 +1,35 @@
 # 张益铭的前端小博客
 
-## 一 域名分布:
+## 一 项目:
 
-+ 主页: [https://www.hellojm.cn](https://www.hellojm.cn)
-+ cms: [https://admin.hellojm.cn](https://admin.hellojm.cn)
-+ 文件服务器: [https://file.hellojm.cn](https://file.hellojm.cn)
+### 博客主页
+
++ 链接：[https://www.hellojm.cn](https://www.hellojm.cn)
++ github: [https://github.com/GarvenZhang/myblog](https://github.com/GarvenZhang/myblog)
+
+### cms
+
++ 链接: [https://admin.hellojm.cn](https://admin.hellojm.cn)
++ github: [https://github.com/GarvenZhang/myblog](https://github.com/GarvenZhang/myblog)
+
+### 文件服务器
+
++ 链接: [https://file.hellojm.cn](https://file.hellojm.cn)
++ github: [https://github.com/GarvenZhang/blog-file](https://github.com/GarvenZhang/blog-file)
+
+### 在线坦克对战
+
++ 链接: https://game.hellojm.cn
++ github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
+
+### git blog:
+
++ 链接: [https://garvenzhang.github.io](https://garvenzhang.github.io)
++ github: [https://github.com/GarvenZhang/GarvenZhang.github.io](https://github.com/GarvenZhang/GarvenZhang.github.io)
+
+### 飞机打怪兽:
+
++ 链接: [https://garvenzhang.github.io/effects/demo/demo-shooting-game/](https://garvenzhang.github.io/effects/demo/demo-shooting-game/)
 
 ## 二 知识点笔记:
 
@@ -133,6 +158,7 @@
 + [SQL注入]
 + [上传漏洞]
 + [传输安全](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [重放攻击]
 
 ### 测试
 
@@ -152,8 +178,3 @@
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
-
-## 三 其它作品链接:
-
-+ gitblog: [https://garvenzhang.github.io](https://garvenzhang.github.io)
-+ 在线坦克对战: [https://game.hellojm.cn]
