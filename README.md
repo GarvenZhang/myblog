@@ -42,7 +42,7 @@
 + [寄生组合继承](./client/lib/inheritPrototype.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [箭头函数](./client/Admin/containers/Info/index.jsx)
-+ [原型链继承](../blog-file/client/Popup/alert.js)
++ [原型链继承](../../blog-file/client/Popup/alert.js)
 + [组合继承](https://github.com/GarvenZhang/blog-file/client/Popup/confirm.js)
 + [构造函数继承](https://github.com/GarvenZhang/blog-file/client/Popup/confirm.js)
 + [链式调用](https://github.com/GarvenZhang/blog-file/client/Popup/main.js)
