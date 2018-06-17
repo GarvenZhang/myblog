@@ -22,7 +22,7 @@
 + 链接: https://game.hellojm.cn
 + github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
 
-### git blog:
+### 博客[早期 - 学习笔记较详细]:
 
 + 链接: [https://garvenzhang.github.io](https://garvenzhang.github.io)
 + github: [https://github.com/GarvenZhang/GarvenZhang.github.io](https://github.com/GarvenZhang/GarvenZhang.github.io)
