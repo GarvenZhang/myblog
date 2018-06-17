@@ -54,7 +54,9 @@
 ### 计算机基础
 
 + [补码/反码]
-+ [字符编码]
++ [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [进程/线程]
++ []
 
 ### 计算机网络
 

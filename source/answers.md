@@ -719,9 +719,10 @@ https://blog.csdn.net/xiongzhengxiang/article/details/7057119
 
 http://www.wukai.me/2015/10/04/canvas-trees/
 
-124. gbk
+124. gbk，字符编码
 
 http://js8.in/2009/12/11/%E5%AF%B9%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8javascript%E9%A1%B5%E9%9D%A2%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/
+http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
 
 125. 深入浅出事件循环机制
 
