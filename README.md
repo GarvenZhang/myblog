@@ -55,13 +55,14 @@
 
 + [补码/反码]
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
-+ [进程/线程](../shooting-game/client/view/game/js/engine/worker.js)
++ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/shooting-game/client/view/game/js/engine/worker.js)
 
 ### 计算机网络
 
-+ [http2.0]
++ [http2.0](./server/app-myblog.prod.js)
 + [tcp三次握手]
 + [http缓存]
++ [DNS](./server/views/Layout.js)
 
 ### HTML5
 
@@ -107,6 +108,8 @@
 + [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + [回文](./client/User/components/Header/index.jsx)
 + [跨域]
++ [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
++ [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 
 ### nodejs
 
@@ -142,7 +145,7 @@
 
 ### 设计模式
 
-+ [单例模式]
++ [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [装饰器模式]
 + [模板方法模式]
 + [观察者模式]
@@ -169,7 +172,7 @@
 
 + [上传图片插件](./client/Admin/components/Upload/index.jsx)
 + [分页插件]
-+ [拖放插件](./client/User/components/Popup/index.jsx)
++ [拖放插件](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [隐藏滚动条](./client/static/styles/index.css)
 + [加载更多](./client/User/containers/Home/index.jsx)
 
