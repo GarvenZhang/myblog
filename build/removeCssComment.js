@@ -9,9 +9,7 @@ function emoveCssComment () {
 
 emoveCssComment.prototype.apply = function (compiler) {
   compiler.plugin('emit', function (compilation, callback) {
-
     for (const key in compilation.assets) {
-
       if (key.indexOf('.css') === -1) {
         continue
       }
@@ -31,7 +29,6 @@ emoveCssComment.prototype.apply = function (compiler) {
           return css.length
         }
       }
-
     }
 
     callback()

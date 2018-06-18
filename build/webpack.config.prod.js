@@ -42,7 +42,7 @@ module.exports = merge(base, {
                 importLoaders: 1,
                 minimize: {
                   discardComments: {
-                    removeAll: true,
+                    removeAll: true
                   }
                 }
               }
@@ -53,7 +53,7 @@ module.exports = merge(base, {
                 ident: 'postcss',
                 plugins: (loader) => [
                   require('postcss-icss-values'),
-                  require('autoprefixer'),
+                  require('autoprefixer')
                 ]
               }
             }
@@ -67,7 +67,7 @@ module.exports = merge(base, {
           fallback: 'style-loader',
           use: ['css-loader']
         })
-      },
+      }
     ]
   },
   plugins: [

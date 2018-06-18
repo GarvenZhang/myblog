@@ -33,10 +33,10 @@ if (process.env.NODE_ENV === 'production') {
       <head>
         <meta charset="UTF-8">
         ${
-          whichPage === 'home' ?
-          '<meta http-equiv="x-dns-prefetch-control" content="on" />' +
-          '<link rel="dns-prefetch" href="https://file.hellojm.cn">' :
-        ''}
+          whichPage === 'home'
+          ? '<meta http-equiv="x-dns-prefetch-control" content="on" />' +
+          '<link rel="dns-prefetch" href="https://file.hellojm.cn">'
+        : ''}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="id=edge">
         <meta name="keywords" content="张益铭, 个人博客, 首页, web前端, javaScript,css,html,技术栈">

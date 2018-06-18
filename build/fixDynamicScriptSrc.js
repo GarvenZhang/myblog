@@ -11,9 +11,7 @@ function FixDynamicScriptSrc () {
 
 FixDynamicScriptSrc.prototype.apply = function (compiler) {
   compiler.plugin('emit', function (compilation, callback) {
-
     for (const key in compilation.assets) {
-
       if (!/(?:account|article-tag|chatroom|comment|general-catalogue|post|works)/.test(key)) {
         continue
       }
@@ -21,7 +19,6 @@ FixDynamicScriptSrc.prototype.apply = function (compiler) {
       compilation.assets[`cms/${key}`] = compilation.assets[key]
 
       delete compilation.assets[key]
-
     }
 
     callback()

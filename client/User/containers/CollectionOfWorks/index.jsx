@@ -7,10 +7,8 @@ import Nav from '../../components/Nav'
 import './index.css'
 
 class CollectionOfWorks extends Component {
-
   constructor (props) {
     super(props)
-
   }
 
   componentWillMount () {

@@ -13,7 +13,7 @@
     "build:dll": "webpack --config ./build/webpack.config.dll.js",
     "test:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
     "test:start": "npm run build && npm run test:server",
-    "build:prod": "webpack --config ./build/webpack.config.prod.js --display-used-exports --optimize-dedupe",
+    "prod:build": "webpack --config ./build/webpack.config.prod.js --display-used-exports --optimize-dedupe",
     "prod:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
     "build": "npm run clean && npm run build:dll && npm run build:prod",
     "prod": "npm run build && npm run prod:server",

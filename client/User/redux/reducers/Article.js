@@ -11,7 +11,7 @@ const initialState = {
 
 export const actionTypes = {
   GET_ARTICLE: Symbol(),
-  RESPONSE_ARTICLE: Symbol(),
+  RESPONSE_ARTICLE: Symbol()
 }
 
 export const actions = {
@@ -20,7 +20,7 @@ export const actions = {
       type: actionTypes.GET_ARTICLE,
       id
     }
-  },
+  }
 }
 
 export function reducer (state = initialState, action) {

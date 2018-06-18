@@ -2184,10 +2184,10 @@ $axure.internal(function ($ax) {
             }
           } else if (obj.objects && obj.objects.length) {
             if (repeaterId) {
-                  for (var j = 0; j < obj.objects.length; j++) {
-                    mapIdsToRepeaterAndLayer(path, obj.objects, repeaterId)
-                  }
-                }
+              for (var j = 0; j < obj.objects.length; j++) {
+                mapIdsToRepeaterAndLayer(path, obj.objects, repeaterId)
+              }
+            }
           }
         }
       }

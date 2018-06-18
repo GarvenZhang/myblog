@@ -18,7 +18,7 @@ const initialState = {
 }
 
 export const actionTypes = {
-  UPDATE: Symbol(),
+  UPDATE: Symbol()
 }
 
 export const actions = {

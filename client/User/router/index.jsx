@@ -13,13 +13,13 @@ import NoMatch from '../containers/NoMatch/index'
 const IndexRouteMap = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/article-search' component={SearchList}/>
-      <Route path='/best-article' component={BestArticle}/>
-      <Route path='/article-category' component={ArticleCategory}/>
-      <Route path='/collection-of-works' component={CollectionOfWorks}/>
-      <Route path='/article/:id' component={Article}/>
-      <Route component={NoMatch}/>
+      <Route exact path='/' component={Home} />
+      <Route path='/article-search' component={SearchList} />
+      <Route path='/best-article' component={BestArticle} />
+      <Route path='/article-category' component={ArticleCategory} />
+      <Route path='/collection-of-works' component={CollectionOfWorks} />
+      <Route path='/article/:id' component={Article} />
+      <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>
 )

@@ -31,7 +31,7 @@ module.exports = {
     ],
     md5: [
       'js-md5'
-    ],
+    ]
   },
   output: {
     path: distDir,  // 输出目录

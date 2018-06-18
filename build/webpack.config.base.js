@@ -128,7 +128,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'font/[name].[ext]',
+              name: 'font/[name].[ext]'
             }
           }
         ]

@@ -30,7 +30,7 @@ module.exports = merge(base, {
       'webpack-dev-server/client?http://0.0.0.0:5000',
       'webpack/hot/only-dev-server',
       './client/Admin/index.jsx'
-    ],
+    ]
   },
   module: {
     rules: [
@@ -69,7 +69,7 @@ module.exports = merge(base, {
           fallback: 'style-loader',
           use: ['css-loader']
         })
-      },
+      }
     ]
   },
   resolve: {

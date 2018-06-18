@@ -8,7 +8,7 @@ const LoadMore = (props) => {
       {
         props.isEndPage
           ? <p>数据已全部加载</p>
-          : <p>下拉加载更多 <i className={style['icon-loading']}></i></p>
+          : <p>下拉加载更多 <i className={style['icon-loading']} /></p>
       }
     </div>
   )

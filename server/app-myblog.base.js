@@ -56,7 +56,6 @@ module.exports = (app) => {
 
   // 限制ip
 
-
   // mysql
   app.use(async function mysqlConnection (ctx, next) {
     try {
@@ -86,7 +85,6 @@ module.exports = (app) => {
 
   // http header
   app.use(async function (ctx, next) {
-
     ctx.set('X-XSS-Protection', '1; mode=block')
     ctx.set('X-Frame-Options', 'DENY')
 
@@ -96,5 +94,4 @@ module.exports = (app) => {
   // === DDOS: 分布式拒绝服务 === //
   // === 1 原理: 模拟正常用户, 大量占用服务器资源, 无法服务正常用户 === //
   // === 2 类型: TCP === //
-
 }

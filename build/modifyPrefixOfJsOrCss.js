@@ -8,13 +8,10 @@ function ModifyPrefixOfJsOrCssPlugin () {
 }
 
 ModifyPrefixOfJsOrCssPlugin.prototype.apply = function (compiler) {
-
   compiler.hooks.compilation.tap('ModifyPrefixOfJsOrCss', (compilation) => {
-
     compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tapAsync(
       'ModifyPrefixOfJsOrCss',
       (data, cb) => {
-        
         data.html = data.html
           .replace(/\/cms\//g, '/')
           .replace(/\/index\//g, '/')
@@ -23,7 +20,6 @@ ModifyPrefixOfJsOrCssPlugin.prototype.apply = function (compiler) {
       }
     )
   })
-
 }
 
 module.exports = ModifyPrefixOfJsOrCssPlugin

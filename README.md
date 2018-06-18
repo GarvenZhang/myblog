@@ -19,7 +19,12 @@
 
 ### 在线坦克对战
 
-+ 链接: https://game.hellojm.cn
++ 链接: [https://game.hellojm.cn/game.html](https://game.hellojm.cn/game.html)
++ github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
+
+### 在线聊天室
+
++ 链接: [https://game.hellojm.cn/login.html](https://game.hellojm.cn/login.html)
 + github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
 
 ### 博客[早期 - 学习笔记较详细]:
@@ -49,13 +54,13 @@
 + [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
-+ [A*寻路](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/js/engine/Astar.js)
++ [A*寻路](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/Astar.js)
 
 ### 计算机基础
 
 + [补码/反码]
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
-+ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/shooting-game/client/view/game/js/engine/worker.js)
++ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
 
 ### 计算机网络
 
@@ -71,7 +76,7 @@
 
 ### CSS
 
-+ [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/index.css)
++ [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + [圣杯布局](./client/User/containers/Article/index.css)
 + [双飞翼布局](./client/User/containers/Article/index.css)
 + [float实现两栏布局](./client/User/containers/Article/index.css)
@@ -101,8 +106,8 @@
 + [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js)
 + [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [懒加载]
-+ [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/js/engine/preload.js)
-+ [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/view/game/js/engine/scene.js)
++ [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js)
++ [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js)
 + [闭包](./client/User/components/Header/index.jsx)
 + [事件循环机制](./client/User/components/Header/index.jsx)
 + [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
