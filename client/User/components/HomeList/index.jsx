@@ -120,13 +120,13 @@ class WorksItem extends Component {
     return (
       <li className={style['article-item']}>
         <img src={getSrc(this.props.imgSrc)} alt={this.props.imgAlt} className={style['item-cover--WorksItem']}/>
-        <Link className={'link'} to={this.props.link}>
-          <h3 className={'item-tt'}>{this.props.title}</h3>
+        <Link className={style['link']} to={this.props.link}>
+          <h3 className={style['item-tt']}>{this.props.title}</h3>
         </Link>
-        <p className={'item-info'}>
-          <Link to={this.props.sourceLink} className={'link'}>源码解析</Link>
-          <Link to={this.props.demoLink} className={'link'}>查看演示</Link>
-          <Link to={this.props.githubLink} className={'link'}>github地址</Link>
+        <p className={style['item-info']}>
+          <Link to={this.props.sourceLink} className={style['link']}>源码解析</Link>
+          <Link to={this.props.demoLink} className={style['link']}>查看演示</Link>
+          <Link to={this.props.githubLink} className={style['link']}>github地址</Link>
         </p>
       </li>
     )

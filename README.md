@@ -66,7 +66,7 @@
 
 + [http2.0](./server/app-myblog.prod.js)
 + [tcp三次握手]
-+ [http缓存]
++ [http缓存](https://github.com/GarvenZhang/blog-file/blob/development/blog-file/server/middleware/httpCache.js)
 + [DNS](./server/views/Layout.js)
 
 ### HTML5

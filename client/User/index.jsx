@@ -19,6 +19,11 @@ render()
 // hrm
 module.hot && module.hot.accept('./router', () => render())
 
+// === redux与react绑定： === //
+// === 1 分开的原因: 前端框架或者类库的构架趋势，尽可能做到与平台无关，从核心逻辑、具体与平台相关的实现两个层面拆分，以保证核心功能做到最大程度的跨平台复用 === //
+// === 2 Provider组件: 接受一个store作为props, 是整个Redux应用的顶层组件 === //
+// === 2 connect(): 提供了在整个React应用的任何组件中获取store中数据的功能 === //
+
 /**
  * render函数
  */

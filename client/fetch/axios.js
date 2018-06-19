@@ -3,7 +3,7 @@ import commonConfig from '../../config'
 
 // 请求配置
 
-let config = {
+const config = {
   transformRequest: [
     function (data) {
       let ret = ''
@@ -63,6 +63,7 @@ export const api = {
   uploadImgApi: () => `${domainFileServer}upload`,
   getCategoryListApi: () => `${domainIndex}/api/get_article_category`,
   getBestListApi: (pageNum, perPage) => `${domainIndex}/api/get_best_article?pageNum=${pageNum}&perPage=${perPage}`,
+  getWorksListApi: () => `${domainFileServer}/api/get_works_list`,
   getArticleLinkListApi: () => `${domainIndex}/api/get_article_link_list`,
   getArticleApi: id => `${domainIndex}/api/get_article?id=${id}`,
   getSearchListApi: (title, pageNum, perPage) => `${domainIndex}/api/get_search_list?title=${title}&pageNum=${pageNum}&perPage=${perPage}`,
