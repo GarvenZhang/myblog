@@ -46,6 +46,7 @@
 + [BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
 + [图](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/graph.js)
++ [Set与Map]
 
 ### 算法
 
@@ -61,31 +62,40 @@
 + [补码/反码]
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
++ [图片]
 
 ### 计算机网络
 
 + [http2.0](./server/app-myblog.prod.js)
 + [tcp三次握手]
-+ [http缓存](https://github.com/GarvenZhang/blog-file/blob/development/blog-file/server/middleware/httpCache.js)
++ [UDP]
++ [http缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js)
 + [DNS](./server/views/Layout.js)
++ [socket]
++ [http常用状态码]
++ [get, post]
 
 ### HTML5
 
 + [语义化](./client/User/containers/Article/index.jsx)
-+ [浏览器渲染]
++ [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
++ [Websocket]
 
 ### CSS
 
++ [选择器]
 + [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + [圣杯布局](./client/User/containers/Article/index.css)
 + [双飞翼布局](./client/User/containers/Article/index.css)
 + [float实现两栏布局](./client/User/containers/Article/index.css)
-+ [重排/重绘]
++ [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
++ [动画]
 
 ### javascript
 
 + [柯里化](./client/lib/curring.js)
 + [防抖](./client/lib/debounce.js)
++ [分流]
 + [深拷贝](./client/lib/deepCopy.js)
 + [new本质](./client/lib/new.js)
 + [promise模拟](./client/lib/promise.js)
@@ -115,13 +125,27 @@
 + [跨域]
 + [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
++ [cookie](./client/lib/cookie.js)
++ [localStorage](./client/Admin/components/Slidebar/index.jsx)
++ [sessionStorage](./client/User/components/Comment/index.jsx)
++ [IndexedDB]
++ [Service WOrker, PWA]
++ [BOM]
++ [this]
++ [异步]
++ [执行上下文]
+
 
 ### nodejs
 
 + [单点登录]
 + [session]
++ [微型http服务器]
++ [同构/直出]
 
 ### koa
+
++ [原理]
 
 ### mysql
 
@@ -129,12 +153,19 @@
 
 ### React
 
++ [jsx]
++ [生命周期]
 + [React直出开发环境热更新优化方案](./build/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
++ [虚拟DOM]
++ [Diff]
++ [ssr]
+
 
 ### Redux
 
 + [基础](./client/User/redux/reducers/Popup.js)
++ [middleware](./client/User/redux/store/configureStore.js)
 
 ### webpack
 
@@ -187,3 +218,4 @@
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
++ [sql]
