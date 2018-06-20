@@ -62,7 +62,7 @@
 + [补码/反码]
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
-+ [图片]
++ [图片](./build/webpack.config.base.js)
 
 ### 计算机网络
 
@@ -84,6 +84,7 @@
 ### CSS
 
 + [选择器]
++ [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + [圣杯布局](./client/User/containers/Article/index.css)
 + [双飞翼布局](./client/User/containers/Article/index.css)
@@ -143,6 +144,7 @@
 + [session]
 + [微型http服务器]
 + [同构/直出]
++ [webp支持](./client/lib/detectWebp.js)
 
 ### koa
 
