@@ -89,7 +89,8 @@
 + [双飞翼布局](./client/User/containers/Article/index.css)
 + [float实现两栏布局](./client/User/containers/Article/index.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
-+ [动画]
++ [动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
++ [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 
 ### javascript
 
