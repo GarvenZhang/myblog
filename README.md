@@ -59,7 +59,7 @@
 
 ### 计算机基础
 
-+ [补码/反码]
++ [补码/反码](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
 + [图片](./build/webpack.config.base.js)
@@ -95,6 +95,7 @@
 
 ### javascript
 
++ [位运算]
 + [柯里化](./client/lib/curring.js)
 + [防抖](./client/lib/debounce.js)
 + [分流]
