@@ -1,5 +1,11 @@
 import type from '../../../client/lib/type'
 
+// === TDD: 需求分析 -> 任务/模块拆解 -> 编写测试用例 -> 快速构建代码 -> 重构 -> 功能测试/发布 === //
+// === 1 传统开发流程: 分析需求 -> 调试开发 -> 测试发布 === //
+// === 2 断言: 诊断 + 输出信息，表达程序设计人员对于系统应达到状态的一种预期, 通过断言可知道一个逻辑是否正确 === //
+// === 3 工具: console, 断言库(jest) === //
+// === 4 覆盖率:  === //
+
 describe('test/client/lib/type.test.js', function () {
   describe('detect Object', function () {
     test('is Object just like {}', function () {

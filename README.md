@@ -168,7 +168,6 @@
 + [Diff]
 + [ssr]
 
-
 ### Redux
 
 + [基础](./client/User/redux/reducers/Popup.js)
@@ -194,6 +193,7 @@
 + [观察者模式]
 + [MVC]
 + [MVVM]
++ [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
 
 ### 安全
 
@@ -209,7 +209,7 @@
 
 ### 测试
 
-+ [TTD]
++ [TTD](./test/client/lib/type.test.js)
 
 ### 常见功能[原生实现]
 
@@ -218,6 +218,9 @@
 + [拖放插件](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [隐藏滚动条](./client/static/styles/index.css)
 + [加载更多](./client/User/containers/Home/index.jsx)
++ [纯CSS实现三角形]
++ [波浪形进度条]
++ 
 
 ### 常用命令
 
