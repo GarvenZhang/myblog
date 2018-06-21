@@ -95,10 +95,10 @@
 
 ### javascript
 
-+ [位运算]
++ [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [柯里化](./client/lib/curring.js)
 + [防抖](./client/lib/debounce.js)
-+ [分流]
++ [节流]
 + [深拷贝](./client/lib/deepCopy.js)
 + [new本质](./client/lib/new.js)
 + [promise模拟](./client/lib/promise.js)
@@ -147,7 +147,6 @@
 + [单点登录]
 + [session]
 + [微型http服务器]
-+ [同构/直出]
 + [webp支持](./client/lib/detectWebp.js)
 
 ### koa
@@ -160,13 +159,12 @@
 
 ### React
 
-+ [jsx]
-+ [生命周期]
++ [生命周期](./client/User/containers/Home/index.jsx)
 + [React直出开发环境热更新优化方案](./build/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 + [虚拟DOM]
 + [Diff]
-+ [ssr]
++ [ssr](./server/views/server-render.js)
 
 ### Redux
 

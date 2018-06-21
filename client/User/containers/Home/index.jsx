@@ -18,6 +18,20 @@ import './index.css'
 
 const { get_latest_list } = actions
 
+// === 生命周期: === //
+// === 1 挂载或卸载: === //
+// === 1.1 constructor(props): 初始化组件, 绑定函数到this === //
+// === 1.2 componentWillMount(): 挂载前 === //
+// === 1.3 render(): 将虚拟dom插到到真实dom === //
+// === 1.4 componentDidMount(): 挂载后, 进行异步请求等 === //
+// === 1.5 componentWillUnMount(): 卸载前,  === //
+// === 2 更新: === //
+// === 2.1 componentWillReceiveProps(nextProps) === //
+// === 2.2 shouldComponentUpdate(nextProps, nextState): 判断是否应该更新 === //
+// === 2.3 componentWillUpdate(nextProps, nextState): 更新前 === //
+// === 2.4 render(): 将虚拟dom中改变了的反映到真实dom === //
+// === 2.5 componentDidUpdate(): 更新后 === //
+
 class Home extends Component {
   
   constructor (props) {
