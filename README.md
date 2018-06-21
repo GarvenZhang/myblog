@@ -125,7 +125,9 @@
 + [事件循环机制](./client/User/components/Header/index.jsx)
 + [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + [回文](./client/User/components/Header/index.jsx)
-+ [跨域 - jsonp](./client/Admin/containers/Info/index.jsx) [跨域 - CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) [跨域-XDM](../blog-file/dist/secret-login.html)
++ [跨域 - jsonp](./client/Admin/containers/Info/index.jsx) /
+  [跨域 - CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
+  [跨域-XDM](../blog-file/dist/secret-login.html) /
   [跨域 - iframe+window.name](./client/Admin/components/Form/index.jsx)
 + [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
