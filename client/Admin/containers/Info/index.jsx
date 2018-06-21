@@ -227,8 +227,13 @@ class AdminAccount extends Component {
 
   componentDidMount () {
 
+    // === this === //
     // === 1.箭头函数没有this，预定义 === //
     // === 2.传统，用self保存 === //
+
+    // === jsonp: 通过script标签引入的js是不受同源策略的限制的, 可以通过script标签引入一个js或者是一个其他后缀形式（如php，jsp等）的文件，此文件返回一个js函数的调用 === //
+    // === 1 限制: get请求，非敏感信息 === //
+    // === 2 具体实现: 在全局挂一个对象存callback，然后创建script节点，等内容获取到后会自动执行callback，然后将script节点和全局对象清除 === //
 
     let self = this
 
