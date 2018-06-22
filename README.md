@@ -50,7 +50,10 @@
   [选择排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
-  [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
++ **查找**:
+  [线性查找] /
+  [二分查找]      
 + [A*寻路](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/Astar.js)
 
 ### 计算机基础
@@ -77,6 +80,7 @@
 + [语义化](./client/User/containers/Article/index.jsx)
 + [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [Websocket]
++ [svg]
 
 ### CSS
 
@@ -102,12 +106,20 @@
 + **基础**:
   [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
   [判断类型](./client/lib/type.js) /
-  [数组] /
+  [词法作用域,动态作用域]
+  [变量对象] /
   [this] /
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
   [面向对象] /
   [new本质](./client/lib/new.js)
++ **数组**:
+  [求数组最值] /
+    
++ **函数**:
+  [创建方式] /
+  [call,apply,bind] /
+  [bind模拟]
 + **继承**:
   [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
@@ -126,12 +138,17 @@
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + **高阶函数**:
+  [惰性函数] /
+  [偏函数] /
   [柯里化](./client/lib/curring.js) /
   [防抖](./client/lib/debounce.js) /
   [节流] /
   [深拷贝](./client/lib/deepCopy.js) /
   [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
   [懒加载] /
+  [函数组合] /
+  [函数记忆] /
+  [去重] /
   [斐波那契/尾递归](./client/lib/fibonacci.js) /
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
 + [ajax实现](./client/fetch/ajax.js)
@@ -156,7 +173,10 @@
   [存储 - IndexedDB]
 + [Service WOrker, PWA]
 + [BOM]
-+ [异步]
++ **异步**:
+  [Promise] /
+  [Generator] /
+  [Async] /
 + **模块化**:
   [IIFE] /
   [AMD] /
@@ -165,6 +185,7 @@
 
 ### nodejs
 
++ [时间循环]
 + [单点登录]
 + [session]
 + [微型http服务器]
