@@ -17,14 +17,9 @@
 + 链接: [https://file.hellojm.cn](https://file.hellojm.cn)
 + github: [https://github.com/GarvenZhang/blog-file](https://github.com/GarvenZhang/blog-file)
 
-### 在线坦克对战
+### 在线坦克对战 + 聊天室
 
-+ 链接: [https://game.hellojm.cn/game.html](https://game.hellojm.cn/game.html)
-+ github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
-
-### 在线聊天室
-
-+ 链接: [https://game.hellojm.cn/login.html](https://game.hellojm.cn/login.html)
++ 链接: [https://game.hellojm.cn](https://game.hellojm.cn/game.html)
 + github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
 
 ### 博客[早期 - 学习笔记较详细]:
@@ -75,6 +70,7 @@
 + [socket]
 + [http常用状态码]
 + [get, post]
++ [报文结构]
 
 ### HTML5
 
@@ -84,13 +80,19 @@
 
 ### CSS
 
++ **class命名**:
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
++ **盒模型**:
+  [BFC] /
+  [IFC] /
+  [清浮动]
 + **布局**:
   [双飞翼布局](./client/User/containers/Article/index.css) /
   [圣杯布局](./client/User/containers/Article/index.css) /
   [float实现两栏布局](./client/User/containers/Article/index.css) /
   [position + transform居中](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
++ **响应式**:
 + [动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
@@ -99,7 +101,8 @@
 
 + **基础**:
   [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
-  [判断类型](./client/lib/type.js)
+  [判断类型](./client/lib/type.js) /
+  [数组] /
   [this] /
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
@@ -136,8 +139,10 @@
   [箭头函数](./client/Admin/containers/Info/index.jsx) /
   [promise模拟](./client/lib/promise.js)
 + **动画**:
+  [setTimeout，setInterval与requestAnimationFrame] /
   [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
-  [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js)
+  [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
+  [碰撞检测]
 + [回文](./client/User/components/Header/index.jsx)
 + **跨域**:
   [jsonp](./client/Admin/containers/Info/index.jsx) /
@@ -152,6 +157,10 @@
 + [Service WOrker, PWA]
 + [BOM]
 + [异步]
++ **模块化**:
+  [IIFE] /
+  [AMD] /
+  [CMD] /  
 
 
 ### nodejs
@@ -210,7 +219,7 @@
 + [组合模式]
 + [中介者模式]
 + [适配器模式]
-+ [祥元模式]
++ [享元模式]
 + [责任链模式]
 
 ### 安全
