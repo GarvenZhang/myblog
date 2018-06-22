@@ -85,16 +85,35 @@
 
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
-+ [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
-+ [圣杯布局](./client/User/containers/Article/index.css)
-+ [双飞翼布局](./client/User/containers/Article/index.css)
-+ [float实现两栏布局](./client/User/containers/Article/index.css)
++ [布局 - 双飞翼布局](./client/User/containers/Article/index.css) /
+  [布局 - 圣杯布局](./client/User/containers/Article/index.css) /
+  [布局 - float实现两栏布局](./client/User/containers/Article/index.css) /
+  [居中 - position + transform](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
++ [动画 - 动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
-+ [动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 
 ### javascript
 
++ [基础 - this] /
+  [基础 - 闭包](./client/User/components/Header/index.jsx) /
+  [基础 - 执行上下文] /
+  [基础 - 面向对象]
++ [继承 - 构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
+  [继承 - 原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
+  [继承 - 组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
+  [继承 - 寄生组合继承](./client/lib/inheritPrototype.js)
++ [DOM - 获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js) /
+  [DOM - 样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js) /
+  [DOM - 类名处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/className.js) /
+  [DOM - 添加节点](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js) /
+  [DOM - 生成text](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js) /
+  [DOM - attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
++ [事件 - 事件循环机制](./client/User/components/Header/index.jsx) /
+  [事件 - 事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
+  [事件 - 事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
+  [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx) 
++ [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
 + [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [柯里化](./client/lib/curring.js)
 + [防抖](./client/lib/debounce.js)
@@ -104,42 +123,24 @@
 + [promise模拟](./client/lib/promise.js)
 + [判断类型](./client/lib/type.js)
 + [斐波那契/尾递归](./client/lib/fibonacci.js)
-+ [寄生组合继承](./client/lib/inheritPrototype.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [箭头函数](./client/Admin/containers/Info/index.jsx)
-+ [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js)
-+ [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
-+ [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js)
-+ [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
-+ [添加节点](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
-+ [生成text](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
-+ [类名处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/className.js)
-+ [样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js)
-+ [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js)
-+ [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js)
 + [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [懒加载]
 + [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js)
 + [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js)
-+ [闭包](./client/User/components/Header/index.jsx)
-+ [事件循环机制](./client/User/components/Header/index.jsx)
-+ [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + [回文](./client/User/components/Header/index.jsx)
 + [跨域 - jsonp](./client/Admin/containers/Info/index.jsx) /
   [跨域 - CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
   [跨域-XDM](../blog-file/dist/secret-login.html) /
   [跨域 - iframe+window.name](./client/Admin/components/Form/index.jsx)
-+ [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [cookie](./client/lib/cookie.js)
-+ [localStorage](./client/Admin/components/Slidebar/index.jsx)
-+ [sessionStorage](./client/User/components/Comment/index.jsx)
-+ [IndexedDB]
++ [存储 - cookie](./client/lib/cookie.js) /
+  [存储 - localStorage](./client/Admin/components/Slidebar/index.jsx) /
+  [存储 - sessionStorage](./client/User/components/Comment/index.jsx) /
+  [IndexedDB]
 + [Service WOrker, PWA]
 + [BOM]
-+ [this]
 + [异步]
-+ [执行上下文]
 
 
 ### nodejs
