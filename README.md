@@ -118,12 +118,12 @@
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + [高阶函数 - 柯里化](./client/lib/curring.js) /
   [高阶函数 - 防抖](./client/lib/debounce.js) /
-  [节流] /
+  [高阶函数 - 节流] /
   [高阶函数 - 深拷贝](./client/lib/deepCopy.js) /
-  [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
-  [懒加载] /
-  [斐波那契/尾递归](./client/lib/fibonacci.js) /
-  [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
+  [高阶函数 - 预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
+  [高阶函数 - 懒加载] /
+  [高阶函数 - 斐波那契/尾递归](./client/lib/fibonacci.js) /
+  [高阶函数 - 链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
 + [promise模拟](./client/lib/promise.js)
 + [ajax实现](./client/fetch/ajax.js)
 + [es6 - 箭头函数](./client/Admin/containers/Info/index.jsx)
