@@ -823,3 +823,7 @@ https://my.oschina.net/sudujuncom/blog/874699
 深入浅出webpack > 4-12
 
 webpack官网 > dynamic import [https://webpack.js.org/api/module-methods/#import-]
+
+142. socket.io与webpack
+
+https://github.com/webpack/webpack-dev-server/issues/283

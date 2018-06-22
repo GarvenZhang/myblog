@@ -192,6 +192,14 @@
 + [MVC]
 + [MVVM]
 + [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
++ [迭代器模式]
++ [代理模式]
++ [策略模式]
++ [组合模式]
++ [中介者模式]
++ [适配器模式]
++ [祥元模式]
++ [责任链模式]
 
 ### 安全
 
