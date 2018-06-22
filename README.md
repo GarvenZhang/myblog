@@ -131,11 +131,13 @@
   [懒加载] /
   [斐波那契/尾递归](./client/lib/fibonacci.js) /
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
-+ [promise模拟](./client/lib/promise.js)
 + [ajax实现](./client/fetch/ajax.js)
-+ [es6 - 箭头函数](./client/Admin/containers/Info/index.jsx)
-+ [动画 - fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
-  [动画 - 动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js)
++ **es6**:
+  [箭头函数](./client/Admin/containers/Info/index.jsx) /
+  [promise模拟](./client/lib/promise.js)
++ **动画**:
+  [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
+  [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js)
 + [回文](./client/User/components/Header/index.jsx)
 + **跨域**:
   [jsonp](./client/Admin/containers/Info/index.jsx) /
