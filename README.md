@@ -209,11 +209,16 @@
 
 ### mysql
 
-+ [ER图]
++ [ER图设计](https://garvenzhang.github.io/2018/01/20/myblog-01/#er%E5%9B%BE%E8%AE%BE%E8%AE%A1)
++ [增](./server/models/article.js)
++ [删](./server/models/article.js)
++ [查](./server/models/article.js)
++ [改](./server/models/article.js)
 
-### AngularJs
 
+### Angular
 
+### Vue
 
 ### React
 
@@ -240,13 +245,6 @@
 + [gzip](./build/webpack.config.prod.js)
 + [压缩js](./build/webpack.config.prod.js)
 + [按需加载](./client/Admin/router/index.jsx)
-
-### mysql
-
-+ [增](./server/models/article.js)
-+ [删](./server/models/article.js)
-+ [查](./server/models/article.js)
-+ [改](./server/models/article.js)
 
 ### 设计模式
 
