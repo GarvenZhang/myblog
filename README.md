@@ -53,8 +53,16 @@
   [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + **查找**:
   [线性查找] /
-  [二分查找]      
+  [二分查找] /
+  [公共项查找]
 + [A*寻路](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/Astar.js)
++ [八皇后]
++ [螺旋矩阵]
++ [行列互换矩阵]
++ [排列组合]
++ [概率]
++ [约瑟夫环]
++ [背包问题]
 
 ### 计算机基础
 
@@ -110,8 +118,7 @@
   [变量对象] /
   [this] /
   [闭包](./client/User/components/Header/index.jsx) /
-  [执行上下文] /
-  [面向对象] /
+  [执行上下文] /  
   [new本质](./client/lib/new.js)
 + **数组**:
   [求数组最值] /
@@ -120,7 +127,8 @@
   [创建方式] /
   [call,apply,bind] /
   [bind模拟]
-+ **继承**:
++ **面向对象**:
+  [多态](./client/lib/validator.js) /  
   [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
   [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
@@ -153,6 +161,7 @@
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
 + [ajax实现](./client/fetch/ajax.js)
 + **es6**:
+  [rest参数] /
   [箭头函数](./client/Admin/containers/Info/index.jsx) /
   [promise模拟](./client/lib/promise.js)
 + **动画**:
@@ -180,7 +189,10 @@
 + **模块化**:
   [IIFE] /
   [AMD] /
-  [CMD] /  
+  [CMD] /
++ **代码级别优化**:
+  [达夫设备] /
+    
 
 
 ### nodejs
@@ -198,6 +210,10 @@
 ### mysql
 
 + [ER图]
+
+### AngularJs
+
+
 
 ### React
 
@@ -230,13 +246,23 @@
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [装饰器模式]
 + [模板方法模式]
-+ [观察者模式]
++ [观察者模式](../shooting-game/client/lib/event.js)
 + [MVC]
-+ [MVVM]
++ **MVVM**:
+  [发布-订阅] /
+  [脏检查] /
+  [数据劫持]  
 + [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
-+ [迭代器模式]
-+ [代理模式]
-+ [策略模式]
++ **迭代器模式**:
+  [内部迭代器] /
+  [外部迭代器] /
+  [中止迭代器] /
+  [倒序迭代器]
++ **代理模式**:
+  [保护代理] /
+  [虚拟代理](../blog-file/dist/files-management.js) /
+  [缓存代理](./client/User/components/Header/index.jsx)
++ [策略模式](./client/lib/validator.js)
 + [组合模式]
 + [中介者模式]
 + [适配器模式]
@@ -257,7 +283,8 @@
 
 ### 测试
 
-+ [TTD](./test/client/lib/type.test.js)
++ [BDD]
++ [TDD](./test/client/lib/type.test.js)
 
 ### 常见功能[原生实现]
 
@@ -268,7 +295,7 @@
 + [加载更多](./client/User/containers/Home/index.jsx)
 + [纯CSS实现三角形]
 + [波浪形进度条]
-+ 
++ [瀑布流]
 
 ### 常用命令
 
