@@ -114,7 +114,7 @@
 + **基础**:
   [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
   [判断类型](./client/lib/type.js) /
-  [词法作用域,动态作用域]
+  [词法作用域,动态作用域] /
   [变量对象] /
   [this] /
   [闭包](./client/User/components/Header/index.jsx) /
@@ -128,7 +128,7 @@
   [call,apply,bind] /
   [bind模拟]
 + **面向对象**:
-  [多态](./client/lib/validator.js) /  
+  [多态](./client/lib/validator.js) /
   [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
   [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
@@ -173,7 +173,7 @@
 + **跨域**:
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
-  [XDM](../blog-file/dist/secret-login.html) /
+  [XDM](../blog-file/client/secret-login/secret-login.html) /
   [iframe+window.name](./client/Admin/components/Form/index.jsx)
 + **存储**:
   [cookie](./client/lib/cookie.js) /
@@ -241,6 +241,13 @@
 + [压缩js](./build/webpack.config.prod.js)
 + [按需加载](./client/Admin/router/index.jsx)
 
+### mysql
+
++ [增](./server/models/article.js)
++ [删](./server/models/article.js)
++ [查](./server/models/article.js)
++ [改](./server/models/article.js)
+
 ### 设计模式
 
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
@@ -260,7 +267,7 @@
   [倒序迭代器]
 + **代理模式**:
   [保护代理] /
-  [虚拟代理](../blog-file/dist/files-management.js) /
+  [虚拟代理](../blog-file/client/files-management/files-management.js) /
   [缓存代理](./client/User/components/Header/index.jsx)
 + [策略模式](./client/lib/validator.js)
 + [组合模式]
@@ -303,4 +310,3 @@
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
-+ [sql]
