@@ -210,11 +210,12 @@
 ### mysql
 
 + [ER图设计](https://garvenzhang.github.io/2018/01/20/myblog-01/#er%E5%9B%BE%E8%AE%BE%E8%AE%A1)
-+ [增](./server/models/article.js)
-+ [删](./server/models/article.js)
-+ [查](./server/models/article.js)
-+ [改](./server/models/article.js)
-
++ [表相关](./doc/sql.md)
++ **列相关**:
+  [增](./server/models/article.js) /
+  [删](./server/models/article.js) /
+  [查](./server/models/article.js) /
+  [改](./server/models/article.js)
 
 ### Angular
 
