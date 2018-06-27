@@ -118,9 +118,10 @@
   [变量对象] /
   [this] /
   [闭包](./client/User/components/Header/index.jsx) /
-  [执行上下文] /  
+  [执行上下文] /
   [new本质](./client/lib/new.js)
-+ **数组**:
++ **类型**:
+  [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/compileUtil.js)
   [求数组最值] /
     
 + **函数**:
@@ -128,12 +129,14 @@
   [call,apply,bind] /
   [bind模拟]
 + **面向对象**:
+  [defineProperty](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/observer.js)
   [多态](./client/lib/validator.js) /
   [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
   [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [寄生组合继承](./client/lib/inheritPrototype.js)
 + **DOM**:
+  [常用nodeType](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/compile.js)
   [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js) /
   [样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js) /
   [类名处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/className.js) /
@@ -173,7 +176,7 @@
 + **跨域**:
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
-  [XDM](../blog-file/client/secret-login/secret-login.html) /
+  [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/secret-login.html) /
   [iframe+window.name](./client/Admin/components/Form/index.jsx)
 + **存储**:
   [cookie](./client/lib/cookie.js) /
@@ -221,6 +224,9 @@
 
 ### Vue
 
++ **基础**:
++ [核心原理](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/index.js)
+
 ### React
 
 + [生命周期](./client/User/containers/Home/index.jsx)
@@ -250,14 +256,14 @@
 ### 设计模式
 
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [装饰器模式]
++ [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/client/secret-login/index.js)
 + [模板方法模式]
-+ [观察者模式](../shooting-game/client/lib/event.js)
++ [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
 + [MVC]
 + **MVVM**:
   [发布-订阅] /
   [脏检查] /
-  [数据劫持]  
+  [数据劫持](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/index.js)
 + [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
 + **迭代器模式**:
   [内部迭代器] /
@@ -266,7 +272,7 @@
   [倒序迭代器]
 + **代理模式**:
   [保护代理] /
-  [虚拟代理](../blog-file/client/files-management/files-management.js) /
+  [虚拟代理](https://github.com/GarvenZhang/blog-file/blob/development/client/files-management/files-management.js) /
   [缓存代理](./client/User/components/Header/index.jsx)
 + [策略模式](./client/lib/validator.js)
 + [组合模式]
