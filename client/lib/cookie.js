@@ -17,7 +17,7 @@
 /**
  * cookie
  */
-export const Cookies = {
+export default {
   get: function (name) {
 
   },

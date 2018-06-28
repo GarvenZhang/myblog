@@ -6,7 +6,7 @@ import md5 from 'js-md5'
 
 import config from '../../../../config'
 import { actions as UserActions } from '../../redux/reducers/User'
-import { Cookies } from '../../../lib/index'
+import Cookies from '../../../lib/cookie'
 
 import style from './index.css'
 

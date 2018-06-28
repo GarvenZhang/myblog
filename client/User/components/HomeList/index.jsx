@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import config from '../../../../config'
-import { escapeStr } from '../../../lib/index'
+import { escapeStr } from '../../../lib/security'
 import Img from '../Img'
 
 import style from './index.css'

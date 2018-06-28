@@ -827,3 +827,27 @@ webpack官网 > dynamic import [https://webpack.js.org/api/module-methods/#impor
 142. socket.io与webpack
 
 https://github.com/webpack/webpack-dev-server/issues/283
+
+143. vue mvvm
+
+https://github.com/DMQ/mvvm/tree/es6#_2
+
+144. function bind syntax
+
+https://babeljs.io/blog/2015/05/14/function-bind
+
+http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html
+
+http://es6.ruanyifeng.com/#docs/function#%E5%8F%8C%E5%86%92%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6
+
+145 react生命周期
+
+https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
+
+146 react原理
+
+https://github.com/hujiulong/blog/issues/7
+
+147 正则 
+
+https://github.com/jawil/blog/issues/20

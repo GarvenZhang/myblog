@@ -70,6 +70,9 @@
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
 + [图片](./build/webpack.config.base.js)
++ **正则**:
+  [边界](./client/lib/reg.js)
+  [环视](./client/lib/reg.js)
 
 ### 计算机网络
 
@@ -121,7 +124,7 @@
   [执行上下文] /
   [new本质](./client/lib/new.js)
 + **类型**:
-  [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/compileUtil.js)
+  [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
   [求数组最值] /
     
 + **函数**:
@@ -129,14 +132,14 @@
   [call,apply,bind] /
   [bind模拟]
 + **面向对象**:
-  [defineProperty](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/observer.js)
+  [defineProperty](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/observer.js) /
   [多态](./client/lib/validator.js) /
   [构造函数继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [原型链继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/alert.js) /
   [组合继承](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/confirm.js) /
   [寄生组合继承](./client/lib/inheritPrototype.js)
 + **DOM**:
-  [常用nodeType](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/compile.js)
+  [常用nodeType](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compile.js)
   [获取DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/$.js) /
   [样式处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/style.js) /
   [类名处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/className.js) /
@@ -165,8 +168,11 @@
 + [ajax实现](./client/fetch/ajax.js)
 + **es6**:
   [rest参数] /
+  [类的静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js)
+  [双冒号运算符](./client/User/containers/Home/index.jsx)
   [箭头函数](./client/Admin/containers/Info/index.jsx) /
   [promise模拟](./client/lib/promise.js)
+  [Decorator](./client/User/containers/Home/index.jsx)
 + **动画**:
   [setTimeout，setInterval与requestAnimationFrame] /
   [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
@@ -225,14 +231,14 @@
 ### Vue
 
 + **基础**:
-+ [核心原理](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/index.js)
++ [核心原理](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/index.js)
 
 ### React
 
 + [生命周期](./client/User/containers/Home/index.jsx)
 + [React直出开发环境热更新优化方案](./build/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
-+ [虚拟DOM]
++ [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js)
 + [Diff]
 + [ssr](./server/views/server-render.js)
 
@@ -256,20 +262,16 @@
 ### 设计模式
 
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/client/secret-login/index.js)
++ [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js)
 + [模板方法模式]
 + [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
 + [MVC]
 + **MVVM**:
   [发布-订阅] /
   [脏检查] /
-  [数据劫持](https://github.com/GarvenZhang/blog-file/blob/development/client/client/game-login/mvvm/index.js)
+  [数据劫持](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/index.js)
 + [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
-+ **迭代器模式**:
-  [内部迭代器] /
-  [外部迭代器] /
-  [中止迭代器] /
-  [倒序迭代器]
++ [迭代器模式](./client/lib/iterator.js)
 + **代理模式**:
   [保护代理] /
   [虚拟代理](https://github.com/GarvenZhang/blog-file/blob/development/client/files-management/files-management.js) /

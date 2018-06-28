@@ -5,9 +5,10 @@ import { bindActionCreators } from 'redux'
 
 import style from './index.css'
 
-import { escapeStr } from '../../../lib/index'
+import { escapeStr } from '../../../lib/security'
 import { actions as ArticleLinkListActions } from '../../redux/reducers/ArticleLinkList'
 import { actions as PopupActions } from '../../redux/reducers/Popup'
+import reg from '../../../lib/reg'
 
 const { get_article_link_list } = ArticleLinkListActions
 const { update_popup } = PopupActions
@@ -144,6 +145,11 @@ class Search extends Component {
       return
     }
 
+    // 数字格式化为千分位money格式
+    if (this.num2money()) {
+      return
+    }
+
     // 修改key
     const key = e.target.value
 
@@ -250,8 +256,6 @@ class Search extends Component {
 
       }
 
-
-
       // === 3.任务源： === //
       // === 3.1 macro-task：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。 === //
       // === 3.2 micro-task: process.nextTick, Promises, Object.observe, MutationObserver === //
@@ -333,6 +337,31 @@ class Search extends Component {
     })
 
     return paramsObj.title
+  }
+
+  /**
+   * 将任意长数字变成逗号分隔
+   * 通过前缀 $: 激活
+   * @return {Boolean}
+   */
+  num2money () {
+
+    let str = this.state.key
+
+    if (str.indexOf('$:') !== 0) {
+      return false
+    }
+
+    str = str.slice(2)
+      .trim()
+      .replace(reg.num2money, ',')
+
+    this.setState({
+      key: str
+    })
+
+    return true
+
   }
 
   /**

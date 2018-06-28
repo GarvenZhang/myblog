@@ -2,7 +2,7 @@
   "presets": [
     "es2015",
     "react",
-//    "stage-2",
+    "stage-0",
     "env",
 //    "preset-env"
   ],
@@ -12,6 +12,7 @@
     "transform-class-properties",
     "transform-object-rest-spread",
     "syntax-dynamic-import",
+    "transform-decorators-legacy",
   ]
 //  "env": {
 //    "production":{
