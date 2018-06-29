@@ -46,12 +46,6 @@ Home = connect (mapStateToProps, mapDispatchToProps)(Home) || A
 */
 // === 配置: babel-plugin-transform-decorators-legacy + bebal plugins中 "transform-decorators-legacy" === //
 
-// === 双冒号运算符: 箭头函数可绑定this对象, 大大减少了显示地绑定(call, apply, bind), 但并非使用所有场景, 而es7中的function bind syntax可以用来取代 === //
-// === 1 语法: 函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面 === //
-// === 2 特性: === //
-// === 2.1 如果双冒号左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面 === //
-// === 2.2 如果双冒号运算符的运算结果，还是一个对象，就可以采用链式写法 === //
-
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Home extends Component {
   

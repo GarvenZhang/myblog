@@ -71,7 +71,7 @@
 + [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
 + [图片](./build/webpack.config.base.js)
 + **正则**:
-  [边界](./client/lib/reg.js)
+  [边界](./client/lib/reg.js) /
   [环视](./client/lib/reg.js)
 
 ### 计算机网络
@@ -96,6 +96,7 @@
 ### CSS
 
 + **class命名**:
+  [BEM]  /
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **盒模型**:
@@ -119,18 +120,19 @@
   [判断类型](./client/lib/type.js) /
   [词法作用域,动态作用域] /
   [变量对象] /
-  [this] /
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
   [new本质](./client/lib/new.js)
++ **this**:
+  [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
+  [箭头函数](./client/Admin/containers/Info/index.jsx) /
+  [双冒号运算符](./client/Admin/containers/Info/index.jsx)
 + **类型**:
   [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
   [求数组最值] /
     
 + **函数**:
-  [创建方式] /
-  [call,apply,bind] /
-  [bind模拟]
+  [创建方式](./client/User/components/Header/eventloop.js)
 + **面向对象**:
   [defineProperty](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/observer.js) /
   [多态](./client/lib/validator.js) /
@@ -169,8 +171,6 @@
 + **es6**:
   [rest参数] /
   [类的静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js)
-  [双冒号运算符](./client/User/containers/Home/index.jsx)
-  [箭头函数](./client/Admin/containers/Info/index.jsx) /
   [promise模拟](./client/lib/promise.js)
   [Decorator](./client/User/containers/Home/index.jsx)
 + **动画**:
@@ -178,7 +178,6 @@
   [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
   [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
   [碰撞检测]
-+ [回文](./client/User/components/Header/index.jsx)
 + **跨域**:
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
@@ -196,7 +195,7 @@
   [Generator] /
   [Async] /
 + **模块化**:
-  [IIFE] /
+  [IIFE](./client/User/components/Header/eventloop.js) /
   [AMD] /
   [CMD] /
 + **代码级别优化**:
@@ -310,6 +309,7 @@
 + [纯CSS实现三角形]
 + [波浪形进度条]
 + [瀑布流]
++ [回文](./client/User/components/Header/index.jsx)
 
 ### 常用命令
 
