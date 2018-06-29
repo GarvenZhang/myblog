@@ -68,23 +68,38 @@
 
 + [补码/反码](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
-+ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js)
 + [图片](./build/webpack.config.base.js)
 + **正则**:
   [边界](./client/lib/reg.js) /
   [环视](./client/lib/reg.js)
 
+### 计算机操作系统
+
++ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
++ [调度] /
++ [信号量] /
++ [死锁] / 
++ [文件系统] /
+
 ### 计算机网络
 
-+ [http2.0](./server/app-myblog.prod.js)
-+ [tcp三次握手]
-+ [UDP]
-+ [http缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js)
++ [ISO]:
++ **IP**:
++ **TCP**:
+  [可靠传输] /
+  [三握四挥] /
+  [滑动窗口] /
+  [socket] /
++ **UDP**:
++ **HTTP**:
+  [报文结构] /  
+  [缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
+  [常用状态码] /
+  [get, post] /
+  [http2.0](./server/app-myblog.prod.js) /
++ [HTTPS]
++ [SMTP]
 + [DNS](./server/views/Layout.js)
-+ [socket]
-+ [http常用状态码]
-+ [get, post]
-+ [报文结构]
 
 ### HTML5
 
@@ -96,7 +111,7 @@
 ### CSS
 
 + **class命名**:
-  [BEM]  /
+  [BEM] /
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **盒模型**:
@@ -170,8 +185,8 @@
 + [ajax实现](./client/fetch/ajax.js)
 + **es6**:
   [rest参数] /
-  [类的静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js)
-  [promise模拟](./client/lib/promise.js)
+  [类的静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) / 
+  [promise模拟](./client/lib/promise.js) /
   [Decorator](./client/User/containers/Home/index.jsx)
 + **动画**:
   [setTimeout，setInterval与requestAnimationFrame] /
