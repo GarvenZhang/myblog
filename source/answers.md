@@ -851,3 +851,9 @@ https://github.com/hujiulong/blog/issues/7
 147 正则 
 
 https://github.com/jawil/blog/issues/20
+
+148 github相关:
+
+如何正确接收 GitHub 的消息邮件: https://github.com/cssmagic/blog/issues/49
+
+http://ruanyifeng.com/blog/2016/01/commit_message_change_log.html

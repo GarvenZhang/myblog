@@ -326,9 +326,17 @@
 + [瀑布流]
 + [回文](./client/User/components/Header/index.jsx)
 
+### git
+
++ [常用命令](./doc/git/常用命令.md)
++ **团队合作**:
+  [集中式工作流] /
+  [功能分支工作流] /
+  [gitflow工作流] /
+  [forking工作流]
+
 ### 常用命令
 
-+ [git](./doc/git.md)
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
