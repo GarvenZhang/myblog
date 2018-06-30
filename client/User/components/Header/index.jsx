@@ -92,7 +92,7 @@ export default class Search extends Component {
     const key = this.state.key
 
     // 回文
-    if (::palindrome(key)) {
+    if (this::palindrome(key)) {
       return
     }
 
@@ -141,17 +141,17 @@ export default class Search extends Component {
     }
 
     // 计算
-    if (::calcHandle()) {
+    if (this::calcHandle()) {
       return
     }
 
     // 数字格式化为千分位money格式
-    if (::num2money()) {
+    if (this::num2money()) {
       return
     }
 
     // 正常搜索结果处理
-    ::searchResult(e)
+    this::searchResult(e)
 
   }
 
@@ -161,7 +161,7 @@ export default class Search extends Component {
   blurHandle (e) {
 
     if (this.state.isDetectKeyEvent && e.type !== 'click') {
-      ::eventloop()
+      this::eventloop()
     }
 
   }
