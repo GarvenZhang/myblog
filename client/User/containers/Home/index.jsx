@@ -9,14 +9,16 @@ import Header from '../../components/Header'
 import Bg from '../../components/Bg'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions as ArticleActions } from '../../redux/ArticleList'
+import { actions as StorageActions } from '../../redux/Storage'
 import debounce from '../../../lib/debounce'
 import detectWebp from '../../../lib/detectWebp'
-import { Cookies } from '../../../lib/cookie'
+import Cookies from '../../../lib/cookie'
 
 import './index.css'
 
-const { get_latest_list } = actions
+const { get_latest_list } = ArticleActions
+const { get_storage } = StorageActions
 
 // === 生命周期: === //
 // === 1 挂载或卸载: === //
@@ -72,6 +74,7 @@ export default class Home extends Component {
 
     if (typeof window !== 'undefined') {
 
+      // 检测浏览器是否支持webp
       detectWebp('alpha', function (feature, isSupport) {
 
         // === 二级域名cookie共享： === //
@@ -144,6 +147,9 @@ export default class Home extends Component {
     }
     this.$scrollWrap.addEventListener('scroll', this.debounce, false)
 
+    // 存localStorage
+    !localStorage.getItem('loadingGif') && this.props.get_storage()
+
   }
 
   componentWillUnmount () {
@@ -171,6 +177,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    get_latest_list: bindActionCreators(get_latest_list, dispatch)
+    get_latest_list: bindActionCreators(get_latest_list, dispatch),
+    get_storage: bindActionCreators(get_storage, dispatch)
   }
 }

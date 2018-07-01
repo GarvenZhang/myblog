@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import Sidebar from '../../components/Slidebar'
 import { SortIcon } from '../../components/Icon'
-import { actions } from '../../../User/redux/reducers/ArticleList'
+import { actions } from '../../../Admin/redux/ArticleList'
 import curring from '../../../lib/curring'
 import { insertionSort, mergeSort, quickSort, selectSort, shellSort } from './sort'
 
@@ -13,7 +13,8 @@ import style from './index.css'
 
 const { get_all_list, sort_all_list } = actions
 
-class GeneralCatalogue extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class GeneralCatalogue extends Component {
   constructor (props) {
     super(props)
 
@@ -41,6 +42,12 @@ class GeneralCatalogue extends Component {
     })
 
     return iS(this.props.data, property)
+
+  }
+
+  searchHandle () {
+
+
 
   }
 
@@ -151,8 +158,3 @@ function mapDispatchToProps (dispatch) {
     sort_all_list: bindActionCreators(sort_all_list, dispatch)
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GeneralCatalogue)

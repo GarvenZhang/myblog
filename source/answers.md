@@ -857,3 +857,7 @@ https://github.com/jawil/blog/issues/20
 如何正确接收 GitHub 的消息邮件: https://github.com/cssmagic/blog/issues/49
 
 http://ruanyifeng.com/blog/2016/01/commit_message_change_log.html
+
+149 redux-thunk
+
+https://www.rails365.net/movies/redux-ru-men-jiao-cheng-15-redux-thunk-shi-jian-fa-song-ajax-qing-qiu-part

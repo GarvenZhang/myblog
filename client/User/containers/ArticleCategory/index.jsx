@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
-import { actions } from '../../redux/reducers/ArticleCategory'
+import { actions } from '../../redux/ArticleCategory'
 
 import style from './index.css'
 

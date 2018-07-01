@@ -1,3 +1,5 @@
+import { get, post, api } from '../../fetch/axios'
+
 const initialState = {
   title: '',
   summary: '',
@@ -25,16 +27,53 @@ export const actionTypes = {
 
 export const actions = {
   get_article: function (id) {
-    return {
-      type: actionTypes.GET_ARTICLE,
-      id
+
+    return dispatch => {
+
+      get(api.getArticleApi(id))
+        .then(res => {
+
+          if (res.retCode !== 1) {
+            return
+          }
+
+          dispatch({
+            type: actionTypes.RESPONSE_ARTICLE,
+            title: res.title,
+            pubtime: res.pubtime,
+            content: res.content,
+            summary: res.summary,
+            readNum: res.readNum,
+            prevId: res.prevId,
+            nextId: res.nextId
+          })
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
   },
   save_article: function (data) {
-    return {
-      type: actionTypes.SAVE_ARTICLE,
-      data
+
+    return dispatch => {
+
+      post(api.saveArticleApi(), data)
+        .then(res => {
+
+          if (res.retCode === 1) {
+            alert('成功！')
+          }
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
   },
   update_title: function (title) {
     return {

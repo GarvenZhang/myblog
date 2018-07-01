@@ -9,6 +9,9 @@ router.get('/best-article', require('../views/server-render').best)
 router.get('/article-category', require('../views/server-render').category)
 router.get('/article-search', require('../views/server-render').search)
 
+// storage缓存
+router.get('/api/get_index_storage', require('../controller/localStorage').get)
+
 // 标签
 router.get('/api/get_article_category', require('../controller/tag').get)
 router.get('/api/del_article_category', require('../controller/tag').del)

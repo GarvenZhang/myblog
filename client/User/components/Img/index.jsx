@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { get, api } from '../../../fetch/axios'
 
 import './index.css'
-
-const loadingGif = 'data:image/gif;base64,R0lGODlhGAAYAKIAAP///8z/zAAAAOjo6AAzAACZMwAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCgAAACwAAAAAGAAYAAADQgi63P4wykmrvTjrzbufQyiKjmCe56iWKPpFQcAQxBXLRQHQNXUrOQVv8gPqhDRYjBFcDB9L5tHZqzQ5101Ws3UkAAAh+QQJCgAAACwAAAAAGAAYAAADRQi63P4wykmrjUJcl/Ve3QdmohKWAImuDeG+7wXPrDQMTFFcNx4EAN2O0lP8FMJJ0QhE6iJLZu75uDWO0wsWtS11RV9HAgAh+QQJCgAAACwAAAAAGAAYAAADRwi6DCItSvambfXqrC1XBNEtXyiODgSGqJKZrQvBMcPWuFbsPN/2wFwuEMgNBgBisXZUKJlIJzHWXDxRVetylDVGhV1cOJIAACH5BAkKAAAALAAAAAAYABgAAANICLoMRC1K9qZt9eqslRAYxBTF9IELB5Cl+aXiSmqnkrEdUFd4rqOKmW9IBASOSOQwySw6F4PBExqdKqJSK9YK2Gqz3LB4zEgAACH5BAkKAAAALAAAAAAYABgAAANDCLoMVS1K9qZt9eqsFSEYxATB9IELB5Cl+aXiSmqnkrEdUFd4rqOKmW+oEBiPx8hgyWQin8pmk0itWq/YrHbL7XojCQAh+QQJCgAAACwAAAAAGAAYAAADRwi6DBEtSvambfXqrFUpGMQMw/SBCweQpfml4kpqp5KxHVBXeK6jiplvqCAYj8chckls+gQC5wIalVKlgKsVis1Wu+CwGJwAACH5BAkKAAAALAAAAAAYABgAAANICLoMMy1K9qZt9eqsVQgY1HkfJY7AByocqrInmpatXMp4VOw8L/fAnLBDIAwVRaNAkEsqljjnk4mSTmXFBvQI2B69Q7BQHEkAACH5BAUKAAAALAAAAAAYABgAAANECLrc/jDKSWscw0KctePeh4UNSC7jSQZs22purM5OUTCCoNk3QQA5HYWn8CmCE2Lxd8xFlEuc82FrGKWaq0p74pK8jgQAOw=='
-
-
 
 class Image extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      src: loadingGif
+      src: ''
     }
 
   }
@@ -21,6 +18,36 @@ class Image extends Component {
     src: ''
   }
 
+  /**
+   * 加载loadingGif
+   */
+  getLoadingGif () {
+
+    get(api.getIndexStorage())
+      .then(res => {
+
+        if (res.retCode !== 1) {
+          return
+        }
+
+        for (const key in res.data) {
+          localStorage.setItem(key, res.data[key])
+        }
+
+        this.setState({
+          src: localStorage.getItem('loadingGif')
+        })
+
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+  }
+
+  /**
+   * 预加载
+   */
   preload () {
 
     let img = new Image()
@@ -34,14 +61,29 @@ class Image extends Component {
   }
 
   render () {
-
     return (
-      <img src={this.state.src} />
+      <img src={this.state.src} className={this.props.className}/>
     )
   }
 
   componentDidMount () {
+
     this.preload()
+
+    const loadingGif = localStorage.getItem('loadingGif')
+
+    if (loadingGif) {
+
+      this.setState({
+        src: loadingGif
+      })
+
+    } else {
+
+      this.getLoadingGif()
+
+    }
+
   }
 }
 

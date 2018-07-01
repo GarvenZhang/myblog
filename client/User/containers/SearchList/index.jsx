@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions } from '../../redux/ArticleList'
 
 import './index.css'
 

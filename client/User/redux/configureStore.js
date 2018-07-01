@@ -1,8 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk'
 
-import rootReducer from '../reducers/index'
-import rootSaga from '../sagas/index'
+import rootReducer from './index'
 
 // === redux middleware: 提供了一个分类处理action的机会，可检阅每个流过的action，挑选出特定类型的action进行相应操作 === //
 // === 1 没有middleware: === //
@@ -21,16 +20,15 @@ button ---------> mid1 -> mid2 ---------> ... -> dispatch --------> reducer
 // === 3.1 函数式编程思想设计: === //
 
 const middlewares = []
-const sagaMiddleware = typeof createSagaMiddleware === 'function' ? createSagaMiddleware() : createSagaMiddleware.default()
 
 let storeEnhancers =
   process.env.NODE_ENV === 'development' && typeof window !== 'undefined'
   ? compose(  // 开发环境 + 客户端
-    applyMiddleware(...middlewares, sagaMiddleware),
+    applyMiddleware(...middlewares, thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
   : compose(  // 开发环境 + 后端 || 生产环境
-    applyMiddleware(...middlewares, sagaMiddleware)
+    applyMiddleware(...middlewares, thunk)
   )
 
 export default function configureStore (initialStore = {}) {
@@ -39,6 +37,6 @@ export default function configureStore (initialStore = {}) {
     initialStore,
     storeEnhancers
   )
-  sagaMiddleware.run(rootSaga)
+
   return store
 }

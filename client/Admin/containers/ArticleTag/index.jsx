@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import Sidebar from '../../components/Slidebar/index'
 import Table from '../../components/Table/index'
-import { actions } from '../../../User/redux/reducers/ArticleCategory'
+import { actions } from '../../../User/redux/ArticleCategory'
 
 import './index.css'
 

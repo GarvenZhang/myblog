@@ -4,6 +4,7 @@ import { reducer as ArticleCategoryReducer } from './ArticleCategory'
 import { reducer as ArticleReducer } from './Article'
 import { reducer as ArticleLinkListReducer } from './ArticleLinkList'
 import { reducer as popupReducer } from './Popup'
+import { reducer as StorageReducer } from './Storage'
 
 export default combineReducers({
   searchReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   ArticleCategoryReducer,
   ArticleReducer,
   ArticleLinkListReducer,
-  popupReducer
+  popupReducer,
+  StorageReducer
 })

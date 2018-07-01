@@ -4,6 +4,7 @@ node_modules/
 dist/
 
 ## 安全
-./config.js
-./1_www.hellojm.cn_bundle.crt
-./2_www.hellojm.cn.key
+
+config.js
+1_www.hellojm.cn_bundle.crt
+2_www.hellojm.cn.key

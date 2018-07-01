@@ -6,9 +6,9 @@ import { bindActionCreators } from 'redux'
 import Sidebar from '../../components/Slidebar/index'
 import Upload from '../../components/Upload'
 import simptrad from '../../../lib/simp-trad'
-import { actions as ArticleCategoryActions } from '../../redux/reducers/ArticleCategory'
-import { actions as ArticleLinkListActions } from '../../redux/reducers/ArticleLinkList'
-import { actions as ArticleActions } from '../../redux/reducers/Article'
+import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
+import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
+import { actions as ArticleActions } from '../../redux/Article'
 
 import style from './index.css'
 

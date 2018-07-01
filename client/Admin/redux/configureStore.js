@@ -1,28 +1,29 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk'
 
-import rootReducer from '../reducers/index'
-import rootSaga from '../sagas/index'
+import rootReducer from './index'
 
 const middlewares = []
-const sagaMiddleware = typeof createSagaMiddleware === 'function' ? createSagaMiddleware() : createSagaMiddleware.default()
 
 let storeEnhancers =
   process.env.NODE_ENV === 'development' && typeof window !== 'undefined'
   ? compose(  // 开发环境 + 客户端
-    applyMiddleware(...middlewares, sagaMiddleware),
+    applyMiddleware(...middlewares, thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
   : compose(  // 开发环境 + 后端 || 生产环境
-    applyMiddleware(...middlewares, sagaMiddleware)
+    applyMiddleware(...middlewares, thunk)
   )
 
+/**
+ * 配置store
+ * @param {Object = {}} initialStore 初始store
+ * @return {Object}
+ */
 export default function configureStore (initialStore = {}) {
-  const store = createStore(
+  return createStore(
     rootReducer,
     initialStore,
     storeEnhancers
   )
-  sagaMiddleware.run(rootSaga)
-  return store
 }

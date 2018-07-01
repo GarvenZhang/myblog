@@ -7,7 +7,7 @@ import { BestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions } from '../../redux/ArticleList'
 import debounce from '../../../lib/debounce'
 
 import './index.css'

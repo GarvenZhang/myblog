@@ -71,5 +71,6 @@ export const api = {
   getAddressApi: () => `${domainFileServer}address?cb=jp.getAddress`,
   getDictionary: () => `${domainFileServer}dictionary.js?cb=jp.getDictionary`,
   getStreetApi: id => `${domainFileServer}/street?id=${id}&&cb=jp.getStreet`,
-  getAllList: () => `${domainIndex}/api/get_all_list`
+  getAllList: () => `${domainIndex}/api/get_all_list`,
+  getIndexStorage: () => `${domainIndex}/api/get_index_storage`
 }

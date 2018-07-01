@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
 
 import { IndexRouteMap } from './router/index'
-import configureStore from './redux/store/configureStore'
+import configureStore from './redux/configureStore'
 
 import '../static/styles/reset.css'
 import '../static/font/iconfont.css'

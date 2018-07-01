@@ -7,7 +7,7 @@ import remark from 'remark'
 import remarkReact from 'remark-react'
 
 import config from '../../../../config'
-import { actions as ArticleActions } from '../../redux/reducers/Article'
+import { actions as ArticleActions } from '../../redux/Article'
 
 import style from './index.css'
 

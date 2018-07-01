@@ -71,7 +71,7 @@ export default function () {
 
   const key = this.state.key
 
-  if (key.test(/^[+\d]+$/)) {
+  if (/^[+\d]+$/.test(key)) {
 
     const proxyPlus = _createProxyFactory(_plus)
 
@@ -85,7 +85,7 @@ export default function () {
 
   }
 
-  if (key.test(/^[*\d]+$/)) {
+  if (key.test(/^[+\d]+$/)) {
 
     const proxyMult = _createProxyFactory(_mult)
 

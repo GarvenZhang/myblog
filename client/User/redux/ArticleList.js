@@ -1,3 +1,5 @@
+import { get, api } from '../../fetch/axios'
+
 const initialStateForLatest = {
   data: [],
   pageNum: 1,
@@ -41,28 +43,92 @@ export const actionTypes = {
 export const actions = {
 
   get_latest_list: function (pageNum, perPage) {
-    return {
-      type: actionTypes.GET_LATEST_LIST,
-      pageNum,
-      perPage
+
+    return dispatch => {
+
+      get(api.getLatestListApi(pageNum, perPage))
+        .then(res => {
+
+          if (res.retCode !== 1) {
+            return
+          }
+
+          dispatch({
+            type: actionTypes.RESPONSE_LATEST_LIST,
+            data: res.data,
+            pageNum: res.pageNum,
+            perPage: res.perPage,
+            totalCount: res.totalCount,
+            isEndPage: res.isEndPage
+          })
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
+
   },
 
   get_best_list: function (pageNum, perPage) {
-    return {
-      type: actionTypes.GET_BEST_LIST,
-      pageNum,
-      perPage
+
+    return dispatch => {
+
+      get(api.getBestListApi(pageNum, perPage))
+        .then(res => {
+
+          if (res.retCode !== 1) {
+            return
+          }
+
+          dispatch({
+            type: actionTypes.RESPONSE_BEST_LIST,
+            data: res.data,
+            pageNum: res.pageNum,
+            perPage: res.perPage,
+            totalCount: res.totalCount,
+            isEndPage: res.isEndPage
+          })
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
   },
 
   get_search_list: function (title, pageNum, perPage) {
-    return {
-      type: actionTypes.GET_SEARCH_LIST,
-      title,
-      pageNum,
-      perPage
+
+    return dispatch => {
+
+      get(api.getSearchListFlow(title, pageNum, perPage))
+        .then(res => {
+
+          if (res.retCode !== 1) {
+            return
+          }
+
+          dispatch({
+            type: actionTypes.RESPONSE_SEARCH_LIST,
+            data: res.data,
+            pageNum: res.pageNum,
+            perPage: res.perPage,
+            totalCount: res.totalCount,
+            isEndPage: res.isEndPage
+          })
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
+
   },
 
   get_all_list: function (data) {

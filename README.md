@@ -72,34 +72,60 @@
 + **正则**:
   [边界](./client/lib/reg.js) /
   [环视](./client/lib/reg.js)
+  
+### 计算机组成原理
+
++ **概论**:
+  [计算机的基本概念](./doc/计算机组成原理/1.概论/1.1%20计算机的基本概念.md) /    
+  [系统硬件组成](./doc/计算机组成原理/1.概论/1.2%20系统硬件组成.md) /   
+  [性能指标](./doc/计算机组成原理/1.概论/1.3%20性能指标.md)    
++ **运算器和运算方法**:
++ **指令系统**:
++ **控制器和CPU组织**:
++ **存储系统**:
++ **输入输出**:  
 
 ### 计算机操作系统
 
-+ [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
-+ [调度] /
-+ [信号量] /
-+ [死锁] / 
-+ [文件系统] /
++ **绪论**:
++ **启动、终端、异常和系统调用**:
++ **计算机体系结构和内存分层体系**:
++ **非连续内存分配**:
++ **虚拟内存的起因**:
++ **算法**:
++ **进程与线程**:
+  [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
+
++ **调度**:
++ **临界区**:
++ **信号量**:
++ **经典同步问题**:
++ **死锁**:
++ **文件系统**:
 
 ### 计算机网络
 
-+ [ISO]:
-+ **IP**:
-+ **TCP**:
++ **概述**:
+  [ISO](./doc/计算机网络/1.概述/OSI.md) /
+  [网络性能指标]
++ **物理层**:
++ **数据链路层**:
++ **网络层**:
++ **传输层**:
   [可靠传输] /
   [三握四挥] /
   [滑动窗口] /
   [socket] /
-+ **UDP**:
-+ **HTTP**:
-  [报文结构] /  
-  [缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
-  [常用状态码] /
-  [get, post] /
++ **应用层**:
+  [http-报文结构] /  
+  [http-缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
+  [http-常用状态码] /
+  [http-get, post] /
   [http2.0](./server/app-myblog.prod.js) /
-+ [HTTPS]
-+ [SMTP]
-+ [DNS](./server/views/Layout.js)
+  [HTTPS] /
+  [SMTP] /
+  [DNS](./server/views/Layout.js) /
+
 
 ### HTML5
 

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { actions } from '../../redux/reducers/Popup'
+import { actions } from '../../redux/Popup'
 
 import style from './index.css'
 

@@ -1,3 +1,6 @@
+import { get, post, api } from '../../fetch/axios'
+import jwt from 'jsonwebtoken'
+
 const initialState = {
   csrf_token: '',
   isAuthenticated: false,
@@ -15,11 +18,44 @@ export const actionTypes = {
 }
 
 export const actions = {
+
   login: function (data) {
-    return {
-      type: actionTypes.LOGIN,
-      data
+
+    return dispatch => {
+
+      post(api.loginApi(), data)
+        .then(res => {
+
+          if (res.retCode === 1) {
+
+            window.localStorage.setItem('access_token', res.access_token)
+
+            dispatch({
+              type: actionTypes.RESPONSE_LOGIN,
+              user: jwt.decode(res.access_token)
+            })
+
+            window.location.href = '/#/post'
+
+          } else if (res.retCode === 0) {
+
+            dispatch({
+              type: actionTypes.UPDATE_LOGINFAILTIMES
+            })
+
+            dispatch({
+              type: actionTypes.UPDATE_TIPS,
+              msg: res.msg
+            })
+          }
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
     }
+
   }
 }
 
