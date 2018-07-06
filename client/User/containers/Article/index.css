@@ -88,10 +88,6 @@
   font-size: 32px;
   text-align: center;
 }
-.comment-section {
-  margin-bottom: 10px;
-  overflow: hidden;
-}
 
 .article-desc-list {
   border: 20px solid;
@@ -142,22 +138,3 @@
   border-color: hackGreen;
 }
 /* reset article content end */
-
-
-/* 评论区开始 */
-.comment-info {
-  float: right;
-}
-
-/* 发表评论开始 */
-.area-textarea {
-  width: 100%;
-  min-height: 54px;
-  border: 1px solid;
-}
-.form-field {
-  margin-bottom: 10px;
-}
-.btn-isMemoried {
-  margin-left: 5px;
-}

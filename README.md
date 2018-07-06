@@ -6,6 +6,7 @@
 
 + 链接：[https://www.hellojm.cn](https://www.hellojm.cn)
 + github: [https://github.com/GarvenZhang/myblog](https://github.com/GarvenZhang/myblog)
++ api文档: [https://www.eolinker.com/#/share/index?shareCode=VhFswU](https://www.eolinker.com/#/share/index?shareCode=VhFswU)
 
 ### cms
 
@@ -33,6 +34,81 @@
 
 ## 二 知识点笔记:
 
+### 计算机基础
+
++ [补码/反码](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
++ [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [图片](./build/webpack.config.base.js)
++ **正则**:
+  [边界](./client/lib/reg.js) /
+  [环视](./client/lib/reg.js)
+  
+### 计算机组成原理
+
++ **概论**:
+  [计算机的基本概念](./doc/计算机组成原理/1.概论/1.1%20计算机的基本概念.md) / 
+  [系统硬件组成](./doc/计算机组成原理/1.概论/1.2%20系统硬件组成.md) /
+  [性能指标](./doc/计算机组成原理/1.概论/1.3%20性能指标.md)
++ **运算器和运算方法**:
++ **指令系统**:
++ **控制器和CPU组织**:
++ **存储系统**:
++ **输入输出**:  
+
+### 计算机操作系统
+
++ **启动、终端、异常和系统调用**:
+  [操作系统的启动](./doc/操作系统/2.启动、中断、异常和系统调用/2.1%20操作系统的启动.md)
+  [系统调用、异常、中断](./doc/操作系统/2.启动、中断、异常和系统调用/2.2%20系统调用、异常、中断.md)
++ **计算机体系结构和内存分层体系**:
++ **非连续内存分配**:
++ **虚拟内存的起因**:
++ **算法**:
++ **进程与线程**:
+  [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
++ **调度**:
++ **临界区**:
++ **信号量**:
++ **经典同步问题**:
++ **死锁**:
++ **文件系统**:
+
+### C语言程序设计
+
+### 计算机网络
+
++ **概述**:
+  [ISO](./doc/计算机网络/1.概述/OSI.md) /
+  [网络性能指标](./doc/计算机网络/1.概述/网络性能指标.md)
++ **物理层**:
+  [基本概念](./doc/计算机网络/2.物理层/2.1%20基本概念.md) /
+  [数据通信基础知识](./doc/计算机网络/2.物理层/2.2%20数据通信基础知识.md) /
+  [传输介质] /
+  [信道复用技术] /
+  [数字传输系统] /
+  [带宽接入技术]
++ **数据链路层**:
++ **网络层**:
++ **传输层**:
+  [可靠传输] /
+  [三握四挥] /
+  [滑动窗口] /
+  [socket] /
++ **应用层**:
+  [DNS](./server/views/Layout.js) /
+  [DHCP] /
+  [TELNET] /
+  [DRP] /
+  [http - 报文结构](./doc/curl.md) /
+  [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
+  [http - 常用状态码](./server/routes/router-index.js) /
+  [http - get, post] /
+  [http - 基本验证]
+  [http - restful架构](./server/routes/router-index.js)
+  [http2.0](./server/app-myblog.prod.js) /
+  [HTTPS] /
+  [SMTP] /
+  
 ### 数据结构
 
 + [栈](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/stack.js)
@@ -62,70 +138,36 @@
 + [排列组合]
 + [概率]
 + [约瑟夫环]
-+ [背包问题]
++ [背包问题]  
 
-### 计算机基础
+### 设计模式
 
-+ [补码/反码](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
-+ [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
-+ [图片](./build/webpack.config.base.js)
-+ **正则**:
-  [边界](./client/lib/reg.js) /
-  [环视](./client/lib/reg.js)
-  
-### 计算机组成原理
++ [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
++ [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js)
++ [模板方法模式]
++ [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
++ [MVC]
++ **MVVM**:
+  [发布-订阅] /
+  [脏检查] /
+  [数据劫持](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/index.js)
++ [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
++ [迭代器模式](./client/lib/iterator.js)
++ **代理模式**:
+  [保护代理] /
+  [虚拟代理](https://github.com/GarvenZhang/blog-file/blob/development/client/files-management/files-management.js) /
+  [缓存代理](./client/User/components/Header/index.jsx)
++ [策略模式](./client/lib/validator.js)
++ [组合模式]
++ [中介者模式]
++ [适配器模式]
++ [享元模式]
++ [责任链模式]  
 
-+ **概论**:
-  [计算机的基本概念](./doc/计算机组成原理/1.概论/1.1%20计算机的基本概念.md) /    
-  [系统硬件组成](./doc/计算机组成原理/1.概论/1.2%20系统硬件组成.md) /   
-  [性能指标](./doc/计算机组成原理/1.概论/1.3%20性能指标.md)    
-+ **运算器和运算方法**:
-+ **指令系统**:
-+ **控制器和CPU组织**:
-+ **存储系统**:
-+ **输入输出**:  
+### 测试
 
-### 计算机操作系统
-
-+ **绪论**:
-+ **启动、终端、异常和系统调用**:
-+ **计算机体系结构和内存分层体系**:
-+ **非连续内存分配**:
-+ **虚拟内存的起因**:
-+ **算法**:
-+ **进程与线程**:
-  [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
-
-+ **调度**:
-+ **临界区**:
-+ **信号量**:
-+ **经典同步问题**:
-+ **死锁**:
-+ **文件系统**:
-
-### 计算机网络
-
-+ **概述**:
-  [ISO](./doc/计算机网络/1.概述/OSI.md) /
-  [网络性能指标]
-+ **物理层**:
-+ **数据链路层**:
-+ **网络层**:
-+ **传输层**:
-  [可靠传输] /
-  [三握四挥] /
-  [滑动窗口] /
-  [socket] /
-+ **应用层**:
-  [http-报文结构] /  
-  [http-缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
-  [http-常用状态码] /
-  [http-get, post] /
-  [http2.0](./server/app-myblog.prod.js) /
-  [HTTPS] /
-  [SMTP] /
-  [DNS](./server/views/Layout.js) /
-
++ [BDD]
++ [TDD](./test/client/lib/type.test.js)
 
 ### HTML5
 
@@ -164,14 +206,14 @@
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
   [new本质](./client/lib/new.js)
+  [严格模式](../blog-file/package/koa/lib/application.js)
 + **this**:
   [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
-  [箭头函数](./client/Admin/containers/Info/index.jsx) /
+  [箭头函数](./client/Admin/containers/Info/index.jsx) - [箭头函数 - 多重箭头函数](./client/lib/curring.js) /
   [双冒号运算符](./client/Admin/containers/Info/index.jsx)
 + **类型**:
   [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
   [求数组最值] /
-    
 + **函数**:
   [创建方式](./client/User/components/Header/eventloop.js)
 + **面向对象**:
@@ -195,8 +237,8 @@
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + **高阶函数**:
-  [惰性函数] /
-  [偏函数] /
+  [惰性函数](../blog-file/client/lib/event.js) /
+  [偏函数](./client/lib/partial.js) /
   [柯里化](./client/lib/curring.js) /
   [防抖](./client/lib/debounce.js) /
   [节流] /
@@ -211,7 +253,8 @@
 + [ajax实现](./client/fetch/ajax.js)
 + **es6**:
   [rest参数] /
-  [类的静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) / 
+  [类-静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) /
+  [类-静态方法](./server/models/user.js)
   [promise模拟](./client/lib/promise.js) /
   [Decorator](./client/User/containers/Home/index.jsx)
 + **动画**:
@@ -220,6 +263,7 @@
   [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
   [碰撞检测]
 + **跨域**:
+  [同源策略](./client/Admin/containers/Login/index.jsx)
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
   [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/secret-login.html) /
@@ -242,11 +286,9 @@
 + **代码级别优化**:
   [达夫设备] /
     
-
-
 ### nodejs
 
-+ [时间循环]
++ [事件循环]
 + [单点登录]
 + [session]
 + [微型http服务器]
@@ -254,12 +296,17 @@
 
 ### koa
 
-+ [原理]
++ [阅读源码技巧](../blog-file/package/koa/lib/application.js)
++ **源码解读**:
+  [Application](../blog-file/package/koa/lib/application.js) /
+  [Context](../blog-file/package/koa/lib/context.js) /
+  [Request/Response](../blog-file/package/koa/lib/request.js) /
+  [Middlewares](../blog-file/package/koa-compose/index.js)
 
 ### mysql
 
-+ [ER图设计](https://garvenzhang.github.io/2018/01/20/myblog-01/#er%E5%9B%BE%E8%AE%BE%E8%AE%A1)
-+ [表相关](./doc/sql.md)
++ [数据库设计](./doc/mysql/1.数据库设计.md)
++ [表相关](doc/mysql/2.表操作.md)
 + **列相关**:
   [增](./server/models/article.js) /
   [删](./server/models/article.js) /
@@ -299,46 +346,39 @@
 + [压缩js](./build/webpack.config.prod.js)
 + [按需加载](./client/Admin/router/index.jsx)
 
-### 设计模式
-
-+ [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js)
-+ [模板方法模式]
-+ [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
-+ [MVC]
-+ **MVVM**:
-  [发布-订阅] /
-  [脏检查] /
-  [数据劫持](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/index.js)
-+ [数据双向绑定实现原理](https://github.com/GarvenZhang/GarvenZhang.github.io/blob/master/_posts/note/design-pattern/2017-09-05-the-principle-of-two-way-binding.md)
-+ [迭代器模式](./client/lib/iterator.js)
-+ **代理模式**:
-  [保护代理] /
-  [虚拟代理](https://github.com/GarvenZhang/blog-file/blob/development/client/files-management/files-management.js) /
-  [缓存代理](./client/User/components/Header/index.jsx)
-+ [策略模式](./client/lib/validator.js)
-+ [组合模式]
-+ [中介者模式]
-+ [适配器模式]
-+ [享元模式]
-+ [责任链模式]
-
 ### 安全
 
-+ [xss](./client/lib/security.js)
-+ [scrf](./client/Admin/containers/Login/index.jsx)
-+ [密码安全](./client/Admin/containers/Login/index.jsx)
-+ [点击劫持](./server/app-myblog.base.js)
++ **xss**:
+  [攻击过程](./client/lib/xss.js) /
+  [防御 - X-XSS-Protection](./server/app-myblog.base.js) /
+  [防御 - 转义](./client/lib/xss.js) /
+  [防御 - 富文本过滤](./client/User/containers/Article/index.jsx)
+  [防御 - csp](./server/middleware/csp.js)
++ **scrf**:
+  [攻击过程](./client/Admin/containers/Login/index.jsx) /
+  [防御 - referer验证](./server/middleware/referer.js) /
+  [防御 - sameSite](./server/controller/user.js) /
+  [防御 - token](./server/middleware/csrf_token.js) /
+  [防御 - 验证码](./server/middleware/captcha.js)
++ **cookie**:
+  [基础](./server/controller/user.js) /
+  [客户端读写cookie](./client/lib/cookie.js)
++ **点击劫持**:
+  [防御] /
+  [防御 - X-Frame-Options](./server/app-myblog.base.js)
++ **传输安全**
+  [窃听及原理](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js) /
+  [实现]
++ [密码安全](./server/controller/user.js)
++ **SQL注入**:
+  [注入过程] /
+  [防御 - ]
++ **上传漏洞**: 
+  [过程] /
+  [防御]
++ [OAuth 2.0](./server/auth/github.js)
 + [DDOS](./server/app-myblog.base.js)
-+ [SQL注入]
-+ [上传漏洞]
-+ [传输安全](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [重放攻击]
-
-### 测试
-
-+ [BDD]
-+ [TDD](./test/client/lib/type.test.js)
 
 ### 常见功能[原生实现]
 
@@ -366,3 +406,4 @@
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
 + [npm](./doc/npm.md)
++ [curl](./doc/curl.md)

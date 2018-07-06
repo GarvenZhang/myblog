@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import style from './index.css'
 
-import { escapeStr } from '../../../lib/security'
+import { escapeStr } from '../../../lib/xss'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
 import { actions as PopupActions } from '../../redux/Popup'
 import eventloop from './eventloop'

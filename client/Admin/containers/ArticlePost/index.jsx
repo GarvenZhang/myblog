@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import md5 from 'js-md5'
 
 import Sidebar from '../../components/Slidebar/index'
 import Upload from '../../components/Upload'
@@ -9,6 +10,8 @@ import simptrad from '../../../lib/simp-trad'
 import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
 import { actions as ArticleActions } from '../../redux/Article'
+import { get as getCookie} from '../../../lib/cookie'
+import config from '../../../../config'
 
 import style from './index.css'
 
@@ -53,6 +56,7 @@ class AdminArticlePost extends Component {
     data.prevId = this.props.prevId || 0
     data.nextId = this.props.nextId || 0
     data.cover = this.props.cover
+    data.csrf_token = config.getCsrfToken(md5, getCookie('sign'))
     this.props.save_article(data)
   }
 

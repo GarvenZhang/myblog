@@ -13,6 +13,7 @@ import Login from '../../client/Admin/containers/Login'
 
 import ArticleModel from '../models/article'
 import CategoryModel from '../models/tag'
+import csp from '../middleware/csp'
 
 // === ssr: 在服务器将数据(也可以有css,js)整合到html中发到浏览器而避免了拿到html后再请求数据的情况 === //
 // === 1 优点: === //
@@ -28,6 +29,8 @@ import CategoryModel from '../models/tag'
  * 首页
  */
 export async function index (ctx) {
+
+  // 获取state
   let ret = await ArticleModel.getLatest(0, 10)
   let store = configureStore({
     latestReducer: {
@@ -38,19 +41,27 @@ export async function index (ctx) {
       isEndPage: ret.isEndPage
     }
   })
+  const state = store.getState()
+
+  // 设置csp
+  csp(ctx, state)
+
+  // html
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <Home />
       </StaticRouter>
     </Provider>
-  ), store.getState(), 'home')
+  ), state, 'home')
+
 }
 
 /**
  * 最佳博文
  */
 export async function best (ctx) {
+
   let ret = await ArticleModel.getBest(0, 10)
   let store = configureStore({
     bestReducer: {
@@ -61,19 +72,24 @@ export async function best (ctx) {
       isEndPage: ret.isEndPage
     }
   })
+  const state = store.getState()
+
+  csp(ctx, state)
+
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <BestArticle />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), store)
 }
 
 /**
  * 文章页
  */
 export async function article (ctx) {
+
   let id = ctx.params.id
   let data = await ArticleModel.getArticle(id)
   let store = configureStore({
@@ -90,32 +106,41 @@ export async function article (ctx) {
       commentNum: 0
     }
   })
+  const state = store.getState()
+
+  csp(ctx, state)
+
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <Article />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), state)
 }
 
 /**
  * 类别
  */
 export async function category (ctx) {
+
   let ret = await CategoryModel.get()
   let store = configureStore({
     ArticleCategoryReducer: {
       data: ret.data
     }
   })
+  const state = store.getState()
+
+  csp(ctx, state)
+
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <ArticleCategory />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), state)
 }
 
 /**
@@ -132,19 +157,24 @@ export async function search (ctx) {
       isEndPage: ret.isEndPage
     }
   })
+  const state = store.getState()
+
+  csp(ctx, state)
+
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <Home />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), state)
 }
 
 /**
  * 登录页
  */
 export async function login (ctx) {
+
   // csrf_token
   const csrf_token = new Date().getTime()
   ctx.cookies.set('csrf_token', csrf_token, {
@@ -156,11 +186,15 @@ export async function login (ctx) {
       csrf_token
     }
   })
+  const state = store.getState()
+
+  csp(ctx, state)
+
   ctx.body = Layout(renderToString(
     <Provider store={store}>
       <StaticRouter location={ctx.url} context={{}}>
         <Login />
       </StaticRouter>
     </Provider>
-  ), store.getState())
+  ), state)
 }

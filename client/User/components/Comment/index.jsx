@@ -1,122 +1,63 @@
 import React, { Component } from 'react'
 
-import './index.css'
+import style from './index.css'
+import config from '../../../../config'
+
+const github = config.github
 
 // === sessionStorage: 会话级别的浏览器存储 === //
 // === 1 特点：5M左右, 仅存在客户端, 当前tab关闭后消失 === //
 // === 2 使用：表单信息的维护(防止页面 刷新后/跳转后 已填写的表单数据丢失)，是否支持webp等 === //
 
 class Comment extends Component {
+
   constructor (props) {
     super(props)
+
+    this.state = {
+      value: '',
+      name: '',
+      email: '',
+      isMemoried: ''
+    }
+
   }
 
   render () {
     return (
-      <div className='comment-wrap'>
-        评论区开始
-        <div className='comment-area'>
-          <h2 className='comment-tt'>评论区</h2>
-          <section className='comment-section'>
-            <p className='comment-info'>
+      <section className={style['comment-wrap']}>
+        <form className={`${style['form']} ${style['form--comment']}`} onSubmit={this.handleSubmit}>
+          <div className="form-bd">
+            <img src="./GitHub-Mark-32px.png" className="avator"/>
+            <textarea
+              className={style['textarea']}
+              name='commentContent'
+              value={this.state.value}
+              placeholder='请填写您的评论。(大神请怒喷^_^)'
+              onChange={this.handleInputChange} />
+          </div>
+          <div className="form-ft">
+            <a href={`${github.authorizeUrl}?client_id=${github.client_id}`} className="link link--signin">点此登录github进行认证</a>
+            <input
+              type='button'
+              className={style['btn-post']}
+              defaultValue='发表' />
+          </div>
+
+        </form>
+        <div className="comment-list">
+          <div className={style['comment-item']}>
+            <div className={style['comment-hd']}>
               <span>2018-01-27 10:22:33</span>
               <span>👍</span>
-              <span>引用</span>
-            </p>
-            <p><span className='comment-speaker'>小铭铭</span> 说：</p>
-            <div className='cite'>
-              <p>引用来xx的发言：</p>
-              <cite>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-              </cite>
+              <span>回复</span>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-            </p>
-          </section>
-          <section className='comment-section'>
-            <p className='comment-info'>
-              <span>2018-01-27 10:22:33</span>
-              <span>👍</span>
-              <span>引用</span>
-            </p>
-            <p><span className='comment-speaker'>小铭铭</span> 说：</p>
-            <div className='cite'>
-              <p>引用来xx的发言：</p>
-              <cite>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-              </cite>
+            <div className="comment-bd">
+              <p>KKKKKfjoewaifmkawflemafwfwefae</p>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-            </p>
-          </section>
-          <section className='comment-section'>
-            <p className='comment-info'>
-              <span>2018-01-27 10:22:33</span>
-              <span>👍</span>
-              <span>引用</span>
-            </p>
-            <p><span className='comment-speaker'>小铭铭</span> 说：</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-            </p>
-            <div className='cite'>
-              <p>引用来xx的发言：</p>
-              <cite>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.
-              </cite>
-            </div>
-          </section>
+          </div>
         </div>
-        发表评论开始
-        <div className='post-area'>
-          <h2 className='area-tt'>发表评论：</h2>
-          <form className='area-form' onSubmit={this.handleSubmit}>
-            <label className='form-field'>
-              <textarea
-                className='area-textarea'
-                name='commentContent'
-                value={this.state.value}
-                onChange={this.handleInputChange} />
-            </label>
-            <label className='form-field'>
-              名称：
-              <input
-                type='text'
-                className='inp-name'
-                name='name'
-                value={this.state.name}
-                onChange={this.handleInputChange} />
-            </label>
-            <label className='form-field'>
-              邮箱：
-              <input
-                type='text'
-                className='inp-email'
-                name='email'
-                value={this.state.email}
-                onChange={this.handleInputChange} />
-            </label>
-            <label className='fr form-field'>
-              <input
-                type='submit'
-                className='btn-post'
-                defaultValue='发表' />
-            </label>
-            <label className='form-field' htmlFor='btn-isMemoried' >
-              记住个人信息
-              <input
-                type='checkbox'
-                className='btn-isMemoried'
-                name='isMemoried'
-                id='btn-isMemoried'
-                value={this.state.isMemoried}
-                onChange={this.handleInputChange} />
-            </label>
-          </form>
-        </div>
-      </div>
+      </section>
     )
   }
 }

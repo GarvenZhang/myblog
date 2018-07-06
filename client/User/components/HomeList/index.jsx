@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import config from '../../../../config'
-import { escapeStr } from '../../../lib/security'
 import Img from '../Img'
 
 import style from './index.css'
 
 const getSrc = src => process.env.NODE_ENV === 'development'
-  ? config.dev.fileServerIP + escapeStr(src)
-  : config.prod.fileServerDomain + escapeStr(src)
+  ? config.dev.fileServerIP + src
+  : config.prod.fileServerDomain + src
 
 // === 代理模式: 当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对本体对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。 === //
 // === 1 类型: === //
@@ -38,7 +37,7 @@ class LatestItem extends Component {
     return (
       <li className={style['article-item']}>
         <Img src={getSrc(this.props.cover)} alt="" className={`${style['item-cover--LatestList']} fr`}/>
-        <a className={style['link']} target="_blank" href={`/article/${escapeStr(this.props.id)}`}>
+        <a className={style['link']} target="_blank" href={`/article/${this.props.id}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
         </a>
         <p className={style['item-summary']}>{this.props.summary}</p>

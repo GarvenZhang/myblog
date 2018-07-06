@@ -83,10 +83,15 @@ module.exports = (app) => {
   // === 3.2 X-Frame-Options === //
   // === 3.3 其它辅助手段：增加用户操作成本，如验证码 === //
 
+  // === xss防御 之 浏览器自带拦截: X-XSS-Protection, 防御 HTML节点内容 和 HTML属性 === //
+
   // http header
   app.use(async function (ctx, next) {
+
     ctx.set('X-XSS-Protection', '1; mode=block')
+
     ctx.set('X-Frame-Options', 'DENY')
+
 
     await next()
   })

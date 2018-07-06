@@ -8,6 +8,8 @@ import remarkReact from 'remark-react'
 
 import config from '../../../../config'
 import { actions as ArticleActions } from '../../redux/Article'
+import Comment from '../../components/Comment'
+import xss from '../../../lib/xss'
 
 import style from './index.css'
 
@@ -59,16 +61,24 @@ class Article extends Component {
 
   }
 
+  // === xss防御之富文本过滤: === //
+  // === 1 黑名单: 给出不通过的代码, 如`<script>`, `javascript:;`, `onerror`，但太多要考虑 === //
+  // === 1.1 实现原理: 正则替换 === //
+  // === 2 白名单：给出通过的代码，其它一律不通过, 如`img: src, alt, title`, 用于输入检出 / 输出检查，可用插件xss === //
+  // === 2.1 实现原理: 现将html解析成dom树, 遍历每个元素，只留下允许的，再返回新的字符 === //
+
   contentHandle () {
     const content = remark().use(remarkReact).processSync(this.changeImgUrl(this.props.content)).contents
     // console.log(content)
     // console.log(xss(content))
-    // return xss(content, {
-    //   whiteList: {
-    //     a: ['href', 'target'],
-    //     img: ['src', 'alt', 'title']
-    //   }
-    // })
+    return xss(content, {
+      whiteList: {
+        a: ['href', 'target'],
+        img: ['src', 'alt', 'title'],
+        p: [],
+        span: []
+      }
+    })
     return content
   }
 
@@ -148,6 +158,7 @@ class Article extends Component {
           {/* 右边栏结束 */}
           {/* 主体结束 */}
         </div>
+        <Comment/>
       </div>
     )
   }

@@ -184,7 +184,6 @@ class ArticleModel {
     const sql = `SELECT id, title, cover, summary, pubtime FROM Article ORDER BY pubtime DESC LIMIT ${pageNum * perPage}, ${perPage};`
     const [data] = await global.db.execute(sql)
     return {
-      retCode: 1,
       data,
       pageNum,
       perPage,
@@ -204,7 +203,6 @@ class ArticleModel {
       const sql = `SELECT id, title, readNum, likedNum, pubtime FROM Article ORDER BY likedNum DESC LIMIT ${pageNum * perPage}, ${perPage};`
       const [data] = await global.db.execute(sql)
       return {
-        retCode: 1,
         data,
         pageNum,
         perPage,
@@ -224,7 +222,6 @@ class ArticleModel {
       const sql = `SELECT id, title AS name FROM Article;`
       const [ret] = await global.db.execute(sql)
       return {
-        retCode: 1,
         data: ret
       }
     } catch (e) {
@@ -242,7 +239,6 @@ class ArticleModel {
       const sql = `SELECT id, title, readNum, likedNum, commentNum, pubtime FROM Article;`
       let [data] = await global.db.execute(sql)
       return {
-        retCode: 1,
         data,
         totalCount: data.length
       }
@@ -277,7 +273,6 @@ class ArticleModel {
         .slice(pageNum * perPage, endNum >= data.length ? data.length : endNum)
       // 结果返回
       return {
-        retCode: 1,
         data,
         pageNum,
         perPage,
@@ -297,14 +292,9 @@ class ArticleModel {
     try {
       const sql = `SELECT * FROM Article WHERE id = ${id};`
       const [ret] = await global.db.execute(sql)
-      return Object.assign({}, {
-        retCode: 1
-      }, ret[0])
+      return ret[0]
     } catch (e) {
       sqlError(e)
-      return {
-        retCode: 0
-      }
     }
   }
   /**
@@ -319,14 +309,10 @@ class ArticleModel {
         [param.title, param.summary, param.content, param.pubtime, param.articleTypeId, param.prevId, param.nextId, param.cover]
       )
       return {
-        retCode: 1,
         id: ret.insertId
       }
     } catch (e) {
       sqlError(e)
-      return {
-        retCode: 0
-      }
     }
   }
   /**

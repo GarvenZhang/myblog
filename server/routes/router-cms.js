@@ -1,21 +1,22 @@
 import Router from 'koa-router'
-import auth from '../middleware/auth'
+import auth from '../auth/auth'
 
 const router = new Router()
 
 // 标签
-router.get('/api/get_article_category', auth, require('../controller/tag').get)
-router.get('/api/del_article_category', auth, require('../controller/tag').del)
-router.post('/api/add_article_category', auth, require('../controller/tag').add)
+router.get('/api/category', auth, require('../controller/tag').get)
+router.delete('/api/category', auth, require('../controller/tag').del)
+router.post('/api/category', auth, require('../controller/tag').add)
 
 // 文章
-router.get('/api/get_all_list', auth, require('../controller/article').getAllList)
-router.get('/api/get_article_link_list', auth, require('../controller/article').getLink)
-router.get('/api/get_article', auth, require('../controller/article').getArticle)
-router.get('/api/get_search_list', auth, require('../controller/article').getSearchList)
-router.post('/api/add_article', auth, require('../controller/article').add)
-router.get('/api/del_article', auth, require('../controller/article').del)
-router.post('/api/update_article', auth, require('../controller/article').update)
+router.get('/api/article/alllist', auth, require('../controller/article').getAllList)
+router.get('/api/article/linklist', auth, require('../controller/article').getLink)
+router.get('/api/article', auth, require('../controller/article').getArticle)
+router.post('/api/article', auth, require('../controller/article').add)
+router.delete('/api/article', auth, require('../controller/article').del)
+router.update('/api/article', auth, require('../controller/article').update)
+
+router.get('/api/searchlist', auth, require('../controller/article').getSearchList)
 
 // user
 router.post('/api/login', require('../controller/user').login)

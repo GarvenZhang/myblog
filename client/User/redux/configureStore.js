@@ -19,6 +19,10 @@ button ---------> mid1 -> mid2 ---------> ... -> dispatch --------> reducer
 // === 3 middleware运行原理: === //
 // === 3.1 函数式编程思想设计: === //
 
+
+// === 函数组合: 利用compose将多个函数组合成一个函数，让代码从右向左执行而非由内而外执行，提高可读性 === //
+// ===  === //
+
 const middlewares = []
 
 let storeEnhancers =

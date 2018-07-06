@@ -519,6 +519,8 @@ https://developers.google.com/web/fundamentals/performance/http2/
 
 https://zhuanlan.zhihu.com/p/29609078
 
+http://www.ruanyifeng.com/blog/2018/03/http2_server_push.html
+
 87.开发环境，依赖分离，缓存
 
 https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
@@ -861,3 +863,32 @@ http://ruanyifeng.com/blog/2016/01/commit_message_change_log.html
 149 redux-thunk
 
 https://www.rails365.net/movies/redux-ru-men-jiao-cheng-15-redux-thunk-shi-jian-fa-song-ajax-qing-qiu-part
+
+150 restful:
+
+http://www.ruanyifeng.com/blog/2011/09/restful.html
+
+http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+151. auth 2.0
+
+http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
+
+152 er图与sql互换
+
+http://www.voidcn.com/article/p-qonzqqon-pt.html
+
+153 数据库设计——评论回复功能
+
+http://www.voidcn.com/article/p-ylvjsfdc-bha.html
+
+https://blog.csdn.net/lm1622/article/details/77950133
+
+154 webstorm 内存问题
+
+https://www.cnblogs.com/demyouyang/p/5838169.html
+
+155 同源策略: 
+
+http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+

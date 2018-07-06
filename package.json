@@ -36,6 +36,7 @@
     "koa-static": "^4.0.2",
     "koa-validate": "^1.0.7",
     "mysql2": "^1.5.2",
+    "node-fetch": "^2.1.2",
     "nodemailer": "^4.6.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

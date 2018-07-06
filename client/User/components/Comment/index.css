@@ -1,0 +1,14 @@
+.comment-wrap {
+  margin: 0 200px;
+  border-top: 1px dotted currentColor;
+}
+.textarea {
+  width: 100%;
+  min-height: 48px;
+  color: #00F900;
+  border: 1px solid #6c846c;
+  margin: 10px 0;
+}
+.textarea:focus {
+  box-shadow: inset -1px -1px 10px 0px #6c846c, inset 1px 1px 10px 0px #6c846c;
+}

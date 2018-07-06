@@ -1,58 +1,76 @@
-// === cookie: 因为http请求无状态，所以需要cookie去维护客户端状态 === //
-// === 1 生成方式:  === //
-// === 1.1 服务器: http response header 中的 set-cookie === //
-// === 1.2 客户端: document.cookie === //
-// === 2 使用场景: 用户浏览器与服务器的交互(用户个性化设置，用户识别标致等) === //
-// === 3 存储限制: === //
-// === 3.1 大小4KB左右 === //
-// === 3.2 需设置过期时间expires、max-age === //
-// === 3.3 只能读写更高的域: === //
-// === 3.3.a 若二级域名间想共享cookie, 则需要把cookie的domain设置为顶级的 === //
-// === 3.3.b cdn的域名和主域应分开，以减少流量损耗，因为静态资源一般不需要cookie === //
-// === 3.4 安全： === //
-// === 3.4.1 httpOnly不允许浏览器脚本读写； === //
-// === 3.4.2 secure只允许在https协议下传输cookie === //
-// === 3.4.3 samesite=strict不允许跨域传输cookie === //
+/**
+ * 获取cookie
+ * // === 思路: 从字符串中获取特定字符   === //
+ * // === 1 用例: "supportWebp=true; csrf_token=1530792624239" === //
+ * // === 2 获取如 csrf_token= 后面的位置, 截取到 ; 或者 结尾 === //
+ * @param {String} name - cookie名称
+ * @return {String}
+ */
+export function get (name) {
+
+  const cookie = document.cookie
+  const cName = encodeURIComponent(name) + '='
+  const cStart = cookie.indexOf(cName)
+  let cVal = ''
+
+  if (cStart > -1) {
+
+    let cEnd = cookie.indexOf(';', cStart)
+    if (cEnd === -1) {
+      cEnd = cookie.length
+    }
+
+    cVal = decodeURIComponent(cookie.substring(cStart + cName.length, cEnd))
+  }
+
+  return cVal
+}
 
 /**
- * cookie
+ * 设置cookie
+ * @param {String} name - cookie名称
+ * @param {String} value - 值
+ * @param {[Object]} options - 选项
  */
-export default {
-  get: function (name) {
+export function set (name, value, options) {
 
-  },
-  set: function (name, value, options) {
-    if (typeof options !== 'object') {
-      throw new Error('options must be a object')
-    }
-
-    let cookie = `${name}=${value};`
-
-    if (options.expires) {
-      cookie += `; expires=${options.expires.toUTCString()}`
-    }
-    if (options.maxAge) {
-      cookie += `; max-age=${options.maxAge}`
-    }
-    if (options.domain) {
-      cookie += `; domain=${options.domain}`
-    }
-    if (options.path) {
-      cookie += `; path=${options.path}`
-    }
-    if (options.httpOnly) {
-      cookie += `; httponly`
-    }
-    if (options.sameSite) {
-      cookie += `; samesite`
-    }
-    if (options.secure) {
-      cookie += `; secure`
-    }
-
-    document.cookie = cookie
-  },
-  unset: function (name, value, options) {
-    this.set(name, value)
+  if (typeof options !== 'object') {
+    throw new Error('options must be a object')
   }
+
+  let cookie = `${name}=${value};`
+
+  if (options.expires) {
+    cookie += `; expires=${options.expires.toUTCString()}`
+  }
+  if (options.maxAge) {
+    cookie += `; max-age=${options.maxAge}`
+  }
+  if (options.domain) {
+    cookie += `; domain=${options.domain}`
+  }
+  if (options.path) {
+    cookie += `; path=${options.path}`
+  }
+  if (options.httpOnly) {
+    cookie += `; httponly`
+  }
+  if (options.sameSite) {
+    cookie += `; samesite`
+  }
+  if (options.secure) {
+    cookie += `; secure`
+  }
+
+  document.cookie = cookie
+}
+
+/**
+ * 删除cookie
+ * @param {String} name - cookie名称
+ * @param {String} value - 值
+ * @param {[Object]} options - 选项
+ */
+export function unset (name, options = {expires: new Date(0)}) {
+  set(name, '', options)
 }
