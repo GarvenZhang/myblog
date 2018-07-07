@@ -6,7 +6,7 @@
 
 + 链接：[https://www.hellojm.cn](https://www.hellojm.cn)
 + github: [https://github.com/GarvenZhang/myblog](https://github.com/GarvenZhang/myblog)
-+ api文档: [https://www.eolinker.com/#/share/index?shareCode=VhFswU](https://www.eolinker.com/#/share/index?shareCode=VhFswU)
++ 前后端联调接口文档: [https://www.eolinker.com/#/share/index?shareCode=VhFswU](https://www.eolinker.com/#/share/index?shareCode=VhFswU)
 
 ### cms
 
@@ -83,17 +83,27 @@
 + **物理层**:
   [基本概念](./doc/计算机网络/2.物理层/2.1%20基本概念.md) /
   [数据通信基础知识](./doc/计算机网络/2.物理层/2.2%20数据通信基础知识.md) /
-  [传输介质] /
-  [信道复用技术] /
-  [数字传输系统] /
+  [传输介质](./doc/计算机网络/2.物理层/2.5%20传输介质.md) /
+  [信道复用技术](./doc/计算机网络/2.物理层/2.6%20信道复用技术.md) /
+  [数字传输系统](./doc/计算机网络/2.物理层/2.7%20数字传输系统.md) /
   [带宽接入技术]
 + **数据链路层**:
+  [基本概念] /
+  [封装成帧和透明传输] /
+  [差错检测] /
+  [PPP] /
+  [广播信道的数据链路层] /
+  [以太网] /
+  [MAC层和帧]
 + **网络层**:
 + **传输层**:
+  [功能] /
+  [UDP和TCP] /
+  [网络安全] /
   [可靠传输] /
-  [三握四挥] /
-  [滑动窗口] /
-  [socket] /
+  [流量控制] /
+  [拥塞控制] /
+  [运输连接管理]
 + **应用层**:
   [DNS](./server/views/Layout.js) /
   [DHCP] /
@@ -103,8 +113,8 @@
   [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
   [http - 常用状态码](./server/routes/router-index.js) /
   [http - get, post] /
-  [http - 基本验证]
-  [http - restful架构](./server/routes/router-index.js)
+  [http - 基本验证] /
+  [http - restful架构](./server/routes/router-index.js) /
   [http2.0](./server/app-myblog.prod.js) /
   [HTTPS] /
   [SMTP] /
@@ -209,7 +219,8 @@
   [严格模式](../blog-file/package/koa/lib/application.js)
 + **this**:
   [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
-  [箭头函数](./client/Admin/containers/Info/index.jsx) - [箭头函数 - 多重箭头函数](./client/lib/curring.js) /
+  [箭头函数](./client/Admin/containers/Info/index.jsx) /
+  [箭头函数 - 多重箭头函数](./client/lib/curring.js) /
   [双冒号运算符](./client/Admin/containers/Info/index.jsx)
 + **类型**:
   [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
@@ -364,18 +375,22 @@
   [基础](./server/controller/user.js) /
   [客户端读写cookie](./client/lib/cookie.js)
 + **点击劫持**:
-  [防御] /
-  [防御 - X-Frame-Options](./server/app-myblog.base.js)
+  [防御-X-Frame-Options](./server/app-myblog.base.js) /
+  [防御-js禁止内嵌](./client/User/index.jsx)
 + **传输安全**
-  [窃听及原理](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js) /
-  [实现]
+  [窃听及原理](../blog-file/app-fileServer.js) /
+  [nginx部署](./doc/nginx.md)
 + [密码安全](./server/controller/user.js)
 + **SQL注入**:
   [注入过程] /
-  [防御 - ]
+
 + **上传漏洞**: 
   [过程] /
-  [防御]
+  [防御 - 限制上传后缀] /
+  [防御 - 文件类型检查] /
+  [防御 - 文件内容检查] /
+  [防御 - 程序输出控制] /
+  [防御 - 权限控制] 
 + [OAuth 2.0](./server/auth/github.js)
 + [DDOS](./server/app-myblog.base.js)
 + [重放攻击]
@@ -395,6 +410,7 @@
 ### git
 
 + [常用命令](./doc/git/常用命令.md)
++ [基本操作](./doc/git/基本操作.md)
 + **团队合作**:
   [集中式工作流] /
   [功能分支工作流] /
