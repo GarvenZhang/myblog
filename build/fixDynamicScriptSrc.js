@@ -12,7 +12,7 @@ function FixDynamicScriptSrc () {
 FixDynamicScriptSrc.prototype.apply = function (compiler) {
   compiler.plugin('emit', function (compilation, callback) {
     for (const key in compilation.assets) {
-      if (!/(?:account|article-tag|chatroom|comment|general-catalogue|post|works)/.test(key)) {
+      if (!/(?:account|article-tag|chatroom|comment|general-catalogue|post|works|signup)/.test(key)) {
         continue
       }
 

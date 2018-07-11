@@ -4,12 +4,11 @@ import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import { Layout } from '../views/Layout.js'
-import configureStore from '../../client/User/redux/configureStore'
+import configureStore from '../../client/User/redux/store'
 import Home from '../../client/User/containers/Home'
 import BestArticle from '../../client/User/containers/BestArticle'
 import ArticleCategory from '../../client/User/containers/ArticleCategory'
 import Article from '../../client/User/containers/Article'
-import Login from '../../client/Admin/containers/Login'
 
 import ArticleModel from '../models/article'
 import CategoryModel from '../models/tag'
@@ -44,7 +43,7 @@ export async function index (ctx) {
   const state = store.getState()
 
   // 设置csp
-  csp(ctx, state)
+  csp(ctx, JSON.stringify(state))
 
   // html
   ctx.body = Layout(renderToString(
@@ -74,7 +73,7 @@ export async function best (ctx) {
   })
   const state = store.getState()
 
-  csp(ctx, state)
+  csp(ctx, JSON.stringify(state))
 
   ctx.body = Layout(renderToString(
     <Provider store={store}>
@@ -108,7 +107,7 @@ export async function article (ctx) {
   })
   const state = store.getState()
 
-  csp(ctx, state)
+  csp(ctx, JSON.stringify(state))
 
   ctx.body = Layout(renderToString(
     <Provider store={store}>
@@ -132,7 +131,7 @@ export async function category (ctx) {
   })
   const state = store.getState()
 
-  csp(ctx, state)
+  csp(ctx, JSON.stringify(state))
 
   ctx.body = Layout(renderToString(
     <Provider store={store}>
@@ -159,7 +158,7 @@ export async function search (ctx) {
   })
   const state = store.getState()
 
-  csp(ctx, state)
+  csp(ctx, JSON.stringify(state))
 
   ctx.body = Layout(renderToString(
     <Provider store={store}>
@@ -173,28 +172,28 @@ export async function search (ctx) {
 /**
  * 登录页
  */
-export async function login (ctx) {
-
-  // csrf_token
-  const csrf_token = new Date().getTime()
-  ctx.cookies.set('csrf_token', csrf_token, {
-    httpOnly: true
-  })
-
-  let store = configureStore({
-    UserReducer: {
-      csrf_token
-    }
-  })
-  const state = store.getState()
-
-  csp(ctx, state)
-
-  ctx.body = Layout(renderToString(
-    <Provider store={store}>
-      <StaticRouter location={ctx.url} context={{}}>
-        <Login />
-      </StaticRouter>
-    </Provider>
-  ), state)
-}
+// export async function login (ctx) {
+//
+//   // csrf_token
+//   const csrf_token = new Date().getTime()
+//   ctx.cookies.set('csrf_token', csrf_token, {
+//     httpOnly: true
+//   })
+//
+//   let store = configureStore({
+//     UserReducer: {
+//       csrf_token
+//     }
+//   })
+//   const state = store.getState()
+//
+//   csp(ctx, JSON.stringify(state))
+//
+//   ctx.body = Layout(renderToString(
+//     <Provider store={store}>
+//       <StaticRouter location={ctx.url} context={{}}>
+//         <Login />
+//       </StaticRouter>
+//     </Provider>
+//   ), state)
+// }

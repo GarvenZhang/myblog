@@ -25,7 +25,7 @@ const session = require('koa-session')
 const passport = require('koa-passport')
 const path = require('path')
 
-const config = require('../config')
+const config = require('./auth/config')
 
 // 基础中间件
 module.exports = (app) => {
@@ -49,7 +49,7 @@ module.exports = (app) => {
   // app.use(passport.session())
 
   // mysql挂载到global
-  global.connectionPool = mysql.createPool(config.dbConfig)
+  global.connectionPool = mysql.createPool(config.DB_CONFIG)
 
   // 拦截器
   validate(app)

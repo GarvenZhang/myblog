@@ -6,6 +6,7 @@ import md5 from 'js-md5'
 
 import Sidebar from '../../components/Slidebar/index'
 import Upload from '../../components/Upload'
+import Tipsbar from '../../components/TipsBar'
 import simptrad from '../../../lib/simp-trad'
 import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
@@ -68,6 +69,7 @@ class AdminArticlePost extends Component {
 
     return (
       <div className={'admin-page'}>
+        <Tipsbar/>
         <div className={'sildebar-wrap'}>
           <Sidebar />
         </div>

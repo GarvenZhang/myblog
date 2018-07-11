@@ -137,12 +137,12 @@ const config = {
         }
       },
       {
-        test: /\.(svg|eot|woff|ttf|woff2)$/,
+        test: /\.(svg|eot|woff|ttf|woff2|ico)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'font/[name].[ext]'
+              name: 'assets/[name].[ext]'
             }
           }
         ]

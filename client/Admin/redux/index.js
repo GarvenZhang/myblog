@@ -13,5 +13,5 @@ export default combineReducers({
   ArticleCategoryReducer,
   ArticleReducer,
   ArticleLinkListReducer,
-  UserReducer
+  UserReducer,
 })

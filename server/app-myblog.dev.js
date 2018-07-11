@@ -17,13 +17,14 @@ module.exports = function (port) {
 
   // 路由中间件
   app.use(
-    port === config.dev.indexServerPort ? require('../server/routes/router-index') : require('../server/routes/router-cms')
+    port === config.DEV.INDEX_SEVER_PORT ? require('../server/routes/router-index') : require('../server/routes/router-cms')
   )
     .use(router.allowedMethods())
 
   // 静态文件
+
   // 官网还是cms
-  app.use(serve(path.resolve(__dirname, `../dist/${port === config.dev.cmsServerPort ? 'cms' : 'index'}`), {
+  app.use(serve(path.resolve(__dirname, `../dist/${port === config.DEV.INDEX_SEVER_PORT ? 'index' : 'cms'}`), {
     maxage: 60,
     gzip: true,
     setHeaders: function (res, path, stat) {
@@ -31,8 +32,8 @@ module.exports = function (port) {
     }
   }))
 
-  // 字体
-  app.use(serve(path.resolve(__dirname, `../dist/font`), {
+  // 其它
+  app.use(serve(path.resolve(__dirname, `../dist/assets`), {
     maxage: 60,
     gzip: true,
     setHeaders: function (res, path, stat) {

@@ -5,9 +5,10 @@ const sqlError = require('./modelError')
 // === 2 父类的静态方法可被继承, 也可在子类中用super来调用 === //
 
 class UserModel {
+
   static async login (account) {
     try {
-      const sql = `SELECT * FROM Blogger WHERE account = '${account}';`
+      const sql = `SELECT * FROM User WHERE account = '${account}';`
       const [data] = await global.db.execute(sql)
       return {
         data: data[0]
@@ -19,9 +20,8 @@ class UserModel {
 
   static async updatePwd (id, password, salt) {
     try {
-      const sql = `UPDATE Blogger SET password = '${password}', salt = '${salt}' WHERE id = ${id};`
+      const sql = `UPDATE User SET password = '${password}', salt = '${salt}' WHERE id = ${id};`
       await global.db.execute(sql)
-
     } catch (e) {
       sqlError(e)
     }

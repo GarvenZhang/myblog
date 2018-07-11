@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import style from './index.css'
 
-import { escapeStr } from '../../../lib/xss'
+import { escapeHtml } from '../../../lib/xss'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
 import { actions as PopupActions } from '../../redux/Popup'
 import eventloop from './eventloop'
@@ -182,7 +182,7 @@ export default class Search extends Component {
                  onKeyPress={this.keypressHandle}
                  onChange={this.changeHandle}
                  onBlur={this.blurHandle}
-                 placeholder={escapeStr(this.state.title)}
+                 placeholder={escapeHtml(this.state.title)}
           />
           <input type="button"
                  className={style['search-btn']}

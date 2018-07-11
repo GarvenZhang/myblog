@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import md5 from 'js-md5'
 
 import config from '../../../../config'
@@ -10,10 +11,10 @@ import Cookies from '../../../lib/cookie'
 
 import style from './index.css'
 
-const { login } = UserActions
+const { login, update_captcha } = UserActions
 
 // === CSRF: 跨站请求伪造(用户登录A网站，A网站确认身份，B网站带着用户身份请求A网站) === //
-// === 1 攻击过程: 用户登录A网站, A网站后台把凭证放在cookie中；用户打开了B网站, B网站隐藏一个iframe, iframe中是登录A网站后的一个表单页面, 通过js代码submit表单达到冒充身份伪造请求的目的 === //
+// === 1 攻击过程: 用户在网站A页面中登录后，网站A后端会将凭证放在cookie中，之后用户发请求时后端就去cookie中拿凭证来确认用户身份。即用户登录之后，只要是网站A中的所有url请求都可以发送成功，因为发送时浏览器会自动携带域的cookie。那么，攻击者就可以让用户去请求网站A的后端，比如直接发给用户一个请求网站A后端的url，比如诱导他打开一个自动提交表单数据到网站A后端的网站，比如往他的留言中发一个带有请求url的图片等 === //
 // === 2 攻击特征及防御手段 === //
 // === 2.1 B网站向A网站请求, 带A网站的cookie: samesite === //
 // === 2.2 不访问A网站前端: 由于同源策略也拿不到A网站的节点内容和cookie, 在前端页面加入验证信息 - 验证码 / token === //
@@ -41,24 +42,30 @@ const { login } = UserActions
 class Login extends Component {
   constructor (props) {
     super(props)
+
     this.state = {
       account: '',
       password: '',
-      csrf_token: '',
       captchaTxt: '',
-      captchaId: ''
+      role: 1
     }
+
     this.changeHandle = this.changeHandle.bind(this)
     this.submitHandle = this.submitHandle.bind(this)
-    this.clickHandle = this.clickHandle.bind(this)
   }
 
   componentWillMount () {
+
+    // 若已登录，自动跳去管理界面
     if (window.localStorage.getItem('access_token')) {
       window.location = '/#/post'
     }
+
   }
 
+  /**
+   * 表单字段数据处理
+   */
   changeHandle (e) {
     const name = e.target.name
     const val = e.target.value
@@ -67,31 +74,27 @@ class Login extends Component {
     })
   }
 
-  clickHandle (e) {
-    this.setState({
-      captchaId: new Date().getTime()
-    })
-  }
-
+  /**
+   * 提交表单
+   */
   submitHandle (e) {
+
     e.preventDefault()
+
     // 加密
     const password = config.cryptoPwd(md5, this.state.account, this.state.password)
+
     // 请求
-    const data = Object.assign({
+    const data = {
       account: this.state.account,
-      csrf_token: this.state.csrf_token,
       captchaTxt: this.state.captchaTxt,
-      loginFailTimes: this.props.loginFailTimes
-    }, {
-      password
-    })
+      password,
+      role: this.state.role
+    }
+
+    // 登录
     this.props.login(data)
 
-    // 改变验证码id
-    this.setState({
-      captchaId: new Date().getTime()
-    })
   }
 
   render () {
@@ -129,27 +132,26 @@ class Login extends Component {
           </div>
           <div className={style['field']}>
             {
-              this.props.loginFailTimes >= 1
-              ? <div className={`${style['field-inner']} ${style[this.props.loginFailTimes >= 1 ? '' : 'hide']}`}>
+              <div className={`${style['field-inner']} ${style[this.props.loginFailTimes >= 1 ? '' : 'hide']}`}>
                 <img
                   className={style['img']}
-                  src={`/api/captcha?csrf_token=${this.state.csrf_token}&id=${this.state.captchaId}`}
+                  src={`/api/captcha?id=${this.props.captchaId}`}
                   alt='图片验证码'
-                  onClick={this.clickHandle}
-                  />
+                  onClick={this.props.update_captcha}
+                />
                 <input
                   type='text'
                   name='captchaTxt'
                   value={this.state.captchaTxt}
                   onChange={this.changeHandle}
                   className={style['inp-captcah']}
-                  />
+                />
               </div>
-              : ''
             }
           </div>
           <div className={style['field']}>
             <div className={style['field-inner']}>
+              <Link className={style['link']} to='/signup'>游客登录</Link>
               <input type='hidden' value={this.state.csrf_token} />
               <input type='submit' className={style['btn-submit']} value='登录' />
             </div>
@@ -160,9 +162,7 @@ class Login extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      csrf_token: Cookies.get('csrf_token')
-    })
+
   }
 }
 
@@ -172,7 +172,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    login: bindActionCreators(login, dispatch)
+    login: bindActionCreators(login, dispatch),
+    update_captcha: bindActionCreators(update_captcha, dispatch)
   }
 }
 

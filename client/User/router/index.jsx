@@ -14,10 +14,10 @@ const IndexRouteMap = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route path='/article-search' component={SearchList} />
-      <Route path='/best-article' component={BestArticle} />
-      <Route path='/article-category' component={ArticleCategory} />
-      <Route path='/collection-of-works' component={CollectionOfWorks} />
+      <Route path='/search' component={SearchList} />
+      <Route path='/bestlist' component={BestArticle} />
+      <Route path='/category' component={ArticleCategory} />
+      <Route path='/works' component={CollectionOfWorks} />
       <Route path='/article/:id' component={Article} />
       <Route component={NoMatch} />
     </Switch>

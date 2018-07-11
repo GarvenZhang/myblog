@@ -591,6 +591,8 @@ https://codeburst.io/100-free-resources-to-learn-full-stack-web-development-5b40
 
 https://blog.techbridge.cc/2017/02/25/csrf-introduction/
 
+https://segmentfault.com/a/1190000003716037?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
 100. 还没能力研究webpack-dev-middleware，不知道热更新和其内置express的原理是如何的，因此无法将express去除
 
 理想情况应该是自己的koa服务器有能力实现webpack编译以及热更新，而无需要express
@@ -600,6 +602,8 @@ https://blog.techbridge.cc/2017/02/25/csrf-introduction/
 102. react-router 跳转方式
 
 https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router
+
+https://www.oudahe.com/p/46366/
 
 103. 请求头中有Cache-Control: no-cache
 
@@ -891,4 +895,30 @@ https://www.cnblogs.com/demyouyang/p/5838169.html
 155 同源策略: 
 
 http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+
+156. csp
+
+http://www.ruanyifeng.com/blog/2016/09/csp.html
+
+https://imququ.com/post/content-security-policy-reference.html
+
+157. redux
+
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+158 纯函数
+
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+https://github.com/joeyguo/blog/issues/10
+
+159 函数组合
+
+https://github.com/joeyguo/blog/issues/10
+
+160 nodejs modules
+
+https://segmentfault.com/a/1190000015139548
+
+http://www.ruanyifeng.com/blog/2015/05/require.html
 

@@ -11,7 +11,7 @@ module.exports = async function (ctx, next) {
   // === 1.1 发送条件: 当协议为 file / data / 当前网站为非安全协议而源网站为安全协议时 不会被发送 === //
   // === 1.2 值: 绝对路径或者相对路径 === //
   if (
-    (isDev && /^http:\/\/localhost:8080/.test(referer)) ||
+    (isDev && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
     (!isDev && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
   ) {
     return await next()

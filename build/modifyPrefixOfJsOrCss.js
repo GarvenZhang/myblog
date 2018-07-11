@@ -19,6 +19,7 @@ ModifyPrefixOfJsOrCssPlugin.prototype.apply = function (compiler) {
         cb(null, data)
       }
     )
+
   })
 }
 

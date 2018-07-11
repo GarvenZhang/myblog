@@ -40,8 +40,9 @@ const config = require('../config')
 
   方法：将webpack-dev-server中Server.js中的 defaultFeatures.push('proxy', 'middleware'); 的push改为unshift
  */
-const createIndexServer = (port) => {
-  const proxyPort = port === config.indexPort ? config.dev.indexServerPort : config.dev.cmsServerPort
+const createDevServer = (port) => {
+
+  const proxyPort = port === config.DEV.INDEX_PORT ? config.DEV.INDEX_SEVER_PORT : config.DEV.CMS_SERVER_PORT
 
   let app = new WebpacDevServer(webpack(webpackConfig), {
     contentBase: false,
@@ -52,6 +53,7 @@ const createIndexServer = (port) => {
     stats: {
       colors: true
     },
+    disableHostCheck: true,
     // noInfo: true,
     headers: {
       'Set-Cookie': `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`,
@@ -71,5 +73,5 @@ const createIndexServer = (port) => {
   })
 }
 
-createIndexServer(config.indexPort)
-createIndexServer(config.cmsPort)
+createDevServer(config.DEV.INDEX_PORT)
+createDevServer(config.DEV.CMS_PORT)

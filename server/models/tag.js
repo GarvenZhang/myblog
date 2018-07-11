@@ -8,8 +8,8 @@ const sqlError = require('./modelError')
 async function get (id) {
   try {
     const sql = typeof id === 'undefined'
-      ? `SELECT id, name, (SELECT COUNT(*) FROM Article WHERE Article.Category_id = Category.id) AS count FROM Category;`
-      : `SELECT id, name, (SELECT COUNT(*) FROM Article WHERE Article.Category_id = ${id}) AS count FROM Category WHERE id = ${id};`
+      ? `SELECT id, name, (SELECT COUNT(*) FROM Article WHERE Article.category_id = Category.id) AS count FROM Category;`
+      : `SELECT id, name, (SELECT COUNT(*) FROM Article WHERE Article.category_id = ${id}) AS count FROM Category WHERE id = ${id};`
     const [data] = await global.db.execute(sql)
     return {
       data

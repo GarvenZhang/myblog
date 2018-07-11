@@ -1,4 +1,4 @@
-import { get, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 
 const initialStateForLatest = {
   data: [],
@@ -46,12 +46,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getLatestListApi(pageNum, perPage))
+      api.get_article_latestlist(pageNum, perPage)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_LATEST_LIST,
@@ -64,7 +60,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.message)
         })
 
     }
@@ -76,12 +72,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getBestListApi(pageNum, perPage))
+      api.get_article_bestlist(pageNum, perPage)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_BEST_LIST,
@@ -94,7 +86,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.message)
         })
 
     }
@@ -105,12 +97,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getSearchListFlow(title, pageNum, perPage))
+      api.get_searchlist(title, pageNum, perPage)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_SEARCH_LIST,
@@ -123,7 +111,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.message)
         })
 
     }

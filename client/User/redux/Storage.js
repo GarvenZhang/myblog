@@ -1,4 +1,4 @@
-import { get, api } from '../../fetch/axios'
+import { get, api } from '../fetch/axios'
 
 
 const initialState = {

@@ -6,7 +6,7 @@
  * @param {String} name - cookie名称
  * @return {String}
  */
-export function get (name) {
+function get (name) {
 
   const cookie = document.cookie
   const cName = encodeURIComponent(name) + '='
@@ -32,7 +32,7 @@ export function get (name) {
  * @param {String} value - 值
  * @param {[Object]} options - 选项
  */
-export function set (name, value, options) {
+function set (name, value, options) {
 
   if (typeof options !== 'object') {
     throw new Error('options must be a object')
@@ -71,6 +71,12 @@ export function set (name, value, options) {
  * @param {String} value - 值
  * @param {[Object]} options - 选项
  */
-export function unset (name, options = {expires: new Date(0)}) {
+function unset (name, options = {expires: new Date(0)}) {
   set(name, '', options)
+}
+
+export default {
+  get,
+  set,
+  unset
 }

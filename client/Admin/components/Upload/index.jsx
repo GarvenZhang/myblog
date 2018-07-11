@@ -4,7 +4,7 @@ import style from './index.css'
 
 import type from '../../../lib/type'
 import config from '../../../../config'
-import { api } from '../../../fetch/axios'
+import { api } from '../../../User/fetch/axios'
 
 const ImgItem = function (props) {
   return (

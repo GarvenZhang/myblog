@@ -1,4 +1,4 @@
-import { get, post, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 
 const initialState = {
   title: '',
@@ -21,12 +21,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getArticleApi(id))
+      api.get_article(id)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_ARTICLE,

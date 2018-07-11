@@ -1,25 +1,24 @@
 const md5 = require('js-md5')
 
 const UserModel = require('../models/user')
-const config = require('../../config')
+const config = require('../auth/config')
 const pwd = require('../middleware/password')
 const jwt = require('jsonwebtoken')
-const validReferer = require('../middleware/referer')
 const captcha = require('../middleware/captcha')
 const errorMsg = require('../middleware/errorMsg')
+
+const ISDEV = process.env.NODE_ENV === 'development'
 
 class UserCtrl {
 
   static async login (ctx) {
 
     const {
-      account, password, captchaTxt
+      account, password, captchaTxt, role
     } = ctx.request.body
 
     // 图片验证码
-    const uid = ctx.cookies.get('uid')
-
-    if (!captcha.validCache(uid, captchaTxt)) {
+    if (!captcha.validCache(ctx, captchaTxt)) {
       ctx.status = 401
       ctx.body = {
         message: '验证码错误'
@@ -33,13 +32,13 @@ class UserCtrl {
     // 500
     if (!ret) {
       ctx.status = 500
-      ctx.body = errorMsg[500]
+      ctx.body = errorMsg(500)
       return
     }
 
     // 不存在
     if (!ret.data) {
-      ctx,status = 404
+      ctx.status = 404
       ctx.body = {
         message: '不存在此用户！'
       }
@@ -79,10 +78,13 @@ class UserCtrl {
 
     // salt升级及加密
     let salt = ret.data.salt
-    if (!salt) {
+    if (!salt && role == 1) {
       salt = pwd.getSalt()
+      // 加密密码，与前端加密密码算法一致
       const cryptedPwd = config.cryptoPwd(md5, ret.data.account, ret.data.password)
+      // 密码加盐
       const newPassword = pwd.encryptPassword(salt, cryptedPwd)
+      // 存进数据库
       await UserModel.updatePwd(ret.data.id, newPassword, salt)
     }
 
@@ -130,18 +132,41 @@ class UserCtrl {
     // === 7.3 httpOnly / sameSite / secure === //
     
     // uid + sign
+    // 用了jwt后其实此处还未有用处 。。。
     ctx.cookies.set('uid', ret.data.id, {
       expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
-      httpOnly: false,
+      httpOnly: true,
       sameSite: 'strict',
-      secure: true
+      secure: !ISDEV
     })
     ctx.cookies.set('sign', config.cryptoSign(md5, ret.data.id), {
       expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
-      httpOnly: false,
+      httpOnly: true,
       sameSite: 'strict',
-      secure: true
+      secure: !ISDEV
     })
+
+    // === jwt: 在用户与服务器之间传递安全可靠信息的规范 === //
+    // === 1 组成: header.playload.signature === //
+    // === 1.1 header: jwt的基本信息，如算法，类型等 === //
+    // === 1.2 playload: 需要传递的信息，如uid === //
+    // === 1.3 signature: header + playload + secret === //
+
+    const AUTH = config.AUTH
+
+    const playload = {
+      uid: ret.data.id,
+      role: ret.data.role
+    }
+
+    const access_token = jwt.sign(playload, AUTH.JWT_SECRET, {
+      algorithm: AUTH.ALGORITHM,
+      expiresIn: AUTH.EXPIRESIN
+    })
+
+    ctx.body = {
+      access_token
+    }
 
     // 删除图片验证码记录
     if (captchaTxt) {
@@ -149,6 +174,9 @@ class UserCtrl {
     }
   }
 
+  /**
+   * 获取验证码
+   */
   static async getCaptcha (ctx) {
     captcha.get(ctx)
   }

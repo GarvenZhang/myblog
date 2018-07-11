@@ -1,0 +1,29 @@
+.tipsbar-wrap {
+  position:  fixed;
+  top:  0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.tips--0 {
+  letter-spacing: 5em;
+  background-color: #3f7086;
+}
+.tips--1 {
+  background-color: #2eac6d;
+}
+.tips--2 {
+  background-color: yellow;
+}
+.theme {
+  color: red;
+  font-weight: 800;
+}
+.link {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.link:hover {
+  color: blue
+}

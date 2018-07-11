@@ -5,6 +5,6 @@ dist/
 
 ## 安全
 
-config.js
-1_www.hellojm.cn_bundle.crt
-2_www.hellojm.cn.key
+./server/auth/config.js
+./server/auth/1_www.hellojm.cn_bundle.crt
+./server/auth/2_www.hellojm.cn.key

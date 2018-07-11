@@ -1,4 +1,4 @@
-import { get, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 import { actionTypes as ArticleActionTypes } from './Article'
 
 const initialState = {
@@ -16,7 +16,7 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getArticleLinkListApi())
+      api.get_article_linkList()
         .then(res => {
 
           dispatch({
@@ -36,7 +36,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err.message)
         })
     }
 

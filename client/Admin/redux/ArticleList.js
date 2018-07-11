@@ -1,4 +1,4 @@
-import { get, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 
 const initialStateForLatest = {
   data: [],
@@ -46,15 +46,60 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getLatestListApi(pageNum, perPage))
+      api.get_article_latestlist(pageNum, perPage)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_LATEST_LIST,
+            data: res.data,
+            pageNum: res.pageNum,
+            perPage: res.perPage,
+            totalCount: res.totalCount,
+            isEndPage: res.isEndPage
+          })
+
+        })
+        .catch(err => {
+          console.error(err.message)
+        })
+    }
+
+  },
+
+  get_best_list: function (pageNum, perPage) {
+
+    return dispatch => {
+
+      api.get_article_bestlist(pageNum, perPage)
+        .then(res => {
+
+          dispatch({
+            type: actionTypes.RESPONSE_BEST_LIST,
+            data: res.data,
+            pageNum: res.pageNum,
+            perPage: res.perPage,
+            totalCount: res.totalCount,
+            isEndPage: res.isEndPage
+          })
+
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+    }
+
+  },
+
+  get_search_list: function (title, pageNum, perPage) {
+
+    return dispatch => {
+
+      api.get_article_linkList(title, pageNum, perPage)
+        .then(res => {
+
+          dispatch({
+            type: actionTypes.RESPONSE_SEARCH_LIST,
             data: res.data,
             pageNum: res.pageNum,
             perPage: res.perPage,
@@ -70,71 +115,12 @@ export const actions = {
 
   },
 
-  get_best_list: function (pageNum, perPage) {
-
-    return dispatch => {
-
-      get(api.getBestListApi(pageNum, perPage))
-        .then(res => {
-
-          if (res.retCode !== 1) {
-
-            dispatch({
-              type: actionTypes.RESPONSE_BEST_LIST,
-              data: res.data,
-              pageNum: res.pageNum,
-              perPage: res.perPage,
-              totalCount: res.totalCount,
-              isEndPage: res.isEndPage
-            })
-
-          }
-
-        })
-        .catch(err => {
-          console.log(err)
-        })
-
-    }
-
-  },
-
-  get_search_list: function (title, pageNum, perPage) {
-
-    return dispatch => {
-
-      get(api.getSearchListApi(title, pageNum, perPage))
-        .then(res => {
-
-          if (res.retCode !== 1) {
-            dispatch({
-              type: actionTypes.RESPONSE_SEARCH_LIST,
-              data: res.data,
-              pageNum: res.pageNum,
-              perPage: res.perPage,
-              totalCount: res.totalCount,
-              isEndPage: res.isEndPage
-            })
-          }
-
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
-
-  },
-
   get_all_list: function () {
 
     return diapatch => {
-    
-      get(api.getAllList())
-        .then(res => {
 
-          if (res.retCode !== 1) {
-            return
-          }
+      api.get_article_alllist()
+        .then(res => {
 
           diapatch({
             type: actionTypes.RESPONSE_All_LIST,

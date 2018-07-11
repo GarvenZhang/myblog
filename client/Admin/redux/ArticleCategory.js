@@ -1,4 +1,4 @@
-import { get, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 import { actionTypes as ArticleActionTypes } from './Article'
 
 const initialState = {
@@ -15,12 +15,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getCategoryListApi())
+      api.get_category()
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_CATEGORY_LIST,
@@ -34,7 +30,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err.message)
         })
 
     }

@@ -30,25 +30,31 @@ class ArticleListCtrl {
    * 获取文章链接列表
    */
   static async getLink (ctx) {
+
     // 从缓存中获取
     let data = cache.get('linkList')
+
     // 没有，则从数据库中获取
     if (!data) {
       data = await ArticleModel.getLink()
       data = JSON.stringify(data)
     }
+    
     // 生成etag
     const hash = crypto.createHash('sha256')
     hash.update(data)
     const etag = hash.digest('hex')
+
     // 判断304
     const IfNodeMatch = ctx.headers['if-none-match']
     if (IfNodeMatch === etag) {
       ctx.status = 304
     } else {
       ctx.set('Etag', etag)
+      ctx.status = 200
       ctx.body = data
     }
+    
   }
   /**
    * 获取查询结果

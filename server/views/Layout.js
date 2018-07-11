@@ -43,13 +43,12 @@ if (process.env.NODE_ENV === 'production') {
         <meta name="description" content="张益铭的个人博客，张益铭的技术作品，张益铭的博文">
         <meta name="author" content="张益铭, GarvenZhang">
         <title>张益铭的个人博客</title>
+        <link rel="icon" href="/favicon.ico" >
         <link href="/index.css" rel="stylesheet">
       </head>
       <body>
         <div id="root">${content}</div>
-        <script >
-          window.__REDUX_DATA__ = ${JSON.stringify(data)}
-        </script>
+        <script >window.__REDUX_DATA__ = ${JSON.stringify(data)}</script>
         <script src="/react.dll.js"></script>
         <script src="/redux.dll.js"></script>
         <script src="/axios.dll.js"></script>
@@ -74,13 +73,12 @@ if (process.env.NODE_ENV === 'production') {
         <meta content="张益铭的个人博客，张益铭的技术作品，张益铭的博文" name="description">
         <meta content="张益铭, GarvenZhang" name="author">
         <title></title>
+        <link rel="icon" href="/favicon.ico" >
         <link href="/index.css" rel="stylesheet">
       </head>
       <body>
         <div id="root">${content}</div>
-        <script >
-          window.__REDUX_DATA__ = ${JSON.stringify(data)}
-        </script>
+        <script >window.__REDUX_DATA__ = ${JSON.stringify(data)}</script>
         <script type="text/javascript" src="/index.js"></script>
         </body>
       </html>

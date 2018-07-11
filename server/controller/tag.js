@@ -5,6 +5,7 @@ class CategoryCtrl {
    * 获取标签
    */
   static async get (ctx) {
+    ctx.status = 200
     ctx.body = await CategoryModel.get(ctx.query.id)
   }
   /**

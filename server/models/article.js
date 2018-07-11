@@ -181,7 +181,7 @@ class ArticleModel {
    */
   static async getLatest (pageNum = 0, perPage = 10) {
     const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS totalCount FROM Article;')
-    const sql = `SELECT id, title, cover, summary, pubtime FROM Article ORDER BY pubtime DESC LIMIT ${pageNum * perPage}, ${perPage};`
+    const sql = `SELECT id, title, cover_url, summary, pubtime FROM Article ORDER BY pubtime DESC LIMIT ${pageNum * perPage}, ${perPage};`
     const [data] = await global.db.execute(sql)
     return {
       data,
@@ -199,8 +199,8 @@ class ArticleModel {
    */
   static async getBest (pageNum = 0, perPage = 10) {
     try {
-      const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS totalCount FROM Article;')
-      const sql = `SELECT id, title, readNum, likedNum, pubtime FROM Article ORDER BY likedNum DESC LIMIT ${pageNum * perPage}, ${perPage};`
+      const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS total_count FROM Article;')
+      const sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article ORDER BY liked_num DESC LIMIT ${pageNum * perPage}, ${perPage};`
       const [data] = await global.db.execute(sql)
       return {
         data,
@@ -236,7 +236,7 @@ class ArticleModel {
    */
   static async getAllList () {
     try {
-      const sql = `SELECT id, title, readNum, likedNum, commentNum, pubtime FROM Article;`
+      const sql = `SELECT id, title, read_num, liked_num, comment_num, pubtime FROM Article;`
       let [data] = await global.db.execute(sql)
       return {
         data,
@@ -256,7 +256,7 @@ class ArticleModel {
   static async getSearchList (title, pageNum, perPage) {
     try {
       // 查询
-      const sql = `SELECT id, title, readNum, likedNum, pubtime FROM Article WHERE title LIKE '%${title}%';`
+      const sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article WHERE title LIKE '%${title}%';`
       let [data] = await global.db.execute(sql)
       // 筛选
       let endNum = pageNum * perPage + perPage
@@ -305,7 +305,7 @@ class ArticleModel {
   static async add (param) {
     try {
       const [ret] = await global.db.execute(
-        'INSERT INTO Article(title, summary, content, pubtime, articleType_id, prevId, nextId, cover) VALUES(?, ?, ?, ?, ?, ?, ?, ?);',
+        'INSERT INTO Article(title, summary, content, pubtime, category_id, prev_id, next_id, cover) VALUES(?, ?, ?, ?, ?, ?, ?, ?);',
         [param.title, param.summary, param.content, param.pubtime, param.articleTypeId, param.prevId, param.nextId, param.cover]
       )
       return {
@@ -334,7 +334,7 @@ class ArticleModel {
   static async update (param) {
     try {
       await global.db.execute(
-        'UPDATE Article SET title = ?, summary = ?, content = ?, pubtime = ?, articleType_id = ?, prevId = ?, nextId = ?);',
+        'UPDATE Article SET title = ?, summary = ?, content = ?, pubtime = ?, category_id = ?, prev_id = ?, next_id = ?);',
         [param.title, param.summary, param.content, param.pubtime, param.articleTypeId, param.prevId, param.nextId]
       )
     } catch (e) {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import Side from '../../components/Slidebar/index'
 import { SecondaryPasswordLogin } from '../../components/Form/index'
-import jsonp from '../../../fetch/jsonp'
+import jsonp from '../../../User/fetch/jsonp'
 import trieTree from './trieTree'
-import { api } from '../../../fetch/axios'
+import { api } from '../../../User/fetch/axios'
 
 import style from './index.css'
 

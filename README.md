@@ -110,7 +110,8 @@
   [DRP] /
   [http - 报文结构](./doc/curl.md) /
   [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
-  [http - 常用状态码](./server/routes/router-index.js) /
+  [http - 状态码 - 类别](client/User/fetch/axios.js) /
+  [http - 状态码 - 常用](./server/routes/router-index.js) /
   [http - get, post] /
   [http - 基本验证] /
   [http - restful架构](./server/routes/router-index.js) /
@@ -184,6 +185,7 @@
 + [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [Websocket]
 + [svg]
++ [script异步加载](../blog-file/source/class-contact/index.html)
 
 ### CSS
 
@@ -246,7 +248,7 @@
   [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
-+ **高阶函数**:
++ **高级**:
   [惰性函数](../blog-file/client/lib/event.js) /
   [偏函数](./client/lib/partial.js) /
   [柯里化](./client/lib/curring.js) /
@@ -255,18 +257,20 @@
   [深拷贝](./client/lib/deepCopy.js) /
   [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
   [懒加载] /
-  [函数组合] /
+  [函数组合](../blog-file/package/redux/src/compose.js)/
   [函数记忆] /
   [去重] /
+  [纯函数](./client/User/redux/Popup.js) /
   [斐波那契/尾递归](./client/lib/fibonacci.js) /
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
-+ [ajax实现](./client/fetch/ajax.js)
++ [ajax实现](client/User/fetch/ajax.js)
 + **es6**:
   [rest参数] /
   [类-静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) /
   [类-静态方法](./server/models/user.js)
   [promise模拟](./client/lib/promise.js) /
-  [Decorator](./client/User/containers/Home/index.jsx)
+  [Decorator](./client/User/containers/Home/index.jsx) /
+  [module加载] /
 + **动画**:
   [setTimeout，setInterval与requestAnimationFrame] /
   [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
@@ -298,11 +302,16 @@
     
 ### nodejs
 
++ **源码解析**:
+  [Module] /
+  [http] /
+  [net] /
 + [事件循环]
 + [单点登录]
 + [session]
 + [微型http服务器]
 + [webp支持](./client/lib/detectWebp.js)
++ [jwt](./server/controller/user.js)
 
 ### koa
 
@@ -335,18 +344,27 @@
 + [生命周期](./client/User/containers/Home/index.jsx)
 + [React直出开发环境热更新优化方案](./build/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
++ [高阶组件]
 + [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js)
 + [Diff]
 + [ssr](./server/views/server-render.js)
 
+### React-Router
+
++ [基础]
++ [核心原理]
++ [组件外路由跳转](./client/Admin/router/history.js)
+
 ### Redux
 
-+ [基础](./client/User/redux/reducers/Popup.js)
-+ [middleware](./client/User/redux/store/configureStore.js)
++ [基础](./client/User/redux/Popup.js)
++ [middleware](client/User/redux/store.js)
 
 ### webpack
 
 + [工作原理](./build/webpack.config.base.js)
++ **源码分析**:
+  [输出文件](../blog-file/package/webpack-output/dist/bundle.js) /
 + [css模块化](./build/webpack.config.base.js)
 + [cdn](./build/webpack.config.base.js)
 + [css前缀兼容处理](./build/webpack.config.base.js)
@@ -419,5 +437,10 @@
 
 + [linux](./doc/linux.md)
 + [nginx](./doc/nginx.md)
++ [apache](./doc/apache.md)
 + [npm](./doc/npm.md)
 + [curl](./doc/curl.md)
+
+### 采坑心得
+
++ [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)

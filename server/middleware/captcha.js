@@ -15,20 +15,16 @@ captcha.get = async function (ctx, next) {
   const capt = ccap()
   const data = capt.get()
 
-  this.setCache(ctx.cookies.get('uid'), data[0])
+  cache[ctx.ip] = data[0]
   ctx.body = data[1]
 }
 
-captcha.setCache = function (uid, data) {
-  cache[uid] = data
+captcha.delete = function (ip) {
+  delete cache[ip]
 }
 
-captcha.delete = function (uid) {
-  delete cache[uid]
-}
-
-captcha.validCache = function (uid, data) {
-  return cache[uid] === data
+captcha.validCache = function (ctx, data) {
+  return cache[ctx.ip].toLowerCase() === data.toLowerCase()
 }
 
 module.exports = captcha

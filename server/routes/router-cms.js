@@ -14,7 +14,7 @@ router.get('/api/article/linklist', auth, require('../controller/article').getLi
 router.get('/api/article', auth, require('../controller/article').getArticle)
 router.post('/api/article', auth, require('../controller/article').add)
 router.delete('/api/article', auth, require('../controller/article').del)
-router.update('/api/article', auth, require('../controller/article').update)
+router.patch('/api/article', auth, require('../controller/article').update)
 
 router.get('/api/searchlist', auth, require('../controller/article').getSearchList)
 

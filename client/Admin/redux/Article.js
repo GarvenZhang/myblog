@@ -1,4 +1,4 @@
-import { get, post, api } from '../../fetch/axios'
+import { api } from '../fetch/axios'
 
 const initialState = {
   title: '',
@@ -30,12 +30,8 @@ export const actions = {
 
     return dispatch => {
 
-      get(api.getArticleApi(id))
+      api.get_article(id)
         .then(res => {
-
-          if (res.retCode !== 1) {
-            return
-          }
 
           dispatch({
             type: actionTypes.RESPONSE_ARTICLE,
@@ -50,7 +46,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err.message)
         })
 
     }
@@ -60,16 +56,14 @@ export const actions = {
 
     return dispatch => {
 
-      post(api.saveArticleApi(), data)
+      api.post_article(data)
         .then(res => {
 
-          if (res.retCode === 1) {
-            alert('成功！')
-          }
+          alert('成功！')
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err.message)
         })
 
     }
