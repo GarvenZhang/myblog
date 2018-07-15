@@ -35,7 +35,7 @@ const { get_storage } = StorageActions
 // === 2.5 componentDidUpdate(): 更新后 === //
 
 // === 装饰器: === //
-// === 1 类的装饰: 必须在类的上一行写，用来修改类的行为 === //
+// === 1 类的装饰: 必须在类的上一行写，用来修改类的行为, 将对象(函数/类)传入, 通过内部加强返回新的对象(函数/类) === //
 // === 1.1 例子: @connect === //
 /*
 @connect (mapStateToProps, mapDispatchToProps)
@@ -44,7 +44,7 @@ class Home {}
 // 等同于
 
 class Home {}
-Home = connect (mapStateToProps, mapDispatchToProps)(Home) || A
+Home = connect (mapStateToProps, mapDispatchToProps)(Home)
 */
 // === 配置: babel-plugin-transform-decorators-legacy + bebal plugins中 "transform-decorators-legacy" === //
 

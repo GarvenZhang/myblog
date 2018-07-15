@@ -18,6 +18,7 @@ import { actionTypes as OTHER_ACTIONTYPES } from '../redux/Other'
 
 // 必须要用实例，因为存在 index 和 cms 项目，开发环境下 拦截器处 挂载在 axios 静态属性上 会冲突
 const axios = Axios.create()
+export default axios
 
 // 请求配置
 
@@ -52,36 +53,6 @@ const config = {
 axios.interceptors.request.use(function (config) {
   config.headers.Authorization = `Bearer ${window.localStorage.getItem('access_token')}`
   return config
-})
-
-axios.interceptors.response.use(function (res) {
-  
-  // blacklist
-  const notToCheckList = [
-    '/api/login',
-  ]
-
-  // token过期
-  if (res.status === 401 && !notToCheckList.some(item => item === res.config.url)) {
-
-    window.localStorage.setItem('access_token', '')
-
-    // 跟新用户状态
-    store.dispatch({
-      type: OTHER_ACTIONTYPES.UPDATE_TIPSTYPE,
-      tipsType: 1
-    })
-
-  }
-
-  // 若响应的状态码为4xx，则给予用户提示
-  if (res.status >= 400 && res.status < 500) {
-    return Promise.reject(res.data)
-  }
-
-  return res.data
-}, function (err) {
-
 })
 
 // http 方法

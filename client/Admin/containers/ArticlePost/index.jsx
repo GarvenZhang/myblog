@@ -6,7 +6,7 @@ import md5 from 'js-md5'
 
 import Sidebar from '../../components/Slidebar/index'
 import Upload from '../../components/Upload'
-import Tipsbar from '../../components/TipsBar'
+import hocTipsbar from '../../components/TipsBar'
 import simptrad from '../../../lib/simp-trad'
 import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
@@ -20,7 +20,10 @@ const { get_category_list } = ArticleCategoryActions
 const { get_article_link_list } = ArticleLinkListActions
 const { save_article, update_title, update_summary, update_content, update_pubtime, update_article_type_id, update_prev_id, update_next_id, update_cover } = ArticleActions
 
-class AdminArticlePost extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+@hocTipsbar
+export default class AdminArticlePost extends Component {
+
   constructor (props) {
     super(props)
     this.state = {
@@ -69,7 +72,7 @@ class AdminArticlePost extends Component {
 
     return (
       <div className={'admin-page'}>
-        <Tipsbar/>
+        {this.props.tipsCompnent}
         <div className={'sildebar-wrap'}>
           <Sidebar />
         </div>
@@ -231,8 +234,3 @@ function mapDispatchToProps (dispatch) {
     save_article: bindActionCreators(save_article, dispatch)
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AdminArticlePost)

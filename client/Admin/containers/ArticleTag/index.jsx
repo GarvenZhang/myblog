@@ -5,13 +5,16 @@ import { bindActionCreators } from 'redux'
 
 import Sidebar from '../../components/Slidebar/index'
 import Table from '../../components/Table/index'
+import hocTipsbar from '../../components/TipsBar'
 import { actions } from '../../../User/redux/ArticleCategory'
 
 import './index.css'
 
 const { get_category_list } = actions
 
-class AdminArticleTag extends Component {
+@connect(mapStateToProps, mapDispatchtoProps)
+@hocTipsbar
+export default class AdminArticleTag extends Component {
   constructor (props) {
     super(props)
 
@@ -24,6 +27,7 @@ class AdminArticleTag extends Component {
   render () {
     return (
       <div className="admin-page">
+        {this.props.tipsCompnent}
         <div className="sildebar-wrap">
           <Sidebar />
         </div>
@@ -58,8 +62,3 @@ function mapDispatchtoProps (dispatch) {
     get_category_list: bindActionCreators(get_category_list, dispatch)
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchtoProps
-)(AdminArticleTag)

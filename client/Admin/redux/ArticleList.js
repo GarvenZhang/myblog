@@ -84,7 +84,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err)
         })
 
     }
@@ -109,7 +109,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err)
         })
     }
 
@@ -129,7 +129,7 @@ export const actions = {
 
         })
         .catch(err => {
-          console.log(err)
+          console.error(err)
         })
 
     }

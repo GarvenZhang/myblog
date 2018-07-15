@@ -62,7 +62,7 @@ export const actions = {
 }
 
 export function reducer (state = initialState, action) {
-console.trace(action.type)
+
   switch (action.type) {
 
     case actionTypes.UPDATE_TIPS:

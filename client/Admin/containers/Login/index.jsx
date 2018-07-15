@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import md5 from 'js-md5'
 
+import hocTipsbar from '../../components/TipsBar'
 import config from '../../../../config'
 import { actions as UserActions } from '../../redux/User'
 import Cookies from '../../../lib/cookie'
@@ -39,7 +40,8 @@ const { login, update_captcha } = UserActions
 // === 3.3.b WebSocket: 服务器通过检查Origin字段是否在白名单中来决定是否通信 === //
 // === 3.3.c CORS: === //
 
-class Login extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Login extends Component {
   constructor (props) {
     super(props)
 
@@ -176,8 +178,3 @@ function mapDispatchToProps (dispatch) {
     update_captcha: bindActionCreators(update_captcha, dispatch)
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login)

@@ -48,7 +48,7 @@
 + **概论**:
   [计算机的基本概念](./doc/计算机组成原理/1.概论/1.1%20计算机的基本概念.md) / 
   [系统硬件组成](./doc/计算机组成原理/1.概论/1.2%20系统硬件组成.md) /
-  [性能指标](./doc/计算机组成原理/1.概论/1.3%20性能指标.md)
+  [性能指标](./doc/计算机组成原理/1.概论/1.3%20性能指标.md)  
 + **运算器和运算方法**:
 + **指令系统**:
 + **控制器和CPU组织**:
@@ -73,7 +73,18 @@
 + **死锁**:
 + **文件系统**:
 
-### C语言程序设计
+### C语言
+
++ [变量](../C语言学习笔记/2.1bian_liang/main.c)
++ [数据类型](../C语言学习笔记/2.2shu_ju_lei_xing/main.c)
++ [声明和使用变量](../C语言学习笔记/2.3sheng_ming_he_shi_yong_bian_liang/main.c)
++ [输入和输出函数](../C语言学习笔记/2.4shu_ru_shu_chu_han_shu_he_zhuan_huan_zi_fu/main.c)
++ [运算符](../C语言学习笔记/2.5ji_da_ji_ben_yun_suan_fu/main.c)
++ [数组] /
++ [指针] /
++ [函数] /
++ [字符串]
++ [结构体]
 
 ### 计算机网络
 
@@ -89,15 +100,15 @@
   [带宽接入技术](./doc/计算机网络/2.物理层/2.8%20带宽接入技术.md)
 + **数据链路层**:
   [基本概念](./doc/计算机网络/3.数据链路层/3.1%20基本概念.md) /
-  [差错检测] /
+  [三个基恩问题](./doc/计算机网络/3.数据链路层/3.2%20三个基本问题.md) /
   [PPP] /
   [广播信道的数据链路层] /
   [以太网] /
   [MAC层和帧]
 + **网络层**:
 + **传输层**:
-  [功能] /
-  [UDP和TCP] /
+  [简介](./doc/计算机网络/5.传输层/5.1%20简介.md) /
+  [UDP首部](./doc/计算机网络/5.传输层/5.3%20UDP首部.md) /
   [网络安全] /
   [可靠传输] /
   [流量控制] /
@@ -344,10 +355,16 @@
 + [生命周期](./client/User/containers/Home/index.jsx)
 + [React直出开发环境热更新优化方案](./build/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
-+ [高阶组件]
++ [高阶组件](./client/Admin/components/TipsBar/index.jsx)
 + [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js)
 + [Diff]
-+ [ssr](./server/views/server-render.js)
++ **性能优化**:
+  [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
+  [shouldComponentUpdate] /
+  [immutablejs] /
+  [key] /
+  [同构](./server/views/server-render.js) /
+  
 
 ### React-Router
 
@@ -359,6 +376,8 @@
 
 + [基础](./client/User/redux/Popup.js)
 + [middleware](client/User/redux/store.js)
++ **性能优化**:
+  [reselect]
 
 ### webpack
 
@@ -440,6 +459,7 @@
 + [apache](./doc/apache.md)
 + [npm](./doc/npm.md)
 + [curl](./doc/curl.md)
++ [cmake](../C语言学习笔记/CMakeLists.txt)
 
 ### 采坑心得
 

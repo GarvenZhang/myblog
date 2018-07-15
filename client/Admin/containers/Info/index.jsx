@@ -107,6 +107,7 @@ class AdminAccount extends Component {
 
     return (
       <div className="admin-info-page admin-inner">
+        {this.props.tipsCompnent}
         <div className="sildebar-wrap">
           <Side />
         </div>

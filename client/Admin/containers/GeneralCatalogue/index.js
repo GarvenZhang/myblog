@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import Sidebar from '../../components/Slidebar'
 import { SortIcon } from '../../components/Icon'
+import hocTipsbar from '../../components/TipsBar'
 import { actions } from '../../../Admin/redux/ArticleList'
 import curring from '../../../lib/curring'
 import { insertionSort, mergeSort, quickSort, selectSort, shellSort } from './sort'
@@ -14,6 +15,7 @@ import style from './index.css'
 const { get_all_list, sort_all_list } = actions
 
 @connect(mapStateToProps, mapDispatchToProps)
+@hocTipsbar
 export default class GeneralCatalogue extends Component {
   constructor (props) {
     super(props)
@@ -55,6 +57,7 @@ export default class GeneralCatalogue extends Component {
 
     return (
       <div className={style['general-catalogue-page']}>
+        {this.props.tipsCompnent}
         <div className="sildebar-wrap">
           <Sidebar />
         </div>

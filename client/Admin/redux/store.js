@@ -21,7 +21,7 @@ export function configureStore (initialStore = {}) {
   return createStore(
     rootReducer,
     initialStore,
-    // storeEnhancers
+    storeEnhancers
   )
 }
 
