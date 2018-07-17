@@ -57,6 +57,11 @@
 
 ### 计算机操作系统
 
++ **计算机操作系统概述:**
+  [计算机系统概览](./doc/操作系统/1.计算机操作系统概述/1.1%20计算机系统概览.md) /
+  [计算机硬件系统](./doc/操作系统/1.计算机操作系统概述/1.2%20计算机硬件系统.md) /
+  [计算机软件系统](./doc/操作系统/1.计算机操作系统概述/1.3%20计算机软件系统.md) /
+  [计算机操作系统](./doc/操作系统/1.计算机操作系统概述/1.4%20计算机操作系统.md)
 + **启动、终端、异常和系统调用**:
   [操作系统的启动](./doc/操作系统/2.启动、中断、异常和系统调用/2.1%20操作系统的启动.md)
   [系统调用、异常、中断](./doc/操作系统/2.启动、中断、异常和系统调用/2.2%20系统调用、异常、中断.md)
@@ -75,14 +80,22 @@
 
 ### C语言
 
-+ [变量](../C语言学习笔记/2.1bian_liang/main.c)
-+ [数据类型](../C语言学习笔记/2.2shu_ju_lei_xing/main.c)
-+ [声明和使用变量](../C语言学习笔记/2.3sheng_ming_he_shi_yong_bian_liang/main.c)
-+ [输入和输出函数](../C语言学习笔记/2.4shu_ru_shu_chu_han_shu_he_zhuan_huan_zi_fu/main.c)
-+ [运算符](../C语言学习笔记/2.5ji_da_ji_ben_yun_suan_fu/main.c)
-+ [数组] /
-+ [指针] /
-+ [函数] /
++ [变量](https://github.com/GarvenZhang/C-study-note/tree/master/2.1bian_liang/main.c)
++ [数据类型](https://github.com/GarvenZhang/C-study-note/tree/master/2.2shu_ju_lei_xing/main.c)
++ [声明和使用变量](https://github.com/GarvenZhang/C-study-note/tree/master/2.3sheng_ming_he_shi_yong_bian_liang/main.c)
++ [输入和输出函数](https://github.com/GarvenZhang/C-study-note/tree/master/2.4shu_ru_shu_chu_han_shu_he_zhuan_huan_zi_fu/main.c)
++ [运算符](https://github.com/GarvenZhang/C-study-note/tree/master/2.5ji_da_ji_ben_yun_suan_fu/main.c)
++ **数组**:
+  [一维数组](https://github.com/GarvenZhang/C-study-note/tree/master/2.6shu_zu/main.c) /
+  [数组排序] /
+  [数组增删] /
+  [二维数组]
++ **指针**:
+  [基础](https://github.com/GarvenZhang/C-study-note/tree/master/2.9pointer/main.c) /
+  [指针与数组](https://github.com/GarvenZhang/C-study-note/tree/master/3.0pointer_and_array/main.c)
++ **函数**:
+  [常用内置函数](https://github.com/GarvenZhang/C-study-note/tree/master/3.1function/main.c) /
+  [自定义函数](https://github.com/GarvenZhang/C-study-note/tree/master/3.2custom_function/main.c)
 + [字符串]
 + [结构体]
 
@@ -100,7 +113,7 @@
   [带宽接入技术](./doc/计算机网络/2.物理层/2.8%20带宽接入技术.md)
 + **数据链路层**:
   [基本概念](./doc/计算机网络/3.数据链路层/3.1%20基本概念.md) /
-  [三个基恩问题](./doc/计算机网络/3.数据链路层/3.2%20三个基本问题.md) /
+  [三个基本问题](./doc/计算机网络/3.数据链路层/3.2%20三个基本问题.md) /
   [PPP] /
   [广播信道的数据链路层] /
   [以太网] /
@@ -109,6 +122,8 @@
 + **传输层**:
   [简介](./doc/计算机网络/5.传输层/5.1%20简介.md) /
   [UDP首部](./doc/计算机网络/5.传输层/5.3%20UDP首部.md) /
+  [TCP首部] /
+  [抓包分析TCP首部] /
   [网络安全] /
   [可靠传输] /
   [流量控制] /
@@ -142,9 +157,12 @@
 
 ### 算法
 
++ **选择排序**:
+  [JS版] /
+  [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.1selection-sort/main.c)
 + **排序**:
   [插入排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
-  [选择排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [选择排序 - JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
@@ -196,7 +214,7 @@
 + [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [Websocket]
 + [svg]
-+ [script异步加载](../blog-file/source/class-contact/index.html)
++ [script异步加载](https://github.com/GarvenZhang/blog-file/blob/development/source/class-contact/index.html)
 
 ### CSS
 
@@ -228,7 +246,7 @@
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
   [new本质](./client/lib/new.js)
-  [严格模式](../blog-file/package/koa/lib/application.js)
+  [严格模式](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js)
 + **this**:
   [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
   [箭头函数](./client/Admin/containers/Info/index.jsx) /
@@ -260,7 +278,7 @@
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
 + **高级**:
-  [惰性函数](../blog-file/client/lib/event.js) /
+  [惰性函数](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
   [偏函数](./client/lib/partial.js) /
   [柯里化](./client/lib/curring.js) /
   [防抖](./client/lib/debounce.js) /
@@ -268,7 +286,7 @@
   [深拷贝](./client/lib/deepCopy.js) /
   [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
   [懒加载] /
-  [函数组合](../blog-file/package/redux/src/compose.js)/
+  [函数组合](https://github.com/GarvenZhang/blog-file/blob/development/package/redux/src/compose.js)/
   [函数记忆] /
   [去重] /
   [纯函数](./client/User/redux/Popup.js) /
@@ -326,12 +344,12 @@
 
 ### koa
 
-+ [阅读源码技巧](../blog-file/package/koa/lib/application.js)
++ [阅读源码技巧](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js)
 + **源码解读**:
-  [Application](../blog-file/package/koa/lib/application.js) /
-  [Context](../blog-file/package/koa/lib/context.js) /
-  [Request/Response](../blog-file/package/koa/lib/request.js) /
-  [Middlewares](../blog-file/package/koa-compose/index.js)
+  [Application](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js) /
+  [Context](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/context.js) /
+  [Request/Response](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/request.js) /
+  [Middlewares](https://github.com/GarvenZhang/blog-file/blob/development/package/koa-compose/index.js)
 
 ### mysql
 
@@ -383,7 +401,7 @@
 
 + [工作原理](./build/webpack.config.base.js)
 + **源码分析**:
-  [输出文件](../blog-file/package/webpack-output/dist/bundle.js) /
+  [输出文件](https://github.com/GarvenZhang/blog-file/blob/development/package/webpack-output/dist/bundle.js) /
 + [css模块化](./build/webpack.config.base.js)
 + [cdn](./build/webpack.config.base.js)
 + [css前缀兼容处理](./build/webpack.config.base.js)
@@ -414,7 +432,7 @@
   [防御-X-Frame-Options](./server/app-myblog.base.js) /
   [防御-js禁止内嵌](./client/User/index.jsx)
 + **传输安全**:
-  [窃听及原理](../blog-file/app-fileServer.js) /
+  [窃听及原理](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js) /
   [nginx部署](./doc/nginx.md)
 + [密码安全](./server/controller/user.js)
 + **SQL注入**:
@@ -451,6 +469,11 @@
   [功能分支工作流] /
   [gitflow工作流] /
   [forking工作流]
+  
+### wireshark
+
++ [抓包原理] /
+  
 
 ### 常用命令
 
@@ -459,7 +482,7 @@
 + [apache](./doc/apache.md)
 + [npm](./doc/npm.md)
 + [curl](./doc/curl.md)
-+ [cmake](../C语言学习笔记/CMakeLists.txt)
++ [cmake](https://github.com/GarvenZhang/C-study-note/tree/master/CMakeLists.txt)
 
 ### 采坑心得
 
