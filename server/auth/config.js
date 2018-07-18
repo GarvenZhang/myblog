@@ -8,7 +8,7 @@ module.exports = {
     SUBTOKEN2: 'd24g&&3ad##w',
     JWT_SECRET: 'fadk!l3u87mmmc##jfeo%&&',
     ALGORITHM: 'HS384',
-    EXPIRESIN: '60'
+    EXPIRESIN: '2h'
   },
 
   // github第三方登录配置

@@ -19,19 +19,25 @@ export const actions = {
       api.get_article_linkList()
         .then(res => {
 
+          const data = res.data
+
           dispatch({
             type: actionTypes.RESPONSE_ARTICLE_LINK_LIST,
-            data: res.data
+            data
           })
+
+          if (data.length === 0) {
+            return
+          }
 
           dispatch({
             type: ArticleActionTypes.UPDATE_PREVID,
-            prevId: res.data[0].id
+            prevId: data[0].id
           })
 
           dispatch({
             type: ArticleActionTypes.UPDATE_NEXTID,
-            nextId: res.data[1].id
+            nextId: data[1].id
           })
 
         })

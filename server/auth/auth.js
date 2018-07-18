@@ -23,12 +23,14 @@ module.exports = async function (ctx, next) {
   }
 
   // jwt校验
+  const AUTH = config.AUTH
   const token = authorizationHeader.split(' ')[1]
-  await jwt.verify(token, config.AUTH.JWT_SECRET, async (err, decoded) => {
+
+  await jwt.verify(token, AUTH.JWT_SECRET, async (err, decoded) => {
 
     // 过期，或不正确，重新登录
-    console.log(err)
     if (err) {
+      console.error(err)
       ctx.status = 401
       ctx.body = errorMsg(401)
       return
@@ -36,6 +38,7 @@ module.exports = async function (ctx, next) {
 
     // 没有权限
     if (decoded.role !== 1) {
+      console.log(decoded)
       ctx.status = 403
       ctx.body = errorMsg(403)
       return

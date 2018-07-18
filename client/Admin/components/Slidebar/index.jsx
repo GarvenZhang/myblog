@@ -50,15 +50,6 @@ class Sidebar extends Component {
           <li className={style['nav-item']}>
             <Link className={style['link']} to='/works'>作品集管理</Link>
           </li>
-          <li className={style['nav-item']}>
-            <Link className={style['link']} to='/info'>个人信息</Link>
-          </li>
-          <li className={style['nav-item']}>
-            <a className={style['link']} href={process.env.NODE_ENV === 'production' ? config.prod.indexServerIP : `http://localhost:${config.indexPort}`}>回到博客</a>
-          </li>
-          <li className={style['nav-item']}>
-            <a href="javascript: void (0);" onClick={this.loginout} className={style['link']}>登出</a>
-          </li>
         </ul>
       </div>
     )

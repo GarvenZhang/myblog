@@ -49,7 +49,6 @@ const config = {
 }
 
 // 拦截器
-
 axios.interceptors.request.use(function (config) {
   config.headers.Authorization = `Bearer ${window.localStorage.getItem('access_token')}`
   return config

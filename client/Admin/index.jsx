@@ -7,7 +7,7 @@ import { CMSRouteMap } from './router/index'
 import store from './redux/store'
 
 import '../static/styles/reset.css'
-import '../static/font/iconfont.css'
+import '../static/font-cms/iconfont.css'
 import '../static/styles/index.css'
 
 const render = Component => {

@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import { Layout } from '../views/Layout.js'
-import configureStore from '../../client/User/redux/store'
+import { configureStore } from '../../client/User/redux/store'
 import Home from '../../client/User/containers/Home'
 import BestArticle from '../../client/User/containers/BestArticle'
 import ArticleCategory from '../../client/User/containers/ArticleCategory'

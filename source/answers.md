@@ -937,3 +937,13 @@ https://blog.csdn.net/qq_36355662/article/details/80059432
 https://blog.csdn.net/gaowu959/article/details/78484725
 
 http://www.voidcn.com/article/p-gbiznhrb-ru.html
+
+163 mysql 异常启动
+
+https://blog.csdn.net/u013700358/article/details/80306560
+
+https://blog.csdn.net/tianlesoftware/article/details/7028733
+
+164 vertical-align
+
+https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/

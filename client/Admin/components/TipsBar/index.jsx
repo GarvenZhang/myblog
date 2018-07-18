@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import history from '../../router/history'
 import axios from '../../fetch/axios'
 import store from '../../redux/store'
 import { actionTypes as USER_ACTIONTYPES } from '../../redux/User'
+import config from '../../../../config'
+
 
 import style from './index.css'
 
@@ -98,19 +101,51 @@ export default WrappedComponent => {
       switch (this.state.tipsType) {
 
         case 0:
-          $p = <p className={`${style['tips']} ${style['tips--0']}`}>欢迎回到 <span className={style['theme']}>博客cms</span> !</p>
+          $p = (
+            <div className={`${style['tips-wrap']} ${style['tips--0']}`}>&nbsp;
+              <p className={style['tips']}>欢迎回到 <span className={style['theme']}>博客cms</span> !</p>
+            </div>
+          )
           break
 
         case 1:
-          $p = <p className={`${style['tips']} ${style['tips--1']}`}>您目前属于普通用户，只有 <span className={'theme'}>参阅权限</span> ！</p>
+          $p = (
+            <div className={`${style['tips-wrap']} ${style['tips--1']}`}>&nbsp;
+              <p className={style['tips']}>您目前属于普通用户，只有 <span className={'theme'}>参阅权限</span> ！</p>
+            </div>
+          )
           break
 
         case 2:
-          $p = <p className={`${style['tips']} ${style['tips--2']}`}>由于您登录太长时间，为确保您的安全，需 <span className={'theme'}>重新登录</span> ！<span onClick={this.reLoginHandle} className={style['link']}>点此重新登录</span> </p>
+          $p = (
+            <div className={`${style['tips-wrap']} ${style['tips--2']}`}>&nbsp;
+              <p className={style['tips']}>由于您登录太长时间，为确保您的安全，需 <span className={'theme'}>重新登录</span> ！<span onClick={this.reLoginHandle} className={style['link']}>点此重新登录</span> </p>
+            </div>
+          )
           break
       }
 
-      return <div className={style['tipsbar-wrap']}>{$p}</div>
+      return (
+        <div className={style['tipsbar-wrap']}>
+          <div className={style['life-info-wrap']}>
+            <span className={style['date']}>2018-07-17 19:19</span>|
+            <span className={style['location']}>广州</span>|
+            <span className={style['weather']}>多云</span>
+          </div>
+          {$p}
+          <ul className={style['link-list']}>
+            <li className={style['link-item']}>
+              <Link className={style['link']} to='/info'>个人信息</Link>
+            </li>
+            <li className={style['link-item']}>
+              <a className={style['link']} to={process.env.NODE_ENV === 'production' ? config.PROD.INDEX_DOMAIN : config.DEV.INDEX_DOMAIN}>回到博客</a>
+            </li>
+            <li className={style['link-item']}>
+              <a href="javascript: void (0);" onClick={this.loginout} className={style['link']}>登出</a>
+            </li>
+          </ul>
+        </div>
+      )
 
     }
 

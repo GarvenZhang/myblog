@@ -7,7 +7,7 @@ import { IndexRouteMap } from './router/index'
 import store from './redux/store'
 
 import '../static/styles/reset.css'
-import '../static/font/iconfont.css'
+import '../static/font-index/iconfont.css'
 import '../static/styles/index.css'
 import '../../favicon.ico'
 

@@ -80,7 +80,10 @@
 
 ### C语言
 
-+ [变量](https://github.com/GarvenZhang/C-study-note/tree/master/2.1bian_liang/main.c)
++ **变量**:
+  [基础](https://github.com/GarvenZhang/C-study-note/tree/master/2.1bian_liang/main.c) /
+  [作用域] /
+  [生命周期]
 + [数据类型](https://github.com/GarvenZhang/C-study-note/tree/master/2.2shu_ju_lei_xing/main.c)
 + [声明和使用变量](https://github.com/GarvenZhang/C-study-note/tree/master/2.3sheng_ming_he_shi_yong_bian_liang/main.c)
 + [输入和输出函数](https://github.com/GarvenZhang/C-study-note/tree/master/2.4shu_ru_shu_chu_han_shu_he_zhuan_huan_zi_fu/main.c)
@@ -95,7 +98,9 @@
   [指针与数组](https://github.com/GarvenZhang/C-study-note/tree/master/3.0pointer_and_array/main.c)
 + **函数**:
   [常用内置函数](https://github.com/GarvenZhang/C-study-note/tree/master/3.1function/main.c) /
-  [自定义函数](https://github.com/GarvenZhang/C-study-note/tree/master/3.2custom_function/main.c)
+  [自定义函数](https://github.com/GarvenZhang/C-study-note/tree/master/3.2custom_function/main.c) /
+  [值得引用传递] /
+  [数组函数参数] /
 + [字符串]
 + [结构体]
 
@@ -487,3 +492,5 @@
 ### 采坑心得
 
 + [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)
++ [inline-block元素设置overflow:hidden属性导致相邻行内元素向下偏移](./client/Admin/components/TipsBar/index.css)
++ [float或absolute后宽度自适应](./client/Admin/components/TipsBar/index.css)

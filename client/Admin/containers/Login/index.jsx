@@ -41,6 +41,7 @@ const { login, update_captcha } = UserActions
 // === 3.3.c CORS: === //
 
 @connect(mapStateToProps, mapDispatchToProps)
+@hocTipsbar
 export default class Login extends Component {
   constructor (props) {
     super(props)

@@ -18,14 +18,20 @@ export const actions = {
       api.get_category()
         .then(res => {
 
+          const data = res.data
+
           dispatch({
             type: actionTypes.RESPONSE_CATEGORY_LIST,
-            data: res.data
+            data
           })
+
+          if (data.length === 0) {
+            return
+          }
 
           dispatch({
             type: ArticleActionTypes.UPDATE_ARTICLETYPEID,
-            articleTypeId: res.data[0].id
+            articleTypeId: data[0].id
           })
 
         })

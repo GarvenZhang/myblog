@@ -8,11 +8,31 @@
   </style>
 </head>
 <body>
-<iframe src="http://www.baidu.com" frameborder="0"></iframe>
-<script src='./test.js' charset="GB2312"></script>
-<script>
-  const $iframe = document.querySelector('iframe')
-  console.log($iframe.contentWindow.document)
-</script>
+
+<div class="wrap">
+  <style>
+    .wrap {
+      position: relative;
+      width: 100px;
+      margin: 100px;
+      background-color: #ccc;
+    }
+    .text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: yellow;
+    }
+  </style>
+  &nbsp;
+  <p class="text">xxxx</p>
+</div>
+
+<!--<iframe src="http://www.baidu.com" frameborder="0"></iframe>-->
+<!--<script src='./test.js' charset="GB2312"></script>-->
+<!--<script>-->
+  <!--const $iframe = document.querySelector('iframe')-->
+  <!--console.log($iframe.contentWindow.document)-->
+<!--</script>-->
 </body>
 </html>
