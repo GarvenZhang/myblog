@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import rootReducer from './index'
+import config from '../../../config'
 
 const IS_CLIENT_ENV = typeof window !== 'undefined'
 
@@ -24,16 +25,16 @@ button ---------> mid1 -> mid2 ---------> ... -> dispatch --------> reducer
 
 // === 函数组合: 利用compose将多个函数组合成一个函数，让代码从右向左执行而非由内而外执行，提高可读性 === //
 
-const middlewares = []
+const middlewares = [thunk]
 
 let storeEnhancers =
-  process.env.NODE_ENV === 'development' && IS_CLIENT_ENV
+  config.ISDEV && IS_CLIENT_ENV
   ? compose(  // 开发环境 + 客户端
-    applyMiddleware(...middlewares, thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(...middlewares),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
   )
   : compose(  // 开发环境 + 后端 || 生产环境
-    applyMiddleware(...middlewares, thunk)
+    applyMiddleware(...middlewares)
   )
 
 export function configureStore (initialStore = {}) {

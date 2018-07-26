@@ -10,3 +10,7 @@ dist/
 ./server/auth/config.js
 ./server/auth/1_www.hellojm.cn_bundle.crt
 ./server/auth/2_www.hellojm.cn.key
+./server/auth/1_admin.hellojm.cn_bundle.crt
+./server/auth/2_admin.hellojm.cn.key
+./server/auth/1_sso.hellojm.cn_bundle.crt
+./server/auth/2_sso.hellojm.cn.key

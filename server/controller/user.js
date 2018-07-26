@@ -5,9 +5,9 @@ const config = require('../auth/config')
 const pwd = require('../middleware/password')
 const jwt = require('jsonwebtoken')
 const captcha = require('../middleware/captcha')
+const commonConfig = require('../../config')
 const errorMsg = require('../middleware/errorMsg')
 
-const ISDEV = process.env.NODE_ENV === 'development'
 
 class UserCtrl {
 
@@ -102,6 +102,47 @@ class UserCtrl {
     // === strict: 不发送 === //
     // === lax: get可以，post不行 === //
 
+    // === jwt: 在用户与服务器之间传递安全可靠信息的规范 === //
+    // === 1 组成: header.playload.signature === //
+    // === 1.1 header: jwt的基本信息，如算法，类型等 === //
+    // === 1.2 playload: 需要传递的信息，如uid === //
+    // === 1.3 signature: header + playload + secret === //
+
+    const AUTH = config.AUTH
+
+    const playload = {
+      uid: ret.data.id,
+      role: ret.data.role
+    }
+
+    const access_token = jwt.sign(playload, AUTH.JWT_SECRET, {
+      algorithm: AUTH.ALGORITHM,
+      expiresIn: AUTH.EXPIRESIN
+    })
+
+    ctx.cookies.set('access_token', access_token, {
+      expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
+      httpOnly: true,
+      sameSite: 'strict',
+      secure: !commonConfig.ISDEV
+    })
+
+    ctx.body = {
+      access_token
+    }
+
+    // 删除图片验证码记录
+    if (captchaTxt) {
+      captcha.delete(ret.data.id)
+    }
+  }
+
+  static async get (ctx) {
+
+    const id = ctx.playload.uid
+
+    const ret = await UserModel.get(id)
+
     // === Cookies:  === //
     // === 1 使用特性: 前端数据存储、后端通过http头(Set-Cookie)设置、请求时通过http头传给后端、前端可读写(document.cookie)、遵守同源策略 === //
     // === 2 代码特性: 域名, 有效期, 路径, httpOnly, sameSite, secure  === //
@@ -130,48 +171,35 @@ class UserCtrl {
     // === 7.1 签名防篡改 === //
     // === 7.2 私有变换(加密) === //
     // === 7.3 httpOnly / sameSite / secure === //
-    
-    // uid + sign
+
     // 用了jwt后其实此处还未有用处 。。。
-    ctx.cookies.set('uid', ret.data.id, {
+    ctx.cookies.set('uid', ret.id, {
       expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
       httpOnly: true,
+      domain: commonConfig.COOKIE_DOMAIN,
       sameSite: 'strict',
-      secure: !ISDEV
+      secure: !commonConfig.ISDEV
     })
-    ctx.cookies.set('sign', config.cryptoSign(md5, ret.data.id), {
+    ctx.cookies.set('sign', config.cryptoSign(md5, ret.id), {
       expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
-      httpOnly: true,
+      httpOnly: false,
+      domain: commonConfig.COOKIE_DOMAIN,
       sameSite: 'strict',
-      secure: !ISDEV
+      secure: !commonConfig.ISDEV
+    })
+    ctx.cookies.set('role', ret.role, {
+      expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
+      httpOnly: false,
+      domain: commonConfig.COOKIE_DOMAIN,
+      sameSite: 'strict',
+      secure: !commonConfig.ISDEV
     })
 
-    // === jwt: 在用户与服务器之间传递安全可靠信息的规范 === //
-    // === 1 组成: header.playload.signature === //
-    // === 1.1 header: jwt的基本信息，如算法，类型等 === //
-    // === 1.2 playload: 需要传递的信息，如uid === //
-    // === 1.3 signature: header + playload + secret === //
-
-    const AUTH = config.AUTH
-
-    const playload = {
-      uid: ret.data.id,
-      role: ret.data.role
-    }
-
-    const access_token = jwt.sign(playload, AUTH.JWT_SECRET, {
-      algorithm: AUTH.ALGORITHM,
-      expiresIn: AUTH.EXPIRESIN
-    })
-
+    ctx.status = 200
     ctx.body = {
-      access_token
+      data: ret.data
     }
 
-    // 删除图片验证码记录
-    if (captchaTxt) {
-      captcha.delete(ret.data.id)
-    }
   }
 
   /**

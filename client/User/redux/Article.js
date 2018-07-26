@@ -12,7 +12,7 @@ const initialState = {
 }
 
 export const actionTypes = {
-  RESPONSE_ARTICLE: Symbol()
+  RESPONSE_ARTICLE: 'RESPONSE_ARTICLE'
 }
 
 export const actions = {

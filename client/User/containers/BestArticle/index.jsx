@@ -7,14 +7,14 @@ import { BestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
-import { actions } from '../../redux/ArticleList'
+import { actions as ArticleListActions } from '../../redux/ArticleList'
 import debounce from '../../../lib/debounce'
+import config from '../../../../config'
 
 import './index.css'
 
-const { get_best_list } = actions
-
-class BestArticle extends Component {
+@connect(state => state.bestReducer, {...ArticleListActions})
+export default class BestArticle extends Component {
   constructor (props) {
     super(props)
 
@@ -68,7 +68,6 @@ class BestArticle extends Component {
     }
   }
   componentDidMount () {
-    document.title = '最佳博文 - 张益铭'
     // 第一页的数据
     if (this.props.data.length === 0) {
       this.props.get_best_list(0, 10)
@@ -83,7 +82,7 @@ class BestArticle extends Component {
 
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   BestArticle.propTypess = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
@@ -92,18 +91,3 @@ if (process.env.NODE_ENV === 'development') {
     isEndPage: PropTypes.bool.isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.bestReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_best_list: bindActionCreators(get_best_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BestArticle)

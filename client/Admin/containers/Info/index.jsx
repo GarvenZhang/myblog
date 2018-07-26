@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Side from '../../components/Slidebar/index'
-import { SecondaryPasswordLogin } from '../../components/Form/index'
+import { SecondaryPasswordLogin } from '../../components/Iframe/index'
 import jsonp from '../../../User/fetch/jsonp'
 import trieTree from './trieTree'
 import { api } from '../../../User/fetch/axios'
+import config from '../../../../config'
 
 import style from './index.css'
 
@@ -264,7 +265,7 @@ class AdminAccount extends Component {
 
     let self = this
 
-    window.jp = {
+    window.jp_address = {
 
       getAddress: (data) => {
 
@@ -299,12 +300,12 @@ class AdminAccount extends Component {
 
   componentWillUnmount () {
 
-    window.jp = null
+    window.jp_address = null
 
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   AdminAccount.propTypes = {
     avator: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

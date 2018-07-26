@@ -15,6 +15,7 @@ import commonConfig from '../../../config'
 */
 
 const axios = Axios.create()
+export default axios
 
 // 请求配置
 
@@ -51,32 +52,14 @@ axios.interceptors.request.use(function (config) {
   return config
 })
 
-axios.interceptors.response.use(function (res) {
-  
-  // blacklist
-  const notToCheckList = [
-    '/api/login',
-  ]
-
-  // token过期
-  if (res.status === 401 && !notToCheckList.some(item => item === res.config.url)) {
-
-    window.localStorage.setItem('access_token', '')
-
-    update_tipstype(2)
-
-    return
-  }
-
-  //  若响应的状态码为4xx，则给予用户提示
-  if (res.status >= 400 && res.status < 500) {
-    return Promise.reject(res.data)
-  }
-
-  return res.data
-}, function (err) {
-
-})
+// 是否已设置响应拦截器, 只能设置一次, 不然会叠加
+let isSetInterceptors = false
+export function setResponseInterceptorsInfo () {
+  isSetInterceptors = true
+}
+export function getRespnseInterceptorsInfo () {
+  return isSetInterceptors
+}
 
 // http 方法
 export const get = url => axios.get(url, config)
@@ -87,7 +70,7 @@ export const patch = (url, data) => axios.patch(url, data, config)
 // api 配置
 
 let domainIndex = ''
-let domainFileServer = process.env.NODE_ENV === 'production' ? commonConfig.PROD.FILE_SERVER_DOMAIN : commonConfig.DEV.FILE_SERVER_DOMAIN
+let domainFileServer = commonConfig.FILE_SERVER_DOMAIN
 
 export const api = {
 
@@ -106,12 +89,15 @@ export const api = {
   get_works: () => get(`${domainFileServer}/api/works`),
 
   // user
-  post_login: data => post(`${domainIndex}/api/login`, data),
+  get_user: () => get(`${domainIndex}/api/user`),
 
   get_searchlist: (title, pageNum, perPage) => get(`${domainIndex}/api/get_search_list?title=${title}&pageNum=${pageNum}&perPage=${perPage}`),
   getAddressApi: () => get(`${domainFileServer}/address?cb=jp.getAddress`),
-  getDictionary: () => get(`${domainFileServer}/dictionary.js?cb=jp.getDictionary`),
+  getDictionary: () => `${domainFileServer}/dictionary.js?cb=jp.getDictionary`,
   getStreetApi: id => get(`${domainFileServer}/street?id=${id}&&cb=jp.getStreet`),
-  getIndexStorage: () => get(`${domainIndex}/api/get_index_storage`),
   uploadImgApi: () => get(`${domainFileServer}/img`),
+
+  // other
+  getIndexStorage: () => get(`${domainIndex}/api/index/storage`),
+
 }

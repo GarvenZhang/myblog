@@ -303,36 +303,85 @@ Location: http://example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA&state=xyz&to
 
 */
 
-const fetch = require('node-fetch')
-const github = require('../../config').github
+const axios = require('axios')
+const querystring = require('querystring')
+const jwt = require('jsonwebtoken')
+const md5 = require('js-md5')
+
+const config = require('./config')
+const commonConfig = require('../../config')
+const userModel = require('../models/user')
+const sso = require('../views/server-render').sso
+
+const GITHUB = config.GITHUB
+const ISDEV = commonConfig.ISDEV
 
 module.exports = async function (ctx, next) {
 
-  const postData = JSON.stringify({
+  const postData = querystring.stringify({
     code: ctx.query.code,
-    client_id: github.client_id,
-    client_secret: github.client_secret
+    client_id: GITHUB.CLIENT_ID,
+    client_secret: GITHUB.CLIENT_SECRET
   })
 
-  await fetch(github.tokenUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: postData
-  })
-    .then(res => res.json())
-    .then(data => fetch(`${github.userUrl}?access_token=${data.access_token}`))
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
+  // 若出现 Error: getaddrinfo ENOTFOUND api.github.com api.github.com:443 , 是网速问题
+  await axios.post(GITHUB.TOKEN_URL, postData)
+    .then(res => axios.get(`${GITHUB.USER_URL}?access_token=${querystring.parse(res.data).access_token}`))
+    .then(async res => {
+
+      const data = res.data
+      let ret = await userModel.add(data.id, data.avatar_url, data.html_url, data.email, data.name, 0)
+
+      const AUTH = config.AUTH
+
+      const playload = {
+        uid: ret.id,
+        role: 0
+      }
+
+      const access_token = jwt.sign(playload, AUTH.JWT_SECRET, {
+        algorithm: AUTH.ALGORITHM,
+        expiresIn: AUTH.EXPIRESIN
+      })
+
+      // === 单点登录: 在多系统应用群中登录一个系统, 便可在其它所有系统中得到授权而无需再次登录 === //
+      // === 1 将凭证放在顶级域名中: 如在 admin.hellojm.cn 登录后, 将 access_token 放在 .hellojm.cn 域下, 则 www.hellojm.cn 及 game.hellojm.cn 都可以拿到 === //
+      // === 1.1 特点: 方便, 但需要统一域名, 且cookie本身不安全 === //
+      // === 2 使用独立登录系统: 需要一个独立的认证中心, 只处理用户的登录, 状态的查询以及存储等 === //
+      // === 2.1 流程: 现在有 官网(www.hellojm.cn), cms(admin.hellojm.cn), sso(sso.hellojm.cn), 令牌 access_token 只存储在 localStorage 中(持久化), 用户信息只存储在 redux 的 User State 中(内存), 每个系统都有个 iframe 来支持 XDM 跨域通讯方式 === //
+      // === > 步骤一: 打开其中一个子系统的页面(如 www.hellojm.cn )时(在 componentdDidMount 中)会先去查看 localStorage 中是否有 access_token, 有则先去 User State 中查找是否是用户的id(证明已经获取到用户的信息), 若有则直接用; 没有则拿着 access_token 向服务器获取用户授权信息; 若没有 access_token , 则向 iframe(sso.hellojm.cn) 获取其 localStorage 中的 access_token , 并登记origin, 若有, 拿回来后再向服务器获取 用户授权信息 , 并将 access_token 存储于 localStorage 中, 若 iframe 中也没有 access_token, 证明没有任何一个子系统登录过 用户认证中心 , 则什么也不做 === //
+      // === > 步骤二: 打开页面后, 若还未拿到用户授权信息, 而用户点击了需要获取授权信息的请求(比如评论), 则带着 本页面的 url 将页面跳转到 sso.hellojm.cn (如 sso.hellojm.cn?from=www.hellojm.cn/ifrmae, 而该页面中的 iframe 则为 from 的域下的某个页面, 这样才能在 sso.hellojm.cn 中对 子系统页面 进行通讯, 从而将 获取到的 localStorage 放到其域下), 引导用户登录, 登录之后服务器返回 access_token , 然后客户端将其存储在 localStorage 中, 并通过 XDM 的方式将 access_token 传给 iframe 中, iframe 中的页面收到后, 将其存到 localStorage 中, 并返回接收成功的信息, sso.hellojm.cn 收到后 跳转至 from 的地址, 此时 子系统页面的 localStorage 中就有了 access_token, 再执行 步骤一 === //
+      // === > 步骤三: 打开另一个子系统的页面时(如 admin.hellojm.cn ), 只需要进行步骤一即可获取到 用户授权信息 === //
+      // === 2.2 细节实现: === //
+      // === 2.2.1 iframe 一定要在 onload 事件处理程序中进行 XDM 的工作, 因为iframe加载的是一个文档, 是异步的, 跟html页面加载一样 === //
+      // === 2.2.2 csrf的疑虑: csrf_token 是随机字符, access_token 也是字符, 只要请求的时候是通过js手动地带上 token , 而非将 token 直接放到 cookie中传到后端, 即可防止csrf攻击, 因为黑客无法跨域获取到本页面的 token === //
+      // === 2.2.3 为什么要将用户信息放到 User State 中: 放到 User State 实质上是放在 内存 中, 刷新页面后会重新 拿着 localStorage 中的 access_token 向 服务器获取用户信息, 若放在 localStorage 中无法得知 用户授权信息 是否已过期, 只有每次从 服务器 中请求回来的才是最新的数据 === //
+      // === 2.2.4 access_token 在服务器中的返回方式: 若是通过 ajax 登录, 则直接在 响应主体 中返回去; 若是通过github第三方登录, 则需要重定向页面, 在服务器中生成 access_token 后, 只能通过将 access_token 放到 cookie 中返回 或者 将 access_token 内嵌到 sso.hellojm.cn 页面中(如 input[type='hidden']) 中, 在客户端打开页面后, 再将 access_token 从DOM中取出来放到 localStorage 中 === //
+      // === 2.2.5 用户中心(sso.hellojm.cn)是否需要独自的服务器: 不需要, 它只是一个页面, 可放到任何子系统的服务器上, 单独出来更好, 可缓解业务服务器的负担 === //
+      // === 2.2.6 跳转到用户认证中心, 登录后如何跳转回去: 这就需要在跳转的时候充分利用 url的 search === //
+      // === 2.2.7 如何存储会话: jwt也可以, session + uid + sign 也可以 === //
+      // === 2.3 综述: === //
+      // === 2.3.1 子系统想要获取 用户授权信息 , 只能通过 认证中心(sso.hellojm.cn) 获取 access_token 后, 再带着 access_token 向 服务器 拿 用户授权信 === //
+      // === 2.3.2 access_token 只能在 sso.hellojm.cn 页面中登录后由 服务器给出, 若登录后将其存在 localStorage 中 可供所有子系统使用, 相当于 子系统只能在 用户认证中心 中拿钥匙, 这一步就是 单点登录 的核心所在 === //
+      // === 3 注销: 任意一个子系统, 对 sso.hellojm.cn 跨域发请求, 删除其域下的 access_token , 并将之前存储的登记过的子系统一一通过 XDM 的方式访问其专门的接收的ifram(如 www.hellojm.cn/iframe). 再删除其域下localStorage的access_token, 删除成功后返回成功消息, 等登记过的子系统都删除完毕后, 返回一开始进来的子系统 === //
+      ctx.cookies.set('access_token', access_token, {
+        expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
+        httpOnly: false,
+        domain: commonConfig.COOKIE_DOMAIN,
+        sameSite: 'strict',
+        secure: !ISDEV
+      })
+
+      let redirect_url = ctx.query.from
+      // if (/^article-(\d+)$/.test(redirect_url)) {
+      //   redirect_url = commonConfig.INDEX_DOMAIN + '/' + redirect_url.replace(/-/, '/')
+      // } else if (redirect_url === 'admin') {
+      //   redirect_url = commonConfig.CMS_DOMAIN
+      // }
+
+      ctx.redirect(redirect_url)
+
+
     })
-      //
-
-
-    // .then(res => {
-    //
-    // })
 
 }

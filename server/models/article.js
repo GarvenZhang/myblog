@@ -248,15 +248,28 @@ class ArticleModel {
   }
   /**
    * 获取查询结果
-   * @param {String} title - 文章标题
+   * @param {Object} key - 类型
    * @param {Number} pageNum - 起始页数, 默认0
    * @param {Number} perPage - 每页数目, 默认10
    * @return {Array}
    */
-  static async getSearchList (title, pageNum, perPage) {
+  static async getSearchList (key, pageNum, perPage) {
     try {
+
+      let sql = ''
+
+      switch (key.type) {
+
+        case 'title':
+          sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article WHERE title LIKE '%${key.value}%';`
+          break
+
+        case 'tag':
+          sql = `SELECT Article.id, title, read_num, liked_num, pubtime FROM Article, Category WHERE Category.name = '${key.value}' AND Article.category_id = Category.id;`
+          break
+      }
+
       // 查询
-      const sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article WHERE title LIKE '%${title}%';`
       let [data] = await global.db.execute(sql)
       // 筛选
       let endNum = pageNum * perPage + perPage
@@ -264,13 +277,15 @@ class ArticleModel {
         .map(item => {
           return {
             ...item,
-            index: item.title.indexOf(title)
+            index: item.title.indexOf(key.value)
           }
         })
         .sort((prev, next) => {
           return prev.index - next.index
         })
         .slice(pageNum * perPage, endNum >= data.length ? data.length : endNum)
+      
+      console.log(data)
       // 结果返回
       return {
         data,
@@ -304,9 +319,10 @@ class ArticleModel {
    */
   static async add (param) {
     try {
+      console.log(param)
       const [ret] = await global.db.execute(
-        'INSERT INTO Article(title, summary, content, pubtime, category_id, prev_id, next_id, cover) VALUES(?, ?, ?, ?, ?, ?, ?, ?);',
-        [param.title, param.summary, param.content, param.pubtime, param.articleTypeId, param.prevId, param.nextId, param.cover]
+        'INSERT INTO Article(title, summary, content, pubtime, category_id, prev_id, next_id, cover_url, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);',
+        [param.title, param.summary, param.content, param.pubtime, param.category_id, param.prev_id, param.next_id, param.cover_url, param.user_id]
       )
       return {
         id: ret.insertId

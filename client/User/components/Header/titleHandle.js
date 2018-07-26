@@ -26,5 +26,5 @@ export default function () {
     paramsObj[key] = val
   })
 
-  return paramsObj.title
+  return paramsObj.title || paramsObj.tag
 }

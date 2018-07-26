@@ -85,7 +85,7 @@ export default function () {
 
   }
 
-  if (key.test(/^[+\d]+$/)) {
+  if (/^[+\d]+$/.test(key)) {
 
     const proxyMult = _createProxyFactory(_mult)
 

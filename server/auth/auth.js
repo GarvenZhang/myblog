@@ -9,44 +9,51 @@ import referer from '../middleware/referer'
 // === 3 es6输出的模块变量只可读, commonjs可重写 module.exports === //
 // === 4 export通过接口输出的是同一个值 === //
 
-module.exports = async function (ctx, next) {
+/**
+ * 权限验证中间件
+ * @param {...Array} role - 权限值
+ * @return {Function} - 中间件
+ */
+module.exports = function (...role) {
 
-  // referer校验
-  await referer(ctx, next)
+  return async function (ctx, next) {
 
-  // authorization头校验
-  let authorizationHeader = ctx.headers.authorization
-  if (!authorizationHeader) {
-    ctx.status = 403
-    ctx.body = errorMsg(403)
-    return
-  }
+    // referer校验
+    await referer(ctx, next)
 
-  // jwt校验
-  const AUTH = config.AUTH
-  const token = authorizationHeader.split(' ')[1]
-
-  await jwt.verify(token, AUTH.JWT_SECRET, async (err, decoded) => {
-
-    // 过期，或不正确，重新登录
-    if (err) {
-      console.error(err)
-      ctx.status = 401
-      ctx.body = errorMsg(401)
-      return
-    }
-
-    // 没有权限
-    if (decoded.role !== 1) {
-      console.log(decoded)
+    // authorization头校验
+    let authorizationHeader = ctx.headers.authorization
+    if (!authorizationHeader) {
       ctx.status = 403
       ctx.body = errorMsg(403)
       return
     }
 
-    ctx.playload = decoded
-    await next()
+    // jwt校验
+    const AUTH = config.AUTH
+    const token = authorizationHeader.split(' ')[1]
 
-  })
+    await jwt.verify(token, AUTH.JWT_SECRET, async (err, decoded) => {
 
+      // 过期，或不正确，重新登录
+      if (err) {
+        console.error(err)
+        ctx.status = 401
+        ctx.body = errorMsg(401)
+        return
+      }
+
+      // 没有权限
+      if (role.length !== 0 && !role.includes(decoded.role)) {
+        ctx.status = 403
+        ctx.body = errorMsg(403)
+        return
+      }
+
+      ctx.playload = decoded
+      await next()
+
+    })
+
+  }
 }

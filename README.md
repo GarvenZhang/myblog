@@ -239,7 +239,9 @@
 + **响应式**:
 + [动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
-+ [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
++ **优化**:
+  [css绘制代替图片](./client/Admin/components/Slidebar/index.css)
+  [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css) /
 
 ### javascript
 
@@ -300,6 +302,7 @@
 + [ajax实现](client/User/fetch/ajax.js)
 + **es6**:
   [rest参数] /
+  [函数-与解构赋值默认值结合使用](./client/lib/cookie.js)
   [类-静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) /
   [类-静态方法](./server/models/user.js)
   [promise模拟](./client/lib/promise.js) /
@@ -311,10 +314,10 @@
   [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
   [碰撞检测]
 + **跨域**:
-  [同源策略](./client/Admin/containers/Login/index.jsx)
+  [同源策略](client/Admin/containers/Home/index.jsx)
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
-  [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/secret-login.html) /
+  [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js) /
   [iframe+window.name](./client/Admin/components/Form/index.jsx)
 + **存储**:
   [cookie](./client/lib/cookie.js) /
@@ -341,7 +344,7 @@
   [http] /
   [net] /
 + [事件循环]
-+ [单点登录]
++ [单点登录](./server/auth/github.js)
 + [session]
 + [微型http服务器]
 + [webp支持](./client/lib/detectWebp.js)
@@ -383,8 +386,8 @@
 + [Diff]
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
-  [shouldComponentUpdate] /
-  [immutablejs] /
+  [shouldComponentUpdate](./client/Admin/components/Icon/index.jsx) /
+  [immutablejs](./client/User/components/Popup/index.jsx) /
   [key] /
   [同构](./server/views/server-render.js) /
   
@@ -398,9 +401,12 @@
 ### Redux
 
 + [基础](./client/User/redux/Popup.js)
++ [调试](./client/Admin/redux/store.js)
 + [middleware](client/User/redux/store.js)
 + **性能优化**:
-  [reselect]
+  [reselect] /
+  [connect](./client/Admin/containers/ArticlePost/index.jsx)
+  
 
 ### webpack
 
@@ -425,7 +431,7 @@
   [防御 - 富文本过滤](./client/User/containers/Article/index.jsx)
   [防御 - csp](./server/middleware/csp.js)
 + **scrf**:
-  [攻击过程](./client/Admin/containers/Login/index.jsx) /
+  [攻击过程](client/Admin/containers/Home/index.jsx) /
   [防御 - referer验证](./server/middleware/referer.js) /
   [防御 - sameSite](./server/controller/user.js) /
   [防御 - token](./server/middleware/csrf_token.js) /
@@ -494,3 +500,6 @@
 + [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)
 + [inline-block元素设置overflow:hidden属性导致相邻行内元素向下偏移](./client/Admin/components/TipsBar/index.css)
 + [float或absolute后宽度自适应](./client/Admin/components/TipsBar/index.css)
++ [sql语句中值加没引号的坑](./server/models/user.js)
++ [redex中actionTypes的常量值不能用Symbol()](./client/Admin/redux/User.js)
++ [react同构方案中iframe的load事件不会触发 - <尚未查明原因>](./client/User/containers/Auth/index.jsx) 

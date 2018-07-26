@@ -20,5 +20,5 @@ export default function () {
     key: str
   })
 
-  return true
+  return str
 }

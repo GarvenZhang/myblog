@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import md5 from 'js-md5'
 
 import Sidebar from '../../components/Slidebar/index'
 import Upload from '../../components/Upload'
-import hocTipsbar from '../../components/TipsBar'
+import TipsBar from '../../components/TipsBar'
 import simptrad from '../../../lib/simp-trad'
 import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
 import { actions as ArticleActions } from '../../redux/Article'
-import { get as getCookie} from '../../../lib/cookie'
 import config from '../../../../config'
+import { Validator } from '../../../lib/validator'
 
 import style from './index.css'
 
 const { get_category_list } = ArticleCategoryActions
 const { get_article_link_list } = ArticleLinkListActions
-const { save_article, update_title, update_summary, update_content, update_pubtime, update_article_type_id, update_prev_id, update_next_id, update_cover } = ArticleActions
 
-@connect(mapStateToProps, mapDispatchToProps)
-@hocTipsbar
+// === redux优化之connect: 当state更新时会更新props, 因此只传组件有关的state, 从而避免不相关的state更新时也重新渲染了组件 === //
+@connect(
+  state => ({
+    ...state.ArticleReducer,
+    tagsList: state.ArticleCategoryReducer.data,
+    articleList: state.ArticleLinkListReducer.data,
+  }), {
+    ...ArticleActions,
+    get_category_list,
+    get_article_link_list
+  })
 export default class AdminArticlePost extends Component {
 
   constructor (props) {
@@ -30,49 +36,111 @@ export default class AdminArticlePost extends Component {
 
     }
 
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  static defualtProps = {
-    tagsList: [],
-    articleList: []
+    this.handleChange = ::this.handleChange
   }
 
   componentWillMount () {
 
   }
 
+  /**
+   * 更新数据处理
+   */
   handleChange (e) {
+
     const target = e.target
     const value = target.value
     const name = target.name
     const dispatch = `update_${name}`
+
     this.props[dispatch](value)
+
   }
 
+  /**
+   * 发表文章
+   */
   saveArticle () {
-    let data = {}
-    data.title = this.props.title
-    data.summary = this.props.summary
-    data.content = this.props.content
-    data.pubtime = this.props.pubtime
-    data.articleTypeId = this.props.articleTypeId
-    data.prevId = this.props.prevId || 0
-    data.nextId = this.props.nextId || 0
-    data.cover = this.props.cover
-    data.csrf_token = config.getCsrfToken(md5, getCookie('sign'))
-    this.props.save_article(data)
+    
+    let {
+      title, summary, content, pubtime, category_id, prev_id, next_id, cover_url, tagsList, articleList
+    } = this.props
+
+    // 标签 - 默认值
+    if (category_id === 0) {
+
+      if (tagsList.length === 0) {
+        alert('无可选标签!')
+        return
+      }
+      
+      console.log(tagsList)
+
+      category_id = tagsList[0].id
+
+    }
+
+    // 上一篇 - 默认值
+    if (prev_id === 0) {
+
+      if (articleList.length === 0) {
+        alert('无可选文章!')
+        return
+      }
+
+      prev_id = articleList[0].id
+
+    }
+
+    // 下一篇 - 默认值
+    if (next_id === 0) {
+
+      if (articleList.length === 0) {
+        alert('无可选文章!')
+        return
+      }
+
+      next_id = articleList[0].id
+      
+    }
+    
+    // 检验
+    let validator = new Validator()
+
+    validator
+      .add(title, [{
+        strategy: 'isEmpty',
+        errMsg: '标题不能为空!'
+      }])
+      .add(summary, [{
+        strategy: 'isEmpty',
+        errMsg: '摘要不能为空!'
+      }])
+      .add(pubtime, [{
+        strategy: 'isEmpty',
+        errMsg: '日期不能为空!'
+      }, {
+        strategy: 'isDate',
+        errMsg: '日期不符合 YYYY-MM-DD 格式!'
+      }])
+
+    const ret = validator.start()
+    if (ret) {
+      alert(ret)
+      return
+    }
+
+    // 发送请求
+    this.props.save_article({
+      title, summary, content, pubtime, category_id, prev_id, next_id, cover_url
+    })
   }
 
   render () {
 
-    const {
-      tagsList, articleList
-    } = this.props
-
     return (
       <div className={'admin-page'}>
-        {this.props.tipsCompnent}
+        <TipsBar/>
         <div className={'sildebar-wrap'}>
           <Sidebar />
         </div>
@@ -113,11 +181,11 @@ export default class AdminArticlePost extends Component {
                 <span className={style['title']}>类别：</span>
                 <select
                   name="article_type_id"
-                  value={this.props.articleTypeId}
+                  value={this.props.category_id}
                   onChange={this.handleChange}
                   className={'select-type'}>
                   {
-                    tagsList.map(item => (
+                    this.props.tagsList.map(item => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))
                   }
@@ -127,11 +195,11 @@ export default class AdminArticlePost extends Component {
                 <span className={style['title']}>上一篇：</span>
                 <select
                   name="prev_id"
-                  value={this.props.prevId}
+                  value={this.props.prev_id}
                   onChange={this.handleChange}
                   className={'select-prev'}>
                   {
-                    articleList.map(item => (
+                    this.props.articleList.map(item => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))
                   }
@@ -141,11 +209,11 @@ export default class AdminArticlePost extends Component {
                 <span className={style['title']}>下一篇：</span>
                 <select
                   name="next_id"
-                  value={this.props.nextId}
+                  value={this.props.next_id}
                   onChange={this.handleChange}
                   className={'select-next'}>
                   {
-                    articleList.map(item => (
+                    this.props.articleList.map(item => (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     ))
                   }
@@ -155,9 +223,9 @@ export default class AdminArticlePost extends Component {
                 <span className={style['title']}>封面uri：</span>
                 <input
                   type="text"
-                  className={'inp-cover'}
-                  name="cover"
-                  value={this.props.cover}
+                  className={'inp-cover_url'}
+                  name="cover_url"
+                  value={this.props.cover_url}
                   onChange={this.handleChange}
                 />
               </p>
@@ -169,7 +237,7 @@ export default class AdminArticlePost extends Component {
                   className={style['textarea']}
                 />
               </p>
-              <p className={style['field']}>
+              <p className={`${style['field']} ${style['field--btn']}`}>
                 <input
                   type="button"
                   className={style['btn-submit']}
@@ -197,40 +265,14 @@ export default class AdminArticlePost extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+AdminArticlePost.defualtProps = {
+  tagsList: [],
+  articleList: []
+}
+
+if (config.ISDEV) {
   AdminArticlePost.propTypes = {
     tagsList: PropTypes.arrayOf(PropTypes.object).isRequired,
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-}
-
-function mapStateToProps (state) {
-  return {
-    tagsList: state.ArticleCategoryReducer.data,
-    articleList: state.ArticleLinkListReducer.data,
-    title: state.ArticleReducer.title,
-    summary: state.ArticleReducer.summary,
-    content: state.ArticleReducer.content,
-    pubtime: state.ArticleReducer.pubtime,
-    articleTypeId: state.ArticleReducer.articleTypeId,
-    prevId: state.ArticleReducer.prevId,
-    nextId: state.ArticleReducer.nextId,
-    cover: state.ArticleReducer.cover
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_category_list: bindActionCreators(get_category_list, dispatch),
-    get_article_link_list: bindActionCreators(get_article_link_list, dispatch),
-    update_title: bindActionCreators(update_title, dispatch),
-    update_summary: bindActionCreators(update_summary, dispatch),
-    update_content: bindActionCreators(update_content, dispatch),
-    update_pubtime: bindActionCreators(update_pubtime, dispatch),
-    update_article_type_id: bindActionCreators(update_article_type_id, dispatch),
-    update_prev_id: bindActionCreators(update_prev_id, dispatch),
-    update_next_id: bindActionCreators(update_next_id, dispatch),
-    update_cover: bindActionCreators(update_cover, dispatch),
-    save_article: bindActionCreators(save_article, dispatch)
   }
 }

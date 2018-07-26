@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_STORAGE: Symbol()
+  GET_STORAGE: 'GET_STORAGE'
 }
 
 export const actions = {

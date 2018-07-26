@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
-import { actions } from '../../redux/ArticleList'
+import { actions as ArticleListActions } from '../../redux/ArticleList'
+import config from '../../../../config'
 
 import './index.css'
 
-const { get_search_list } = actions
+const { get_search_list } = ArticleListActions
 
-class SearchList extends Component {
+@connect(state => state.searchReducer, {get_search_list})
+export default class SearchList extends Component {
   constructor (props) {
     super(props)
 
@@ -66,7 +67,7 @@ class SearchList extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   SearchList.propTypess = {
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
@@ -75,18 +76,3 @@ if (process.env.NODE_ENV === 'development') {
     isEndPage: PropTypes.bool.isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.searchReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_search_list: bindActionCreators(get_search_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchList)

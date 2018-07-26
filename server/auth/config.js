@@ -1,3 +1,5 @@
+const config = require('../../config')
+
 module.exports = {
 
   // https配置
@@ -8,7 +10,7 @@ module.exports = {
     SUBTOKEN2: 'd24g&&3ad##w',
     JWT_SECRET: 'fadk!l3u87mmmc##jfeo%&&',
     ALGORITHM: 'HS384',
-    EXPIRESIN: '2h'
+    EXPIRESIN: 60
   },
 
   // github第三方登录配置
@@ -31,8 +33,8 @@ module.exports = {
 
   // CORS响应头配置
   CORS_HEADERS: {
-    ACCESS_CONTROL_ALLOW_ORIGIN: '*',
-    ACCESS_CONTROL_ALLOW_METHOD: 'GET, POST, OPTIONS',
+    ACCESS_CONTROL_ALLOW_ORIGIN: `${config.INDEX_DOMAIN}, ${config.CMS_DOMAIN}`,
+    ACCESS_CONTROL_ALLOW_METHOD: 'GET, OPTIONS',
     ACCESS_CONTROL_ALLOW_HEADERS: '*'
   },
 

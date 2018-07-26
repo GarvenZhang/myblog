@@ -27,7 +27,7 @@ class Nav extends Component {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link className='link' to='category'>
+            <Link className='link' to='/category'>
               <h2 className='nav-title'>博文分类
                 <i className='icon iconfont icon-circle' />
               </h2>

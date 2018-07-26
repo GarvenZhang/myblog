@@ -4,6 +4,8 @@
   left: 0;
   width: 100%;
   text-align: center;
+  border-bottom: 10px solid #000;
+  border-top: 10px solid #000;
   background-color: #000;
 }
 .life-info-wrap,
@@ -39,6 +41,7 @@
   */
 
   vertical-align: bottom;
+  background-color: #304148;
   overflow: hidden;
 }
 .link-item {
@@ -72,13 +75,13 @@
 }
 
 .tips--0 {
-  background-color: #3f7086;
+  /*background-color: #3f7086;*/
 }
 .tips--1 {
-  background-color: #2eac6d;
+  /*background-color: #2eac6d;*/
 }
 .tips--2 {
-  background-color: yellow;
+  /*background-color: yellow;*/
 }
 .theme {
   color: red;

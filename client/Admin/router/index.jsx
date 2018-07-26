@@ -11,37 +11,41 @@ import getAsyncComponent from './asyncLoad'
 // import loadable from 'react-loadable'
 
 // cms
-import Login from '../../Admin/containers/Login/index'
+import Home from '../containers/Home/index'
 import NoMatch from '../containers/NoMatch/index'
+import Auth from '../containers/Auth'
 
 // cms
 const CMSRouteMap = () => (
   <Router history={history}>
-    <Switch>
-      <Route path='/post' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'post' */ '../containers/ArticlePost/index' )
-      )}/>
-      <Route path='/info' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'account' */ '../containers/Info/index' )
-      )}/>
-      <Route path='/article-tag' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'article-tag' */ '../containers/ArticleTag/index' )
-      )}/>
-      <Route path='/chatroom' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'chatroom' */ '../containers/Chatroom/index' )
-      )}/>
-      <Route path='/comment' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'comment' */ '../containers/Comment/index' )
-      )}/>
-      <Route path='/works' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'works' */ '../containers/Works/index' )
-      )}/>
-      <Route path='/general-catalogue' component={getAsyncComponent(
-        () => import( /* webpackChunkName: 'general-catalogue' */ '../containers/GeneralCatalogue/index' )
-      )}/>
-      <Route exact path='/' component={Login}/>
-      <Route component={NoMatch}/>
-    </Switch>
+    <div className={'root-router'}>
+      <Auth/>
+      <Switch>
+        <Route path='/post' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'post' */ '../containers/ArticlePost/index' )
+        )}/>
+        <Route path='/info' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'account' */ '../containers/Info/index' )
+        )}/>
+        <Route path='/article-tag' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'article-tag' */ '../containers/ArticleTag/index' )
+        )}/>
+        <Route path='/chatroom' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'chatroom' */ '../containers/Chatroom/index' )
+        )}/>
+        <Route path='/comment' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'comment' */ '../containers/Comment/index' )
+        )}/>
+        <Route path='/works' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'works' */ '../containers/Works/index' )
+        )}/>
+        <Route path='/general-catalogue' component={getAsyncComponent(
+          () => import( /* webpackChunkName: 'general-catalogue' */ '../containers/GeneralCatalogue/index' )
+        )}/>
+        <Route exact path='/' component={Home}/>
+        <Route component={NoMatch}/>
+      </Switch>
+    </div>
   </Router>
 )
 

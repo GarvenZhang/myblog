@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import { IndexRouteMap } from './router/index'
 import store from './redux/store'
+import config from '../../config'
 
 import '../static/styles/reset.css'
 import '../static/font-index/iconfont.css'
@@ -27,7 +28,7 @@ module.hot && module.hot.accept('./router', () => render())
  */
 function render () {
   ReactDOM.render(
-    process.env.NODE_ENV === 'development'
+    config.ISDEV
       ? <AppContainer>
         <Provider store={store}>
           <IndexRouteMap />

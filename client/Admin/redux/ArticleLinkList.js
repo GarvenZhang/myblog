@@ -6,8 +6,8 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_ARTICLE_LINK_LIST: Symbol(),
-  RESPONSE_ARTICLE_LINK_LIST: Symbol()
+  GET_ARTICLE_LINK_LIST: 'GET_ARTICLE_LINK_LIST',
+  RESPONSE_ARTICLE_LINK_LIST: 'RESPONSE_ARTICLE_LINK_LIST'
 }
 
 export const actions = {
@@ -24,20 +24,6 @@ export const actions = {
           dispatch({
             type: actionTypes.RESPONSE_ARTICLE_LINK_LIST,
             data
-          })
-
-          if (data.length === 0) {
-            return
-          }
-
-          dispatch({
-            type: ArticleActionTypes.UPDATE_PREVID,
-            prevId: data[0].id
-          })
-
-          dispatch({
-            type: ArticleActionTypes.UPDATE_NEXTID,
-            nextId: data[1].id
           })
 
         })

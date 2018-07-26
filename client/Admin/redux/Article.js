@@ -5,118 +5,98 @@ const initialState = {
   summary: '',
   content: '',
   pubtime: '',
-  articleTypeId: 0,
-  prevId: 0,
-  nextId: 0,
-  cover: ''
+  category_id: 0,
+  prev_id: 0,
+  next_id: 0,
+  cover_url: '',
+  read_num: 0
 }
 
 export const actionTypes = {
-  GET_ARTICLE: Symbol(),
-  RESPONSE_ARTICLE: Symbol(),
-  SAVE_ARTICLE: Symbol(),
-  UPDATE_TITLE: Symbol(),
-  UPDATE_SUMMARY: Symbol(),
-  UPDATE_CONTENT: Symbol(),
-  UPDATE_PUBTIME: Symbol(),
-  UPDATE_ARTICLETYPEID: Symbol(),
-  UPDATE_PREVID: Symbol(),
-  UPDATE_NEXTID: Symbol(),
-  UPDATE_COVER: Symbol()
+  GET_ARTICLE: 'GET_ARTICLE',
+  RESPONSE_ARTICLE: 'RESPONSE_ARTICLE',
+  SAVE_ARTICLE: 'SAVE_ARTICLE',
+  UPDATE_TITLE: 'UPDATE_TITLE',
+  UPDATE_SUMMARY: 'UPDATE_SUMMARY',
+  UPDATE_CONTENT: 'UPDATE_CONTENT',
+  UPDATE_PUBTIME: 'UPDATE_PUBTIME',
+  UPDATE_ARTICLETYPEID: 'UPDATE_ARTICLETYPEID',
+  UPDATE_PREVID: 'UPDATE_PREVID',
+  UPDATE_NEXTID: 'UPDATE_NEXTID',
+  UPDATE_COVER: 'UPDATE_COVER'
 }
 
 export const actions = {
-  get_article: function (id) {
+  get_article: id => dispatch => api.get_article(id)
+    .then(res => {
 
-    return dispatch => {
+      const data = res.data
 
-      api.get_article(id)
-        .then(res => {
+      dispatch({
+        type: actionTypes.RESPONSE_ARTICLE,
+        title: data.title,
+        pubtime: data.pubtime,
+        content: data.content,
+        summary: data.summary,
+        read_num: data.read_num,
+        prev_id: data.prev_id,
+        next_id: data.next_id
+      })
 
-          dispatch({
-            type: actionTypes.RESPONSE_ARTICLE,
-            title: res.title,
-            pubtime: res.pubtime,
-            content: res.content,
-            summary: res.summary,
-            readNum: res.readNum,
-            prevId: res.prevId,
-            nextId: res.nextId
-          })
+    })
+    .catch(err => {
+      console.error(err.message)
+    }),
 
-        })
-        .catch(err => {
-          console.error(err.message)
-        })
+  save_article: data => dispatch => api.post_article(data)
+    .then(res => {
 
-    }
+      alert('成功！')
 
-  },
-  save_article: function (data) {
+    })
+    .catch(err => {
+      console.error(err.message)
+    }),
 
-    return dispatch => {
+  update_title: title => ({
+    type: actionTypes.UPDATE_TITLE,
+    title
+  }),
 
-      api.post_article(data)
-        .then(res => {
+  update_summary: summary => ({
+    type: actionTypes.UPDATE_SUMMARY,
+    summary
+  }),
 
-          alert('成功！')
+  update_content: content => ({
+    type: actionTypes.UPDATE_CONTENT,
+    content
+  }),
 
-        })
-        .catch(err => {
-          console.error(err.message)
-        })
+  update_pubtime: pubtime => ({
+    type: actionTypes.UPDATE_PUBTIME,
+    pubtime
+  }),
 
-    }
+  update_article_type_id: category_id => ({
+    type: actionTypes.UPDATE_ARTICLETYPEID,
+    category_id
+  }),
 
-  },
-  update_title: function (title) {
-    return {
-      type: actionTypes.UPDATE_TITLE,
-      title
-    }
-  },
-  update_summary: function (summary) {
-    return {
-      type: actionTypes.UPDATE_SUMMARY,
-      summary
-    }
-  },
-  update_content: function (content) {
-    return {
-      type: actionTypes.UPDATE_CONTENT,
-      content
-    }
-  },
-  update_pubtime: function (pubtime) {
-    return {
-      type: actionTypes.UPDATE_PUBTIME,
-      pubtime
-    }
-  },
-  update_article_type_id: function (articleTypeId) {
-    return {
-      type: actionTypes.UPDATE_ARTICLETYPEID,
-      articleTypeId
-    }
-  },
-  update_prev_id: function (prevId) {
-    return {
-      type: actionTypes.UPDATE_PREVID,
-      prevId
-    }
-  },
-  update_next_id: function (nextId) {
-    return {
-      type: actionTypes.UPDATE_NEXTID,
-      nextId
-    }
-  },
-  update_cover: function (cover) {
-    return {
-      type: actionTypes.UPDATE_COVER,
-      cover
-    }
-  }
+  update_prev_id: prev_id => ({
+    type: actionTypes.UPDATE_PREVID,
+    prev_id
+  }),
+
+  update_next_id: next_id => ({
+    type: actionTypes.UPDATE_NEXTID,
+    next_id
+  }),
+
+  update_cover_url: cover_url => ({
+    type: actionTypes.UPDATE_COVER,
+    cover_url
+  })
 }
 
 export function reducer (state = initialState, action) {
@@ -128,10 +108,10 @@ export function reducer (state = initialState, action) {
         summary: action.summary,
         content: action.content,
         pubtime: action.pubtime,
-        articleTypeId: action.articleTypeId,
-        prevId: action.prevId,
-        nextId: action.nextId,
-        cover: action.cover
+        category_id: action.category_id,
+        prev_id: action.prev_id,
+        next_id: action.next_id,
+        cover_url: action.cover_url
       }
     case actionTypes.UPDATE_TITLE:
       return {
@@ -156,17 +136,17 @@ export function reducer (state = initialState, action) {
     case actionTypes.UPDATE_ARTICLETYPEID:
       return {
         ...state,
-        articleTypeId: action.articleTypeId
+        category_id: action.category_id
       }
     case actionTypes.UPDATE_PREVID:
       return {
         ...state,
-        prevId: action.prevId
+        prev_id: action.prev_id
       }
     case actionTypes.UPDATE_NEXTID:
       return {
         ...state,
-        nextId: action.nextId
+        next_id: action.next_id
       }
     case actionTypes.SAVE_ARTICLE:
       return {
@@ -176,7 +156,7 @@ export function reducer (state = initialState, action) {
     case actionTypes.UPDATE_COVER:
       return {
         ...state,
-        cover: action.cover
+        cover_url: action.cover_url
       }
     default:
       return state

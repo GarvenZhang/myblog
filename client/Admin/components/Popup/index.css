@@ -1,0 +1,77 @@
+/*
+// === z-index: 描述定位元素在垂直方向上的排列顺序 === //
+// === 1.具有下列特性会建立层叠上下文，z-index只有在同一上下文中比较才有意义： === //
+  1.1 根元素 (HTML)
+  1.2 z-index 值不为 "auto"的 绝对/相对定位
+  1.3 一个 z-index 值不为 "auto"的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex
+  1.4 opacity 属性值小于 1 的元素
+  1.5 transform 属性值不为 "none"的元素，
+  1.6 mix-blend-mode 属性值不为 "normal"的元素，
+  1.7 filter值不为“none”的元素，
+  1.8 perspective值不为“none”的元素，
+  1.9 isolation 属性被设置为 "isolate"的元素，
+  1.10 position: fixed
+  1.11 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值（参考这篇文章）
+  1.12 -webkit-overflow-scrolling 属性被设置 "touch"的元素
+// === 2.在比较时有如下规则： === //
+  2.1 默认html中后面的元素会层叠在前面的之上
+  2.2 定位元素高于非定位层级
+  2.3 定位元素间层级由z-index决定
+  2.4 若z-index层级相同则按html顺序
+*/
+.popup-wrap {
+  position: absolute;
+  width: 500px;
+  text-align: center;
+  transform: scale(0.01);
+  z-index: 99;
+}
+.popup-bg {
+  position: relative;
+}
+.drag-area {
+  position: absolute;
+  top: 7px;
+  width: 100%;
+  cursor: default;
+}
+.btn-close {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 20px;
+  color: red;
+  z-index: 100;
+  cursor: default;
+}
+.popup-body {
+  position:  absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.popup-open {
+  animation: popupOpen .5s ease-in forwards;
+}
+.popup-close {
+  animation: popupClose .5s ease-in forwards;
+}
+@keyframes popupOpen {
+  0% {
+    transform: translateX(0) scale(.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes popupClose {
+  0% {
+    transform: scale(1);
+  }
+  99% {
+    transform: scale(.01);
+  }
+  100% {
+    transform: translateX(-999px) scale(0.01);
+  }
+}

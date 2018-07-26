@@ -3,7 +3,7 @@ const initialState = {
 }
 
 export const actionTypes = {
-  GET_WORKS_LIST: Symbol()
+  GET_WORKS_LIST: 'GET_WORKS_LIST'
 }
 
 export const actions = {

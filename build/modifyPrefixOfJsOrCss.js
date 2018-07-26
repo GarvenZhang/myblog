@@ -15,6 +15,7 @@ ModifyPrefixOfJsOrCssPlugin.prototype.apply = function (compiler) {
         data.html = data.html
           .replace(/\/cms\//g, '/')
           .replace(/\/index\//g, '/')
+          .replace(/\/sso\//g, '/')
 
         cb(null, data)
       }

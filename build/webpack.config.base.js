@@ -127,14 +127,16 @@ const config = {
       // === 使用场景：图片1~2K左右，因为base64会比原来大，而且最好是存在css中进行缓存 === //
       */
       {
-        test: /\.(jpg|png|gif|jpeg|bmp)$/,
+        test: /\.(jpe?g|png|gif|bmp)$/,
         exclude: /node_modules/,
-        use: {
+        use: [{
           loader: 'url-loader',
           options: {
-            limit: 2048
+            fallback: 'file-loader',
+            limit: 2048,
+            name: 'assets/[name].[ext]'
           }
-        }
+        }]
       },
       {
         test: /\.(svg|eot|woff|ttf|woff2|ico)$/,
@@ -146,6 +148,11 @@ const config = {
             }
           }
         ]
+      },
+      // === html-loader: 用于解析 img标签 中的src === //
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },

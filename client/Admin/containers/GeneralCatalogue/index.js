@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Sidebar from '../../components/Slidebar'
 import { SortIcon } from '../../components/Icon'
-import hocTipsbar from '../../components/TipsBar'
-import { actions } from '../../../Admin/redux/ArticleList'
+import TipsBar from '../../components/TipsBar'
+import { actions as ArticleListActions } from '../../../Admin/redux/ArticleList'
 import curring from '../../../lib/curring'
 import { insertionSort, mergeSort, quickSort, selectSort, shellSort } from './sort'
+import config from '../../../../config'
 
 import style from './index.css'
 
-const { get_all_list, sort_all_list } = actions
-
-@connect(mapStateToProps, mapDispatchToProps)
-@hocTipsbar
+@connect(state => state.allReducer, {...ArticleListActions})
 export default class GeneralCatalogue extends Component {
   constructor (props) {
     super(props)
@@ -57,7 +54,7 @@ export default class GeneralCatalogue extends Component {
 
     return (
       <div className={style['general-catalogue-page']}>
-        {this.props.tipsCompnent}
+        <TipsBar/>
         <div className="sildebar-wrap">
           <Sidebar />
         </div>
@@ -136,7 +133,7 @@ export default class GeneralCatalogue extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   GeneralCatalogue.propTypes = {
     data: PropTypes.arrayOf(
       PropTypes.shape({
@@ -148,16 +145,5 @@ if (process.env.NODE_ENV === 'development') {
         average: PropTypes.number.isRequired
       }).isRequired
     ).isRequired
-  }
-}
-
-function mapStateToProps (state) {
-  return state.allReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_all_list: bindActionCreators(get_all_list, dispatch),
-    sort_all_list: bindActionCreators(sort_all_list, dispatch)
   }
 }

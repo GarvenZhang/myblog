@@ -21,3 +21,17 @@ export function getUrlParams (url) {
   })
   return ret
 }
+
+/**
+ * 获取url中的host
+ * @param {String} url - 路径
+ * @return {String|Boolean}
+ */
+export function getUrlOrigin (url) {
+
+  if (/(https?:\/\/[^/]+?\.\w+?)(?:\/|\?|#|$)/.test(url)) {
+    return RegExp.$1
+  }
+  return false
+
+}

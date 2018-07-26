@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 
 import style from './index.css'
 
@@ -14,6 +14,7 @@ import num2money from './num2money'
 import calcHandle from './calcHandle'
 import palindrome from './palindrome'
 import titleHandle from './titleHandle'
+import config from '../../../../config'
 
 const { get_article_link_list } = ArticleLinkListActions
 const { update_popup } = PopupActions
@@ -23,7 +24,10 @@ const { update_popup } = PopupActions
 // === 2.触发时机：focus - 聚焦时 ; keydown / keypress / input - 按下键盘时，其中keypress不可通过特殊键触发，input是真正改变文本框内容的时机； change - 改变 ; blur - 失焦时 === //
 // === react中：input 和 change 同时改变state的话，input的失效，change会代替input === //
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(
+  state => state.ArticleLinkListReducer,
+  {get_article_link_list, update_popup}
+)
 export default class Search extends Component {
   constructor (props) {
     super(props)
@@ -36,13 +40,13 @@ export default class Search extends Component {
       isDetectKeyEvent: false
     }
 
-    this.focusHandle = this.focusHandle.bind(this)
-    this.keydownHandle = this.keydownHandle.bind(this)
-    this.keypressHandle = this.keypressHandle.bind(this)
-    this.inputHandle = this.inputHandle.bind(this)
-    this.keyupHandle = this.keyupHandle.bind(this)
-    this.changeHandle = this.changeHandle.bind(this)
-    this.blurHandle = this.blurHandle.bind(this)
+    this.focusHandle = ::this.focusHandle
+    this.keydownHandle = ::this.keydownHandle
+    this.keypressHandle = ::this.keypressHandle
+    this.inputHandle = ::this.inputHandle
+    this.keyupHandle = ::this.keyupHandle
+    this.changeHandle = ::this.changeHandle
+    this.blurHandle = ::this.blurHandle
 
   }
   
@@ -99,7 +103,7 @@ export default class Search extends Component {
     // 拦截器
 
     // 跳转
-    window.open(`/article-search?title=${encodeURIComponent(key)}&pageNum=0&perPage=10`)
+    window.open(`/search?title=${encodeURIComponent(key)}&pageNum=0&perPage=10`)
   }
 
   /**
@@ -193,7 +197,7 @@ export default class Search extends Component {
             {
               this.state.selectedData.map(item => (
                 <li className={style['search-item']} key={item.id}>
-                  <a target="_blank" href={`/article/${item.id}`} className={style["item-link"]}>{item.name}</a>
+                  <Link target="_blank" to={`/article/${item.id}`} className={style["item-link"]}>{item.name}</Link>
                 </li>
               ))
             }
@@ -204,13 +208,12 @@ export default class Search extends Component {
   }
 
   componentDidMount () {
-
+    
     if (this.props.data.length === 0) {
       this.props.get_article_link_list()
     }
 
     document.body.addEventListener('click', this.blurHandle, false)
-
 
   }
 
@@ -219,21 +222,10 @@ export default class Search extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Search.propTypess = {
     data: PropTypes.arrayOf(
       PropTypes.object.isRequired
     ).isRequired
-  }
-}
-
-function mapStateToProps (state) {
-  return state.ArticleLinkListReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_article_link_list: bindActionCreators(get_article_link_list, dispatch),
-    update_popup: bindActionCreators(update_popup, dispatch)
   }
 }

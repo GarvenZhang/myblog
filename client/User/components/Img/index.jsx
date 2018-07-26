@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { get, api } from '../../fetch/axios'
+import { api } from '../../fetch/axios'
+import config from '../../../../config'
 
 import './index.css'
 
-class Image extends Component {
+export default class Image extends Component {
   constructor (props) {
     super(props)
 
@@ -23,12 +24,8 @@ class Image extends Component {
    */
   getLoadingGif () {
 
-    get(api.getIndexStorage())
+    api.getIndexStorage()
       .then(res => {
-
-        if (res.retCode !== 1) {
-          return
-        }
 
         for (const key in res.data) {
           localStorage.setItem(key, res.data[key])
@@ -87,10 +84,8 @@ class Image extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Image.propTypes = {
     src: PropTypes.string.isRequired,
   }
 }
-
-export default Image

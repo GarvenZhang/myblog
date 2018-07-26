@@ -7,9 +7,7 @@ import Img from '../Img'
 
 import style from './index.css'
 
-const getSrc = src => process.env.NODE_ENV === 'development'
-  ? config.dev.fileServerIP + src
-  : config.prod.fileServerDomain + src
+const getSrc = src => config.FILE_SERVER_DOMAIN + src
 
 // === 代理模式: 当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对本体对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。 === //
 // === 1 类型: === //
@@ -37,9 +35,9 @@ class LatestItem extends Component {
     return (
       <li className={style['article-item']}>
         <Img src={getSrc(this.props.cover)} alt="" className={`${style['item-cover--LatestList']} fr`}/>
-        <a className={style['link']} target="_blank" href={`/article/${this.props.id}`}>
+        <Link className={style['link']} target="_blank" to={`/article/${this.props.id}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
-        </a>
+        </Link>
         <p className={style['item-summary']}>{this.props.summary}</p>
         <p className={style['item-info']}>
           <span className={style['info-pubtime']}>{this.props.pubtime}</span>
@@ -50,7 +48,7 @@ class LatestItem extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   LatestItem.propTypes = {
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -84,7 +82,7 @@ class BestItem extends Component {
           评论数：<span className={style['data-comments']}>{this.props.commentsNum}</span>
           点赞数：<span className={style['data-like']}>{this.props.likedNum}</span>
         </p>
-        <Link className={style['link']} to={this.props.link}>
+        <Link className={style['link']} target="_blank" to={`/article/${this.props.id}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
         </Link>
         <p className={style['item-info']}>
@@ -96,7 +94,7 @@ class BestItem extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   BestItem.propTypes = {
     readNum: PropTypes.number.isRequired,
     commentsNum: PropTypes.number.isRequired,
@@ -140,7 +138,7 @@ class WorksItem extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   WorksItem.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     imgAlt: PropTypes.string.isRequired,

@@ -54,6 +54,15 @@ axios.interceptors.request.use(function (config) {
   return config
 })
 
+// 是否已设置响应拦截器, 只能设置一次, 不然会叠加
+let isSetInterceptors = false
+export function setResponseInterceptorsInfo () {
+  isSetInterceptors = true
+}
+export function getRespnseInterceptorsInfo () {
+  return isSetInterceptors
+}
+
 // http 方法
 export const get = url => axios.get(url, config)
 export const post = (url, data) => axios.post(url, data, config)
@@ -63,7 +72,6 @@ export const patch = (url, data) => axios.patch(url, data, config)
 // api 配置
 
 let domainIndex = ''
-let domainFileServer = process.env.NODE_ENV === 'production' ? commonConfig.PROD.FILE_SERVER_DOMAIN : commonConfig.DEV.FILE_SERVER_DOMAIN
 
 export const api = {
 
@@ -77,17 +85,23 @@ export const api = {
 
   // category
   get_category: () => get(`${domainIndex}/api/category`),
+  delete_category: id => del(`${domainIndex}/api/category?id=${id}`),
+  update_category: data => patch(`${domainIndex}/api/category`, data),
+  add_category: data => post(`${domainIndex}/api/category`, data),
 
   // works
-  get_works: () => get(`${domainFileServer}/api/works`),
+  get_works: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/api/works`),
 
   // user
-  post_login: data => post(`${domainIndex}/api/login`, data),
+  get_user: access_token => get(`${domainIndex}/api/user?access_token=${access_token}`),
 
   get_searchlist: (title, pageNum, perPage) => get(`${domainIndex}/api/get_search_list?title=${title}&pageNum=${pageNum}&perPage=${perPage}`),
-  getAddressApi: () => get(`${domainFileServer}/address?cb=jp.getAddress`),
-  getDictionary: () => get(`${domainFileServer}/dictionary.js?cb=jp.getDictionary`),
-  getStreetApi: id => get(`${domainFileServer}/street?id=${id}&&cb=jp.getStreet`),
-  getIndexStorage: () => get(`${domainIndex}/api/get_index_storage`),
-  uploadImgApi: () => get(`${domainFileServer}/img`),
+  getAddressApi: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/address?cb=jp_address.getAddress`),
+  getDictionary: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/dictionary.js?cb=jp_dictionary.getDictionary`),
+  getStreetApi: id => get(`${commonConfig.FILE_SERVER_DOMAIN}/street?id=${id}&&cb=jp_address.getStreet`),
+  uploadImgApi: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/img`),
+
+  // other
+  getIp: () => get(`${domainIndex}/api/ip`),
+  getIndexStorage: () => get(`${domainIndex}/api/ndex/storage`),
 }

@@ -39,9 +39,11 @@ async function del (id) {
  */
 async function add (name) {
   try {
-    const sql = `INSERT INTO Category(name) VALUES(${name})`
+    const sql = `INSERT INTO Category(name) VALUES('${name}')`
     const [result] = await global.db.execute(sql)
-    return result.insertId
+    return {
+      id: result.insertId
+    }
   } catch (e) {
     sqlError(e)
   }

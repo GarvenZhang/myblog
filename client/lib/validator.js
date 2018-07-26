@@ -53,6 +53,7 @@ export class Validator {
    * @param {Object[]} rules - 检验规则数组
    * @param {String} rules[].strategy - 策略
    * @param {String} rules[].errMsg - 错误提示信息
+   * @return {Object} - validator实例
    */
   add (value, rules) {
 
@@ -71,13 +72,15 @@ export class Validator {
           strategyArr.unshift(value)
           strategyArr.push(errMsg)
 
-          strategies[stratety](strategyArr)
+          return strategies[stratety](...strategyArr)
 
         })
 
       })(rule)
 
     }
+
+    return this
 
   }
 

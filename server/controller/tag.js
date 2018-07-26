@@ -8,12 +8,14 @@ class CategoryCtrl {
     ctx.status = 200
     ctx.body = await CategoryModel.get(ctx.query.id)
   }
+
   /**
    * 删除标签
    */
   static async del (ctx) {
     ctx.body = await CategoryModel.del(ctx.query.id)
   }
+
   /**
    * 添加标签
    */
@@ -21,8 +23,17 @@ class CategoryCtrl {
     const {
       name
     } = ctx.request.body
-    ctx.body = await CategoryCtrl.add(name)
+    ctx.status =  201
+    ctx.body = await CategoryModel.add(name)
   }
+  
+  /**
+   * 更新标签
+   */
+  static async update (ctx) {
+    
+  }
+
 }
 
 module.exports = CategoryCtrl

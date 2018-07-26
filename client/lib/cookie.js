@@ -65,14 +65,49 @@ function set (name, value, options) {
   document.cookie = cookie
 }
 
+// === es6 - 函数 - 与解构赋值默认值结合使用: 左边是解构赋值, 右边是默认值, 不传值会选取右边的默认值, 若此时有解构赋值会再去解构赋值; 若传值会直接取解构赋值 === //
+/*
+
+// 写法一
+function m1({x = 0, y = 0} = {}) {
+  return [x, y];
+}
+
+// 写法二
+function m2({x, y} = { x: 0, y: 0 }) {
+  return [x, y];
+}
+
+// 函数没有参数的情况
+m1() // [0, 0]  // 先选取右边的默认值 {} , 默认值是个对象, 则再选取左边的解构赋值
+m2() // [0, 0]
+
+// x 和 y 都有值的情况
+m1({x: 3, y: 8}) // [3, 8]
+m2({x: 3, y: 8}) // [3, 8]
+
+// x 有值，y 无值的情况
+m1({x: 3}) // [3, 0]
+m2({x: 3}) // [3, undefined]
+
+// x 和 y 都无值的情况
+m1({}) // [0, 0];
+m2({}) // [undefined, undefined]
+
+m1({z: 3}) // [0, 0]
+m2({z: 3}) // [undefined, undefined]
+
+*/
+
 /**
  * 删除cookie
+ * // === 删除cookie: 不同的域、不同的路径下可以存在同样名字的cookie, 因此一定要相同才能删除 === //
  * @param {String} name - cookie名称
  * @param {String} value - 值
  * @param {[Object]} options - 选项
  */
-function unset (name, options = {expires: new Date(0)}) {
-  set(name, '', options)
+function unset (name, options) {
+  set(name, '', Object.assign({}, options, {expires: new Date(0), path: '/'}))
 }
 
 export default {

@@ -1,4 +1,6 @@
-import Router from 'koa-router'
+const Router = require('koa-router')
+const auth = require('../auth/auth')
+
 
 // === RESTFUL架构: representational state transfer, (资源)表现层状态转化 === //
 // === 1 核心概念: === //
@@ -82,7 +84,7 @@ router.get('/article/:id', require('../views/server-render').article)
 router.get('/bestlist', require('../views/server-render').best)
 router.get('/category', require('../views/server-render').category)
 router.get('/search', require('../views/server-render').search)
-router.get('/github/authorization', require('../auth/github'))
+router.get('/iframe', require('../views/server-render').iframe)
 
 // storage缓存
 router.get('/api/index/storage', require('../controller/localStorage').get)
@@ -103,7 +105,7 @@ router.put('/api/article', require('../controller/article').update)
 
 router.get('/api/searchlist', require('../controller/article').getSearchList)
 
-// cms
-router.post('/api/login', require('../controller/user').login)
+// user
+router.get('/api/user', auth(0, 1), require('../controller/user').get)
 
 module.exports = router.routes()

@@ -1,6 +1,5 @@
 const errorMsg = require('./errorMsg')
-
-const isDev = process.env.NODE === 'development'
+const config = require('../../config')
 
 module.exports = async function (ctx, next) {
 
@@ -11,8 +10,8 @@ module.exports = async function (ctx, next) {
   // === 1.1 发送条件: 当协议为 file / data / 当前网站为非安全协议而源网站为安全协议时 不会被发送 === //
   // === 1.2 值: 绝对路径或者相对路径 === //
   if (
-    (isDev && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
-    (!isDev && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
+    (config.ISDEV && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
+    (!config.ISDEV && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
   ) {
     return await next()
   }

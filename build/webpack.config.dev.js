@@ -21,13 +21,16 @@ module.exports = merge(base, {
   entry: {
     'index': [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://0.0.0.0:5000',
+      'webpack-dev-server/client?http://127.0.0.1:3003',
       'webpack/hot/only-dev-server',
       './client/User/index.jsx'
     ],
+    'sso': [
+      './client/SSO/index.js'
+    ],
     'cms': [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://0.0.0.0:5000',
+      'webpack-dev-server/client?http://127.0.0.1:8080',
       'webpack/hot/only-dev-server',
       './client/Admin/index.jsx'
     ]
@@ -36,7 +39,7 @@ module.exports = merge(base, {
     rules: [
       {
         test: /\.css$/,
-        exclude: path.resolve(clientDir, './static'),
+        exclude: [path.resolve(clientDir, './static'), path.resolve(clientDir, './SSO')],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -64,7 +67,7 @@ module.exports = merge(base, {
       },
       {
         test: /\.css$/,
-        include: path.resolve(clientDir, './static'),
+        include: [path.resolve(clientDir, './static'), path.resolve(clientDir, './SSO')],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader']

@@ -3,6 +3,7 @@ const crypto = require('crypto')
 const ArticleModel = require('../models/article')
 const cache = require('../middleware/cache')
 const cacheEvent = require('../middleware/event').cacheEvent
+const errorMsg = require('../middleware/errorMsg')
 
 class ArticleListCtrl {
   /**
@@ -24,6 +25,7 @@ class ArticleListCtrl {
    * 获取所有文章列表
    */
   static async getAllList (ctx) {
+    ctx.status = 200
     ctx.body = await ArticleModel.getAllList()
   }
   /**
@@ -60,31 +62,25 @@ class ArticleListCtrl {
    * 获取查询结果
    */
   static async getSearchList (ctx) {
-    // 拦截器
-    ctx.checkQuery('title').notEmpty().isInt()
-    ctx.checkQuery('pageNum').notEmpty().isInt().toInt()
-    ctx.checkQuery('perPage').notEmpty().isInt().toInt()
 
-    if (ctx.errors) {
-      if (ctx.path === 'article-search') {
-        ctx.redirect('/404')
-        ctx.status = 307
-        return
-      } else if (ctx.path === '/api/get_search_list') {
-        ctx.body = {
-          retCode: 0,
-          msg: ctx.errors
-        }
-        ctx.status = 400
-        return
+    const {
+      title, tag, pageNum, perPage
+    } = ctx.query
+
+    let key = ''
+    if (title) {
+      key = {
+        type: 'title',
+        value: title
+      }
+    } else {
+      key = {
+        key: 'tag',
+        value: tag
       }
     }
 
-    // 数据库操作
-    const ret = await ArticleModel.getSearchList(ctx.query.title, ctx.query.pageNum, ctx.query.perPage)
-    if (ret.retCode === 0) {
-      ctx.status = 500
-    }
+    const ret = await ArticleModel.getSearchList(key, pageNum, perPage)
 
     ctx.body = ret
   }
@@ -94,9 +90,9 @@ class ArticleListCtrl {
   static async getArticle (ctx) {
     const id = parseInt(ctx.query.id)
     const ret = await ArticleModel.getArticle(id)
-    if (ret.retCode === 0) {
-      ctx.status = 500
-    }
+
+    ctx.status = 500
+
     ctx.body = ret
   }
   /**
@@ -104,20 +100,25 @@ class ArticleListCtrl {
    */
   static async add (ctx) {
     let req = ctx.request.body
+
+    // 带上user_id
+    req = Object.assign({}, req, {
+      user_id: ctx.playload.uid
+    })
+
     const ret = await ArticleModel.add(req)
-    if (ret.retCode === 0) {
-      ctx.status = 500
-    } else {
-      // 更新缓存
-      const linkListData = await ArticleModel.getLink()
-      cacheEvent.emit('updateLinkList', JSON.stringify(linkListData))
-    }
+
+    // 更新缓存
+    const linkListData = await ArticleModel.getLink()
+    cacheEvent.emit('updateLinkList', JSON.stringify(linkListData))
+
     ctx.body = ret
   }
   /**
    * 删除文章
    */
   static async del (ctx) {
+
     await ArticleModel.del(ctx.query.id)
   }
   /**

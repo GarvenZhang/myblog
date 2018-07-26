@@ -14,6 +14,7 @@ import { actions as StorageActions } from '../../redux/Storage'
 import debounce from '../../../lib/debounce'
 import detectWebp from '../../../lib/detectWebp'
 import Cookies from '../../../lib/cookie'
+import config from '../../../../config'
 
 import './index.css'
 
@@ -23,10 +24,11 @@ const { get_storage } = StorageActions
 // === 生命周期: === //
 // === 1 挂载或卸载: === //
 // === 1.1 constructor(props): 初始化组件, 绑定函数到this === //
-// === 1.2 componentWillMount(): 挂载前 === //
+// === 1.2 componentWillMount(): 挂载前, 无法进行dom操作, 不能更新state, 一般用于配置根组件, 除此外能做的都可以在 constructor 中完成 === //
 // === 1.3 render(): 将虚拟dom插到到真实dom === //
 // === 1.4 componentDidMount(): 挂载后, 进行异步请求等 === //
-// === 1.5 componentWillUnMount(): 卸载前,  === //
+// === 1.5 componentWillUnMount(): 卸载前, 通常做的是 释放内存, 重置选项等
+//  === //
 // === 2 更新: === //
 // === 2.1 componentWillReceiveProps(nextProps) === //
 // === 2.2 shouldComponentUpdate(nextProps, nextState): 判断是否应该更新 === //
@@ -48,7 +50,10 @@ Home = connect (mapStateToProps, mapDispatchToProps)(Home)
 */
 // === 配置: babel-plugin-transform-decorators-legacy + bebal plugins中 "transform-decorators-legacy" === //
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(
+  state => state.latestReducer,
+  {get_latest_list, get_storage}
+)
 export default class Home extends Component {
   
   constructor (props) {
@@ -161,23 +166,12 @@ export default class Home extends Component {
 }
 
 // === propTypes 会在 defaultProps 之后执行，因此对 defaultProps 也会检查 === //
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Home.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     pageNum: PropTypes.number.isRequired,
     perPage: PropTypes.number.isRequired,
     totalCount: PropTypes.number.isRequired,
     isEndPage: PropTypes.bool.isRequired
-  }
-}
-
-function mapStateToProps (state) {
-  return state.latestReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_latest_list: bindActionCreators(get_latest_list, dispatch),
-    get_storage: bindActionCreators(get_storage, dispatch)
   }
 }

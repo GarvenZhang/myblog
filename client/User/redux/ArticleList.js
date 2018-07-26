@@ -29,109 +29,55 @@ const initialStateForAll = {
 }
 
 export const actionTypes = {
-  GET_LATEST_LIST: Symbol(),
-  RESPONSE_LATEST_LIST: Symbol(),
-  GET_BEST_LIST: Symbol(),
-  RESPONSE_BEST_LIST: Symbol(),
-  GET_SEARCH_LIST: Symbol(),
-  RESPONSE_SEARCH_LIST: Symbol(),
-  GET_All_LIST: Symbol(),
-  RESPONSE_All_LIST: Symbol(),
-  SORT_ALL_LIST: Symbol()
+  GET_LATEST_LIST: 'GET_LATEST_LIST',
+  RESPONSE_LATEST_LIST: 'RESPONSE_LATEST_LIST',
+  GET_BEST_LIST: 'GET_BEST_LIST',
+  RESPONSE_BEST_LIST: 'RESPONSE_BEST_LIST',
+  GET_SEARCH_LIST: 'GET_SEARCH_LIST',
+  RESPONSE_SEARCH_LIST: 'RESPONSE_SEARCH_LIST',
+  GET_All_LIST:'GET_All_LIST',
+  RESPONSE_All_LIST: 'RESPONSE_All_LIST',
+  SORT_ALL_LIST: 'SORT_ALL_LIST'
 }
 
 export const actions = {
 
-  get_latest_list: function (pageNum, perPage) {
+  get_latest_list: (pageNum, perPage) => dispatch => api.get_article_latestlist(pageNum, perPage)
+    .then(res => dispatch({
+      ...res,
+      type: actionTypes.RESPONSE_LATEST_LIST
+    }))
+    .catch(err => {
+      console.log(err.message)
+    }),
 
-    return dispatch => {
+  get_best_list: (pageNum, perPage) => dispatch => api.get_article_bestlist(pageNum, perPage)
+    .then(res => dispatch({
+      ...res,
+      type: actionTypes.RESPONSE_BEST_LIST,
+    }))
+    .catch(err => {
+      console.log(err.message)
+    }),
 
-      api.get_article_latestlist(pageNum, perPage)
-        .then(res => {
+  get_search_list: (title, pageNum, perPage) => dispatch => api.get_searchlist(title, pageNum, perPage)
+    .then(res => dispatch({
+      ...res,
+      type: actionTypes.RESPONSE_SEARCH_LIST,
+    }))
+    .catch(err => {
+      console.log(err.message)
+    }),
 
-          dispatch({
-            type: actionTypes.RESPONSE_LATEST_LIST,
-            data: res.data,
-            pageNum: res.pageNum,
-            perPage: res.perPage,
-            totalCount: res.totalCount,
-            isEndPage: res.isEndPage
-          })
-
-        })
-        .catch(err => {
-          console.log(err.message)
-        })
-
-    }
-
-
-  },
-
-  get_best_list: function (pageNum, perPage) {
-
-    return dispatch => {
-
-      api.get_article_bestlist(pageNum, perPage)
-        .then(res => {
-
-          dispatch({
-            type: actionTypes.RESPONSE_BEST_LIST,
-            data: res.data,
-            pageNum: res.pageNum,
-            perPage: res.perPage,
-            totalCount: res.totalCount,
-            isEndPage: res.isEndPage
-          })
-
-        })
-        .catch(err => {
-          console.log(err.message)
-        })
-
-    }
-
-  },
-
-  get_search_list: function (title, pageNum, perPage) {
-
-    return dispatch => {
-
-      api.get_searchlist(title, pageNum, perPage)
-        .then(res => {
-
-          dispatch({
-            type: actionTypes.RESPONSE_SEARCH_LIST,
-            data: res.data,
-            pageNum: res.pageNum,
-            perPage: res.perPage,
-            totalCount: res.totalCount,
-            isEndPage: res.isEndPage
-          })
-
-        })
-        .catch(err => {
-          console.log(err.message)
-        })
-
-    }
-
-
-  },
-
-  get_all_list: function (data) {
-    return {
+  get_all_list: (data) => ({
       type: actionTypes.GET_All_LIST,
       data
-    }
-  },
+    }),
 
-  sort_all_list: function (data) {
-    return {
+  sort_all_list: data => ({
       type: actionTypes.SORT_ALL_LIST,
       data
-    }
-  }
+    })
 }
 
 export function latestReducer (state = initialStateForLatest, action) {

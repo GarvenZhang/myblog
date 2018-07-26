@@ -26,6 +26,7 @@ const passport = require('koa-passport')
 const path = require('path')
 
 const config = require('./auth/config')
+const commonConfig = require('../config')
 
 // 基础中间件
 module.exports = (app) => {
@@ -75,26 +76,12 @@ module.exports = (app) => {
   // 日志记录
   app.use(logger())
 
-  // === 点击劫持: 将目标网站放入iframe中，视觉上隐藏，并指导用户操作 === //
-  // === 1 特点: 用户亲手操作, 用户不知情 === //
-  // === 2 危害: 盗取用户资金(转账), 获取用户敏感信息 === //
-  // === 3 防御: === //
-  // === 3.1 Javascript禁止内嵌，但sandbox能禁止js === //
-  // === 3.2 X-Frame-Options: 加载网页时的内嵌规定 === //
-  // === 3.2.1 DENY -> 禁止被内嵌 === //
-  // === 3.2.2 SAMEORIGIN: 同一个网站允许被内嵌 === //
-  // === 3.2.3 ALLOW-FROM uri: 允许被内嵌在特定uri中 === //
-  // === 3.3 其它辅助手段：增加用户操作成本，如验证码 === //
-
   // === xss防御 之 浏览器自带拦截: X-XSS-Protection, 防御 HTML节点内容 和 HTML属性 === //
 
   // http header
   app.use(async function (ctx, next) {
 
     ctx.set('X-XSS-Protection', '1; mode=block')
-
-    ctx.set('X-Frame-Options', 'DENY')
-
 
     await next()
   })

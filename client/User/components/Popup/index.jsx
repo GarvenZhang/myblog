@@ -1,15 +1,31 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { actions } from '../../redux/Popup'
+import config from '../../../../config'
 
 import style from './index.css'
 
 const { update_popup } = actions
 
-class Popup extends Component {
+// === immutablejs:  === //
+// === 1 优点: === //
+// === 1.1 减少内存使用 === //
+// === 1.2 并发安全 === //
+// === 1.3 降低项目复杂度 === //
+// === 1.4 便于比较复杂的数据结构, 定制 shouldComponentUpdate 方便 === //
+// === 1.5 时间旅行功能 === //
+// === 1.6 函数式编程 === //
+// === 2 缺点: === //
+// === 2.1 库的大小 === //
+// === 2.2 对先有项目入侵太严重, 新项目可用 === //
+
+@connect(
+  state => state.popupReducer,
+  {update_popup}
+)
+export default class Popup extends Component {
   constructor (props) {
     super(props)
 
@@ -21,10 +37,10 @@ class Popup extends Component {
       top: '50%',
     }
 
-    this.mousedownHandle = this.mousedownHandle.bind(this)
-    this.mousemoveHandle = this.mousemoveHandle.bind(this)
-    this.mouseupHandle = this.mouseupHandle.bind(this)
-    this.closeHandle = this.closeHandle.bind(this)
+    this.mousedownHandle = ::this.mousedownHandle
+    this.mousemoveHandle = ::this.mousemoveHandle
+    this.mouseupHandle = ::this.mouseupHandle
+    this.closeHandle = ::this.closeHandle
 
   }
 
@@ -162,7 +178,7 @@ class Popup extends Component {
       top: this.state.top,
       margin: '-80px 0 0 -250px',
     }
-
+    console.log(this.props.isOpen)
     return (
       <div
         ref={$wrap => this.$wrap = $wrap}
@@ -191,13 +207,11 @@ class Popup extends Component {
 
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-
-    return true
-
-  }
-
   componentWillUnmount () {
+
+    this.props.update_popup({
+      isOpen: 'default'
+    })
 
     document.removeEventListener('mousedown', this.mousedownHandle, false)
     document.removeEventListener('mousemove', this.mousemoveHandle, false)
@@ -207,7 +221,7 @@ class Popup extends Component {
 
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Popup.propTypes = {
     isOpen: PropTypes.number.isRequired,
     header: PropTypes.string.isRequired,
@@ -217,18 +231,3 @@ if (process.env.NODE_ENV === 'development') {
     noText: PropTypes.string
   }
 }
-
-function mapStateToProps (state) {
-  return state.popupReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    update_popup: bindActionCreators(update_popup, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Popup)

@@ -4,7 +4,7 @@ const initialState = {
 }
 
 export const actionTypes = {
-  UPDATE_TIPSTYPE: Symbol()
+  UPDATE_TIPSTYPE: 'UPDATE_TIPSTYPE'
 }
 
 export const actions = {

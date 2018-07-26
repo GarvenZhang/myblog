@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import remark from 'remark'
 import remarkReact from 'remark-react'
@@ -9,13 +8,11 @@ import remarkReact from 'remark-react'
 import config from '../../../../config'
 import { actions as ArticleActions } from '../../redux/Article'
 import Comment from '../../components/Comment'
-import xss from '../../../lib/xss'
 
 import style from './index.css'
 
-const { get_article } = ArticleActions
-
-class Article extends Component {
+@connect(state => state.ArticleReducer, {...ArticleActions})
+export default class Article extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -25,7 +22,7 @@ class Article extends Component {
       commentContent: '请发表您的评论！'
     }
 
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleInputChange = ::this.handleInputChange
   }
 
   static defaultProps = {
@@ -33,9 +30,9 @@ class Article extends Component {
     summary: '',
     content: '',
     pubtime: '',
-    likedNum: 0,
-    commentNum: 0,
-    readNum: 0,
+    liked_num: 0,
+    comment_num: 0,
+    read_num: 0,
     articleType_id: 0,
     prev: 0,
     next: 0,
@@ -71,14 +68,14 @@ class Article extends Component {
     const content = remark().use(remarkReact).processSync(this.changeImgUrl(this.props.content)).contents
     // console.log(content)
     // console.log(xss(content))
-    return xss(content, {
-      whiteList: {
-        a: ['href', 'target'],
-        img: ['src', 'alt', 'title'],
-        p: [],
-        span: []
-      }
-    })
+    // return xss(content, {
+    //   whiteList: {
+    //     a: ['href', 'target'],
+    //     img: ['src', 'alt', 'title'],
+    //     p: [],
+    //     span: []
+    //   }
+    // })
     return content
   }
 
@@ -88,7 +85,7 @@ class Article extends Component {
    * @return {String}
    */
   changeImgUrl (content) {
-    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${process.env.NODE_ENV === 'development' ? config.dev.fileServerIP : config.prod.fileServerDomain}$2)`)
+    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${config.ISDEV ? config.FILE_SERVER_DOMAIN : config.FILE_SERVER_DOMAIN}$2)`)
   }
 
   // === 语义化的优点： === //
@@ -131,9 +128,9 @@ class Article extends Component {
                   <li>发表时间：
                     <time className={style['pubdate']} dateTime={`${this.props.pubtime}T00:00`}>{this.props.pubtime}</time>
                   </li>
-                  <li className={style['article-desc-item']}>浏览数：{this.props.readNum}</li>
-                  <li className={style['article-desc-item']}>点赞次数：{this.props.likedNum}</li>
-                  <li className={style['article-desc-item']}>评论数：{this.props.commentNum}</li>
+                  <li className={style['article-desc-item']}>浏览数：{this.props.read_num}</li>
+                  <li className={style['article-desc-item']}>点赞次数：{this.props.liked_num}</li>
+                  <li className={style['article-desc-item']}>评论数：{this.props.comment_num}</li>
                   <li className={style['article-desc-item']}>有效字数：{this.getUniqueWordsNum(this.props.content)}</li>
                   <li className={style['article-desc-item']}>简介：{this.props.summary}</li>
                 </ul>
@@ -165,37 +162,20 @@ class Article extends Component {
 
   componentDidMount () {
 
-    document.title = this.props.title
-
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Article.propTypess = {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     pubtime: PropTypes.string.isRequired,
-    likedNum: PropTypes.number.isRequired,
-    commentNum: PropTypes.number.isRequired,
-    articleType_id: PropTypes.number.isRequired,
-    prevId: PropTypes.number.isRequired,
-    nextId: PropTypes.number.isRequired,
+    liked_num: PropTypes.number.isRequired,
+    comment_num: PropTypes.number.isRequired,
+    category_id: PropTypes.number.isRequired,
+    prev_id: PropTypes.number.isRequired,
+    next_id: PropTypes.number.isRequired,
     comments: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.ArticleReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_article: bindActionCreators(get_article, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Article)

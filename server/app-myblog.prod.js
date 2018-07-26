@@ -16,13 +16,13 @@ module.exports = function (port) {
   serverBase(app)
 
   app.use(
-    port === config.indexPort ? require('../server/routes/router-index') : require('../server/routes/router-cms')
+    port === config.INDEX_PORT ? require('./routes/router-index') : require('./routes/router-cms')
   )
     .use(router.allowedMethods())
 
   // 静态文件
   // 官网还是cms
-  app.use(serve(path.resolve(__dirname, `../dist/${port === config.cmsPort ? 'cms' : 'index'}`), {
+  app.use(serve(path.resolve(__dirname, `../dist/${port === config.CMS_PORT ? 'cms' : 'index'}`), {
     maxage: 60,
     gzip: true,
     setHeaders: function (res, path, stat) {

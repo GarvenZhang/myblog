@@ -2,79 +2,74 @@ import { api } from '../fetch/axios'
 import history from '../router/history'
 
 const initialState = {
-  user: {},
-  tips: '',
-  captchaId: '',
+  name: '',
+  email: '',
+  github_url: '',
+  avatar_url: '',
+  role: 2
 }
 
+// === actionTypes中不可用Symbol()的坑: 本来是适合用 Symbol() , 但是若用了 Symbol()之后 reduxTools 中会显示 <UNDEFINED> 而无法方便可看出是派发了哪一个 action === //
 export const actionTypes = {
-  LOGIN: Symbol(),
-  UPDATE_PASSWORD: Symbol(),
-  UPDATE_TIPS: Symbol(),
-  UPDATE_CAPTCHA: Symbol()
+  GET_USER: 'GET_USER',
+  // GET_USER: Symbol()
+  RESET_USER_INFO: 'RESET_USER_INFO'
 }
 
 export const actions = {
 
-  login: function (data) {
+  get_user: data => dispatch => api.get_user(data)
+    .then(res => {
 
-    return dispatch => {
+      data = res.data
 
-      api.post_login(data)
-        .then(res => {
-
-          window.localStorage.setItem('access_token', res.access_token)
-          history.push('/post')
-
-        })
-        .catch(err => {
-
-          // 更新提示
-          dispatch({
-            type: actionTypes.UPDATE_TIPS,
-            msg: err.message
-          })
-
-          // 更新验证码
-          dispatch({
-            type: actionTypes.UPDATE_CAPTCHA,
-            captchaId: new Date().getTime()
-          })
-
-        })
-
-    }
-
-  },
-
-  update_captcha: function () {
-
-    return dispatch => {
-
+      // 更新用户信息
       dispatch({
-        type: actionTypes.UPDATE_CAPTCHA,
-        captchaId: new Date().getTime()
+        type: actionTypes.GET_USER,
+        name: data.name,
+        email: data.email,
+        github_url: data.github_url,
+        avatar_url: data.avatar_url,
+        role: data.role
       })
 
-    }
+      // 在首页请求时, 成功后需要跳转到 /post
+      if (history.location.pathname === '/') {
+        history.push('/post')
+      }
 
-  }
+    })
+    .catch(err => {
+      console.error(err)
+    }),
+
+  reset_user: () => ({
+    type: actionTypes.RESET_USER_INFO
+  })
 }
 
 export function reducer (state = initialState, action) {
 
   switch (action.type) {
 
-    case actionTypes.UPDATE_TIPS:
+    case actionTypes.GET_USER:
       return {
         ...state,
-        tips: action.msg
+        name: action.name,
+        email: action.email,
+        github_url: action.github_url,
+        avatar_url: action.avatar_url,
+        role: action.role
       }
 
-    case actionTypes.UPDATE_CAPTCHA:
+    case actionTypes.RESET_USER_INFO:
       return {
         ...state,
-        captchaId: action.captchaId
+        name: '',
+        email: '',
+        github_url: '',
+        avatar_url: '',
+        role: 2
       }
 
     default:

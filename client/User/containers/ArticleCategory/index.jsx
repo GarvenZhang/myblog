@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React, { PureComponent, Component } from 'react'
 import { Link, Switch, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
-import { actions } from '../../redux/ArticleCategory'
+import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
+import config from '../../../../config'
 
 import style from './index.css'
 
-const { get_category_list } = actions
-
-class Tag extends Component {
+class Tag extends PureComponent {
   static defaultProps = {
     name: '',
     count: 0,
@@ -23,14 +21,14 @@ class Tag extends Component {
   render () {
     return (
       <li className={style['category-item']}>
-        <Link className={style['link']} to={'/'}>{this.props.name}</Link>
+        <Link className={style['link']} target='_blank' to={`/search?tag=${this.props.name}&pageNum=0&perPage=10`}>{this.props.name}</Link>
         [<span className={style['num']}>{this.props.count}</span>]
       </li>
     )
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Tag.propTypes = {
     link: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
@@ -39,7 +37,13 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-class ArticleCategory extends Component {
+@connect(
+  state => ({
+    tagsList: state.ArticleCategoryReducer.data
+  }),
+  {...ArticleCategoryActions}
+)
+export default class ArticleCategory extends Component {
   constructor (props) {
     super(props)
 
@@ -54,9 +58,7 @@ class ArticleCategory extends Component {
   }
 
   render () {
-    const {
-      tagsList
-    } = this.props
+
     return (
       <div className="home-page">
         <Header/>
@@ -66,7 +68,7 @@ class ArticleCategory extends Component {
             <div className="nav-details-inner">
               <ul className={style['category-list']}>
                 {
-                  tagsList.map(item => (
+                  this.props.tagsList.map(item => (
                     <Tag key={item.id} {...item}/>
                   ))
                 }
@@ -79,31 +81,16 @@ class ArticleCategory extends Component {
   }
 
   componentDidMount () {
-    document.title = '博文分类 - 张益铭'
 
-    this.props.get_category_list()
+    if (this.props.tagsList.length === 0) {
+      this.props.get_category_list()
+    }
+
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   ArticleCategory.propTypes = {
     tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return {
-    tagsList: state.ArticleCategoryReducer.data
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_category_list: bindActionCreators(get_category_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ArticleCategory)

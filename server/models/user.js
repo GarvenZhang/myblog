@@ -26,6 +26,52 @@ class UserModel {
       sqlError(e)
     }
   }
+
+  static async add (github_id, avatar_url, github_url, email, name, role) {
+    try {
+
+      // 查看有没有
+      let sql = `SELECT id, account, name, resume_url, address, wechat, github_url, phone, avatar_url, github_id, role, email FROM User WHERE github_id = '${github_id}';`
+      let data = await global.db.execute(sql)
+      data = data[0]
+
+      if (data.length !== 0) {
+        return data[0]
+      }
+
+      // === sql语句中若为 字符类型 一定要要把 值 用引号括起来, 不然就会表示为一个变量; 然后出现一些例如 Error: Malformed communication packet. 的异常, 搞死人!!=== //
+
+      // 没有则插入
+      data = await global.db.execute(
+        `INSERT INTO User(github_id, avatar_url, github_url, email, name, role) VALUES('${github_id}', '${avatar_url}', '${github_url}', '${email}', '${name}', ${role});`
+      )
+      data = data[0]
+
+      return {
+        id: data.insertId
+      }
+
+    } catch (e) {
+      sqlError(e)
+    }
+  }
+
+  static async get (id) {
+
+    try {
+
+      const [data] = await global.db.execute(`SELECT name, github_url, avatar_url, email, role FROM User WHERE id = '${id}';`)
+      return {
+        data: data[0]
+      }
+
+
+    } catch (e) {
+      sqlError(e)
+    }
+
+  }
+
 }
 
 module.exports = UserModel

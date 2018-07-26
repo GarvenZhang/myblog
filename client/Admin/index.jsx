@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader'
 
 import { CMSRouteMap } from './router/index'
 import store from './redux/store'
+import config from '../../config'
 
 import '../static/styles/reset.css'
 import '../static/font-cms/iconfont.css'
@@ -12,7 +13,7 @@ import '../static/styles/index.css'
 
 const render = Component => {
   ReactDOM.render(
-    process.env.NODE_ENV === 'development'
+    config.ISDEV
       ? <AppContainer>
         <Provider store={store}>
           <Component />

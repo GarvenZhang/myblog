@@ -42,11 +42,11 @@ const config = require('../config')
  */
 const createDevServer = (port) => {
 
-  const proxyPort = port === config.DEV.INDEX_PORT ? config.DEV.INDEX_SEVER_PORT : config.DEV.CMS_SERVER_PORT
+  const proxyPort = port === config.INDEX_PORT ? config.INDEX_SEVER_PORT : config.CMS_SERVER_PORT
 
   let app = new WebpacDevServer(webpack(webpackConfig), {
     contentBase: false,
-    public: `http://localhost:${proxyPort}`,
+    public: `http://localhos t:${proxyPort}`,
     compress: true,
     hot: true,
     historyApiFallback: true,
@@ -58,7 +58,9 @@ const createDevServer = (port) => {
     headers: {
       'Set-Cookie': `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`,
       'X-XSS-Protection': '1',
-      'X-Frame-Options': 'DENY'
+      'X-Frame-Options': 'DENY',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
     },
     proxy: {
       '*': `http://localhost:${proxyPort}`
@@ -73,5 +75,5 @@ const createDevServer = (port) => {
   })
 }
 
-createDevServer(config.DEV.INDEX_PORT)
-createDevServer(config.DEV.CMS_PORT)
+createDevServer(config.INDEX_PORT)
+createDevServer(config.CMS_PORT)

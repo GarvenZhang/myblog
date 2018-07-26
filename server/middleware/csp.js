@@ -9,6 +9,7 @@
 // === 2.3 base-uri：限制<base#href> === //
 // === 2.4 form-action：限制<form#action>=== //
 // === 2.5 report-uri: 浏览器会使用POST方法，发送一个JSON对象, 将注入行为报告给指定的uri === //
+// === 2.6 connect-src: <a> ping, Fetch, XMLHttpRequest, WebSocket, EventSource. === //
 // === 3 选项值: 多个值也可以并列，用空格分隔; 如果不设置某个限制选项，就是默认允许任何值 === //
 /*
 主机名：example.org，https://example.com:443
@@ -35,6 +36,9 @@ Content-Security-Policy: script-src 'nonce-xxxx'
 // === 2.2 用hash: 计算出script标签中内容的值的hash，然后转化为base64放到 sha256- 后面 === //
 
 const crypto = require('crypto')
+const config = require('../../config')
+
+const getEnvDomain = config.ISDEV ? '*' : 'https://*.hellojm.cn:*'
 
 module.exports = function (ctx, str) {
 
@@ -44,7 +48,7 @@ module.exports = function (ctx, str) {
 
   const ret = hash.digest('base64')
 
-  ctx.set('Content-Security-Policy', `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:;`)
+  ctx.set('Content-Security-Policy', `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}'; img-src 'self' data: https://avatars2.githubusercontent.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src ${getEnvDomain}; frame-src 'self' ${getEnvDomain}`)
 
 }
 
