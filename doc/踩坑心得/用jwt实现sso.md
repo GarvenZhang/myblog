@@ -186,7 +186,61 @@
 
 ## 三.JWT实现SSO
 
-**第一次访问的是系统 A 的 some/page**:
+**第一次访问的是 admin.hellojm.cn **:
+
+1 客户端输入: https://admin.hellojm.cn 访问需要登录的页面
+
+2 admin后端: authorization中不存在jwt, 说明未登录; 通知浏览器重定向到 CAS 登录页面, 并将当前页面设置为回调地址: https://cas.hellojm.cn/login?redirectUrl=https://admin.hellojm.cn
+
+3 客户端: https://sso.hellojm.cn/login?redirectUrl=https://admin.hellojm.cn
+
+4 cas后端: cookie中不存在sid, 说明未创建 sso 的session, 直接返回登录页, 以便用户填写用户名密码
+
+5 客户端: 用户输入账密提交表单, 参数redirectUrl带着
+
+6 cas后端: 根据表单POST的用户名和密码校验, 无效则不允许登录; 有效则验证通过, 建立sso会话
+
+6.1 为其在服务器创建 sso session 对象, 并将 session id 写到sid cookie中
+
+6.2 为admin签发一个jwt, 在playload中指定过期时间, 以及对应的sso会话的 session id
+
+6.3 通知浏览器重定向到 admin 的cas/attach地址, 并将jwt作为url参数进行传递
+
+```
+Set Cookie: sid=qwerty
+302 Location: https://admin.hellojm.cn/cas/attach?jwt=xxx.yy.z&redirectUrl=https://admin.hellojm.cn
+```
+
+7 客户端: https://admin.hellojm.cn/cas/attach?jwt=xxx.yy.z&redirectUrl=https://admin.hellojm.cn
+
+8 admin后端: 根据url中的jwt参数, 取得CAS签发的jwt, 并跟 CAS后端 验证jwt是否有效
+
+```
+GET https://sso.hellojm.cn/attach/validate?jwt=xxx.yy.z
+```
+
+9 cas后端: 验证jwt并拿jwt里面的 session id 验证会话是否有效
+
+10 admin后端: 若返回的信息表明 CAS 验证通过, 把 jwt 设置到 admin 的cookie, 并通知浏览器重定向到之前的 redirectUrl 指定的地址
+
+```
+Set Cookie: jwt=xxx.yy.z
+302 Location: https://admin.hellojm.cn
+```
+
+11 客户端: https://admin.hellojm.cn
+
+12 admin后端: 若cookie中 jwt存在, 再次通过 cas后端 验证 jwt 是否有效
+
+13 cas后端: 验证 jwt 并拿 jwt里面的session id验证会话有效性, 验证通过则返回 sso session 的会话数据, 如用户信息等
+
+14 admin后端: 继续处理本该处理的请求, 返回数据给客户端
+
+
+
+
+
+
 
 
 
