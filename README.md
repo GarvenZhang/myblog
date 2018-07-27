@@ -503,10 +503,10 @@
 + [react同构方案中iframe的load事件不会触发 - <尚未查明原因>](./client/User/containers/Auth/index.jsx) 
 + **✨✨为了实现SSO(nodejs + jwt + 完全跨域)我踩了这些坑✨✨**:
   [常用的会话管理方式](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#一常用的会话管理方式) /
-  [CAS协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#二CASCentral-Authentication-Service协议) /
-  [SMAL 2.0协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#三SMAL-2.0协议) /
-  [OAuth 2.0协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#四OAuth-2.0协议) /
-  [OpenId协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#五OpenId协议) /
-  [jwt协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#六JWT协议) /
-  [单点登录SSO](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#七SSOsingle-sign-on) /
+  [CAS协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#二cascentral-authentication-service协议) /
+  [SMAL 2.0协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#三smal-20协议) /
+  [OAuth 2.0协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#四oauth-20协议) /
+  [OpenId协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#五openid协议) /
+  [jwt协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#六jwt协议) /
+  [单点登录SSO](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#七ssosingle-sign-on) /
   [自己的实现](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#八自己的实战经验)
