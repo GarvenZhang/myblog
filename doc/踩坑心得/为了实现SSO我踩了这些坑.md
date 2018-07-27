@@ -172,11 +172,11 @@
 
 2 系统A重定向到认证中心，发送了什么信息或者地址变成了什么?
 
-假如系统A的地址为http://a:8080/，CAS认证中心的服务地址为http://cas.server:8080/，那么重点向前后地址变化为：http://a:8080/————>ttp://cas.server:8080/?service=http://a:8080/，由此可知，重定向到认证中心，认证中心拿到了当前访问客户端的地址
+假如系统A的地址为 `http://a:8080/`，CAS认证中心的服务地址为 `http://cas.server:8080/`，那么重点向前后地址变化为：`http://a:8080/` ————> `ttp://cas.server:8080/?service=http://a:8080/`，由此可知，重定向到认证中心，认证中心拿到了当前访问客户端的地址
 
 3 登录成功后，认证中心重定向请求到系统A，认证通过令牌是如何附加发送给系统A的?
 
-重定向之后的地址栏变成：http://a:8080/?ticket=ST-XXXX-XXX，将票据以ticket为参数名的方式通过地址栏发送给系统A
+重定向之后的地址栏变成：`http://a:8080/?ticket=ST-XXXX-XXX`，将票据以ticket为参数名的方式通过地址栏发送给系统A
 
 4 系统A验证令牌，怎样操作证明用户登录的?
 
@@ -249,7 +249,9 @@ E SP 对拿到的 token 进行验证，并从中解析出用户信息，例如�
 
 ### 4.2 客户端的授权方式
 
-**授权码模式**: 通过客户端的后台服务器，与"服务提供商"的认证服务器进行互动
+#### 4.2.1 授权码模式 
+
+通过客户端的后台服务器，与"服务提供商"的认证服务器进行互动
 
 ```
 
@@ -288,7 +290,7 @@ URI          |                                                                  
 
 ```
 
-1 步骤1中的参数: 
+**1 步骤1中的参数**: 
 
 response_type：表示授权类型，必选项，此处的值固定为"code"
 
@@ -305,7 +307,7 @@ GET /authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz&redirect_uri=ht
 Host: server.example.com
 ```
 
-2 步骤3中的参数:
+**2 步骤3中的参数**:
 
 code：表示授权码，必选项。该码的有效期应该很短，通常设为10分钟，客户端只能使用该码一次，否则会被授权服务器拒绝。该码与客户端ID和重定向URI，是一一对应关系
 
@@ -316,7 +318,7 @@ HTTP/1.1 302 Found
 Location: https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA&state=xyz
 ```
 
-3 步骤4中的参数:
+**3 步骤4中的参数**:
 
 grant_type：表示使用的授权模式，必选项，此处的值固定为"authorization_code"
 
@@ -335,7 +337,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&code=SplxlOBeZQQYbYS6WxSbIA&redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb
 ```
 
-4 步骤5中参数:
+**4 步骤5中参数**:
 
 access_token：表示访问令牌，必选项
 
@@ -362,7 +364,9 @@ Pragma: no-cache
 }
 ```
 
-**简化模式**: 不通过第三方应用程序的服务器，直接在浏览器中向认证服务器申请令牌，跳过了"授权码"这个步骤，因此得名。所有步骤在浏览器中完成，令牌对访问者是可见的，且客户端不需要认证
+#### 4.2.2 简化模式
+
+不通过第三方应用程序的服务器，直接在浏览器中向认证服务器申请令牌，跳过了"授权码"这个步骤，因此得名。所有步骤在浏览器中完成，令牌对访问者是可见的，且客户端不需要认证
 
 ```
 
@@ -414,7 +418,7 @@ URI          |
   
 ```
 
-1 步骤1中的参数:
+**1 步骤1中的参数**:
 
 response_type：表示授权类型，此处的值固定为"token"，必选项
 
@@ -431,7 +435,7 @@ GET /authorize?response_type=token&client_id=s6BhdRkqt3&state=xyz&redirect_uri=h
 Host: server.example.com
 ```
 
-2 步骤3中的参数:
+**2 步骤3中的参数**:
 
 access_token：表示访问令牌，必选项
 
@@ -448,7 +452,9 @@ HTTP/1.1 302 Found
 Location: http://example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA&state=xyz&token_type=example&expires_in=3600
 ```
 
-**密码模式**: 用户必须把自己的密码给客户端，但是客户端不得储存密码。这通常用在用户对客户端高度信任的情况下，比如客户端是操作系统的一部分，或者由一个著名公司出品。而认证服务器只有在其他授权模式无法执行的情况下，才能考虑使用这种模式
+#### 4.2.3 密码模式
+
+用户必须把自己的密码给客户端，但是客户端不得储存密码。这通常用在用户对客户端高度信任的情况下，比如客户端是操作系统的一部分，或者由一个著名公司出品。而认证服务器只有在其他授权模式无法执行的情况下，才能考虑使用这种模式
 
 ```
 
@@ -471,7 +477,7 @@ Location: http://example.com/cb#access_token=2YotnFZFEjr1zCsicMWpAA&state=xyz&to
 
 ```
 
-1 步骤2中参数:
+**1 步骤2中参数**:
 
 grant_type：表示授权类型，此处的值固定为"password"，必选项
 
@@ -490,7 +496,7 @@ scope：表示权限范围，可选项
  grant_type=password&username=johndoe&password=A3ddj3w
 ```
 
-2 步骤3认证服务器向客户端发送的访问令牌:
+**2 步骤3认证服务器向客户端发送的访问令牌**:
 
 ```
 HTTP/1.1 200 OK
@@ -507,7 +513,9 @@ Pragma: no-cache
 }
 ```
 
-**客户端模式**: 客户端以自己的名义，而不是以用户的名义，向"服务提供商"进行认证。严格地说，客户端模式并不属于OAuth框架所要解决的问题。在这种模式中，用户直接向客户端注册，客户端以自己的名义要求"服务提供商"提供服务，其实不存在授权问题
+#### 4.2.4 客户端模式
+
+客户端以自己的名义，而不是以用户的名义，向"服务提供商"进行认证。严格地说，客户端模式并不属于OAuth框架所要解决的问题。在这种模式中，用户直接向客户端注册，客户端以自己的名义要求"服务提供商"提供服务，其实不存在授权问题
 
 ```
 
@@ -520,7 +528,7 @@ Pragma: no-cache
 
 ```
 
-1 步骤1中的参数:
+**1 步骤1中的参数**:
 
 granttype：表示授权类型，此处的值固定为"clientcredentials"，必选项
 
@@ -535,7 +543,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-2 步骤2中的令牌:
+**2 步骤2中的令牌**:
 
 ```
 HTTP/1.1 200 OK
@@ -551,7 +559,7 @@ Pragma: no-cache
 }
 ```
 
-3 更新令牌: 客户端发出更新令牌的HTTP请求
+**3 更新令牌**: 客户端发出更新令牌的HTTP请求
 
 granttype：表示使用的授权模式，此处的值固定为"refreshtoken"，必选项
 
@@ -725,7 +733,7 @@ access_token 由 jwt 生成, 有 用户id, 用户role, 过期时间expires, 生�
 
 ## 九.小节
 
-为了弄懂 SSO 并自己实现一个, 搞了整整一周, 从一开始对这一板块将什么都不懂, 到初见认识各种协议。google 的查边了, 网课也查遍了, 身边的大神也问了, 但是就是不能符合自己的预期。
+为了弄懂 SSO 并自己实现一个, 搞了整整一周, 熬了2个通宵, 从一开始对这一板块将什么都不懂, 到初见认识各种协议。google 的查边了, 网课也查遍了, 身边的大神也问了, 但是就是不能符合自己的预期。
 
 最后, 根据自己一开始的方案的不足, 再结合前人的经验(如各种协议), 自己写出了符合自己需求的功能
 
