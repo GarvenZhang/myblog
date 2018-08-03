@@ -20,7 +20,7 @@
     "prod:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
     "prod:run": "npm run prod:build && npm run prod:server",
 
-    "pm2": "NODE_ENV=production pm2 start app-myblog.js"
+    "pm2": "cross-env NODE_ENV=production pm2 start app-myblog.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
