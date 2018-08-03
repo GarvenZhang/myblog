@@ -7,9 +7,9 @@ import { IndexRouteMap } from './router/index'
 import store from './redux/store'
 import config from '../../config'
 
-import '../static/styles/reset.css'
-import '../static/font-index/iconfont.css'
-import '../static/styles/index.css'
+import './assets/font/iconfont.css'
+import './assets/style/reset.css'
+import './router/index.css'
 import '../../favicon.ico'
 
 // === 点击劫持防御 - 禁止内嵌: window有两个属性, top和parent, top指向最上层的window, parent指向父window, 可通过 top.location 与 window.location 对比来确定是否被内嵌 === //

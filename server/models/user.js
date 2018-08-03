@@ -56,15 +56,45 @@ class UserModel {
     }
   }
 
-  static async get (id) {
+  static async get (id, isDetail) {
 
     try {
 
-      const [data] = await global.db.execute(`SELECT name, github_url, avatar_url, email, role FROM User WHERE id = '${id}';`)
+      let data
+      if (isDetail === 'true') {
+        [data] = await global.db.execute(`SELECT id, account, name, github_url, resume_url, avatar_url, address, wechat, github_url, phone, email, role FROM User WHERE id = '${id}';`)
+      } else {
+        [data] = await global.db.execute(`SELECT id, name, github_url, avatar_url, email, role FROM User WHERE id = '${id}';`)
+      }
       return {
         data: data[0]
       }
 
+
+    } catch (e) {
+      sqlError(e)
+    }
+
+  }
+
+  static async update (params, uid) {
+
+    try {
+      let sql = `UPDATE User SET `
+
+      let isPlainObj = true
+      for (let key in params) {
+        sql += `${key} = '${params[key]}', `
+        isPlainObj && (isPlainObj = false)
+      }
+      
+      if (!isPlainObj) {
+        sql = sql.slice(0, sql.length - 2)
+      }
+
+      sql += ` WHERE id = ${uid};`
+
+      await global.db.execute(sql)
 
     } catch (e) {
       sqlError(e)

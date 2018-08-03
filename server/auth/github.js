@@ -25,30 +25,40 @@ module.exports = async function (ctx, next) {
     .then(async res => {
 
       const data = res.data
+
+      // 检查id若存在, 则查
+      // 若不存在, 在增
+      // ...
       let ret = await userModel.add(data.id, data.avatar_url, data.html_url, data.email, data.name, 0)
 
       const AUTH = config.AUTH
 
+      // 建立全局会话
+      const sid = config.cryptoSign(md5, ret.id)
+      ctx.redis.set(AUTH.SESSION_PREFIX + sid, '1')
+
       const playload = {
         uid: ret.id,
-        role: 0
+        sid,
+        role: 0,
+        expires: Date.now() + AUTH.MAXAGE,
       }
 
       const access_token = jwt.sign(playload, AUTH.JWT_SECRET, {
         algorithm: AUTH.ALGORITHM,
-        expiresIn: AUTH.EXPIRESIN
+        expiresIn: AUTH.MAXAGE
       })
 
-      ctx.cookies.set('access_token', access_token, {
-        expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
-        httpOnly: false,
-        domain: commonConfig.COOKIE_DOMAIN,
-        sameSite: 'strict',
-        secure: !ISDEV
-      })
+      // ctx.cookies.set('access_token', access_token, {
+      //   expires: new Date(Date.now() + 60 * 60 * 2 * 1000),
+      //   httpOnly: false,
+      //   domain: commonConfig.COOKIE_DOMAIN,
+      //   sameSite: 'strict',
+      //   secure: !ISDEV
+      // })
 
-      let redirect_url = ctx.query.from
-      // if (/^article-(\d+)$/.test(redirect_url)) {
+      let redirect_url = ctx.query.from + `&access_token=${access_token}`
+      // if (/^article-(\d+)$/.prod(redirect_url)) {
       //   redirect_url = commonConfig.INDEX_DOMAIN + '/' + redirect_url.replace(/-/, '/')
       // } else if (redirect_url === 'admin') {
       //   redirect_url = commonConfig.CMS_DOMAIN

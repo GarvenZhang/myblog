@@ -1,6 +1,6 @@
 const index = require('../../../client/lib/index')
 
-describe('/test/client/lib/index.test.js', function () {
+describe('/prod/client/lib/index.test.js', function () {
   describe('getUrlParams', function () {
     test('return empty string when there is nothing in param location', function () {
       expect(index.getUrlParams('')).toMatchObject({})
@@ -27,12 +27,12 @@ describe('/test/client/lib/index.test.js', function () {
   //     writable: true
   //   })
   //
-  //   test('set cookie', function () {
+  //   prod('set cookie', function () {
   //
   //     index.Cookies.set('uid', '12345')
   //     index.Cookies.set('sign', '12321', {
   //       expires: new Date(),
-  //       path: '/test',
+  //       path: '/prod',
   //       domain: 'http://localhost:8080',
   //       httpOnly: true,
   //       sameSite: true,
@@ -41,12 +41,12 @@ describe('/test/client/lib/index.test.js', function () {
   //
   //     expect(document.cookie).toBe('uid=12345')
   //   })
-  //   test('get cookie', function () {
+  //   prod('get cookie', function () {
   //
   //     expect(index.Cookies.get('uid')).toBe('12345')
   //
   //   })
-  //   test('unset cookie', function () {
+  //   prod('unset cookie', function () {
   //
   //     index.Cookies.unset('uid')
   //

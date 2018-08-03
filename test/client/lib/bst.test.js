@@ -1,7 +1,7 @@
 import BST from '../../../client/lib/bst'
 import ArticleMock from '../../../mock/article.mock'
 
-describe('test/client/lib/bst.test.js', function () {
+describe('prod/client/lib/bst.test.js', function () {
   let bst = new BST()
 
   bst.insert(23)

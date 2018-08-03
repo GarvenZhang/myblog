@@ -1,6 +1,6 @@
 import _Promise from '../../../client/lib/promise'
 
-describe('test/client/lib/promise.test.js', function () {
+describe('prod/client/lib/promise.test.js', function () {
   describe('Promise.resolve() should be ok', function () {
     test('use promise to verify', () => {
       expect.assertions(1)

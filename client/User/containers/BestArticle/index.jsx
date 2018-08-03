@@ -24,10 +24,10 @@ export default class BestArticle extends Component {
 
   static defaultProps = {
     data: [],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   componentWillMount () {
@@ -49,7 +49,7 @@ export default class BestArticle extends Component {
                   ))
                 }
                 <LoadMore
-                  isEndPage={this.props.isEndPage}
+                  is_end_page={this.props.is_end_page}
                   loadMoreRef={area => this.$area = area}
                 />
               </ul>
@@ -63,8 +63,8 @@ export default class BestArticle extends Component {
     const sHeight = window.screen.height
     const top = this.$area.getBoundingClientRect().top
 
-    if (top < sHeight && !this.props.isEndPage) {
-      this.props.get_best_list(this.props.pageNum + 1, this.props.perPage)
+    if (top < sHeight && !this.props.is_end_page) {
+      this.props.get_best_list(this.props.page_num + 1, this.props.per_page)
     }
   }
   componentDidMount () {
@@ -85,9 +85,9 @@ export default class BestArticle extends Component {
 if (config.ISDEV) {
   BestArticle.propTypess = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }

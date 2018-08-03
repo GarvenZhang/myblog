@@ -1,7 +1,7 @@
 const sort = require('../../../../../../client/view/Admin/containers/GeneralCatalogue/sort')
 const mock = require('../../../../../../mock/articleList.mock').default.data
 
-describe('test/client/view/Admin/containers/GeneralCatalogue/sort.test.js', function () {
+describe('prod/client/view/Admin/containers/GeneralCatalogue/sort.test.js', function () {
   describe('sort.selectSort()', function () {
     test('positive sequence should be right', function () {
       const ret = sort.selectSort(mock, ['title'], true)
@@ -24,19 +24,19 @@ describe('test/client/view/Admin/containers/GeneralCatalogue/sort.test.js', func
 
   describe('sort.insertionSort()', function () {
     test('positive sequence should be right', function () {
-      const ret = sort.insertionSort(mock, ['readNum'], true)
+      const ret = sort.insertionSort(mock, ['read_num'], true)
 
       ret.reduce((prev, next) => {
-        expect(prev.readNum).toBeLessThanOrEqual(next.readNum)
+        expect(prev.read_num).toBeLessThanOrEqual(next.read_num)
         return prev
       })
     })
 
     test('negative sequence should be right', function () {
-      const ret = sort.insertionSort(mock, ['readNum'], false)
+      const ret = sort.insertionSort(mock, ['read_num'], false)
 
       ret.reduce((prev, next) => {
-        expect(prev.readNum).toBeGreaterThanOrEqual(next.readNum)
+        expect(prev.read_num).toBeGreaterThanOrEqual(next.read_num)
         return prev
       })
     })
@@ -55,19 +55,19 @@ describe('test/client/view/Admin/containers/GeneralCatalogue/sort.test.js', func
 
   describe('sort.shellSort()', function () {
     test('positive sequence should be right', function () {
-      const ret = sort.shellSort(mock, ['likedNum'], true)
+      const ret = sort.shellSort(mock, ['liked_num'], true)
 
       ret.reduce((prev, next) => {
-        expect(prev.likedNum).toBeLessThanOrEqual(next.likedNum)
+        expect(prev.liked_num).toBeLessThanOrEqual(next.liked_num)
         return prev
       })
     })
 
     test('negative sequence should be right', function () {
-      const ret = sort.shellSort(mock, ['likedNum'], false)
+      const ret = sort.shellSort(mock, ['liked_num'], false)
 
       ret.reduce((prev, next) => {
-        expect(prev.likedNum).toBeGreaterThanOrEqual(next.likedNum)
+        expect(prev.liked_num).toBeGreaterThanOrEqual(next.liked_num)
         return prev
       })
     })

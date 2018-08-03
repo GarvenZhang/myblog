@@ -1,6 +1,6 @@
 import deepCopy from '../../../client/lib/deepCopy'
 
-describe('test/client/lib/deepCopy.test.js', function () {
+describe('prod/client/lib/deepCopy.test.js', function () {
   test('deepCopy() should be ok', function () {
     const arr = [{
       a: {

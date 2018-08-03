@@ -1,6 +1,6 @@
 import curring from '../../../client/lib/curring'
 
-describe('test/client/lib/curring.test.js', function () {
+describe('prod/client/lib/curring.test.js', function () {
   test('curring() should be ok', function () {
     let fn = curring(function (a, b, c) {
       expect(a).toBe(1)

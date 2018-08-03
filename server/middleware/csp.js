@@ -38,17 +38,56 @@ Content-Security-Policy: script-src 'nonce-xxxx'
 const crypto = require('crypto')
 const config = require('../../config')
 
-const getEnvDomain = config.ISDEV ? '*' : 'https://*.hellojm.cn:*'
+const getConnectSrc = () => {
+
+  if (config.ISDEV  || config.ISTEST) {
+    return 'connect-src * ;'
+  } else if (config.ISPROD) {
+    return 'connect-src https://*.hellojm.cn:* ;'
+  }
+
+}
+
+const getFrameSrc = () => {
+
+  if (config.ISDEV || config.ISTEST) {
+    return "frame-src 'self' * ;"
+  } else if (config.ISPROD) {
+    return "frame-src 'self' https://*.hellojm.cn:* ;"
+  }
+
+}
+
+const getImgSrc = () => {
+
+  let ret = `img-src 'self' https://avatars2.githubusercontent.com`
+  console.log(config.ISTEST)  
+  if (config.ISDEV || config.ISTEST) {
+    ret += ' http://file.localhost.cn'
+  } else if (config.ISPROD) {
+    ret += ' https://file.hellojm.cn'
+  }
+
+  ret += ' data: ;'
+
+  return ret
+}
 
 module.exports = function (ctx, str) {
 
+  // 加密
   const hash = crypto.createHash('sha256')
-
   hash.update(`window.__REDUX_DATA__ = ${str}`)
-
   const ret = hash.digest('base64')
 
-  ctx.set('Content-Security-Policy', `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}'; img-src 'self' data: https://avatars2.githubusercontent.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src ${getEnvDomain}; frame-src 'self' ${getEnvDomain}`)
+  const connectSrc = getConnectSrc()
+  const frameSrc = getFrameSrc()
+  const imgSrc = getImgSrc()
+  const defaultSrc = `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}';`
+  const styleSrc = `style-src 'self' 'unsafe-inline';`
+  const fontSrc = `font-src 'self' data: ;`
+
+  ctx.set('Content-Security-Policy', defaultSrc + imgSrc + styleSrc + fontSrc + frameSrc + connectSrc)
 
 }
 

@@ -76,12 +76,13 @@ let domainIndex = ''
 export const api = {
 
   // article
-  get_article_latestlist: (pageNum, perPage) => get(`${domainIndex}/api/article/latestlist?pageNum=${pageNum}&perPage=${perPage}`),
-  get_article_bestlist: (pageNum, perPage) => get(`${domainIndex}/api/article/bestlist?pageNum=${pageNum}&perPage=${perPage}`),
+  get_article_latestlist: (page_num, per_page) => get(`${domainIndex}/api/article/latestlist?page_num=${page_num}&per_page=${per_page}`),
+  get_article_bestlist: (page_num, per_page) => get(`${domainIndex}/api/article/bestlist?page_num=${page_num}&per_page=${per_page}`),
   post_article: data => post(`${domainIndex}/api/article`, data),
   get_article: id => get(`${domainIndex}/api/article?id=${id}`),
   get_article_linkList: () => get(`${domainIndex}/api/article/linklist`),
   get_article_alllist: () => get(`${domainIndex}/api/article/alllist`),
+  get_searchlist: (title, page_num, per_page) => get(`${domainIndex}/api/get_search_list?title=${title}&page_num=${page_num}&per_page=${per_page}`),
 
   // category
   get_category: () => get(`${domainIndex}/api/category`),
@@ -93,13 +94,15 @@ export const api = {
   get_works: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/api/works`),
 
   // user
-  get_user: access_token => get(`${domainIndex}/api/user?access_token=${access_token}`),
+  get_user: (isDetail) => get(`${domainIndex}/api/user${isDetail ? '?isDetail=' + isDetail : ''}`),
+  update_user: (data) => patch(`${domainIndex}/api/user`, data),
+  logout: () => patch(`${domainIndex}/api/logout`),
 
-  get_searchlist: (title, pageNum, perPage) => get(`${domainIndex}/api/get_search_list?title=${title}&pageNum=${pageNum}&perPage=${perPage}`),
-  getAddressApi: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/address?cb=jp_address.getAddress`),
-  getDictionary: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/dictionary.js?cb=jp_dictionary.getDictionary`),
-  getStreetApi: id => get(`${commonConfig.FILE_SERVER_DOMAIN}/street?id=${id}&&cb=jp_address.getStreet`),
-  uploadImgApi: () => get(`${commonConfig.FILE_SERVER_DOMAIN}/img`),
+  // file server
+  getAddressApi: () => `${commonConfig.FILE_SERVER_DOMAIN}/address?cb=jp_address.getAddress`,
+  getDictionary: () => `${commonConfig.FILE_SERVER_DOMAIN}/dictionary?cb=jp_dictionary.getDictionary`,
+  getStreetApi: id => `${commonConfig.FILE_SERVER_DOMAIN}/street?id=${id}&&cb=jp_address.getStreet`,
+  uploadImgApi: () => `${commonConfig.FILE_SERVER_DOMAIN}/img`,
 
   // other
   getIp: () => get(`${domainIndex}/api/ip`),

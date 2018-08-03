@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import config from '../../../../config'
-
 import style from './index.css'
 
 // === localStorage: 专门来于浏览器存储 === //

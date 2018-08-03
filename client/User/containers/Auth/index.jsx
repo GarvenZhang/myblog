@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import history from '../../router/history'
+import detectWebp from '../../../lib/detectWebp'
+import Cookies from '../../../lib/cookie'
+import Popup from '../../components/Popup'
 import axios, { getRespnseInterceptorsInfo, setResponseInterceptorsInfo } from '../../fetch/axios'
 import config from '../../../../config'
 import { actions as UserActions } from '../../redux/User'
@@ -15,7 +17,7 @@ const { send_message, update_loaded_status } = IframeActions
 
 @connect(state => state.UserReducer, {get_user})
 @connect(state => state.IframeReducer, {send_message, update_loaded_status})
-export default class Auth  extends PureComponent {
+export default class Auth extends PureComponent {
   constructor (props) {
     super(props)
 
@@ -50,6 +52,11 @@ export default class Auth  extends PureComponent {
       // token过期
       if (res.status === 401 && !notToCheckList.some(item => item === res.config.url)) {
         window.localStorage.removeItem('access_token')
+      }
+
+      // 更新token
+      if (res.data && res.data.access_token) {
+        window.localStorage.setItem('access_token', res.data.access_token)
       }
 
       // 若响应的状态码为4xx，则给予用户提示
@@ -99,10 +106,38 @@ export default class Auth  extends PureComponent {
 
   }
 
+  detectWebpHandle () {
+
+    // 检测浏览器是否支持webp
+    detectWebp('alpha', function (feature, isSupport) {
+
+      // === 二级域名cookie共享： === //
+      // === cookie只能读写大于等于自己的域，因此同一级域名间的cookie共享需要将cookie设置到更高的域中 === //
+      if (isSupport) {
+        Cookies.set('supportWebp', '1', {
+          maxAge: 60 * 60 * 24 * 7,
+          domain: config.COOKIE_DOMAIN,
+          path: '/'
+        })
+      } else {
+        Cookies.set('supportWebp', '', {
+          maxAge: 60 * 60 * 24 * 7,
+          domain: config.COOKIE_DOMAIN,
+          path: '/'
+        })
+      }
+
+    })
+
+
+  }
 
   componentWillMount () {
 
     if (typeof window !== 'undefined') {
+
+      this.detectWebpHandle()
+
       this.responseInterceptorsHandle()
     }
 
@@ -123,13 +158,16 @@ export default class Auth  extends PureComponent {
   render () {
     return (
       this.state.iframeNow ?
-        <iframe ref={$iframe => this.$iframe = $iframe}
-                src={`${config.SSO_DOMAIN}?from=${this.props.href || location.href}&noOwnIframe=true`}
-                frameBorder="0"
-                className={style['sso-iframe']}
-                onLoad={this.loadHandle}
-        />
-        : ''
+        <div className={'global-component-wrap'}>
+          <iframe ref={$iframe => this.$iframe = $iframe}
+                  src={`${config.SSO_DOMAIN}?from=${this.props.href || location.href}&noOwnIframe=true`}
+                  frameBorder="0"
+                  className={style['sso-iframe']}
+                  onLoad={this.loadHandle}
+          />
+          <Popup/>
+        </div>
+        : <Popup/>
     )
   }
 
@@ -148,7 +186,7 @@ export default class Auth  extends PureComponent {
     // 若redux中没有用户信息(如刷新页面后)
     const access_token = window.localStorage.getItem('access_token')
     if (access_token) {
-      if (this.props.role) {
+      if (this.props.role !== -1) {
         return
       }
       this.props.get_user(access_token)

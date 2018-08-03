@@ -4,22 +4,23 @@ const ArticleModel = require('../models/article')
 const cache = require('../middleware/cache')
 const cacheEvent = require('../middleware/event').cacheEvent
 const errorMsg = require('../middleware/errorMsg')
+const jwt = require('../middleware/jwt')
 
 class ArticleListCtrl {
   /**
    * 获取最新文章列表
    */
   static async getLatest (ctx) {
-    const pageNum = parseInt(ctx.query.pageNum)
-    const perPage = parseInt(ctx.query.perPage)
-    ctx.body = await ArticleModel.getLatest(pageNum, perPage)
+    const page_num = parseInt(ctx.query.page_num)
+    const per_page = parseInt(ctx.query.per_page)
+    ctx.body = await ArticleModel.getLatest(page_num, per_page)
   }
   /**
    * 获取最好文章列表
    */
   static async getBest (ctx) {
-    const pageNum = parseInt(ctx.query.pageNum)
-    ctx.body = await ArticleModel.getBest(pageNum)
+    const page_num = parseInt(ctx.query.page_num)
+    ctx.body = await ArticleModel.getBest(page_num)
   }
   /**
    * 获取所有文章列表
@@ -64,7 +65,7 @@ class ArticleListCtrl {
   static async getSearchList (ctx) {
 
     const {
-      title, tag, pageNum, perPage
+      title, tag, page_num, per_page
     } = ctx.query
 
     let key = ''
@@ -80,7 +81,7 @@ class ArticleListCtrl {
       }
     }
 
-    const ret = await ArticleModel.getSearchList(key, pageNum, perPage)
+    const ret = await ArticleModel.getSearchList(key, page_num, per_page)
 
     ctx.body = ret
   }
@@ -103,7 +104,7 @@ class ArticleListCtrl {
 
     // 带上user_id
     req = Object.assign({}, req, {
-      user_id: ctx.playload.uid
+      user_id: ctx.payload.uid
     })
 
     const ret = await ArticleModel.add(req)
@@ -112,7 +113,16 @@ class ArticleListCtrl {
     const linkListData = await ArticleModel.getLink()
     cacheEvent.emit('updateLinkList', JSON.stringify(linkListData))
 
-    ctx.body = ret
+    let access_token = ''
+    await jwt.sign(ctx.payload)
+      .then(token => {
+        access_token = token
+      })
+
+    ctx.body = {
+      ...ret,
+      access_token
+    }
   }
   /**
    * 删除文章
@@ -120,15 +130,39 @@ class ArticleListCtrl {
   static async del (ctx) {
 
     await ArticleModel.del(ctx.query.id)
+
+    let access_token = ''
+    await jwt.sign(ctx.payload)
+      .then(token => {
+        access_token = token
+      })
+
+    ctx.body = {
+      access_token
+    }
+
   }
   /**
    * 更新文章
    */
   static async update (ctx) {
+
     await ArticleModel.update(ctx.request.body)
+
     // 更新缓存
     const linkListData = await ArticleModel.getLink()
     cacheEvent.emit('updateLinkList', JSON.stringify(linkListData))
+
+    let access_token = ''
+    await jwt.sign(ctx.payload)
+      .then(token => {
+        access_token = token
+      })
+
+    ctx.body = {
+      access_token
+    }
+
   }
 }
 

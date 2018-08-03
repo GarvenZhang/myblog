@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import style from './index.css'
+import './index.css'
 
 class Prompt extends Component {
   constructor (props) {
@@ -9,10 +9,7 @@ class Prompt extends Component {
 
   render () {
     return (
-      <div className={style['prompt-wrap']}>
-        <input type="text" className={style['text']}/>
-        <input type="button" className={style['btn-submit']} value='确定'/>
-      </div>
+      <div className='prompt-wrap' />
     )
   }
 }

@@ -21,10 +21,10 @@ export default class SearchList extends Component {
 
   static defaultProps = {
     data: [],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   paginateHandle () {
@@ -62,7 +62,7 @@ export default class SearchList extends Component {
         const val = item.split('=')[1]
         paramsObj[key] = val
       })
-      this.props.get_search_list(paramsObj.title, paramsObj.pageNum, paramsObj.perPage)
+      this.props.get_search_list(paramsObj.title, paramsObj.page_num, paramsObj.per_page)
     }
   }
 }
@@ -70,9 +70,9 @@ export default class SearchList extends Component {
 if (config.ISDEV) {
   SearchList.propTypess = {
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }

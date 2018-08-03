@@ -72,7 +72,7 @@ export function reducer (state = initialState, action) {
 
     // 当 postFn 中有函数时, 加载完后就立马执行
     case actionTypes.UPDATE_IFRAME_STATUS:
-      console.log(postFn)
+
       if (postFn.length > 0) {
         postFn.forEach(item => {
           item(action.$iframe)

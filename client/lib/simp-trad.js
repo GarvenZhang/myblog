@@ -1,5 +1,5 @@
-import jsonp from '../User/fetch/jsonp'
-import { api } from '../User/fetch/axios'
+import jsonp from '../Admin/fetch/jsonp'
+import { api } from '../Admin/fetch/axios'
 
 function keydownHandle (e, data) {
   const target = e.target

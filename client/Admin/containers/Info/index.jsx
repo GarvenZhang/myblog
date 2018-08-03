@@ -1,35 +1,33 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import Side from '../../components/Slidebar/index'
+import Slidebar from '../../components/Slidebar/index'
 import { SecondaryPasswordLogin } from '../../components/Iframe/index'
-import jsonp from '../../../User/fetch/jsonp'
+import Img from '../../components/Img'
+import { actions as UserActions } from '../../redux/User'
+import { actions as AddressActions } from '../../redux/Adress'
+import jsonp from '../../fetch/jsonp'
 import trieTree from './trieTree'
-import { api } from '../../../User/fetch/axios'
+import { api } from '../../fetch/axios'
 import config from '../../../../config'
 
 import style from './index.css'
+import avatar from './github-default-avatar.png'
 
-class AdminAccount extends Component {
+@connect(state => state.UserReducer, {...UserActions})
+@connect(state => state.AddressReducer, {...AddressActions})
+export default class AdminAccount extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      provinceList: [],
-      province: '',
-      cityList: [],
-      city: '',
-      districtList: [],
-      district: '',
-      streetList: [],
-      street: ''
-    }
-
     this.selectHandle = ::this.selectHandle
+    this.submithHandle = ::this.submithHandle
+    this.changeHandle = ::this.changeHandle
   }
 
   static defaultProps = {
-    avator: '',
+    avatar: '',
     name: '',
     province: '',
     city: '',
@@ -39,7 +37,6 @@ class AdminAccount extends Component {
     blog: '',
     github: '',
     account: '',
-    access_token: ''
   }
 
   selectHandle (e) {
@@ -67,7 +64,7 @@ class AdminAccount extends Component {
     switch (name) {
 
       case 'province':
-        this.setState({
+        this.props.update_address({
           province: value,
           cityList: ret,
           districtList: [],
@@ -76,7 +73,7 @@ class AdminAccount extends Component {
         break
 
       case 'city':
-        this.setState({
+        this.props.update_address({
           city: value,
           districtList: ret,
           streetList: []
@@ -84,7 +81,7 @@ class AdminAccount extends Component {
         break
 
       case 'district':
-        this.setState({
+        this.props.update_address({
           district: value
         })
         jsonp.get(api.getStreetApi(value), 'street')
@@ -92,7 +89,7 @@ class AdminAccount extends Component {
         break
 
       case 'street':
-        this.setState({
+        this.props.update_address({
           street: value
         })
         break
@@ -100,28 +97,59 @@ class AdminAccount extends Component {
 
   }
 
+  changeHandle (e) {
+
+    const target = e.target
+    this.props.change_info({
+      [target.name]: target.value
+    })
+
+  }
+
+  submithHandle (e) {
+
+    // 过滤
+
+    // 普遍
+    const whiteList = [
+      'password', 'secondary_password', 'name', 'wechat', 'github_url', 'phone', 'avatar_url', 'resume_url'
+    ]
+    let filteredParams = {}
+    for (let key in this.props) {
+      whiteList.includes(key) && this.props[key] && (filteredParams[key] = this.props[key])
+    }
+
+    // 地址
+    const address = this.props.street || this.props.district || this.props.city || this.props.province
+    if (address) {
+      filteredParams.address = address
+    }
+
+    this.props.update_user(filteredParams)
+
+  }
+
   render () {
 
     const {
       provinceList, cityList, districtList, streetList, province, city, district, street
-    } = this.state
+    } = this.props
 
     return (
       <div className="admin-info-page admin-inner">
-        {this.props.tipsCompnent}
         <div className="sildebar-wrap">
-          <Side />
+          <Slidebar />
         </div>
         <div className="admin-wrap">
-          <section className={style['section--avator']}>
+          <section className={style['section--avatar']}>
             <span className={style['title']}>头像:</span>
-            <img className={style['img']} src="#" alt="头像"/>
+            <Img className={style['img']} src={this.props.avatar_url} defaultSrc={avatar} alt="头像"/>
           </section>
           <section className={style['section--info']}>
             <form className={style['form']}>
               <div className={style['field']}>
                 <span className={style['title']}>昵称:</span>
-                <input name='name' className={style['input']} type="text"/>
+                <input name='name' className={style['input']} type="text" value={this.props.name}/>
               </div>
               <div className={style['field']}>
                 <span className={style['title']}>地址:</span>
@@ -176,23 +204,22 @@ class AdminAccount extends Component {
               </div>
               <div className={style['field']}>
                 <span className="title">联系方式:</span>
-                <input name='contact' className={style['input']} type="number"/>
+                <input name='phone' className={style['input']} type="number" value={this.props.phone} onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
                 <span className="title">微信:</span>
-                <input name='wechat' className={style['input']} type="text"/>
+                <input name='wechat' className={style['input']} type="text" value={this.props.wechat}  onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
-                <span className="title">博客:</span>
-                <input name='blog' className={style['input']} type="text"/>
+                <span className="title">微信:</span>
+                <input name='email' className={style['input']} type="text" value={this.props.email}  onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
                 <span className="title">github:</span>
-                <input name='github' className={style['input']} type="text"/>
+                <input name='github_url' className={style['input']} type="text" value={this.props.github_url}  onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
-                <input type="submit" className="btn-submit" value='确定'/>
-                <input type="reset" className="btn-reset" value='重置'/>
+                <input type="button" className="btn-submit" value='确定' onClick={this.submithHandle}/>
               </div>
             </form>
           </section>
@@ -200,22 +227,22 @@ class AdminAccount extends Component {
             <form className={style['form']}>
               <div className={style['field']}>
                 <span className={style['title']}>账号:</span>
-                <input type="text" className={style['input']} readOnly/>
+                <input type="text" className={style['input']} readOnly value={this.props.account || this.props.github_url}/>
               </div>
               <div className={style['field']}>
                 <span className={style['title']}>密码:</span>
-                <input type="password" className={style['input']}/>
+                <input type="password" name='password' className={style['input']} value={this.props.password} onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
                 <span className={style['title']}>新密码:</span>
-                <input type="password" className={style['input']}/>
+                <input type="password" name='new_password' className={style['input']} value={this.props.newPassword} onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
                 <span className={style['title']}>二级密码:</span>
-                <input type="password" className={style['input']}/>
+                <input type="password" name='secondary_password' className={style['input']} value={this.props.secondary_password} onChange={this.changeHandle}/>
               </div>
               <div className={style['field']}>
-                <input type="submit" className={style['btn-submit']} value='提交'/>
+                <input type="button" className={style['btn-submit']} value='提交' onClick={this.submithHandle}/>
               </div>
             </form>
           </section>
@@ -228,6 +255,8 @@ class AdminAccount extends Component {
   }
 
   componentDidMount () {
+
+    this.props.get_user(true)
 
     // === this: 指向执行上下文 === //
 
@@ -280,14 +309,14 @@ class AdminAccount extends Component {
           }
         }
 
-        this.setState({
+        this.props.update_address({
           provinceList: data.province,
           cityList: ret
         })
       },
 
       getStreet: function (data) {
-        self.setState({
+        self.props.update_address({
           streetList: data
         })
       }
@@ -307,7 +336,7 @@ class AdminAccount extends Component {
 
 if (config.ISDEV) {
   AdminAccount.propTypes = {
-    avator: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     province: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
@@ -317,8 +346,5 @@ if (config.ISDEV) {
     blog: PropTypes.string.isRequired,
     github: PropTypes.string.isRequired,
     account: PropTypes.string.isRequired,
-    access_token: PropTypes.string.isRequired
   }
 }
-
-export default AdminAccount

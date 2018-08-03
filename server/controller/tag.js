@@ -1,4 +1,5 @@
 const CategoryModel = require('../models/tag')
+const jwt = require('../middleware/jwt')
 
 class CategoryCtrl {
   /**
@@ -13,7 +14,18 @@ class CategoryCtrl {
    * 删除标签
    */
   static async del (ctx) {
+
     ctx.body = await CategoryModel.del(ctx.query.id)
+
+    let access_token = ''
+    await jwt.sign(ctx.payload)
+      .then(token => {
+        access_token = token
+      })
+
+    ctx.body = {
+      access_token
+    }
   }
 
   /**
@@ -23,8 +35,21 @@ class CategoryCtrl {
     const {
       name
     } = ctx.request.body
+
+    const ret = await CategoryModel.add(name)
+
+    let access_token = ''
+    await jwt.sign(ctx.payload)
+      .then(token => {
+        access_token = token
+      })
+
     ctx.status =  201
-    ctx.body = await CategoryModel.add(name)
+    ctx.body = {
+      ...ret,
+      access_token
+    }
+
   }
   
   /**

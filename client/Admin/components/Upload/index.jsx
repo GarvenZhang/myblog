@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import style from './index.css'
 
 import type from '../../../lib/type'
-import config from '../../../../config'
-import { api } from '../../../User/fetch/axios'
+import { api } from '../../fetch/axios'
+import { actions as PopupActions } from '../../redux/Popup'
 
 const ImgItem = function (props) {
   return (
@@ -27,7 +28,11 @@ const ImgItem = function (props) {
 // === state如何管理复杂的数据结构？ === //
 // === 1. === //
 
-class Upload extends Component {
+@connect(state => ({
+  role: state.UserReducer.role
+}))
+@connect(state => (null, {...PopupActions}))
+export default class Upload extends Component {
   constructor (props) {
     super(props)
 
@@ -104,6 +109,15 @@ class Upload extends Component {
    * @param {Number} id
    */
   ajax (item) {
+
+    if (this.props.role !== 1) {
+      return this.props.update_popup({
+        isOpen: 1,
+        header: '提示:',
+        content: '您当前只有参阅权限!'
+      })
+    }
+
     let xhr = new XMLHttpRequest()
 
     xhr.upload.onprogress = (e) => {
@@ -148,6 +162,7 @@ class Upload extends Component {
    * 阻止默认事件
    */
   dragenterHandle (e) {
+    console.log(e)
     e.preventDefault()
   }
 
@@ -174,8 +189,8 @@ class Upload extends Component {
       }
 
       // 上限10个图片
-      let totalCount = this.state.length
-      if (totalCount >= 11) {
+      let total_count = this.state.length
+      if (total_count >= 11) {
         break
       }
 
@@ -281,5 +296,3 @@ class Upload extends Component {
     this.$resetBtn.addEventListener('click', this.resetHandle, false)
   }
 }
-
-export default Upload

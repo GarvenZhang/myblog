@@ -10,7 +10,8 @@ module.exports = {
     SUBTOKEN2: 'd24g&&3ad##w',
     JWT_SECRET: 'fadk!l3u87mmmc##jfeo%&&',
     ALGORITHM: 'HS384',
-    EXPIRESIN: 60
+    MAXAGE: 60 * 60 * 2 * 1000,
+    SESSION_PREFIX: 'sid:', // session id 前缀
   },
 
   // github第三方登录配置
@@ -20,6 +21,14 @@ module.exports = {
     USER_URL: 'https://api.github.com/user',
     CLIENT_ID: 'f3af6057b71e9fbd6951',
     CLIENT_SECRET: '6017be378c8a8943577f02ba9bf5bdb6d5e7fc88'
+  },
+
+  // redis配置
+  REDIS_CONFIG: {
+    port: 6379,
+    host: '127.0.0.1',
+    family: 4,
+    password: '970226',
   },
 
   // 数据库配置

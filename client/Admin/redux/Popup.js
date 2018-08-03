@@ -42,8 +42,12 @@ const initialState = {
   question: '',
   yesText: '',
   noText: '',
-  // alert / confirm / form / prompt
-  category: 'alert'
+  notMoveYet: '',
+  dragging: false,
+  diffX: 0,
+  diffY: 0,
+  left: '50%',
+  top: '50%',
 }
 
 export const actionTypes = {
@@ -51,26 +55,16 @@ export const actionTypes = {
 }
 
 export const actions = {
-
-  update_popup: ops => ({
+  update_popup: (ops) => ({
+    ...ops,
     type: actionTypes.UPDATE_POPUP,
-    isOpen: ops.isOpen,
-    notMoveYet: ops.notMoveYet,
-    header: ops.header,
-    content: ops.content,
-    question: ops.question,
-    yesText: ops.yesText,
-    noText: ops.noText,
-    category: ops.category
   })
-
 }
 
 // === 纯函数: 指函数内外间无关联, 函数内只依赖参数, 相同的输入永远产生相同的输出 === //
 // === 1 reducer设为纯函数的好处: 同样的state必定得到同样的view, reducer内部不能改变state，只能返回全新的state === //
 
 export function reducer (state = initialState, action) {
-
   switch (action.type) {
     case actionTypes.UPDATE_POPUP:
       return {
@@ -81,11 +75,9 @@ export function reducer (state = initialState, action) {
         content: action.content || state.content,
         question: action.question || state.question,
         yesText: action.yesText || state.yesText,
-        noText: action.noText || state.noText,
-        category: action.category || state.category
+        noText: action.noText || state.noText
       }
     default:
       return state
   }
-
 }

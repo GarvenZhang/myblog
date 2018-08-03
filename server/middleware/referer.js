@@ -11,7 +11,7 @@ module.exports = async function (ctx, next) {
   // === 1.2 值: 绝对路径或者相对路径 === //
   if (
     (config.ISDEV && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
-    (!config.ISDEV && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
+    (config.ISPROD && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
   ) {
     return await next()
   }

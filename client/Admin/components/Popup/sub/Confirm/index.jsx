@@ -9,9 +9,7 @@ class Confirm extends Component {
 
   render () {
     return (
-      <div className='confirm-wrap'>
-
-      </div>
+      <div className='confirm-wrap' />
     )
   }
 }

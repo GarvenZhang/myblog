@@ -25,7 +25,6 @@ export class SecondaryPasswordLogin extends Component {
   }
 
   render () {
-
     return (
       <iframe
         ref={iframe => this.$iframe = iframe}

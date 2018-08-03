@@ -280,6 +280,7 @@
   [生成text](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js) /
   [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + **事件**:
+  [target与currentTarget](./client/User/components/Comment/index.jsx)
   [事件循环机制](./client/User/components/Header/index.jsx) /
   [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
@@ -347,7 +348,6 @@
 + [session]
 + [微型http服务器]
 + [webp支持](./client/lib/detectWebp.js)
-+ [jwt](./server/controller/user.js)
 
 ### koa
 
@@ -358,10 +358,16 @@
   [Request/Response](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/request.js) /
   [Middlewares](https://github.com/GarvenZhang/blog-file/blob/development/package/koa-compose/index.js)
 
-### mysql
+### Redis
+
+
+
+### Mysql
 
 + [数据库设计](./doc/mysql/1.数据库设计.md)
 + [表相关](doc/mysql/2.表操作.md)
++ [单表查询](./doc/mysql/4.单表查询.md)
++ [多表连接查询](./doc/mysql/3.多表连接查询.md)
 + **列相关**:
   [增](./server/models/article.js) /
   [删](./server/models/article.js) /
@@ -378,7 +384,7 @@
 ### React
 
 + [生命周期](./client/User/containers/Home/index.jsx)
-+ [React直出开发环境热更新优化方案](./build/devServer.js)
++ [React直出开发环境热更新优化方案](build/dev/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 + [高阶组件](./client/Admin/components/TipsBar/index.jsx)
 + [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js)
@@ -409,6 +415,8 @@
 
 ### webpack
 
++ **基础**:
+  [mode](build/prod/webpack.config.prod.js)  
 + [工作原理](./build/webpack.config.base.js)
 + **源码分析**:
   [输出文件](https://github.com/GarvenZhang/blog-file/blob/development/package/webpack-output/dist/bundle.js) /
@@ -416,9 +424,9 @@
 + [cdn](./build/webpack.config.base.js)
 + [css前缀兼容处理](./build/webpack.config.base.js)
 + [ImageInline](./build/webpack.config.base.js)
-+ [提取第三方库](./build/webpack.config.dll.js)
-+ [gzip](./build/webpack.config.prod.js)
-+ [压缩js](./build/webpack.config.prod.js)
++ [提取第三方库](build/utils/webpack.config.dll.js)
++ [gzip](build/prod/webpack.config.prod.js)
++ [压缩js](build/prod/webpack.config.prod.js)
 + [按需加载](./client/Admin/router/index.jsx)
 
 ### 安全
@@ -462,7 +470,7 @@
 + [上传图片插件](./client/Admin/components/Upload/index.jsx)
 + [分页插件]
 + [拖放插件](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [隐藏滚动条](./client/static/styles/index.css)
++ [隐藏滚动条](client/Admin/router/index.css)
 + [加载更多](./client/User/containers/Home/index.jsx)
 + [纯CSS实现三角形]
 + [波浪形进度条]
@@ -510,3 +518,7 @@
   [jwt协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#六jwt协议) /
   [单点登录SSO](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#七ssosingle-sign-on) /
   [自己的实现](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#八自己的实战经验)
++ [sql中查询语句不应有计算值](./server/models/comment.js)
++ [redux中reducer不应做什么](./client/User/redux/Comment.js)
++ [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
++ [webpack在开发环境转为线上环境时应注意的事项.md](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)

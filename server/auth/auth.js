@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt from '../middleware/jwt'
 import config from './config'
 import errorMsg from '../middleware/errorMsg'
 import referer from '../middleware/referer'
@@ -33,27 +33,58 @@ module.exports = function (...role) {
     const AUTH = config.AUTH
     const token = authorizationHeader.split(' ')[1]
 
-    await jwt.verify(token, AUTH.JWT_SECRET, async (err, decoded) => {
+    await jwt.verify(token, AUTH.JWT_SECRET)
+      .then(async (decoded) => {
 
-      // 过期，或不正确，重新登录
-      if (err) {
+        // 没有权限
+        if (role.length !== 0 && !role.includes(decoded.role)) {
+          ctx.status = 403
+          ctx.body = errorMsg(403)
+          return
+        }
+
+        // redis中是否存在此sid
+        const sid = await ctx.redis.get(AUTH.SESSION_PREFIX + decoded.sid)
+
+        if (sid !== '1') {
+
+          // 删除sid
+          ctx.redis.del('sid')
+
+          ctx.status = 401
+          ctx.body = errorMsg(401)
+
+          return
+        }
+
+        // 过期, 则从redis中删除会话
+        if (decoded.expires <= Date.now()) {
+
+          // 删除sid
+          ctx.redis.del('sid')
+
+          ctx.status = 401
+          ctx.body = {
+            message: 'access_token过期!'
+          }
+          return
+        }
+
+        ctx.payload = {
+          uid: decoded.uid,
+          sid: decoded.sid,
+          role: decoded.role,
+          expires: Date.now() + AUTH.MAXAGE
+        }
+
+        await next()
+      })
+      .catch((err) => {
+        // 过期，或不正确，重新登录
         console.error(err)
         ctx.status = 401
         ctx.body = errorMsg(401)
-        return
-      }
-
-      // 没有权限
-      if (role.length !== 0 && !role.includes(decoded.role)) {
-        ctx.status = 403
-        ctx.body = errorMsg(403)
-        return
-      }
-
-      ctx.playload = decoded
-      await next()
-
-    })
+      })
 
   }
 }

@@ -1,4 +1,28 @@
+/* 开发环境域名与IP的配置:
+
+/private/etc/hosts:
+
+127.0.0.1       www.localhost.cn
+127.0.0.1       admin.localhost.cn
+127.0.0.1	      game.localhost.cn
+127.0.0.1	      sso.localhost.cn
+127.0.0.1 	    file.localhost.cn
+127.0.0.1       game.localhost.cn
+
+whistle 配置:
+
+www.localhost.cn	  host://127.0.0.1:3003
+admin.localhost.cn  host://127.0.0.1:8080
+game.localhost.cn   host://127.0.0.1:3001
+sso.localhost.cn    host://127.0.0.1:3333
+file.localhost.cn   host://127.0.0.1:3009
+game.localhost.cn   host://127.0.0.1:3007
+
+*/
+
 const ISDEV = process.env.NODE_ENV === 'development'
+const ISPROD = process.env.NODE_ENV === 'production'
+const ISTEST = process.env.test === 'test'
 
 // 开发环境配置
 const DEV = {
@@ -38,25 +62,31 @@ const PROD = {
   CMS_DOMAIN: 'https://admin.hellojm.cn',
 
   FILE_SERVER_PORT: '3001',
-  FILE_SERVER_DOMAIN: 'https://file.hellojm.cn/',
+  FILE_SERVER_DOMAIN: 'https://file.hellojm.cn',
+
+  SSO_DOMAIN: 'http://sso.localhost.cn',
+  INDEX_DOMAIN: 'http://www.localhost.cn',
+  CMS_DOMAIN: 'http://admin.localhost.cn',
+  FILE_SERVER_DOMAIN: 'http://file.localhost.cn'
 }
 
 const SSO_PORT = ISDEV ? DEV.SSO_PORT : PROD.SSO_PORT
-const SSO_DOMAIN = ISDEV ? DEV.SSO_DOMAIN : PROD.SSO_DOMAIN
+const SSO_DOMAIN = ISDEV || ISTEST ? DEV.SSO_DOMAIN : PROD.SSO_DOMAIN
 const INDEX_PORT = ISDEV ? DEV.INDEX_PORT : PROD.INDEX_PORT
 const INDEX_SEVER_PORT = ISDEV ? DEV.INDEX_SEVER_PORT : PROD.INDEX_SERVER_PORT
-const INDEX_DOMAIN = ISDEV ? DEV.INDEX_DOMAIN : PROD.INDEX_DOMAIN
+const INDEX_DOMAIN = ISDEV || ISTEST ? DEV.INDEX_DOMAIN : PROD.INDEX_DOMAIN
 const CMS_PORT = ISDEV ? DEV.CMS_PORT : PROD.CMS_PORT
 const CMS_SERVER_PORT = ISDEV ? DEV.CMS_SERVER_PORT : PROD.CMS_SERVER_PORT
-const CMS_DOMAIN = ISDEV ? DEV.CMS_DOMAIN : PROD.CMS_SERVER_PORT
+const CMS_DOMAIN = ISDEV || ISTEST ? DEV.CMS_DOMAIN : PROD.CMS_DOMAIN
 const FILE_SERVER_PORT = ISDEV ? DEV.FILE_SERVER_PORT : PROD.FILE_SERVER_PORT
-const FILE_SERVER_DOMAIN = ISDEV ? DEV.FILE_SERVER_DOMAIN : PROD.FILE_SERVER_DOMAIN
-const COOKIE_DOMAIN = ISDEV ? '.localhost.cn' : '.hellojm.cn'
-
+const FILE_SERVER_DOMAIN = ISDEV || ISTEST ? DEV.FILE_SERVER_DOMAIN : PROD.FILE_SERVER_DOMAIN
+const COOKIE_DOMAIN = ISDEV || ISTEST ? '.localhost.cn' : '.hellojm.cn'
 
 module.exports = {
 
   ISDEV,
+  ISPROD,
+  ISTEST,
 
   PUBLICPATH: '/',
 

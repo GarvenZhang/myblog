@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import Popup from '../../components/Popup'
 import history from '../../router/history'
 import axios, { getRespnseInterceptorsInfo, setResponseInterceptorsInfo } from '../../fetch/axios'
 import config from '../../../../config'
@@ -46,7 +47,23 @@ export default class Auth  extends PureComponent {
 
       // token过期
       if (res.status === 401 && !notToCheckList.some(item => item === res.config.url)) {
-        window.localStorage.removeItem('access_token')
+
+        // 在sso认证中心删除 域下的localStorage 的 access_token
+        this.props.send_message({
+          messageType: 'logout',
+          postFn: ($iframe) => {
+
+            $iframe.contentWindow.postMessage({
+              type: 'logout'
+            }, $iframe.src)
+
+          }
+        })
+      }
+
+      // 更新token
+      if (res.data && res.data.access_token) {
+        window.localStorage.setItem('access_token', res.data.access_token)
       }
 
       // 若响应的状态码为4xx，则给予用户提示
@@ -78,6 +95,11 @@ export default class Auth  extends PureComponent {
 
       case 'responseAccessToken':
 
+        // 对应单点登出的情况: sso中没有access_token
+        if (!e.data.access_token) {
+          return
+        }
+
         window.localStorage.setItem('access_token', e.data.access_token)
         this.props.get_user(e.data.access_token)
 
@@ -88,7 +110,9 @@ export default class Auth  extends PureComponent {
         if (e.data.retCode !== 1) {
           return
         }
+
         window.localStorage.removeItem('access_token')
+
         history.push('/')
 
         break
@@ -130,12 +154,15 @@ export default class Auth  extends PureComponent {
 
   render () {
     return (
-      <iframe ref={$iframe => this.$iframe = $iframe}
-              src={`${config.SSO_DOMAIN}?from=${config.CMS_DOMAIN}&noOwnIframe=true`}
-              frameBorder="0"
-              className={style['sso-iframe']}
-              onLoad={this.loadHandle}
-      />
+      <div className="global-component-wrap">
+        <iframe ref={$iframe => this.$iframe = $iframe}
+                src={`${config.SSO_DOMAIN}?from=${config.CMS_DOMAIN}&noOwnIframe=true`}
+                frameBorder="0"
+                className={style['sso-iframe']}
+                onLoad={this.loadHandle}
+        />
+        <Popup/>
+      </div>
     )
   }
 

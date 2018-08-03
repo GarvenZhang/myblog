@@ -1,17 +1,17 @@
 import httpRequest, {ajax, Fetch} from '../../../client/view/fetch/ajax'
 import Mock from 'mockjs'
 
-describe('test/client/fetch/ajax.test.js', function () {
+describe('prod/client/fetch/ajax.test.js', function () {
   describe('httpRequest()', function () {
     test('get should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       httpRequest({
-        url: '/test?id=1',
+        url: '/prod?id=1',
         method: 'get',
         headers: {
           'x-header': 1
@@ -24,14 +24,14 @@ describe('test/client/fetch/ajax.test.js', function () {
     })
 
     test('post should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       httpRequest({
-        url: '/test',
+        url: '/prod',
         method: 'post',
         headers: {
           'x-header': 1
@@ -46,14 +46,14 @@ describe('test/client/fetch/ajax.test.js', function () {
 
   describe('ajax() should be ok', function () {
     test('get should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       ajax({
-        url: '/test?id=1',
+        url: '/prod?id=1',
         method: 'get',
         headers: {
           'x-header': 1
@@ -66,14 +66,14 @@ describe('test/client/fetch/ajax.test.js', function () {
     })
 
     test('post should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       ajax({
-        url: '/test',
+        url: '/prod',
         method: 'post',
         headers: {
           'x-header': 1
@@ -88,14 +88,14 @@ describe('test/client/fetch/ajax.test.js', function () {
 
   describe('fetch() should be ok', function () {
     test('get should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       Fetch({
-        url: '/test?id=1',
+        url: '/prod?id=1',
         method: 'get',
         headers: {
           'x-header': 1
@@ -108,14 +108,14 @@ describe('test/client/fetch/ajax.test.js', function () {
     })
 
     test('post should be ok', function (done) {
-      Mock.mock('/test', {
+      Mock.mock('/prod', {
         'data|1': {
           retCode: 1
         }
       })
 
       Fetch({
-        url: '/test',
+        url: '/prod',
         method: 'post',
         headers: {
           'x-header': 1

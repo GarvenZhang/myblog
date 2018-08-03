@@ -1,6 +1,6 @@
 const config = require('./config')
 
-if (!config.ISDEV) {
+if (config.ISTEST || config.ISPROD) {
   const prodServer = require('./server/app-myblog.prod')
   prodServer(config.SSO_PORT)
   prodServer(config.INDEX_SEVER_PORT)

@@ -1,4 +1,5 @@
 import { api } from '../fetch/axios'
+import { actions as PopupActions } from './Popup'
 
 const initialState = {
   title: '',

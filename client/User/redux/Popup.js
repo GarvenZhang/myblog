@@ -42,7 +42,12 @@ const initialState = {
   question: '',
   yesText: '',
   noText: '',
-  notMoveYet: ''
+  notMoveYet: '',
+  dragging: false,
+  diffX: 0,
+  diffY: 0,
+  left: '50%',
+  top: '50%',
 }
 
 export const actionTypes = {

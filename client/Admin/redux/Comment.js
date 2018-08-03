@@ -8,11 +8,11 @@ export const actionTypes = {
 }
 
 export const actions = {
-  get_comments: function (id, pageNum) {
+  get_comments: function (id, page_num) {
     return {
       type: actionTypes.GET_COMMENTS,
       id,
-      pageNum
+      page_num
     }
   }
 }

@@ -11,7 +11,7 @@
 .info {
 
 }
-.avator {
+.avatar {
   width: 30px;
 }
 .name {
@@ -45,11 +45,31 @@
 .comment-item {
   color: #0f6f57;
   padding: 8px;
+  margin-bottom: 10px;
   background-color: #3c0933;
 }
 .comment-hd {
+  padding-bottom: 6px;
   border-bottom: 1px solid;
   margin-bottom: 10px;
+}
+.comment-hd .avatar,
+.username,
+.btn-like {
+  margin-right: 10px;
+}
+.username {
+  font-size: 16px;
+}
+.time {
+  font-size: 12px;
+}
+.liked-num {
+  color: #ffeb3b;
+}
+.icon--liked,
+.icon--unliked {
+  vertical-align: middle;
 }
 .btn-like,
 .btn-reply {
@@ -59,4 +79,14 @@
 .btn-reply:hover {
   color: red;
   text-decoration: underline;
+}
+.to-name {
+  color: red;
+  margin-right: 10px;
+}
+.comment-bd {
+
+}
+.content {
+  word-break: break-all;
 }

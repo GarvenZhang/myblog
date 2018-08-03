@@ -21,7 +21,7 @@ class Tag extends PureComponent {
   render () {
     return (
       <li className={style['category-item']}>
-        <Link className={style['link']} target='_blank' to={`/search?tag=${this.props.name}&pageNum=0&perPage=10`}>{this.props.name}</Link>
+        <Link className={style['link']} target='_blank' to={`/search?tag=${this.props.name}&page_num=0&per_page=10`}>{this.props.name}</Link>
         [<span className={style['num']}>{this.props.count}</span>]
       </li>
     )

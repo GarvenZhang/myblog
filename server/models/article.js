@@ -12,56 +12,7 @@ const sqlError = require('./modelError')
 // === 2.1 按列数: SELECT 列名1[, 列名2...] FROM 表名 ORDER BY 3, 4; (第三列，第四列) === //
 // === 2.2 按方向: SELECT 列名1[, 列名2...]  FROM 表名 ORDER BY 列名1 DESC, 列名2; (列名1降序, 列名2默认升序) === //
 
-// === 3 过滤: === //
-// === 3.1 单个值: SELECT 列名1[, 列名2...] FROM 表名 WHERE 列名1 [限定符] 参数; === //
-// === 3.1.a WHERE子句操作符: = | <> | != | < | <= | !< | > | >= | !> | BETWEEN | IS NULL  === //
-// === 3.2 范围值: SELECT 列名1[, 列名2...] FROM 表名 WHERE 列名1 BETWEEN 1 AND 10; === //
-// === 3.3 优先级: () > AND > OR  === //
-// === 3.4 IN操作符: SELECT 列名1[, 列名2...] FROM 表名 WHERE 列名1 IN('001', '002'); 等同于 列名1 = '001' OR 列名1 = '002'; === //
-// === 3.5 NOT操作符: SELECT 列名1[, 列名2...] FROM 表名 WHERE NOT 列名1 = '001' ; 等同于 列名1 <> '001' === //
-// === 3.5 LINK操作符: 文本的匹配 === //
-// === 3.5.a %: 表示任意字符出现任意字数 - WHERE 列名1 LINK 'Fins%'; === //
-// === 3.5.b _: 表示任意字符出现一次 - WHERE 列名1 LINK 'F_Q' === //
 
-// === 4 联结: 联结两个表实际是将第一个表的每一行与第二个表的每一行配对, WHERE子句作为过滤条件, 只包含那些匹配给定条件的行 === //
-// === 4.1 等值联结: 表之间的相等测试 === //
-// === 4.1.a 语法: SELECT 列名1, 列名2, ... FROM 表名A, 表名B WHERE 表名A.列名1 = 表名B.列名1 === //
-// === 4.2 内联结: 也是等值联结, 语法不同而已 === //
-// === 4.2.a 语法: SELECT 列名1, 列名2, ... FROM 表名A INNER JOIN 表名B ON 表名A.列名1 = 表名B.列名1 === //
-// === 4.3 使用表别名: === //
-// === 4.3.a 语法: SELECT 列名1, 列名2, ... FROM 表名A AS 表名A别名, 表名B AS 表名B别名 WHERE ... === //
-// === 4.3.b 注意: 表别名只在查询执行中使用。与列别名不一样，表别名不返回到客户端 === //
-// === 4.4 自联结: === //
-// === 4.4.a 子查询改为自联结: === //
-/*
-// 子查询:
-SELECT cust_name, cust_contact
-FROM Customers
-WHERE cust_id IN (SELECT cust_id
-                  FROM Orders
-                  WHERE order_num IN (SELECT order_num
-                                      FROM OrderItems
-                                      WHERE prod_id = 'RGAN01'));
-
-联结:
-SELECT cust_name, cust_contact
-FROM Customers, Orders, OrderItems
-WHERE Customers.cust_id = Orders.cust_id
- AND OrderItems.order_num = Orders.order_num
- AND prod_id = 'RGAN01';
-*/
-// === 4.5 外联结: 联结包含了那些在相关表中没有关联行的行 === //
-// === 4.5.a 类型: === //
-// === > 左外联结(LEFT): OUTER JOIN左边的表 === //
-// === > 右外联结(RIGHT): OUTER JOIN右边的表 === //
-// === 4.5.b 例子: 要检索包括没有订单顾客在内的所有顾客 === //
-/*
-
-SELECT Customers.cust_id, Orders.order_num
-FROM Customers LEFT OUTER JOIN Orders
- ON Customers.cust_id = Orders.cust_id;
-
-*/
 // === 4.6 使用带聚集函数的联结 === //
 // === 4.6.a COUNT(): 行数 === //
 // === 4.6.b 例子: === //
@@ -73,7 +24,11 @@ FROM Customers INNER JOIN Orders
  ON Customers.cust_id = Orders.cust_id
 GROUP BY Customers.cust_id;
 
+COUNT(DISTINCT XXX) : 不重复的
+COUNT([ALL] XXX): 所有
+
 */
+// === 4.6.c SUM() / AVG() / MAX() / MIN() === //
 
 // === 5 分组: === //
 // === 5.1 普通分组: === //
@@ -175,39 +130,59 @@ TAN()	返 回一个角度的正切
 class ArticleModel {
   /**
    * 获取最新文章列表
-   * @param {Number} pageNum - 起始页数, 默认0
-   * @param {Number} perPage - 每页数目, 默认10
+   * @param {Number} page_num - 起始页数, 默认0
+   * @param {Number} per_page - 每页数目, 默认10
    * @return {Array}
    */
-  static async getLatest (pageNum = 0, perPage = 10) {
-    const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS totalCount FROM Article;')
-    const sql = `SELECT id, title, cover_url, summary, pubtime FROM Article ORDER BY pubtime DESC LIMIT ${pageNum * perPage}, ${perPage};`
+  static async getLatest (page_num = 0, per_page = 10) {
+    const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS total_count FROM Article;')
+    const sql = `SELECT Article.id, title, cover_url, summary, pubtime, Category.name AS tag FROM Article, Category WHERE Article.category_id = Category.id ORDER BY pubtime DESC LIMIT ${page_num * per_page}, ${per_page};`
     const [data] = await global.db.execute(sql)
     return {
       data,
-      pageNum,
-      perPage,
-      totalCount: retNum.totalCount,
-      isEndPage: pageNum * perPage + perPage >= retNum.totalCount
+      page_num,
+      per_page,
+      total_count: retNum.total_count,
+      is_end_page: page_num * per_page + per_page >= retNum.total_count
     }
   }
   /**
    * 获取最好文章列表
-   * @param {Number} pageNum - 起始页数, 默认0
-   * @param {Number} perPage - 每页数目, 默认10
+   * @param {Number} page_num - 起始页数, 默认0
+   * @param {Number} per_page - 每页数目, 默认10
    * @return {Array}
    */
-  static async getBest (pageNum = 0, perPage = 10) {
+  static async getBest (page_num = 0, per_page = 10) {
     try {
+
       const [[retNum]] = await global.db.execute('SELECT COUNT(*) AS total_count FROM Article;')
-      const sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article ORDER BY liked_num DESC LIMIT ${pageNum * perPage}, ${perPage};`
-      const [data] = await global.db.execute(sql)
+
+      const sql = `
+        SELECT
+          AT .id,
+          AT .title,
+          AT .read_num,
+          AT .pubtime,
+          COUNT(DISTINCT Lk.id) AS liked_num,
+	        COUNT(DISTINCT Cm.id) AS comment_num
+        FROM
+          Article AT
+        LEFT JOIN Liked Lk ON Lk.article_id = AT.id AND Lk.status = 1 AND Lk.type = 0
+        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        GROUP BY
+          AT .id DESC
+        LIMIT ${page_num * per_page}, ${per_page};
+      `
+
+      let [data] = await global.db.execute(sql)
+
+      console.log(data)
       return {
         data,
-        pageNum,
-        perPage,
-        totalCount: retNum.totalCount,
-        isEndPage: pageNum * perPage + perPage >= retNum.totalCount
+        page_num,
+        per_page,
+        total_count: retNum.total_count,
+        is_end_page: page_num * per_page + per_page >= retNum.total_count
       }
     } catch (e) {
       sqlError(e)
@@ -236,11 +211,25 @@ class ArticleModel {
    */
   static async getAllList () {
     try {
-      const sql = `SELECT id, title, read_num, liked_num, comment_num, pubtime FROM Article;`
+      const sql = `
+      SELECT
+          AT .id,
+          AT .title,
+          AT .read_num,
+          AT .pubtime,
+          COUNT(DISTINCT Lk.id) AS liked_num,
+	        COUNT(DISTINCT Cm.id) AS comment_num
+        FROM
+          Article AT
+        LEFT JOIN Liked Lk ON Lk.article_id = AT.id AND Lk.status = 1 AND Lk.type = 0
+        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        GROUP BY
+          AT .id DESC;
+      `
       let [data] = await global.db.execute(sql)
       return {
         data,
-        totalCount: data.length
+        total_count: data.length
       }
     } catch (e) {
       sqlError(e)
@@ -249,11 +238,11 @@ class ArticleModel {
   /**
    * 获取查询结果
    * @param {Object} key - 类型
-   * @param {Number} pageNum - 起始页数, 默认0
-   * @param {Number} perPage - 每页数目, 默认10
+   * @param {Number} page_num - 起始页数, 默认0
+   * @param {Number} per_page - 每页数目, 默认10
    * @return {Array}
    */
-  static async getSearchList (key, pageNum, perPage) {
+  static async getSearchList (key, page_num, per_page) {
     try {
 
       let sql = ''
@@ -261,18 +250,18 @@ class ArticleModel {
       switch (key.type) {
 
         case 'title':
-          sql = `SELECT id, title, read_num, liked_num, pubtime FROM Article WHERE title LIKE '%${key.value}%';`
+          sql = `SELECT id, title, pubtime, summary FROM Article WHERE title LIKE '%${key.value}%';`
           break
 
         case 'tag':
-          sql = `SELECT Article.id, title, read_num, liked_num, pubtime FROM Article, Category WHERE Category.name = '${key.value}' AND Article.category_id = Category.id;`
+          sql = `SELECT Article.id, title, pubtime, summary, Category.name AS tag FROM Article, Category WHERE Category.name = '${key.value}' AND Article.category_id = Category.id;`
           break
       }
 
       // 查询
       let [data] = await global.db.execute(sql)
       // 筛选
-      let endNum = pageNum * perPage + perPage
+      let endNum = page_num * per_page + per_page
       data = data
         .map(item => {
           return {
@@ -283,16 +272,15 @@ class ArticleModel {
         .sort((prev, next) => {
           return prev.index - next.index
         })
-        .slice(pageNum * perPage, endNum >= data.length ? data.length : endNum)
+        .slice(page_num * per_page, endNum >= data.length ? data.length : endNum)
       
-      console.log(data)
       // 结果返回
       return {
         data,
-        pageNum,
-        perPage,
-        totalCount: data.length,
-        isEndPage: endNum >= data.length
+        page_num,
+        per_page,
+        total_count: data.length,
+        is_end_page: endNum >= data.length
       }
     } catch (e) {
       sqlError(e)
@@ -305,7 +293,34 @@ class ArticleModel {
    */
   static async getArticle (id) {
     try {
-      const sql = `SELECT * FROM Article WHERE id = ${id};`
+
+      // 先增加一次浏览数
+      await global.db.execute(`UPDATE Article SET read_num = read_num + 1 WHERE id = ${id};`)
+
+      // 查询
+      let sql = `
+        SELECT
+          AT .id,
+          AT .title,
+          AT .read_num,
+          AT .pubtime,
+          AT .summary,
+          AT .content,
+          AT .category_id,
+          AT .prev_id,
+          AT1.title AS prev_title,
+          AT .next_id,
+          AT2.title AS next_title,
+          COUNT(Cm.article_id) AS comment_num
+        FROM
+          Article AT
+        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        LEFT JOIN Article AT1 ON AT1.id = AT .prev_id
+        LEFT JOIN Article AT2 ON AT2.id = AT .next_id
+        WHERE AT .id = ${id}
+        GROUP BY
+          AT .id DESC;
+      `
       const [ret] = await global.db.execute(sql)
       return ret[0]
     } catch (e) {
@@ -314,7 +329,7 @@ class ArticleModel {
   }
   /**
    * 添加文章
-   * @param {Object} param - title, summary, content, pubtime, articleType_id, prevId, nextId
+   * @param {Object} param - title, summary, content, pubtime, category_id, prev_id, next_id
    * @return {Number}
    */
   static async add (param) {
@@ -345,13 +360,13 @@ class ArticleModel {
   }
   /**
    * 更新文章
-   * @param {Object} param - title, summary, content, pubtime, articleType_id, prevId, nextId
+   * @param {Object} param - title, summary, content, pubtime, category_id, prev_id, next_id
    */
   static async update (param) {
     try {
       await global.db.execute(
         'UPDATE Article SET title = ?, summary = ?, content = ?, pubtime = ?, category_id = ?, prev_id = ?, next_id = ?);',
-        [param.title, param.summary, param.content, param.pubtime, param.articleTypeId, param.prevId, param.nextId]
+        [param.title, param.summary, param.content, param.pubtime, param.article_type_id, param.prev_id, param.next_id]
       )
     } catch (e) {
       sqlError(e)

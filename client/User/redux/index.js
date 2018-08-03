@@ -3,10 +3,11 @@ import { latestReducer, bestReducer, searchReducer, allReducer } from './Article
 import { reducer as ArticleCategoryReducer } from './ArticleCategory'
 import { reducer as ArticleReducer } from './Article'
 import { reducer as ArticleLinkListReducer } from './ArticleLinkList'
-import { reducer as popupReducer } from './Popup'
+import { reducer as PopupReducer } from './Popup'
 import { reducer as StorageReducer } from './Storage'
 import { reducer as UserReducer} from './User'
 import { reducer as IframeReducer } from './Iframe'
+import { reducer as CommentReducer } from './Comment'
 
 export default combineReducers({
   searchReducer,
@@ -16,8 +17,9 @@ export default combineReducers({
   ArticleCategoryReducer,
   ArticleReducer,
   ArticleLinkListReducer,
-  popupReducer,
+  PopupReducer,
   StorageReducer,
   UserReducer,
-  IframeReducer
+  IframeReducer,
+  CommentReducer
 })

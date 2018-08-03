@@ -42,6 +42,17 @@
   position: relative;
   right: -200px;
 }
+.header .title {
+  margin-right: 8px;
+}
+.header .item-link,
+.header .location-link {
+  color: #ffeb3b;
+}
+.header .item-link:hover,
+.header .location-link:hover {
+  color: red;
+}
 /* header结束 */
 
 
@@ -79,7 +90,13 @@
   width: 200px;
   margin-left: -200px;
 }
-
+.btn-like {
+  margin-left: 10px;
+}
+.icon--unliked,
+.icon--liked {
+  vertical-align: -2px;
+}
 
 .article {
   margin: 30px 0;

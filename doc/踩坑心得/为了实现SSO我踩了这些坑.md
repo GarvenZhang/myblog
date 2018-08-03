@@ -697,7 +697,7 @@ signature = Hash( data, secret );
 
 1 客户端: 打开 admin.hellojm.cn 页面, 检查是否 localStorage 中有 access_token , 有则带上它 发送 `GET /api/usr` 请求, 若没有则通过 XDM 方式 去 sso.hellojm.cn 中查看是否 localStorage 中有 access_token, 拿过来, 若没没有则什么都不做
 
-2 admin服务器: 获取 access_token , 解密jwt, 得到 id, sid, expires, max-age。检查过期时间, 若过期则返回过期提示; 没过期, 检查 sid 是否在 redis 中有, 有的话, 证明之前登录过(存在全局会话), 则拿着 id 去mysql中拿用户必须信息 以及 更新后的 jwt 返回给前端
+2 admin服务器: 获取 access_token , 解密jwt, 得到 id, sid, role, expires, max-age。检查过期时间, 若过期则返回过期提示; 没过期, 检查 sid 是否在 redis 中有, 有的话, 证明之前登录过(存在全局会话), 则拿着 id 去mysql中拿用户必须信息 以及 更新后的 jwt 返回给前端
 
 3 客户端: 更新 localStorage 中的 access_token , 以及 redux 中的用户信息
 

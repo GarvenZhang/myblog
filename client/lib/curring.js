@@ -3,7 +3,7 @@
 export default function _curring (fn, args = []) {
   const len = fn.length
 
-  return function (param) {
+  return function (...param) {
 
     const _args = args
       .slice(0)

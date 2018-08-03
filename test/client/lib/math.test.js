@@ -1,6 +1,6 @@
 import math from '../../../client/lib/math'
 
-describe('test/client/lib/math.test.js', function () {
+describe('prod/client/lib/math.test.js', function () {
   test('math.random() should be ok', function () {
     for (var i = 10000; i--;) {
       expect(math.random({

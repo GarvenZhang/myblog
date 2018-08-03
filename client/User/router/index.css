@@ -48,28 +48,3 @@
 .article-list {
   width: 639px;
 }
-
-/* =======================Admin======================= */
-.admin-wrap,
-.sildebar-wrap {
-  height: 100vh;
-  padding: 50px 0;
-}
-
-/*
-// === 两栏布局之 float + margin: === //
-// === 思路：左边定宽浮动, 右边通过设置margin-left并且大于或等于左边的宽度，使得左边浮动元素漂浮在右边元素的margin上，从而不影响内容的显示 === //
-// === 注意点： === //
-// === 1.左边定宽 === //
-// === 2.右边margin-left值大于等于左边宽度 === //
-*/
-.sildebar-wrap {
-  width: 300px;
-  float: left;
-  background-color: #4c3737;
-}
-.admin-wrap {
-  margin-left: 300px;
-  background-color: #fff;
-  overflow-x: auto;
-}

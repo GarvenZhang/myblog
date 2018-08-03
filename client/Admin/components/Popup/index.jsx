@@ -1,31 +1,31 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { actions } from '../../redux/Popup'
-import Alert from './sub/Alert'
-import Confirm from './sub/Confirm'
-import Form from './sub/Form'
-import Prompt from './sub/Prompt'
+import { actions as PopupActions } from '../../redux/Popup'
 import config from '../../../../config'
 
 import style from './index.css'
 
-const { update_popup } = actions
+// === immutablejs:  === //
+// === 1 优点: === //
+// === 1.1 减少内存使用 === //
+// === 1.2 并发安全 === //
+// === 1.3 降低项目复杂度 === //
+// === 1.4 便于比较复杂的数据结构, 定制 shouldComponentUpdate 方便 === //
+// === 1.5 时间旅行功能 === //
+// === 1.6 函数式编程 === //
+// === 2 缺点: === //
+// === 2.1 库的大小 === //
+// === 2.2 对先有项目入侵太严重, 新项目可用 === //
 
-@connect(mapStateToProps, mapDispatchToProps)
-export default class Popup extends Component {
+@connect(
+  state => state.PopupReducer,
+  {...PopupActions}
+)
+export default class Popup extends PureComponent {
   constructor (props) {
     super(props)
-
-    this.state = {
-      dragging: false,
-      diffX: 0,
-      diffY: 0,
-      left: '50%',
-      top: '50%',
-    }
 
     this.mousedownHandle = ::this.mousedownHandle
     this.mousemoveHandle = ::this.mousemoveHandle
@@ -35,18 +35,19 @@ export default class Popup extends Component {
   }
 
   static defaultProps = {
-    isOpen: 0,
+    isOpen: 'default',
     header: '',
     content: '',
     question: '',
     yesText: '',
-    noText: ''
+    noText: '',
+    dragging: false,
+    diffX: 0,
+    diffY: 0,
+    left: '50%',
+    top: '50%',
   }
 
-
-  componentWillMount () {
-
-  }
 
   drawBg () {
 
@@ -104,36 +105,16 @@ export default class Popup extends Component {
   /**
    * 主体内容接口
    */
-  createBody () {
-    switch (this.props.category) {
-      case 'alert':
-        return (
-          <Alert/>
-        )
-      case 'confirm':
-        return (
-          <Confirm/>
-        )
-      case 'form':
-        return (
-          <Form/>
-        )
-      case 'prompt':
-        return (
-          <Prompt/>
-        )
-    }
-
-  }
+  createBody () {}
 
   /**
    * 按下鼠标时记录鼠标位置与左上角的差值
    */
   mousedownHandle (e) {
 
-    if (e.target.className.indexOf('drag-area') > -1) {
-
-      this.setState({
+    // 考虑到 svg 的 class 为对象
+    if (e.target.className && e.target.className.indexOf('drag-area') > -1) {
+      this.props.update_popup({
         dragging: true,
         diffX: e.clientX - this.$wrap.offsetLeft,
         diffY: e.clientY - this.$wrap.offsetTop
@@ -148,9 +129,8 @@ export default class Popup extends Component {
    */
   mousemoveHandle (e) {
 
-    if (this.state.dragging) {
-
-      this.setState({
+    if (this.props.dragging) {
+      this.props.update_popup({
         // 当移动时，不再需要margin的居中，则需要补回这段距离
         left: `${e.clientX - this.state.diffX + 250}px`,
         top: `${e.clientY - this.state.diffY + 80}px`
@@ -164,7 +144,7 @@ export default class Popup extends Component {
    */
   mouseupHandle () {
 
-    this.setState({
+    this.props.update_popup({
       dragging: false
     })
 
@@ -184,8 +164,8 @@ export default class Popup extends Component {
   render () {
 
     const wrapStyle = {
-      left: this.state.left,
-      top: this.state.top,
+      left: this.props.left,
+      top: this.props.top,
       margin: '-80px 0 0 -250px',
     }
 
@@ -201,7 +181,7 @@ export default class Popup extends Component {
           <canvas ref={$canvas => this.$canvas = $canvas} className={style['canvas']} width='500' height='160'></canvas>
         </div>
         <div className={style['popup-body']}>
-          {this.createBody()}
+          {this.props.content}
         </div>
       </div>
     )
@@ -217,13 +197,11 @@ export default class Popup extends Component {
 
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-
-    return true
-
-  }
-
   componentWillUnmount () {
+
+    this.props.update_popup({
+      isOpen: 'default'
+    })
 
     document.removeEventListener('mousedown', this.mousedownHandle, false)
     document.removeEventListener('mousemove', this.mousemoveHandle, false)
@@ -235,22 +213,11 @@ export default class Popup extends Component {
 
 if (config.ISDEV) {
   Popup.propTypes = {
-    isOpen: PropTypes.number.isRequired,
+    isOpen: PropTypes.number,
     header: PropTypes.string.isRequired,
     content: PropTypes.string,
     question: PropTypes.string,
     yesText: PropTypes.string,
-    noText: PropTypes.string,
-    text: PropTypes.string
-  }
-}
-
-function mapStateToProps (state) {
-  return state.PopupReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    update_popup: bindActionCreators(update_popup, dispatch)
+    noText: PropTypes.string
   }
 }

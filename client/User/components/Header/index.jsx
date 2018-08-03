@@ -103,7 +103,7 @@ export default class Search extends Component {
     // 拦截器
 
     // 跳转
-    window.open(`/search?title=${encodeURIComponent(key)}&pageNum=0&perPage=10`)
+    window.open(`/search?title=${encodeURIComponent(key)}&page_num=0&per_page=10`)
   }
 
   /**

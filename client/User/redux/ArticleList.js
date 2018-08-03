@@ -2,26 +2,26 @@ import { api } from '../fetch/axios'
 
 const initialStateForLatest = {
   data: [],
-  pageNum: 1,
-  perPage: 10,
-  totalCount: 10,
-  isEndPage: false
+  page_num: 1,
+  per_page: 10,
+  total_count: 10,
+  is_end_page: false
 }
 
 const initialStateForBest = {
   data: [],
-  pageNum: 1,
-  perPage: 10,
-  totalCount: 10,
-  isEndPage: false
+  page_num: 1,
+  per_page: 10,
+  total_count: 10,
+  is_end_page: false
 }
 
 const initialStateForSearch = {
   data: [],
-  pageNum: 1,
-  perPage: 10,
-  totalCount: 10,
-  isEndPage: false
+  page_num: 1,
+  per_page: 10,
+  total_count: 10,
+  is_end_page: false
 }
 
 const initialStateForAll = {
@@ -42,31 +42,31 @@ export const actionTypes = {
 
 export const actions = {
 
-  get_latest_list: (pageNum, perPage) => dispatch => api.get_article_latestlist(pageNum, perPage)
+  get_latest_list: (page_num, per_page) => dispatch => api.get_article_latestlist(page_num, per_page)
     .then(res => dispatch({
       ...res,
       type: actionTypes.RESPONSE_LATEST_LIST
     }))
     .catch(err => {
-      console.log(err.message)
+      console.error(err.message)
     }),
 
-  get_best_list: (pageNum, perPage) => dispatch => api.get_article_bestlist(pageNum, perPage)
+  get_best_list: (page_num, per_page) => dispatch => api.get_article_bestlist(page_num, per_page)
     .then(res => dispatch({
       ...res,
       type: actionTypes.RESPONSE_BEST_LIST,
     }))
     .catch(err => {
-      console.log(err.message)
+      console.error(err.message)
     }),
 
-  get_search_list: (title, pageNum, perPage) => dispatch => api.get_searchlist(title, pageNum, perPage)
+  get_search_list: (title, page_num, per_page) => dispatch => api.get_searchlist(title, page_num, per_page)
     .then(res => dispatch({
       ...res,
       type: actionTypes.RESPONSE_SEARCH_LIST,
     }))
     .catch(err => {
-      console.log(err.message)
+      console.error(err.message)
     }),
 
   get_all_list: (data) => ({
@@ -86,10 +86,10 @@ export function latestReducer (state = initialStateForLatest, action) {
       return {
         ...state,
         data: state.data.concat(action.data),
-        pageNum: action.pageNum,
-        perPage: action.perPage,
-        totalCount: action.totalCount,
-        isEndPage: action.isEndPage
+        page_num: action.page_num,
+        per_page: action.per_page,
+        total_count: action.total_count,
+        is_end_page: action.is_end_page
       }
     default:
       return state
@@ -102,10 +102,10 @@ export function bestReducer (state = initialStateForBest, action) {
       return {
         ...state,
         data: state.data.concat(action.data),
-        pageNum: action.pageNum,
-        perPage: action.perPage,
-        totalCount: action.totalCount,
-        isEndPage: action.isEndPage
+        page_num: action.page_num,
+        per_page: action.per_page,
+        total_count: action.total_count,
+        is_end_page: action.is_end_page
       }
     default:
       return state
@@ -118,10 +118,10 @@ export function searchReducer (state = initialStateForSearch, action) {
       return {
         ...state,
         data: action.data,
-        pageNum: action.pageNum,
-        perPage: action.perPage,
-        totalCount: action.totalCount,
-        isEndPage: action.isEndPage
+        page_num: action.page_num,
+        per_page: action.per_page,
+        total_count: action.total_count,
+        is_end_page: action.is_end_page
       }
     default:
       return state

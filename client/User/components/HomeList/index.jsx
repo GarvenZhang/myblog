@@ -8,7 +8,6 @@ import Img from '../Img'
 import style from './index.css'
 
 const getSrc = src => config.FILE_SERVER_DOMAIN + src
-
 // === 代理模式: 当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对本体对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。 === //
 // === 1 类型: === //
 // === 1.1 保护代理 === //
@@ -27,21 +26,21 @@ class LatestItem extends Component {
     summary: '',
     pubtime: '',
     tag: '',
-    cover: ''
+    cover_url: ''
   }
 
   render () {
 
     return (
       <li className={style['article-item']}>
-        <Img src={getSrc(this.props.cover)} alt="" className={`${style['item-cover--LatestList']} fr`}/>
+        <Img src={getSrc(this.props.cover_url)} alt="" className={`${style['item-cover--LatestList']} fr`}/>
         <Link className={style['link']} target="_blank" to={`/article/${this.props.id}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
         </Link>
         <p className={style['item-summary']}>{this.props.summary}</p>
-        <p className={style['item-info']}>
+        <p className={`${style['item-info']} clearfix`}>
           <span className={style['info-pubtime']}>{this.props.pubtime}</span>
-          <span className={`${style['info-tag']} fr`}>{this.props.tag}</span>
+          <span className={`${style['info-tag']}`}>{this.props.tag}</span>
         </p>
       </li>
     )
@@ -65,9 +64,9 @@ class BestItem extends Component {
 
   }
   static defaultProps = {
-    readNum: 0,
-    commentsNum: 0,
-    likedNum: 0,
+    read_num: 0,
+    comment_num: 0,
+    liked_num: 0,
     title: '',
     link: '',
     pubtime: '',
@@ -78,9 +77,9 @@ class BestItem extends Component {
     return (
       <li className={style['article-item']}>
         <p className={`${style['item-data']} fr`}>
-          浏览数：<span className={style['data-read']}>{this.props.readNum}</span>
-          评论数：<span className={style['data-comments']}>{this.props.commentsNum}</span>
-          点赞数：<span className={style['data-like']}>{this.props.likedNum}</span>
+          浏览数：<span className={style['data-read']}>{this.props.read_num}</span>
+          评论数：<span className={style['data-comments']}>{this.props.comment_num}</span>
+          点赞数：<span className={style['data-like']}>{this.props.liked_num}</span>
         </p>
         <Link className={style['link']} target="_blank" to={`/article/${this.props.id}`}>
           <h3 className={style['item-tt']}>{this.props.title}</h3>
@@ -96,9 +95,9 @@ class BestItem extends Component {
 
 if (config.ISDEV) {
   BestItem.propTypes = {
-    readNum: PropTypes.number.isRequired,
-    commentsNum: PropTypes.number.isRequired,
-    likedNum: PropTypes.number.isRequired,
+    read_num: PropTypes.number.isRequired,
+    comment_num: PropTypes.number.isRequired,
+    liked_num: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     pubtime: PropTypes.string.isRequired,

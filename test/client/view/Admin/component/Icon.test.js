@@ -1,5 +1,5 @@
 // import React from 'react'
 // import { SortIcon } from '../../../../../client/view/Admin/components/Icon/index'
-// import renderer from 'react-test-renderer'
+// import renderer from 'react-prod-renderer'
 //
-// test('')
+// prod('')

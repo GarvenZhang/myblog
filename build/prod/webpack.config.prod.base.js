@@ -58,30 +58,23 @@
 // === webpack处理兼容性 === //
 // === 1 css前缀：通过postcss的 autoprefixer 插件来设置，本质是上通过caniuse的数据来设置 === //
 
+
 const path = require('path')
-const webpack = require('webpack')
-// const precss = require('precss')
-// const postcsseasysprites = require('postcss-easysprites')
-const FixDynamicScriptSrc = require('./fixDynamicScriptSrc')
-const RemoveCssComment = require('./removeCssComment')
+const CompressionPlugin = require('compression-webpack-plugin')
 
-// const HappyPack = require('happypack')
-//
-// const happyThreadPool = HappyPack.ThreadPool({
-//   size: 5
-// })
-
-/**
- * 设置默认常用路径
- */
 const rootDir = process.cwd()
 const clientDir = path.resolve(rootDir, './client')
 const distDir = path.resolve(rootDir, './dist')
-/**
- * 配置项
- */
-const config = {
+
+module.exports = {
+  mode: 'production',
+  entry: {
+    // TODO: 入口
+  },
   resolve: {
+    mainFields: ['jsnext:main', 'browser', 'main'],
+
+    // 默认后缀名, 此处添加后则文件中引入时可不添加
     extensions: [
       '.js',
       '.jsx'
@@ -90,12 +83,6 @@ const config = {
     // alias: {
     //   'react': path.resolve(__dirname, './node_modules/react/cjs/react.production.min.js')
     // },
-  },
-  output: {
-    path: distDir,  // 输出目录
-    filename: `[name]/index.js`,
-    chunkFilename: '[name].js',
-    publicPath: '/'   // 外部文件前缀
   },
   module: {
     rules: [
@@ -122,10 +109,10 @@ const config = {
       // === 6.1 工具: tinypng, 智图 === //
 
       /*
-      // === 图片优化之Image Inline： === //
-      // === 思路：将图片转化成base64编码内嵌到html/css中以减少HTTP请求数 === //
-      // === 使用场景：图片1~2K左右，因为base64会比原来大，而且最好是存在css中进行缓存 === //
-      */
+       // === 图片优化之Image Inline： === //
+       // === 思路：将图片转化成base64编码内嵌到html/css中以减少HTTP请求数 === //
+       // === 使用场景：图片1~2K左右，因为base64会比原来大，而且最好是存在css中进行缓存 === //
+     */
       {
         test: /\.(jpe?g|png|gif|bmp)$/,
         exclude: /node_modules/,
@@ -134,7 +121,7 @@ const config = {
           options: {
             fallback: 'file-loader',
             limit: 2048,
-            name: 'assets/[name].[ext]'
+            name: 'assets/[name]-[hash].[ext]'
           }
         }]
       },
@@ -144,7 +131,7 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name].[ext]'
+              name: 'assets/[name]-[hash].[ext]'
             }
           }
         ]
@@ -156,45 +143,24 @@ const config = {
       }
     ]
   },
+
   plugins: [
 
-    new webpack.NoEmitOnErrorsPlugin(),
+    // 修改js和css路径
+    // new ModifyPrefixOfJsOrCss(),
 
-    // new RemoveJsOfCss()
+    // === tree shaking: 摇树, 摇掉没用的叶子, 即去掉不需要的代码 === //
+    // === 1 思路: webpack本身提供的优化方案能否去掉第三方库中没用的代码 -> 不能则找找有没有 xxx-es -> 也没用则找找第三方的支持 tree shaking 的库 === //
+    // === 2 选库注意事项: 不一定所有第三方库都按照规范来写, 所有有的第三方库并不能实现 tree shaking === //
 
-    // 修复动态脚本src
-    new FixDynamicScriptSrc(),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
 
-    // 去除css注释
-    new RemoveCssComment()
+  ],
 
-    // new HappyPack({
-    //   id: 'babel',
-    //   loaders: ['babel-loader'],
-    //   threadPool: happyThreadPool,
-    // })
-  ]
-
-  // webpack中的代码块优化，搞了很久并未见有什么效果！！
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         chunks: "initial",
-  //         minChunks: 2,
-  //         maxInitialRequests: 5, // The default limit is too small to showcase the effect
-  //         minSize: 0 // This is example is too small to create commons chunks
-  //       },
-  //       vendor: {
-  //         test: /node_modules/,
-  //         chunks: "initial",
-  //         name: "vendor",
-  //         priority: 10,
-  //         enforce: true
-  //       }
-  //     }
-  //   }
-  // },
 }
-
-module.exports = config

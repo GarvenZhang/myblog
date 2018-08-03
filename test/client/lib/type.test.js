@@ -6,7 +6,7 @@ import type from '../../../client/lib/type'
 // === 3 工具: console, 断言库(jest) === //
 // === 4 覆盖率:  === //
 
-describe('test/client/lib/type.test.js', function () {
+describe('prod/client/lib/type.test.js', function () {
   describe('detect Object', function () {
     test('is Object just like {}', function () {
       expect(type.isObject({})).toBeTruthy()

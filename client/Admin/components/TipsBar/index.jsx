@@ -12,10 +12,10 @@ import { actions as IframeActions } from '../../redux/Iframe'
 
 import style from './index.css'
 
-const { get_user } = UserActions
+const { get_user, logout } = UserActions
 const { send_message } = IframeActions
 
-@connect(state => state.UserReducer, {get_user})
+@connect(state => state.UserReducer, {get_user, logout})
 @connect(state => state.IframeReducer, {send_message})
 export default class TipsBar extends Component {
 
@@ -31,7 +31,6 @@ export default class TipsBar extends Component {
     this.timer = null
 
     this.changeHandle = ::this.changeHandle
-    this.loginout = ::this.loginout
     this.timeHandle = ::this.timeHandle
     this.tipsHandle = ::this.tipsHandle
 
@@ -44,25 +43,6 @@ export default class TipsBar extends Component {
     this.setState({
       tipsType
     })
-  }
-
-  /**
-   * 登出
-   */
-  loginout () {
-
-    // 在sso认证中心删除 域下的localStorage 的 access_token
-    this.props.send_message({
-      messageType: 'logout',
-      postFn: ($iframe) => {
-
-        $iframe.contentWindow.postMessage({
-          type: 'logout'
-        }, $iframe.src)
-
-      }
-    })
-
   }
 
   /**
@@ -177,10 +157,9 @@ export default class TipsBar extends Component {
   // === 2 绑定this 要放到constructor 中去, 在jsx中 onClick={this.clickHandle.bind(this)} 会在每次执行render时都会执行bind函数, onClick={() => this.clickHandle()} 会在每次 render 时都声明新的函数 === //
   // === 3 在传给子组件值时 做到 需要什么传什么, {...this.state} 这样的写法 会传很多 额外的值 === //
   render () {
-
-    const linkInfoStyle = {
-      background: `url(${this.props.avatar_url}) 0 0 no-repeat`
-    }
+    // const linkInfoStyle = {
+    //   background: `url(${this.props.avatar_url}) 0 0 no-repeat`
+    // }
 
     return (
       <div className={style['tipsbar-wrap']}>
@@ -194,8 +173,9 @@ export default class TipsBar extends Component {
           <li className={style['link-item']}>
             {
               this.props.role === 2 ?
-                <span onClick={this.loginout} className={style['link']}>点此重新登录</span> :
-                <Link className={style['link']} style={linkInfoStyle} to='/info'>个人信息</Link>
+                <span onClick={this.props.logout} className={style['link']}>点此重新登录</span> :
+                <Link className={style['link']} to='/info'>个人信息</Link>
+                // <Link className={style['link']} style={linkInfoStyle} to='/info'>个人信息</Link>
             }
           </li>
           <li className={style['link-item']}>
@@ -204,7 +184,7 @@ export default class TipsBar extends Component {
           {
             this.props.role === 2 ? '' : (
               <li className={style['link-item']}>
-                <a href="javascript: void (0);" onClick={this.loginout} className={style['link']}>登出</a>
+                <a href="javascript: void (0);" onClick={this.props.logout} className={style['link']}>登出</a>
               </li>
             )
           }

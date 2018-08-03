@@ -1,6 +1,8 @@
 import { api } from '../fetch/axios'
+import { actionTypes as IframeActionTypes } from './Iframe'
 
 const initialState = {
+  id: -1,
   name: '',
   github_url: '',
   avatar_url: '',
@@ -10,19 +12,16 @@ const initialState = {
 
 export const actionTypes = {
   GET_USER_INFO: 'GET_USER_INFO',
-  RESET_USER_INFO: 'RESET_USER_INFO'
+  RESET_USER_INFO: 'RESET_USER_INFO',
+  LOGOUT: 'LOGOUT'
 }
 
 export const actions = {
 
-  get_user: access_token => dispatch => api.get_user(access_token)
+  get_user: () => dispatch => api.get_user()
     .then(res => dispatch({
+      ...res.data,
       type: actionTypes.GET_USER_INFO,
-      name: res.data.name,
-      github_url: res.data.github_url,
-      avatar_url: res.data.avatar_url,
-      email: res.email,
-      role: res.data.role
     }))
     .catch(err => {
       console.error(err)
@@ -30,7 +29,33 @@ export const actions = {
 
   reset_user: () => ({
     type: actionTypes.RESET_USER_INFO
-  })
+  }),
+
+  logout: () => dispatch => api.logout()
+    .then(res => {
+
+      // 重置 user state
+      dispatch({
+        type: actionTypes.RESET_USER_INFO
+      })
+
+      // 在sso认证中心删除 域下的localStorage 的 access_token
+      dispatch({
+        type: IframeActionTypes.SEND_MESSAGE,
+        messageType: 'logout',
+        postFn: ($iframe) => {
+
+          $iframe.contentWindow.postMessage({
+            type: 'logout'
+          }, $iframe.src)
+
+        }
+      })
+
+    })
+    .catch(err => {
+      console.error(err.message)
+    })
 
 }
 
@@ -41,11 +66,7 @@ export function reducer (state = initialState, action) {
     case actionTypes.GET_USER_INFO:
       return {
         ...state,
-        name: action.name,
-        github_url: action.github_url,
-        avatar_url: action.avatar_url,
-        email: action.email,
-        role: action.role
+        ...action
       }
 
     case actionTypes.RESET_USER_INFO:

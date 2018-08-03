@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Popup from '../../components/Popup'
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
 import Bg from '../../components/Bg'
@@ -12,8 +11,6 @@ import LoadMore from '../../components/LoadMore'
 import { actions as ArticleActions } from '../../redux/ArticleList'
 import { actions as StorageActions } from '../../redux/Storage'
 import debounce from '../../../lib/debounce'
-import detectWebp from '../../../lib/detectWebp'
-import Cookies from '../../../lib/cookie'
 import config from '../../../../config'
 
 import './index.css'
@@ -67,37 +64,15 @@ export default class Home extends Component {
   // === 提供默认值，当父组件没有提供相应的props时就使用此 === //
   static defaultProps = {
     data: [{}],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   componentWillMount () {
 
     this.debounce = debounce(this.loadMoreHandle, 100).bind(this)
-
-    if (typeof window !== 'undefined') {
-
-      // 检测浏览器是否支持webp
-      detectWebp('alpha', function (feature, isSupport) {
-
-        // === 二级域名cookie共享： === //
-        // === cookie只能读写大于等于自己的域，因此同一级域名间的cookie共享需要将cookie设置到更高的域中 === //
-        if (isSupport) {
-          Cookies.set('supportWebp', true, {
-            maxAge: 60 * 60 * 24 * 7,
-            domain: '.hellojm.cn'
-          })
-        } else {
-          Cookies.set('supportWebp', false, {
-            domain: '.hellojm.cn'
-          })
-        }
-
-      })
-
-    }
 
   }
 
@@ -117,14 +92,13 @@ export default class Home extends Component {
                   ))
                 }
                 <LoadMore
-                  isEndPage={this.props.isEndPage}
+                  is_end_page={this.props.is_end_page}
                   loadMoreRef={area => this.$loadmore = area}
                 />
               </ul>
             </div>
           </div>
         </main>
-        <Popup />
       </div>
     )
   }
@@ -138,8 +112,8 @@ export default class Home extends Component {
     const sHeight = window.screen.height
     const top = this.$loadmore.getBoundingClientRect().top
 
-    if (top < sHeight && !this.props.isEndPage) {
-      this.props.get_latest_list(this.props.pageNum + 1, this.props.perPage)
+    if (top < sHeight && !this.props.is_end_page) {
+      this.props.get_latest_list(this.props.page_num + 1, this.props.per_page)
     }
 
   }
@@ -169,9 +143,9 @@ export default class Home extends Component {
 if (config.ISDEV) {
   Home.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }

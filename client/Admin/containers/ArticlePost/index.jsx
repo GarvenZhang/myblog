@@ -9,6 +9,7 @@ import simptrad from '../../../lib/simp-trad'
 import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
 import { actions as ArticleLinkListActions } from '../../redux/ArticleLinkList'
 import { actions as ArticleActions } from '../../redux/Article'
+import { actions as PopupActions } from '../../redux/Popup'
 import config from '../../../../config'
 import { Validator } from '../../../lib/validator'
 
@@ -28,6 +29,7 @@ const { get_article_link_list } = ArticleLinkListActions
     get_category_list,
     get_article_link_list
   })
+@connect(null, {...PopupActions})
 export default class AdminArticlePost extends Component {
 
   constructor (props) {
@@ -70,12 +72,13 @@ export default class AdminArticlePost extends Component {
     if (category_id === 0) {
 
       if (tagsList.length === 0) {
-        alert('无可选标签!')
-        return
+        return this.props.update_popup({
+          isOpen: 1,
+          header: '提示:',
+          content: '无可选标签!'
+        })
       }
       
-      console.log(tagsList)
-
       category_id = tagsList[0].id
 
     }
@@ -84,8 +87,11 @@ export default class AdminArticlePost extends Component {
     if (prev_id === 0) {
 
       if (articleList.length === 0) {
-        alert('无可选文章!')
-        return
+        return this.props.update_popup({
+          isOpen: 1,
+          header: '提示:',
+          content: '无可选标签!'
+        })
       }
 
       prev_id = articleList[0].id
@@ -96,8 +102,11 @@ export default class AdminArticlePost extends Component {
     if (next_id === 0) {
 
       if (articleList.length === 0) {
-        alert('无可选文章!')
-        return
+        return this.props.update_popup({
+          isOpen: 1,
+          header: '提示:',
+          content: '无可选标签!'
+        })
       }
 
       next_id = articleList[0].id
@@ -126,8 +135,11 @@ export default class AdminArticlePost extends Component {
 
     const ret = validator.start()
     if (ret) {
-      alert(ret)
-      return
+      return this.props.update_popup({
+        isOpen: 1,
+        header: '提示:',
+        content: ret
+      })
     }
 
     // 发送请求

@@ -75,12 +75,13 @@ let domainFileServer = commonConfig.FILE_SERVER_DOMAIN
 export const api = {
 
   // article
-  get_article_latestlist: (pageNum, perPage) => get(`${domainIndex}/api/article/latestlist?pageNum=${pageNum}&perPage=${perPage}`),
-  get_article_bestlist: (pageNum, perPage) => get(`${domainIndex}/api/article/bestlist?pageNum=${pageNum}&perPage=${perPage}`),
+  get_article_latestlist: (page_num, per_page) => get(`${domainIndex}/api/article/latestlist?page_num=${page_num}&per_page=${per_page}`),
+  get_article_bestlist: (page_num, per_page) => get(`${domainIndex}/api/article/bestlist?page_num=${page_num}&per_page=${per_page}`),
   post_article: data => post(`${domainIndex}/api/article`, data),
   get_article: id => get(`${domainIndex}/api/article?id=${id}`),
   get_article_linkList: () => get(`${domainIndex}/api/article/linklist`),
   get_article_alllist: () => get(`${domainIndex}/api/article/alllist`),
+  get_searchlist: (title, page_num, per_page) => get(`${domainIndex}/api/get_search_list?title=${title}&page_num=${page_num}&per_page=${per_page}`),
 
   // category
   get_category: () => get(`${domainIndex}/api/category`),
@@ -90,12 +91,16 @@ export const api = {
 
   // user
   get_user: () => get(`${domainIndex}/api/user`),
+  logout: () => patch(`${domainIndex}/api/logout`),
 
-  get_searchlist: (title, pageNum, perPage) => get(`${domainIndex}/api/get_search_list?title=${title}&pageNum=${pageNum}&perPage=${perPage}`),
-  getAddressApi: () => get(`${domainFileServer}/address?cb=jp.getAddress`),
-  getDictionary: () => `${domainFileServer}/dictionary.js?cb=jp.getDictionary`,
-  getStreetApi: id => get(`${domainFileServer}/street?id=${id}&&cb=jp.getStreet`),
-  uploadImgApi: () => get(`${domainFileServer}/img`),
+  // comment
+  get_comment: (article_id, page_num, per_page) => get(`${domainIndex}/api/comment?article_id=${article_id}&per_page=${per_page}&page_num=${page_num}`),
+  add_comment: (data) => post(`${domainIndex}/api/comment`, data),
+
+  // 获取点赞数
+  get_liked: (name, value, page_num, per_page) => get(`${domainIndex}/api/liked?${name}=${value}&per_page=${per_page}&page_num=${page_num}`),
+  add_liked: (data) => post(`${domainIndex}/api/liked`, data),
+  update_liked: (data) => patch(`${domainIndex}/api/liked`, data),
 
   // other
   getIndexStorage: () => get(`${domainIndex}/api/index/storage`),

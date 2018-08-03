@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { actions } from '../../redux/Popup'
+import { actions as PopupActions } from '../../redux/Popup'
 import config from '../../../../config'
 
 import style from './index.css'
-
-const { update_popup } = actions
 
 // === immutablejs:  === //
 // === 1 优点: === //
@@ -22,20 +20,12 @@ const { update_popup } = actions
 // === 2.2 对先有项目入侵太严重, 新项目可用 === //
 
 @connect(
-  state => state.popupReducer,
-  {update_popup}
+  state => state.PopupReducer,
+  {...PopupActions}
 )
-export default class Popup extends Component {
+export default class Popup extends PureComponent {
   constructor (props) {
     super(props)
-
-    this.state = {
-      dragging: false,
-      diffX: 0,
-      diffY: 0,
-      left: '50%',
-      top: '50%',
-    }
 
     this.mousedownHandle = ::this.mousedownHandle
     this.mousemoveHandle = ::this.mousemoveHandle
@@ -45,18 +35,19 @@ export default class Popup extends Component {
   }
 
   static defaultProps = {
-    isOpen: 0,
+    isOpen: 'default',
     header: '',
     content: '',
     question: '',
     yesText: '',
-    noText: ''
+    noText: '',
+    dragging: false,
+    diffX: 0,
+    diffY: 0,
+    left: '50%',
+    top: '50%',
   }
 
-
-  componentWillMount () {
-
-  }
 
   drawBg () {
 
@@ -121,9 +112,8 @@ export default class Popup extends Component {
    */
   mousedownHandle (e) {
 
-    if (e.target.className.indexOf('drag-area') > -1) {
-
-      this.setState({
+    if (typeof e.target.className === 'string' && e.target.className.indexOf('drag-area') > -1) {
+      this.props.update_popup({
         dragging: true,
         diffX: e.clientX - this.$wrap.offsetLeft,
         diffY: e.clientY - this.$wrap.offsetTop
@@ -138,9 +128,8 @@ export default class Popup extends Component {
    */
   mousemoveHandle (e) {
 
-    if (this.state.dragging) {
-
-      this.setState({
+    if (this.props.dragging) {
+      this.props.update_popup({
         // 当移动时，不再需要margin的居中，则需要补回这段距离
         left: `${e.clientX - this.state.diffX + 250}px`,
         top: `${e.clientY - this.state.diffY + 80}px`
@@ -154,7 +143,7 @@ export default class Popup extends Component {
    */
   mouseupHandle () {
 
-    this.setState({
+    this.props.update_popup({
       dragging: false
     })
 
@@ -174,11 +163,11 @@ export default class Popup extends Component {
   render () {
 
     const wrapStyle = {
-      left: this.state.left,
-      top: this.state.top,
+      left: this.props.left,
+      top: this.props.top,
       margin: '-80px 0 0 -250px',
     }
-    console.log(this.props.isOpen)
+
     return (
       <div
         ref={$wrap => this.$wrap = $wrap}
@@ -223,7 +212,7 @@ export default class Popup extends Component {
 
 if (config.ISDEV) {
   Popup.propTypes = {
-    isOpen: PropTypes.number.isRequired,
+    isOpen: PropTypes.number,
     header: PropTypes.string.isRequired,
     content: PropTypes.string,
     question: PropTypes.string,

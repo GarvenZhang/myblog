@@ -1,15 +1,21 @@
-
-From: whistle@1.11.0
-Node: v8.9.4
-Date: 2018-7-17 18:51:06
-Error: listen EACCES 0.0.0.0:80
-    at Object._errnoException (util.js:1022:11)
-    at _exceptionWithHostPort (util.js:1044:20)
-    at Server.setupListenHandle [as _listen2] (net.js:1334:19)
-    at listenInCluster (net.js:1392:12)
-    at Server.listen (net.js:1476:7)
-    at proxy (/usr/local/lib/node_modules/whistle/lib/index.jsx:77:12)
-    at module.exports (/usr/local/lib/node_modules/whistle/index.jsx:79:26)
-    at Command.<anonymous> (/usr/local/lib/node_modules/whistle/node_modules/starting/lib/bootstrap.js:10:5)
-    at Command.listener (/usr/local/lib/node_modules/whistle/node_modules/commander/index.jsx:289:8)
-    at emitTwo (events.js:126:13)
+EXPLAIN SELECT
+	Cm.id,
+	Cm.time,
+	Cm.content,
+	COUNT(Lk.comment_id) AS liked_num,
+	Ur1. NAME,
+	Ur2.id AS toid,
+	Ur2. NAME AS toname
+FROM
+	COMMENT Cm
+LEFT JOIN Liked Lk ON Cm.article_id = 80
+AND Lk.comment_id = Cm.id
+LEFT JOIN USER Ur1 ON Cm.article_id = 80
+AND Cm.from_uid = Ur1.id
+LEFT JOIN USER Ur2 ON Cm.article_id = 80
+AND Cm.to_uid = Ur2.id
+WHERE
+	Cm.article_id = 80
+AND Lk. STATUS = 1
+GROUP BY
+	Cm.id;

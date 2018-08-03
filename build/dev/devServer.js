@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const WebpacDevServer = require('webpack-dev-server')
 const webpackConfig = require('./webpack.config.dev')
-const config = require('../config')
+const config = require('../../config')
 
 // === 开发环境中 客户端 与 服务器热更新 优化探索： === //
 
@@ -40,13 +40,13 @@ const config = require('../config')
 
   方法：将webpack-dev-server中Server.js中的 defaultFeatures.push('proxy', 'middleware'); 的push改为unshift
  */
-const createDevServer = (port) => {
+const createDevServer = (port, webpackConfig) => {
 
   const proxyPort = port === config.INDEX_PORT ? config.INDEX_SEVER_PORT : config.CMS_SERVER_PORT
 
   let app = new WebpacDevServer(webpack(webpackConfig), {
     contentBase: false,
-    public: `http://localhos t:${proxyPort}`,
+    public: `http://localhost:${proxyPort}`,
     compress: true,
     hot: true,
     historyApiFallback: true,
@@ -75,5 +75,19 @@ const createDevServer = (port) => {
   })
 }
 
-createDevServer(config.INDEX_PORT)
-createDevServer(config.CMS_PORT)
+createDevServer(config.INDEX_PORT, webpackConfig.indexWebpackConfig)
+createDevServer(config.CMS_PORT, webpackConfig.cmsWebpackConfig)
+
+// === 通过nodejs api 启动webpack - sso === //
+
+// 如果不传 callback 回调函数，就会返回一个 Compiler 实例，用于让你去控制启动，而不是像上面那样立即启动
+const compiler = webpack(webpackConfig.ssoWebpackConfig)
+
+// 调用 compiler.watch 以监听模式启动，返回的 watching 用于关闭监听
+const watching = compiler.watch({
+  // watchOptions
+  aggregateTimeout: 300,
+}, (err, stats) => {
+  // 每次因文件发生变化而重新执行完构建后
+})
+

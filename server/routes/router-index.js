@@ -101,11 +101,22 @@ router.get('/api/article/linklist', require('../controller/article').getLink)
 router.get('/api/article', require('../controller/article').getArticle)
 router.post('/api/article', require('../controller/article').add)
 router.delete('/api/article', require('../controller/article').del)
-router.put('/api/article', require('../controller/article').update)
+router.patch('/api/article', require('../controller/article').update)
 
 router.get('/api/searchlist', require('../controller/article').getSearchList)
 
-// user
+// 用户
 router.get('/api/user', auth(0, 1), require('../controller/user').get)
+router.patch('/api/logout', auth(0, 1), require('../controller/user').logout)
+
+// 评论
+router.get('/api/comment', require('../controller/comment').get)
+router.delete('/api/comment', auth(0, 1), require('../controller/comment').del)
+router.post('/api/comment', auth(0, 1), require('../controller/comment').add)
+
+// 点赞
+router.get('/api/liked', require('../controller/liked').get)
+router.post('/api/liked', auth(0, 1), require('../controller/liked').add)
+router.patch('/api/liked', auth(0, 1), require('../controller/liked').update)
 
 module.exports = router.routes()

@@ -15,6 +15,7 @@ import type from '../../client/lib/type'
 
 import ArticleModel from '../models/article'
 import CategoryModel from '../models/tag'
+import LikedModel from '../models/liked'
 import csp from '../middleware/csp'
 import config from '../../config'
 import Search from '../../client/User/components/Header/index'
@@ -36,12 +37,12 @@ import Search from '../../client/User/components/Header/index'
  * @param {Object} component - 组件
  * @return {String}
  */
-const ReactComponent = (ctx, store, component) => renderToString(
+const ReactComponent = (ctx, store, Component) => renderToString(
   <Provider store={store}>
     <StaticRouter location={ctx.url} context={{}}>
       <div className="root-router">
         <Auth href={ctx.href}/>
-        <component />
+        <Component />
       </div>
     </StaticRouter>
   </Provider>
@@ -61,7 +62,6 @@ export async function index (ctx) {
 
   // 设置csp
   csp(ctx, JSON.stringify(state))
-
   // html
   ctx.body = Layout({
     content: ReactComponent(ctx, store, Home),
@@ -95,9 +95,20 @@ export async function best (ctx) {
  * 文章页
  */
 export async function article (ctx) {
-
+  
   let id = ctx.params.id
   let data = await ArticleModel.getArticle(id)
+
+  let liked = await LikedModel.get({
+    name: 'article_id',
+    value: id
+  })
+
+  data = {
+    ...data,
+    ...liked
+  }
+
   let store = configureStore({
     ArticleReducer: {...data}
   })
@@ -139,7 +150,7 @@ export async function search (ctx) {
 
   // 整合
   const {
-    title, tag, pageNum, perPage
+    title, tag, page_num, per_page
   } = ctx.query
 
   let key = ''
@@ -156,7 +167,7 @@ export async function search (ctx) {
   }
 
   // 查库
-  let ret = await ArticleModel.getSearchList(key, pageNum, perPage)
+  let ret = await ArticleModel.getSearchList(key, page_num, per_page)
 
   // 放进redux
   let store = configureStore({

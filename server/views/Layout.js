@@ -26,121 +26,22 @@
 // === 3.2 告诉浏览器强制dns预取：<link rel="dns-prefetch" href="https://file.hellojm.cn"> === //
 
 const config = require('../../config')
+const path = require('path')
 
-const getProdTemplate = htmlConfig => `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-dns-prefetch-control" content="on" /><link rel="dns-prefetch" href="https://file.hellojm.cn">'
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="id=edge">
-    <meta name="keywords" content="张益铭, 个人博客, 首页, web前端, javaScript,css,html,技术栈">
-    <meta name="description" content="张益铭的个人博客，张益铭的技术作品，张益铭的博文">
-    <meta name="author" content="张益铭, GarvenZhang">
-    <title>${htmlConfig.title}</title>
-    <link rel="icon" href="/favicon.ico" >
-    <link href="/index.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root">${htmlConfig.content}</div>
-    <script >window.__REDUX_DATA__ = ${JSON.stringify(htmlConfig.data)}</script>
-    <script src="/react.dll.js"></script>
-    <script src="/redux.dll.js"></script>
-    <script src="/axios.dll.js"></script>
-    <script src="/remark.dll.js"></script>
-    <script src="/jwt.dll.js"></script>
-    <script src="/md5.dll.js"></script>
-    <script src="/index.js"></script>
-  </body>
-  </html>
-`
+exports.Layout = htmlConfig => {
 
-const getDevTemplate = htmlConfig => `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <meta content="id=edge" http-equiv="X-UA-Compatible">
-    <meta content="张益铭, 个人博客, 首页, web前端, javaScript,css,html,技术栈" name="keywords">
-    <meta content="张益铭的个人博客，张益铭的技术作品，张益铭的博文" name="description">
-    <meta content="张益铭, GarvenZhang" name="author">
-    <title>${htmlConfig.title}</title>
-    <link rel="icon" href="/favicon.ico" >
-    <link href="/index.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root">${htmlConfig.content}</div>
-    <script >window.__REDUX_DATA__ = ${JSON.stringify(htmlConfig.data)}</script>
-    <script type="text/javascript" src="/index.js"></script>
-    </body>
-  </html>
-`
+  let getHtml = require(path.resolve(__dirname, '../../dist/index/index.html'), 'utf8')
+  return getHtml(htmlConfig)
 
-if (config.ISDEV) {
-  exports.Layout = getDevTemplate
-} else {
-  exports.Layout = getProdTemplate
 }
 
 // sso
-exports.getSsoHtml = (redirectUrl) => `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="id=edge">
-    <title>张益铭的前端小博客 - sso认证中心</title>
-    ${redirectUrl ? '<link rel="stylesheet" href="/index.css">' : ''}
-  </head>
-  <body>  
-  ${
-    redirectUrl ?
-    '<div class=\'login-page\'>\n' +
-      '    <h1 class="title">SSO认证中心</h1>\n' +
-      '    <form class=\'login-form\'>\n' +
-      '      <div class=\'field\'>\n' +
-      '        <div class=\'field-inner\' >\n' +
-      '          tips: <span class=\'tips\'></span>\n' +
-      '        </div>\n' +
-      '      </div>\n' +
-      '      <div class=\'field\'>\n' +
-      '        <div class=\'field-inner\'>\n' +
-      '          <span class=\'title\'>账号：</span>\n' +
-      '          <input type=\'text\' name=\'account\' class="inp-account" placeholder=\'请输入账号\'\n' +
-      '          />\n' +
-      '        </div>\n' +
-      '      </div>\n' +
-      '      <div class=\'field\'>\n' +
-      '        <div class=\'field-inner\'>\n' +
-      '          <span class=\'title\'>密码：</span>\n' +
-      '          <input type=\'password\' name=\'password\' class=\'inp-password\' placeholder="请输入密码"\n' +
-      '          />\n' +
-      '        </div>\n' +
-      '      </div>\n' +
-      '      <div class=\'field\'>\n' +
-      '        <div class=\'field-inner\'>\n' +
-      '          <img class=\'img img--captcha\' src=\'\' alt=\'图片验证码\'/>\n' +
-      '          <input type=\'text\' name=\'captchaTxt\' class=\'inp-captcah\'/>\n' +
-      '        </div>\n' +
-      '      </div>\n' +
-      '      <div class=\'field\'>\n' +
-      '        <div class=\'field-inner\'>\n' +
-      '          <a class=\'link link--github\' href=\'\'>github登录</a>\n' +
-      '          <input type=\'button\' class=\'btn-submit\' value=\'登录\' />\n' +
-      '        </div>\n' +
-      '      </div>\n' +
-      '    </form>\n' +
-      '    <iframe src=' + redirectUrl + ' class="iframe" frameborder="0"></iframe>\n' +
-      '  </div>' :
-      ''
-  }
-  <script src="/index.js"></script>
-  </body>
-  </html>
-`
+exports.getSsoHtml = (redirectUrl) => {
+
+  let getHtml = require(path.resolve(__dirname, '../../dist/sso/index.html'), 'utf8')
+  return getHtml(redirectUrl)
+
+}
 
 // iframe
 exports.getIframe = (urlFrom) => `
@@ -159,7 +60,7 @@ exports.getIframe = (urlFrom) => `
       if (e.origin !== '${urlFrom}') {
         return
       }
-      
+      console.log(e.data, location.href)
       switch (e.data.type) {
         
         case 'sendAccessToken':

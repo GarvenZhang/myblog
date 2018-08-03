@@ -1,59 +1,20 @@
-const http2 = require('http2')
-const Router = require('koa-router')
+// const http2 = require('http2')
 const Koa = require('koa')
-const fs = require('fs')
-const serve = require('koa-static')
-const path = require('path')
 
 const serverBase = require('./app-myblog.base')
-const config = require('../config')
 
 module.exports = function (port) {
   const app = new Koa()
-  const router = new Router()
 
   // 基础中间件
-  serverBase(app)
-
-  app.use(
-    port === config.INDEX_PORT ? require('./routes/router-index') : require('./routes/router-cms')
-  )
-    .use(router.allowedMethods())
-
-  // 静态文件
-  // 官网还是cms
-  app.use(serve(path.resolve(__dirname, `../dist/${port === config.CMS_PORT ? 'cms' : 'index'}`), {
-    maxage: 60,
-    gzip: true,
-    setHeaders: function (res, path, stat) {
-      res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
-    }
-  }))
-
-  // 字体
-  app.use(serve(path.resolve(__dirname, `../dist/font`), {
-    maxage: 60,
-    gzip: true,
-    setHeaders: function (res, path, stat) {
-      res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
-    }
-  }))
-
-  // 第三方库
-  app.use(serve(path.resolve(__dirname, `../dist/lib`), {
-    maxage: 60,
-    gzip: true,
-    setHeaders: function (res, path, stat) {
-      res.setHeader('Set-Cookie', `csrf_token=${Date.now()};expires=${new Date(Date.now() + 60 * 60 * 2 * 1000).toUTCString()}`)
-    }
-  }))
+  serverBase(app, port)
 
   // === nginx反向代理： === //
   // === 在线上，nodejs只需监听http/1.1的请求，https以及http2会先由nginx处理后，把请求转发给nodejs === //
   // 监听
   app.listen(port, function (err) {
     if (err) {
-      console.log(err)
+      console.error(err)
     }
     console.log(`Listening at localhost:${port}`)
   })
