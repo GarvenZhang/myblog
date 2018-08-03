@@ -1,0 +1,21 @@
+EXPLAIN SELECT
+	Cm.id,
+	Cm.time,
+	Cm.content,
+	COUNT(Lk.comment_id) AS liked_num,
+	Ur1. NAME,
+	Ur2.id AS toid,
+	Ur2. NAME AS toname
+FROM
+	COMMENT Cm
+LEFT JOIN Liked Lk ON Cm.article_id = 80
+AND Lk.comment_id = Cm.id
+LEFT JOIN USER Ur1 ON Cm.article_id = 80
+AND Cm.from_uid = Ur1.id
+LEFT JOIN USER Ur2 ON Cm.article_id = 80
+AND Cm.to_uid = Ur2.id
+WHERE
+	Cm.article_id = 80
+AND Lk. STATUS = 1
+GROUP BY
+	Cm.id;

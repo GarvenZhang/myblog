@@ -7,14 +7,14 @@ import { BestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions as ArticleListActions } from '../../redux/ArticleList'
 import debounce from '../../../lib/debounce'
+import config from '../../../../config'
 
 import './index.css'
 
-const { get_best_list } = actions
-
-class BestArticle extends Component {
+@connect(state => state.bestReducer, {...ArticleListActions})
+export default class BestArticle extends Component {
   constructor (props) {
     super(props)
 
@@ -24,10 +24,10 @@ class BestArticle extends Component {
 
   static defaultProps = {
     data: [],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   componentWillMount () {
@@ -49,7 +49,7 @@ class BestArticle extends Component {
                   ))
                 }
                 <LoadMore
-                  isEndPage={this.props.isEndPage}
+                  is_end_page={this.props.is_end_page}
                   loadMoreRef={area => this.$area = area}
                 />
               </ul>
@@ -63,12 +63,11 @@ class BestArticle extends Component {
     const sHeight = window.screen.height
     const top = this.$area.getBoundingClientRect().top
 
-    if (top < sHeight && !this.props.isEndPage) {
-      this.props.get_best_list(this.props.pageNum + 1, this.props.perPage)
+    if (top < sHeight && !this.props.is_end_page) {
+      this.props.get_best_list(this.props.page_num + 1, this.props.per_page)
     }
   }
   componentDidMount () {
-    document.title = '最佳博文 - 张益铭'
     // 第一页的数据
     if (this.props.data.length === 0) {
       this.props.get_best_list(0, 10)
@@ -83,27 +82,12 @@ class BestArticle extends Component {
 
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   BestArticle.propTypess = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.bestReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_best_list: bindActionCreators(get_best_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BestArticle)

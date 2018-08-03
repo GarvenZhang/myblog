@@ -17,6 +17,10 @@
 .item-info {
   font-size: 14px;
 }
+.info-tag {
+  margin-left: 20px;
+  text-decoration: line-through;
+}
 
 /* LatestList */
 .item-cover--LatestList {

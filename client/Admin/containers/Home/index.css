@@ -1,0 +1,36 @@
+@value hackGreen from '../../../common.css';
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.home-inner {
+  width: 400px;
+  height: 200px;
+}
+.title--h1 {
+  font-size: 38px;
+  text-align: center;
+}
+.title--h2 {
+  font-size: 28px;
+  text-align: center;
+}
+.link-wrap {
+  text-align: right;
+}
+.link {
+  color: red;
+  text-decoration: underline;
+}
+.link--info {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.link:hover {
+  color: yellowgreen;
+}

@@ -25,65 +25,59 @@
 // === 3.1 告诉浏览器此页面做预取：<meta http-equiv="x-dns-prefetch-control" content="on" />  === //
 // === 3.2 告诉浏览器强制dns预取：<link rel="dns-prefetch" href="https://file.hellojm.cn"> === //
 
-if (process.env.NODE_ENV === 'production') {
-  exports.Layout = function (content, data, whichPage) {
-    return `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        ${
-          whichPage === 'home' ?
-          '<meta http-equiv="x-dns-prefetch-control" content="on" />' +
-          '<link rel="dns-prefetch" href="https://file.hellojm.cn">' :
-        ''}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="id=edge">
-        <meta name="keywords" content="张益铭, 个人博客, 首页, web前端, javaScript,css,html,技术栈">
-        <meta name="description" content="张益铭的个人博客，张益铭的技术作品，张益铭的博文">
-        <meta name="author" content="张益铭, GarvenZhang">
-        <title>张益铭的个人博客</title>
-        <link href="/index.css" rel="stylesheet">
-      </head>
-      <body>
-        <div id="root">${content}</div>
-        <script >
-          window.__REDUX_DATA__ = ${JSON.stringify(data)}
-        </script>
-        <script src="/react.dll.js"></script>
-        <script src="/redux.dll.js"></script>
-        <script src="/axios.dll.js"></script>
-        <script src="/remark.dll.js"></script>
-        <script src="/jwt.dll.js"></script>
-        <script src="/md5.dll.js"></script>
-        <script src="/index.js"></script>
-      </body>
-      </html>
-    `
-  }
-} else if (process.env.NODE_ENV === 'development') {
-  exports.Layout = function (content, data) {
-    return `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width,initial-scale=1" name="viewport">
-        <meta content="id=edge" http-equiv="X-UA-Compatible">
-        <meta content="张益铭, 个人博客, 首页, web前端, javaScript,css,html,技术栈" name="keywords">
-        <meta content="张益铭的个人博客，张益铭的技术作品，张益铭的博文" name="description">
-        <meta content="张益铭, GarvenZhang" name="author">
-        <title></title>
-        <link href="/index.css" rel="stylesheet">
-      </head>
-      <body>
-        <div id="root">${content}</div>
-        <script >
-          window.__REDUX_DATA__ = ${JSON.stringify(data)}
-        </script>
-        <script type="text/javascript" src="/index.js"></script>
-        </body>
-      </html>
-    `
-  }
+const config = require('../../config')
+const path = require('path')
+
+exports.Layout = htmlConfig => {
+
+  let getHtml = require(path.resolve(__dirname, '../../dist/index/index.html'), 'utf8')
+  return getHtml(htmlConfig)
+
 }
+
+// sso
+exports.getSsoHtml = (redirectUrl) => {
+
+  let getHtml = require(path.resolve(__dirname, '../../dist/sso/index.html'), 'utf8')
+  return getHtml(redirectUrl)
+
+}
+
+// iframe
+exports.getIframe = (urlFrom) => `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="id=edge">
+    <title>张益铭的前端小博客 - index - iframe</title>
+  </head>
+  <body>
+  <script >
+    window.addEventListener('message', e => {
+
+      if (e.origin !== '${urlFrom}') {
+        return
+      }
+      console.log(e.data, location.href)
+      switch (e.data.type) {
+        
+        case 'sendAccessToken':
+          
+          window.localStorage.setItem('access_token', e.data.access_token)
+          
+          e.source.postMessage({
+            type: 'responseSendAccessToken',
+            retCode: 1
+          }, e.origin)
+          
+          break
+
+      }
+      
+    }, false)
+  </script>
+  </body>
+  </html>
+`

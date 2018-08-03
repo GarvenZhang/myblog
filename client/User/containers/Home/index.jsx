@@ -3,27 +3,60 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Popup from '../../components/Popup'
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
 import Bg from '../../components/Bg'
 import Nav from '../../components/Nav'
 import LoadMore from '../../components/LoadMore'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions as ArticleActions } from '../../redux/ArticleList'
+import { actions as StorageActions } from '../../redux/Storage'
 import debounce from '../../../lib/debounce'
-import detectWebp from '../../../lib/detectWebp'
-import { Cookies } from '../../../lib/cookie'
+import config from '../../../../config'
 
 import './index.css'
 
-const { get_latest_list } = actions
+const { get_latest_list } = ArticleActions
+const { get_storage } = StorageActions
 
-class Home extends Component {
+// === 生命周期: === //
+// === 1 挂载或卸载: === //
+// === 1.1 constructor(props): 初始化组件, 绑定函数到this === //
+// === 1.2 componentWillMount(): 挂载前, 无法进行dom操作, 不能更新state, 一般用于配置根组件, 除此外能做的都可以在 constructor 中完成 === //
+// === 1.3 render(): 将虚拟dom插到到真实dom === //
+// === 1.4 componentDidMount(): 挂载后, 进行异步请求等 === //
+// === 1.5 componentWillUnMount(): 卸载前, 通常做的是 释放内存, 重置选项等
+//  === //
+// === 2 更新: === //
+// === 2.1 componentWillReceiveProps(nextProps) === //
+// === 2.2 shouldComponentUpdate(nextProps, nextState): 判断是否应该更新 === //
+// === 2.3 componentWillUpdate(nextProps, nextState): 更新前 === //
+// === 2.4 render(): 将虚拟dom中改变了的反映到真实dom === //
+// === 2.5 componentDidUpdate(): 更新后 === //
+
+// === 装饰器: === //
+// === 1 类的装饰: 必须在类的上一行写，用来修改类的行为, 将对象(函数/类)传入, 通过内部加强返回新的对象(函数/类) === //
+// === 1.1 例子: @connect === //
+/*
+@connect (mapStateToProps, mapDispatchToProps)
+class Home {}
+
+// 等同于
+
+class Home {}
+Home = connect (mapStateToProps, mapDispatchToProps)(Home)
+*/
+// === 配置: babel-plugin-transform-decorators-legacy + bebal plugins中 "transform-decorators-legacy" === //
+
+@connect(
+  state => state.latestReducer,
+  {get_latest_list, get_storage}
+)
+export default class Home extends Component {
   
   constructor (props) {
     super(props)
 
-    this.loadMoreHandle = this.loadMoreHandle.bind(this)
+    this.loadMoreHandle = ::this.loadMoreHandle
     this.debounce = null
 
   }
@@ -31,34 +64,15 @@ class Home extends Component {
   // === 提供默认值，当父组件没有提供相应的props时就使用此 === //
   static defaultProps = {
     data: [{}],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   componentWillMount () {
 
     this.debounce = debounce(this.loadMoreHandle, 100).bind(this)
-
-    if (typeof window !== 'undefined') {
-
-      detectWebp('alpha', function (feature, isSupport) {
-
-        if (isSupport) {
-          Cookies.set('supportWebp', true, {
-            maxAge: 60 * 60 * 24 * 7,
-            domain: '.hellojm.cn'
-          })
-        } else {
-          Cookies.set('supportWebp', false, {
-            domain: '.hellojm.cn'
-          })
-        }
-
-      })
-
-    }
 
   }
 
@@ -78,14 +92,13 @@ class Home extends Component {
                   ))
                 }
                 <LoadMore
-                  isEndPage={this.props.isEndPage}
+                  is_end_page={this.props.is_end_page}
                   loadMoreRef={area => this.$loadmore = area}
                 />
               </ul>
             </div>
           </div>
         </main>
-        <Popup />
       </div>
     )
   }
@@ -99,8 +112,8 @@ class Home extends Component {
     const sHeight = window.screen.height
     const top = this.$loadmore.getBoundingClientRect().top
 
-    if (top < sHeight && !this.props.isEndPage) {
-      this.props.get_latest_list(this.props.pageNum + 1, this.props.perPage)
+    if (top < sHeight && !this.props.is_end_page) {
+      this.props.get_latest_list(this.props.page_num + 1, this.props.per_page)
     }
 
   }
@@ -113,6 +126,9 @@ class Home extends Component {
     }
     this.$scrollWrap.addEventListener('scroll', this.debounce, false)
 
+    // 存localStorage
+    !localStorage.getItem('loadingGif') && this.props.get_storage()
+
   }
 
   componentWillUnmount () {
@@ -124,27 +140,12 @@ class Home extends Component {
 }
 
 // === propTypes 会在 defaultProps 之后执行，因此对 defaultProps 也会检查 === //
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Home.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.latestReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_latest_list: bindActionCreators(get_latest_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home)

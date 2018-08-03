@@ -1,12 +1,13 @@
 const config = require('./config')
-const NODE_ENV = process.env.NODE_ENV
 
-if (NODE_ENV === 'production') {
+if (config.ISTEST || config.ISPROD) {
   const prodServer = require('./server/app-myblog.prod')
-  prodServer(config.indexPort)
-  prodServer(config.cmsPort)
-} else if (NODE_ENV === 'development') {
+  prodServer(config.SSO_PORT)
+  prodServer(config.INDEX_SEVER_PORT)
+  prodServer(config.CMS_SERVER_PORT)
+} else if (config.ISDEV) {
   const devServer = require('./server/app-myblog.dev')
-  devServer(config.dev.indexServerPort)
-  devServer(config.dev.cmsServerPort)
+  devServer(config.SSO_PORT)
+  devServer(config.INDEX_SEVER_PORT)
+  devServer(config.CMS_SERVER_PORT)
 }

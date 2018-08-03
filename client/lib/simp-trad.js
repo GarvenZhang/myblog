@@ -1,5 +1,5 @@
-import jsonp from '../fetch/jsonp'
-import { api } from '../fetch/axios'
+import jsonp from '../Admin/fetch/jsonp'
+import { api } from '../Admin/fetch/axios'
 
 function keydownHandle (e, data) {
   const target = e.target
@@ -22,12 +22,13 @@ function keydownHandle (e, data) {
 }
 
 export default function (isOpen) {
+  
   if (!isOpen) {
-    window.jp = null
+    window.jp_dictionary = null
     return
   }
 
-  window.jp = {
+  window.jp_dictionary = {
 
     getDictionary: function (data) {
       document.addEventListener('input', function (e) {

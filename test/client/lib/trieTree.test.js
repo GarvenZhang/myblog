@@ -1,7 +1,7 @@
 import address from '../../../fileServer/db/address'
 import trieTree from '../../../client/view/Admin/containers/Info/trieTree'
 
-describe('test/client/lib/trieTree.test.js', function () {
+describe('prod/client/lib/trieTree.test.js', function () {
   beforeAll(() => {
     trieTree.init(address)
   })

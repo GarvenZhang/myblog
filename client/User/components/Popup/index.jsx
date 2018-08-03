@@ -1,46 +1,53 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { actions } from '../../redux/reducers/Popup'
+import { actions as PopupActions } from '../../redux/Popup'
+import config from '../../../../config'
 
 import style from './index.css'
 
-const { update_popup } = actions
+// === immutablejs:  === //
+// === 1 优点: === //
+// === 1.1 减少内存使用 === //
+// === 1.2 并发安全 === //
+// === 1.3 降低项目复杂度 === //
+// === 1.4 便于比较复杂的数据结构, 定制 shouldComponentUpdate 方便 === //
+// === 1.5 时间旅行功能 === //
+// === 1.6 函数式编程 === //
+// === 2 缺点: === //
+// === 2.1 库的大小 === //
+// === 2.2 对先有项目入侵太严重, 新项目可用 === //
 
-class Popup extends Component {
+@connect(
+  state => state.PopupReducer,
+  {...PopupActions}
+)
+export default class Popup extends PureComponent {
   constructor (props) {
     super(props)
 
-    this.state = {
-      dragging: false,
-      diffX: 0,
-      diffY: 0,
-      left: '50%',
-      top: '50%',
-    }
-
-    this.mousedownHandle = this.mousedownHandle.bind(this)
-    this.mousemoveHandle = this.mousemoveHandle.bind(this)
-    this.mouseupHandle = this.mouseupHandle.bind(this)
-    this.closeHandle = this.closeHandle.bind(this)
+    this.mousedownHandle = ::this.mousedownHandle
+    this.mousemoveHandle = ::this.mousemoveHandle
+    this.mouseupHandle = ::this.mouseupHandle
+    this.closeHandle = ::this.closeHandle
 
   }
 
   static defaultProps = {
-    isOpen: 0,
+    isOpen: 'default',
     header: '',
     content: '',
     question: '',
     yesText: '',
-    noText: ''
+    noText: '',
+    dragging: false,
+    diffX: 0,
+    diffY: 0,
+    left: '50%',
+    top: '50%',
   }
 
-
-  componentWillMount () {
-
-  }
 
   drawBg () {
 
@@ -105,9 +112,8 @@ class Popup extends Component {
    */
   mousedownHandle (e) {
 
-    if (e.target.className.indexOf('drag-area') > -1) {
-
-      this.setState({
+    if (typeof e.target.className === 'string' && e.target.className.indexOf('drag-area') > -1) {
+      this.props.update_popup({
         dragging: true,
         diffX: e.clientX - this.$wrap.offsetLeft,
         diffY: e.clientY - this.$wrap.offsetTop
@@ -122,9 +128,8 @@ class Popup extends Component {
    */
   mousemoveHandle (e) {
 
-    if (this.state.dragging) {
-
-      this.setState({
+    if (this.props.dragging) {
+      this.props.update_popup({
         // 当移动时，不再需要margin的居中，则需要补回这段距离
         left: `${e.clientX - this.state.diffX + 250}px`,
         top: `${e.clientY - this.state.diffY + 80}px`
@@ -138,7 +143,7 @@ class Popup extends Component {
    */
   mouseupHandle () {
 
-    this.setState({
+    this.props.update_popup({
       dragging: false
     })
 
@@ -158,8 +163,8 @@ class Popup extends Component {
   render () {
 
     const wrapStyle = {
-      left: this.state.left,
-      top: this.state.top,
+      left: this.props.left,
+      top: this.props.top,
       margin: '-80px 0 0 -250px',
     }
 
@@ -191,13 +196,11 @@ class Popup extends Component {
 
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-
-    return true
-
-  }
-
   componentWillUnmount () {
+
+    this.props.update_popup({
+      isOpen: 'default'
+    })
 
     document.removeEventListener('mousedown', this.mousedownHandle, false)
     document.removeEventListener('mousemove', this.mousemoveHandle, false)
@@ -207,9 +210,9 @@ class Popup extends Component {
 
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   Popup.propTypes = {
-    isOpen: PropTypes.number.isRequired,
+    isOpen: PropTypes.number,
     header: PropTypes.string.isRequired,
     content: PropTypes.string,
     question: PropTypes.string,
@@ -217,18 +220,3 @@ if (process.env.NODE_ENV === 'development') {
     noText: PropTypes.string
   }
 }
-
-function mapStateToProps (state) {
-  return state.popupReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    update_popup: bindActionCreators(update_popup, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Popup)

@@ -519,6 +519,8 @@ https://developers.google.com/web/fundamentals/performance/http2/
 
 https://zhuanlan.zhihu.com/p/29609078
 
+http://www.ruanyifeng.com/blog/2018/03/http2_server_push.html
+
 87.开发环境，依赖分离，缓存
 
 https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
@@ -589,6 +591,8 @@ https://codeburst.io/100-free-resources-to-learn-full-stack-web-development-5b40
 
 https://blog.techbridge.cc/2017/02/25/csrf-introduction/
 
+https://segmentfault.com/a/1190000003716037?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
 100. 还没能力研究webpack-dev-middleware，不知道热更新和其内置express的原理是如何的，因此无法将express去除
 
 理想情况应该是自己的koa服务器有能力实现webpack编译以及热更新，而无需要express
@@ -598,6 +602,8 @@ https://blog.techbridge.cc/2017/02/25/csrf-introduction/
 102. react-router 跳转方式
 
 https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router
+
+https://www.oudahe.com/p/46366/
 
 103. 请求头中有Cache-Control: no-cache
 
@@ -719,9 +725,10 @@ https://blog.csdn.net/xiongzhengxiang/article/details/7057119
 
 http://www.wukai.me/2015/10/04/canvas-trees/
 
-124. gbk
+124. gbk，字符编码
 
 http://js8.in/2009/12/11/%E5%AF%B9%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8javascript%E9%A1%B5%E9%9D%A2%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/
+http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
 
 125. 深入浅出事件循环机制
 
@@ -822,3 +829,136 @@ https://my.oschina.net/sudujuncom/blog/874699
 深入浅出webpack > 4-12
 
 webpack官网 > dynamic import [https://webpack.js.org/api/module-methods/#import-]
+
+142. socket.io与webpack
+
+https://github.com/webpack/webpack-dev-server/issues/283
+
+143. vue mvvm
+
+https://github.com/DMQ/mvvm/tree/es6#_2
+
+144. function bind syntax
+
+https://babeljs.io/blog/2015/05/14/function-bind
+
+http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html
+
+http://es6.ruanyifeng.com/#docs/function#%E5%8F%8C%E5%86%92%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6
+
+145 react生命周期
+
+https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
+
+146 react原理
+
+https://github.com/hujiulong/blog/issues/7
+
+147 正则 
+
+https://github.com/jawil/blog/issues/20
+
+148 github相关:
+
+如何正确接收 GitHub 的消息邮件: https://github.com/cssmagic/blog/issues/49
+
+http://ruanyifeng.com/blog/2016/01/commit_message_change_log.html
+
+149 redux-thunk
+
+https://www.rails365.net/movies/redux-ru-men-jiao-cheng-15-redux-thunk-shi-jian-fa-song-ajax-qing-qiu-part
+
+150 restful:
+
+http://www.ruanyifeng.com/blog/2011/09/restful.html
+
+http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+151. auth 2.0
+
+http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
+
+152 er图与sql互换
+
+http://www.voidcn.com/article/p-qonzqqon-pt.html
+
+153 数据库设计——评论回复功能
+
+http://www.voidcn.com/article/p-ylvjsfdc-bha.html
+
+https://blog.csdn.net/lm1622/article/details/77950133
+
+154 webstorm 内存问题
+
+https://www.cnblogs.com/demyouyang/p/5838169.html
+
+155 同源策略: 
+
+http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+
+156. csp
+
+http://www.ruanyifeng.com/blog/2016/09/csp.html
+
+https://imququ.com/post/content-security-policy-reference.html
+
+157. redux
+
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+158 纯函数
+
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+https://github.com/joeyguo/blog/issues/10
+
+159 函数组合
+
+https://github.com/joeyguo/blog/issues/10
+
+160 nodejs modules
+
+https://segmentfault.com/a/1190000015139548
+
+http://www.ruanyifeng.com/blog/2015/05/require.html
+
+161 axios 
+
+https://zhuanlan.zhihu.com/p/34192569
+
+https://blog.csdn.net/sjn0503/article/details/74729300
+
+162 cmake
+
+https://www.jianshu.com/p/1ec2b5602b03
+
+https://blog.csdn.net/qq_36355662/article/details/80059432
+
+https://blog.csdn.net/gaowu959/article/details/78484725
+
+http://www.voidcn.com/article/p-gbiznhrb-ru.html
+
+163 mysql 异常启动
+
+https://blog.csdn.net/u013700358/article/details/80306560
+
+https://blog.csdn.net/tianlesoftware/article/details/7028733
+
+164 vertical-align
+
+https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/
+
+165 单点登录:
+
+https://www.cnblogs.com/ywlaker/p/6113927.html
+
+https://blog.csdn.net/javaloveiphone/article/details/52439613
+
+https://bestqliang.com/2018/06/02/%E4%BD%BF%E7%94%A8jwt%E5%AE%8C%E6%88%90sso%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/
+
+https://juejin.im/post/5b3b870a5188251ac85826b8
+
+166 用户权限: 
+
+https://cnodejs.org/topic/551802d3687c387d2f5b2906
+

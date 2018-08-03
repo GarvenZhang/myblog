@@ -2,7 +2,7 @@ const request = require('supertest')
 const app = require('../../server/app-myblog.dev')
 const config = require('../../config')
 
-describe('test/server/app.test.js', function () {
+describe('prod/server/app.test.js', function () {
   it('should / status 200', function (done) {
     request(app(config.indexPort).callback())
       .get('/')

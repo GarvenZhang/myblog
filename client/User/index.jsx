@@ -4,14 +4,18 @@ import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
 
 import { IndexRouteMap } from './router/index'
-import configureStore from './redux/store/configureStore'
+import store from './redux/store'
+import config from '../../config'
 
-import '../static/styles/reset.css'
-import '../static/font/iconfont.css'
-import '../static/styles/index.css'
+import './assets/font/iconfont.css'
+import './assets/style/reset.css'
+import './router/index.css'
+import '../../favicon.ico'
 
-// 前后端同构时的数据埋点
-const store = configureStore(window.__REDUX_DATA__ || {})
+// === 点击劫持防御 - 禁止内嵌: window有两个属性, top和parent, top指向最上层的window, parent指向父window, 可通过 top.location 与 window.location 对比来确定是否被内嵌 === //
+if (typeof window !== 'undifined' && top.location != window.location) {
+  top.location = window.location
+}
 
 // 入口
 render()
@@ -24,7 +28,7 @@ module.hot && module.hot.accept('./router', () => render())
  */
 function render () {
   ReactDOM.render(
-    process.env.NODE_ENV === 'development'
+    config.ISDEV
       ? <AppContainer>
         <Provider store={store}>
           <IndexRouteMap />

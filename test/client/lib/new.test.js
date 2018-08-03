@@ -1,6 +1,6 @@
 import _new from '../../../client/lib/new'
 
-describe('test/client/lib/new.test.js', function () {
+describe('prod/client/lib/new.test.js', function () {
   test('new should be ok', function () {
     function Person () {
       this.age = 10

@@ -5,31 +5,71 @@ import { bindActionCreators } from 'redux'
 
 import Sidebar from '../../components/Slidebar/index'
 import Table from '../../components/Table/index'
-import { actions } from '../../../User/redux/reducers/ArticleCategory'
+import TipsBar from '../../components/TipsBar'
+import { actions as ArticleCategoryActions } from '../../redux/ArticleCategory'
+import config from '../../../../config'
 
-import './index.css'
+import style from './index.css'
 
-const { get_category_list } = actions
-
-class AdminArticleTag extends Component {
+@connect(state => ({
+  tagList: state.ArticleCategoryReducer.data,
+  text: state.ArticleCategoryReducer.text
+}), {...ArticleCategoryActions})
+export default class AdminArticleTag extends Component {
   constructor (props) {
     super(props)
 
+    this.changeHandle = ::this.changeHandle
+    this.addHandle = ::this.addHandle
+
   }
 
-  static defaultProps = {
-    tagList: []
+  /**
+   * 更新处理
+   */
+  changeHandle (e) {
+
+    const text = e.target.value
+    this.props.update_text(text)
+
+  }
+
+  /**
+   * 添加处理
+   */
+  addHandle () {
+    this.props.add_category({
+      name: this.props.text
+    })
   }
 
   render () {
     return (
       <div className="admin-page">
+        <TipsBar/>
         <div className="sildebar-wrap">
           <Sidebar />
         </div>
         <div className="admin-wrap">
           <div className="admin-article-tag-wrap admin-inner">
-            <Table tagList={this.props.tagList} />
+            <div className={style["add-wrap"]}>
+              <div className={style["add-inner"]}>
+                <div className={style["btn-control"]}>+</div>
+                <div className={style[["add-text-wrap"]]}>
+                  <input type="text"
+                         className={style["text"]}
+                         onChange={this.changeHandle}
+                         placeholder='添加个标签呗~~'
+                  />
+                  <input type="button"
+                         className={style["btn-add"]}
+                         onClick={this.addHandle}
+                         value='新增'
+                  />
+                </div>
+              </div>
+            </div>
+            <Table tagList={this.props.tagList} delete_category={this.props.delete_category} />
           </div>
         </div>
       </div>
@@ -41,25 +81,12 @@ class AdminArticleTag extends Component {
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+AdminArticleTag.defualtProps = {
+  tagList: []
+}
+
+if (config.ISDEV) {
   AdminArticleTag.propTypes = {
-    tagsList: PropTypes.arrayOf(PropTypes.object).isRequired
+    tagList: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return {
-    tagList: state.ArticleCategoryReducer.data
-  }
-}
-
-function mapDispatchtoProps (dispatch) {
-  return {
-    get_category_list: bindActionCreators(get_category_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchtoProps
-)(AdminArticleTag)

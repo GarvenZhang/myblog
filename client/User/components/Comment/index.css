@@ -1,0 +1,92 @@
+.comment-wrap {
+  margin: 0 200px;
+  border-top: 1px dotted currentColor;
+}
+.form-comment {
+
+}
+.form-hd {
+  margin: 20px 0 10px;
+}
+.info {
+
+}
+.avatar {
+  width: 30px;
+}
+.name {
+  margin: 0 20px;
+}
+.btn-post {
+  float: right;
+}
+.link {
+  color: #9e5d5d;
+}
+.link--logout {
+  cursor: default;
+}
+.link--logout:hover {
+  color: red;
+}
+.form-bd {
+
+}
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  color: #00F900;
+  border: 1px solid #6c846c;
+  margin: 10px 0;
+}
+.textarea:focus {
+  box-shadow: inset -1px -1px 10px 0px #6c846c, inset 1px 1px 10px 0px #6c846c;
+}
+.comment-item {
+  color: #0f6f57;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #3c0933;
+}
+.comment-hd {
+  padding-bottom: 6px;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+.comment-hd .avatar,
+.username,
+.btn-like {
+  margin-right: 10px;
+}
+.username {
+  font-size: 16px;
+}
+.time {
+  font-size: 12px;
+}
+.liked-num {
+  color: #ffeb3b;
+}
+.icon--liked,
+.icon--unliked {
+  vertical-align: middle;
+}
+.btn-like,
+.btn-reply {
+  float: right;
+  cursor: default;
+}
+.btn-reply:hover {
+  color: red;
+  text-decoration: underline;
+}
+.to-name {
+  color: red;
+  margin-right: 10px;
+}
+.comment-bd {
+
+}
+.content {
+  word-break: break-all;
+}

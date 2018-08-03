@@ -97,6 +97,7 @@ export function insertionSort (arr, property, sequence) {
  */
 
 export function selectSort (arr, property, sequence) {
+
   arr = deepCopy(arr)
 
   const judge = (sequence, property, arr, inner, target) => {

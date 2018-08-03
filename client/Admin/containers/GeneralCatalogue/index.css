@@ -1,8 +1,16 @@
 .general-catalogue-wrap {
   margin: 0 50px;
 }
+
+.select {
+
+}
+
 .table-hd {
   font-size: 20px;
+}
+.table-hd > .table-tr {
+  background-color: #3a0828;
 }
 .table-tr {
   display: flex;
@@ -10,8 +18,7 @@
 .table-td {
   flex-basis: 16.6%;
 }
-
-.table-tr:nth-of-type(2n-1) {
-  background-color: #3a0828;
+.table-bd .table-tr {
+  border-bottom: 2px solid;
 }
 

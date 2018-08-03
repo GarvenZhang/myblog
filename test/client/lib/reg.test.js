@@ -1,6 +1,6 @@
 import reg from '../../../client/lib/reg'
 
-describe('test/client/lib/reg.test.js', function () {
+describe('prod/client/lib/reg.test.js', function () {
   describe('match date', function () {
     test('should match "2018-09-22 20:29:00"', function () {
       expect('2018-09-22 20:29:00').toMatch(reg.date)

@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { LatestItem } from '../../components/HomeList/index'
 import Header from '../../components/Header'
-import { actions } from '../../redux/reducers/ArticleList'
+import { actions as ArticleListActions } from '../../redux/ArticleList'
+import config from '../../../../config'
 
 import './index.css'
 
-const { get_search_list } = actions
+const { get_search_list } = ArticleListActions
 
-class SearchList extends Component {
+@connect(state => state.searchReducer, {get_search_list})
+export default class SearchList extends Component {
   constructor (props) {
     super(props)
 
@@ -20,10 +21,10 @@ class SearchList extends Component {
 
   static defaultProps = {
     data: [],
-    pageNum: 0,
-    perPage: 10,
-    totalCount: 10,
-    isEndPage: false
+    page_num: 0,
+    per_page: 10,
+    total_count: 10,
+    is_end_page: false
   }
 
   paginateHandle () {
@@ -61,32 +62,17 @@ class SearchList extends Component {
         const val = item.split('=')[1]
         paramsObj[key] = val
       })
-      this.props.get_search_list(paramsObj.title, paramsObj.pageNum, paramsObj.perPage)
+      this.props.get_search_list(paramsObj.title, paramsObj.page_num, paramsObj.per_page)
     }
   }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (config.ISDEV) {
   SearchList.propTypess = {
     articleList: PropTypes.arrayOf(PropTypes.object).isRequired,
-    pageNum: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
-    isEndPage: PropTypes.bool.isRequired
+    page_num: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    total_count: PropTypes.number.isRequired,
+    is_end_page: PropTypes.bool.isRequired
   }
 }
-
-function mapStateToProps (state) {
-  return state.searchReducer
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    get_search_list: bindActionCreators(get_search_list, dispatch)
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchList)

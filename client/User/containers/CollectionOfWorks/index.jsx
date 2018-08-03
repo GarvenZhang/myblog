@@ -6,11 +6,9 @@ import Nav from '../../components/Nav'
 
 import './index.css'
 
-class CollectionOfWorks extends Component {
-
+export default class CollectionOfWorks extends Component {
   constructor (props) {
     super(props)
-
   }
 
   componentWillMount () {
@@ -36,5 +34,3 @@ class CollectionOfWorks extends Component {
     document.title = '作品集 - 张益铭'
   }
 }
-
-export default CollectionOfWorks

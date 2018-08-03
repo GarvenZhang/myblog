@@ -13,7 +13,7 @@
 }
 .icon-up {
   top: -18px;
-  border-width: 0 10px 10px 10px;
+  border-width: 0 6px 10px 6px;
   border-color: transparent transparent hackGreen transparent;
 }
 .icon-up:active {
@@ -21,7 +21,7 @@
 }
 .icon-down {
   top: -5px;
-  border-width: 10px 10px 0 10px;
+  border-width: 10px 6px 0 6px;
   border-color: hackGreen transparent transparent transparent;
 }
 .icon-down:active {

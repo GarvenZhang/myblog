@@ -33,8 +33,12 @@
   border: 1px solid #ccc;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, .5);
 }
-/* section--avator */
-.section--avator {
+.input {
+  text-indent: 1em;
+  margin-left: 1em;
+}
+/* section--avatar */
+.section--avatar {
   composes: section;
 }
 .title {

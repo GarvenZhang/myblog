@@ -1,0 +1,50 @@
+/* =======================User======================= */
+
+.home-page {
+  min-width: 320px;
+  max-width: 641px;
+  margin: 0 auto;
+}
+
+/* 导航 */
+.main {
+  height: 75vh;
+  border: 1px solid currentColor;
+}
+.nav-tabs {
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, transparent 0%, #00F900 50%, transparent 100%);
+}
+.nav-item {
+  display: inline-block;
+  width: 25%;
+}
+.nav-title {
+  font-size: 18px;
+  color: #00F900;
+}
+
+/*
+// === 隐藏滚动条： === //
+// === 1 html为三层结构：outer > inner > container，其中container为内容高度可能很大的区域 === //
+// === 2 outer, container 宽度一致，outer 要溢出隐藏，inner要overflow-x隐藏，overflow-y滚动 === //
+// === 3 可给inner::-webkit-scrollbar设置display:none来通过css属性隐藏 === //
+ */
+.nav-details-item {
+  width: 639px;
+  height: calc(75vh - 36px);
+  overflow: hidden;
+}
+.nav-details-inner {
+  height: calc(75vh - 36px);
+  width: 650px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.nav-details-inner::-webkit-scrollbar {
+  display: none;
+}
+.article-list {
+  width: 639px;
+}

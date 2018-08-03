@@ -1,6 +1,6 @@
 import debounce from '../../../client/lib/debounce'
 
-describe('test/client/lib/debounce.test.js', function () {
+describe('prod/client/lib/debounce.test.js', function () {
   test('debounce(fn, wait, true)', function (done) {
     let tmp = 0
 
