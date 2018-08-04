@@ -61,9 +61,9 @@ async function get (article_id, per_page = 0, page_num = 10) {
         Comment Cm
       LEFT JOIN Liked Lk ON Cm.article_id = '${article_id}'
       AND Lk.comment_id = Cm.id
-      LEFT JOIN USER Ur1 ON Cm.article_id = '${article_id}'
+      LEFT JOIN User Ur1 ON Cm.article_id = '${article_id}'
       AND Cm.from_uid = Ur1.id
-      LEFT JOIN USER Ur2 ON Cm.article_id = '${article_id}'
+      LEFT JOIN User Ur2 ON Cm.article_id = '${article_id}'
       AND Cm.to_uid = Ur2.id
       WHERE
         Cm.article_id = '${article_id}'
@@ -132,8 +132,8 @@ async function add (time, content, article_id, to_uid, from_uid) {
       FROM
         Comment Cm
       LEFT JOIN Liked Lk ON Lk.comment_id = Cm.id
-      LEFT JOIN USER Ur1 ON Cm.from_uid = Ur1.id
-      LEFT JOIN USER Ur2 ON Cm.to_uid = Ur2.id
+      LEFT JOIN User Ur1 ON Cm.from_uid = Ur1.id
+      LEFT JOIN User Ur2 ON Cm.to_uid = Ur2.id
       WHERE
         Cm.id = '${addResult.insertId}'
       GROUP BY
