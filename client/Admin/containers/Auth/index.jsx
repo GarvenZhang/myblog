@@ -101,7 +101,7 @@ export default class Auth  extends PureComponent {
         }
 
         window.localStorage.setItem('access_token', e.data.access_token)
-        this.props.get_user(e.data.access_token)
+        this.props.get_user()
 
         break
 
@@ -174,7 +174,7 @@ export default class Auth  extends PureComponent {
     // 若redux中没有用户信息(如刷新页面后)
     const access_token = window.localStorage.getItem('access_token')
     if (!this.props.id && access_token) {
-      this.props.get_user(access_token)
+      this.props.get_user()
       return
     }
 

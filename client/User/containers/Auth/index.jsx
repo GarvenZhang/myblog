@@ -89,7 +89,7 @@ export default class Auth extends PureComponent {
       case 'responseAccessToken':
 
         window.localStorage.setItem('access_token', e.data.access_token)
-        this.props.get_user(e.data.access_token)
+        this.props.get_user()
 
         break
 
@@ -189,7 +189,7 @@ export default class Auth extends PureComponent {
       if (this.props.role !== -1) {
         return
       }
-      this.props.get_user(access_token)
+      this.props.get_user()
       return
     }
 

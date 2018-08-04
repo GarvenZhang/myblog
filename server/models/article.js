@@ -168,7 +168,7 @@ class ArticleModel {
         FROM
           Article AT
         LEFT JOIN Liked Lk ON Lk.article_id = AT.id AND Lk.status = 1 AND Lk.type = 0
-        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        LEFT JOIN Comment Cm ON Cm.article_id = AT .id
         GROUP BY
           AT .id DESC
         LIMIT ${page_num * per_page}, ${per_page};
@@ -222,7 +222,7 @@ class ArticleModel {
         FROM
           Article AT
         LEFT JOIN Liked Lk ON Lk.article_id = AT.id AND Lk.status = 1 AND Lk.type = 0
-        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        LEFT JOIN Comment Cm ON Cm.article_id = AT .id
         GROUP BY
           AT .id DESC;
       `
@@ -314,7 +314,7 @@ class ArticleModel {
           COUNT(Cm.article_id) AS comment_num
         FROM
           Article AT
-        LEFT JOIN COMMENT Cm ON Cm.article_id = AT .id
+        LEFT JOIN Comment Cm ON Cm.article_id = AT .id
         LEFT JOIN Article AT1 ON AT1.id = AT .prev_id
         LEFT JOIN Article AT2 ON AT2.id = AT .next_id
         WHERE AT .id = ${id}
