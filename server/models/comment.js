@@ -58,7 +58,7 @@ async function get (article_id, per_page = 0, page_num = 10) {
         Ur2.id AS to_uid,
         Ur2. NAME AS to_name
       FROM
-        COMMENT Cm
+        Comment Cm
       LEFT JOIN Liked Lk ON Cm.article_id = '${article_id}'
       AND Lk.comment_id = Cm.id
       LEFT JOIN USER Ur1 ON Cm.article_id = '${article_id}'
@@ -130,7 +130,7 @@ async function add (time, content, article_id, to_uid, from_uid) {
         Ur2.id AS to_uid,
         Ur2. NAME AS to_name
       FROM
-        COMMENT Cm
+        Comment Cm
       LEFT JOIN Liked Lk ON Lk.comment_id = Cm.id
       LEFT JOIN USER Ur1 ON Cm.from_uid = Ur1.id
       LEFT JOIN USER Ur2 ON Cm.to_uid = Ur2.id
