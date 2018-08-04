@@ -50,7 +50,7 @@ const DEV = {
 }
 
 // 生产环境配置
-const PROD = {
+let PROD = {
 
   SSO_PORT: '3333',
   SSO_DOMAIN: 'https://sso.hellojm.cn',
@@ -63,11 +63,15 @@ const PROD = {
 
   FILE_SERVER_PORT: '3001',
   FILE_SERVER_DOMAIN: 'https://file.hellojm.cn',
+}
 
-  SSO_DOMAIN: 'http://sso.localhost.cn',
-  INDEX_DOMAIN: 'http://www.localhost.cn',
-  CMS_DOMAIN: 'http://admin.localhost.cn',
-  FILE_SERVER_DOMAIN: 'http://file.localhost.cn'
+if (ISTEST) {
+  PROD = Object.assign({}, PROD, {
+    SSO_DOMAIN: 'http://sso.localhost.cn',
+    INDEX_DOMAIN: 'http://www.localhost.cn',
+    CMS_DOMAIN: 'http://admin.localhost.cn',
+    FILE_SERVER_DOMAIN: 'http://file.localhost.cn'
+  })
 }
 
 const SSO_PORT = ISDEV ? DEV.SSO_PORT : PROD.SSO_PORT
