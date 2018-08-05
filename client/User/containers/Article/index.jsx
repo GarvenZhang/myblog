@@ -118,7 +118,6 @@ export default class Article extends Component {
 
     const target = e.currentTarget
     const has_liked = target.getAttribute('data-has-liked')
-    console.log(has_liked)
     // 没有点赞过的情况
     if (has_liked === 'false') {
 

@@ -74,7 +74,7 @@ export default class Upload extends Component {
         // 这里用lastModified作为id巧妙地避免了重复图片上传
         for (let id in this.state) {
           let file = this.state[id]
-          if (type.isObject(file) && id == item.file.lastModified) {
+          if (type.isObject(file) && id == (item.file.lastModified + item.file.size)) {
             self.setState({
               [id]: Object.assign({}, item, {
                 src: e.target.result
@@ -162,7 +162,6 @@ export default class Upload extends Component {
    * 阻止默认事件
    */
   dragenterHandle (e) {
-    console.log(e)
     e.preventDefault()
   }
 
@@ -196,7 +195,7 @@ export default class Upload extends Component {
 
       // 放进数组
       this.setState({
-        [item.lastModified]: {
+        [item.lastModified + item.size]: {
           name: item.name,
           src: '',
           file: item,

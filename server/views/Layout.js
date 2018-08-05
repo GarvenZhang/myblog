@@ -60,7 +60,7 @@ exports.getIframe = (urlFrom) => `
       if (e.origin !== '${urlFrom}') {
         return
       }
-      console.log(e.data, location.href)
+
       switch (e.data.type) {
         
         case 'sendAccessToken':

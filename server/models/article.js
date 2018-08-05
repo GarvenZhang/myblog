@@ -176,7 +176,6 @@ class ArticleModel {
 
       let [data] = await global.db.execute(sql)
 
-      console.log(data)
       return {
         data,
         page_num,
@@ -334,7 +333,6 @@ class ArticleModel {
    */
   static async add (param) {
     try {
-      console.log(param)
       const [ret] = await global.db.execute(
         'INSERT INTO Article(title, summary, content, pubtime, category_id, prev_id, next_id, cover_url, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);',
         [param.title, param.summary, param.content, param.pubtime, param.category_id, param.prev_id, param.next_id, param.cover_url, param.user_id]

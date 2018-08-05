@@ -198,7 +198,7 @@ class UserCtrl {
       .then(token => {
         access_token = token
       })
-    console.log(access_token)
+
     ctx.status = 200
     ctx.body = {
       data: ret.data,
