@@ -111,6 +111,12 @@ export default class TipsBar extends Component {
       }
     }
 
+    // === https站点中引入了http资源: 浏览器默认https站点中不能引入http资源, https会失效，出现 连接不安全 logo === //
+    // === 1 解决办法: === //
+    // === 1.1 script 不论是改为https协议还是通过相对协议, 虽然能请求回来, 但是若资源是用http协议的, 会使得整站的https破坏掉 === //
+    // === 1.2 ajax的话是不能在https中请求http的, 需给为iframe, 两边进行控制 === //
+    // === 2 相对协议: 将协议去掉, 留下 // 以及 后面的内容, 在使用https的网站中会使用https协议, 在使用http的网站中会是先用http协议 === //
+    
     // jsonp.get('https://api.ipify.org?format=jsonp&callback=jp.getIp', 'ip')
     jsonp.get(`//api.k780.com/?app=ip.local&appkey=${appkey}&sign=${sign}&format=json&jsoncallback=jp_location.getIp`, 'ip')
     jsonp.delete('ip')
@@ -196,7 +202,7 @@ export default class TipsBar extends Component {
   componentDidMount () {
 
     // 获取位置信息
-    this.locationHandle()
+    // this.locationHandle()
 
 
   }

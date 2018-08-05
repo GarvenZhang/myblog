@@ -522,3 +522,4 @@
 + [redux中reducer不应做什么](./client/User/redux/Comment.js)
 + [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
 + [webpack在开发环境转为线上环境时应注意的事项.md](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)
++ [https站点中有http资源](./client/Admin/components/TipsBar/index.jsx)
