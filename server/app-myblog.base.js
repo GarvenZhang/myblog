@@ -125,7 +125,10 @@ module.exports = (app, port) => {
 
 
   // 解析请求主体
-  app.use(bodyParser())
+  app.use(bodyParser({
+    jsonLimit: '5mb', // 控制body的parse转换大小 default 1mb
+    formLimit: '4096kb'  //  控制你post的大小  default 56kb
+  }))
 
   // 路由中间件
   app

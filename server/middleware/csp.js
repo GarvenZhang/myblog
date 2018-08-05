@@ -83,7 +83,7 @@ module.exports = function (ctx, str) {
   const connectSrc = getConnectSrc()
   const frameSrc = getFrameSrc()
   const imgSrc = getImgSrc()
-  const defaultSrc = `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}'; http://api.k780.com `
+  const defaultSrc = `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}' ;`
   const styleSrc = `style-src 'self' 'unsafe-inline';`
   const fontSrc = `font-src 'self' data: ;`
 
