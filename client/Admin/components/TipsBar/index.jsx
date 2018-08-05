@@ -78,7 +78,7 @@ export default class TipsBar extends Component {
         const cityArr = result.att.split(',')
         city = cityArr[cityArr.length - 1]
 
-        jsonp.get(`https://api.k780.com/?app=weather.today&weaid=${result.ip}&appkey=${appkey}&sign=${sign}&format=json&jsoncallback=jp_location.getWeather`, 'weather')
+        jsonp.get(`//api.k780.com/?app=weather.today&weaid=${result.ip}&appkey=${appkey}&sign=${sign}&format=json&jsoncallback=jp_location.getWeather`, 'weather')
           .then(res => {
             jsonp.delete('weather')
           })
@@ -112,7 +112,7 @@ export default class TipsBar extends Component {
     }
 
     // jsonp.get('https://api.ipify.org?format=jsonp&callback=jp.getIp', 'ip')
-    jsonp.get(`https://api.k780.com/?app=ip.local&appkey=${appkey}&sign=${sign}&format=json&jsoncallback=jp_location.getIp`, 'ip')
+    jsonp.get(`//api.k780.com/?app=ip.local&appkey=${appkey}&sign=${sign}&format=json&jsoncallback=jp_location.getIp`, 'ip')
     jsonp.delete('ip')
 
   }
