@@ -123,7 +123,7 @@ export default class Upload extends Component {
     xhr.upload.onprogress = (e) => {
       if (e.lengthComputable) {
         this.setState({
-          [item.file.lastModified]: Object.assign({}, item, {
+          [item.file.lastModified + item.file.size]: Object.assign({}, item, {
             uploaded: e.loaded / e.total
           })
         })
