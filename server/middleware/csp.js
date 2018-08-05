@@ -61,7 +61,7 @@ const getFrameSrc = () => {
 const getImgSrc = () => {
 
   let ret = `img-src 'self' https://*.githubusercontent.com`
-  console.log(config.ISTEST)  
+
   if (config.ISDEV || config.ISTEST) {
     ret += ' http://file.localhost.cn'
   } else if (config.ISPROD) {
@@ -83,7 +83,7 @@ module.exports = function (ctx, str) {
   const connectSrc = getConnectSrc()
   const frameSrc = getFrameSrc()
   const imgSrc = getImgSrc()
-  const defaultSrc = `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}';`
+  const defaultSrc = `default-src 'self' https://*.hellojm.cn; script-src 'self' 'sha256-${ret}'; http://api.k780.com `
   const styleSrc = `style-src 'self' 'unsafe-inline';`
   const fontSrc = `font-src 'self' data: ;`
 

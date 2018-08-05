@@ -5,8 +5,6 @@ __MACOSX
 
 whistle.log
 
-source/校招简历
-
 ## 安全
 
 server/auth/config.js

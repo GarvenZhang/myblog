@@ -16,7 +16,7 @@ module.exports = function (port) {
     if (err) {
       console.error(err)
     }
-    console.log(`Listening at localhost:${port}`)
+    console.info(`Listening at localhost:${port}`)
   })
 
   // const httpsOptions = {
