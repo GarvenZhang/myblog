@@ -21,6 +21,8 @@ module.exports = function (...role) {
     // referer校验
     const isLegalReferer = referer(ctx, next)
     if (!isLegalReferer) {
+      ctx.status = 401
+      ctx.body = errorMsg[401]
       return
     }
 

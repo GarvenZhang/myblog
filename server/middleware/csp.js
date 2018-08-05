@@ -60,7 +60,7 @@ const getFrameSrc = () => {
 
 const getImgSrc = () => {
 
-  let ret = `img-src 'self' https://avatars2.githubusercontent.com`
+  let ret = `img-src 'self' https://*.githubusercontent.com`
   console.log(config.ISTEST)  
   if (config.ISDEV || config.ISTEST) {
     ret += ' http://file.localhost.cn'

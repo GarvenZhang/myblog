@@ -90,7 +90,7 @@ export default class AdminArticlePost extends Component {
         return this.props.update_popup({
           isOpen: 1,
           header: '提示:',
-          content: '无可选标签!'
+          content: '无可选文章!'
         })
       }
 
@@ -105,7 +105,7 @@ export default class AdminArticlePost extends Component {
         return this.props.update_popup({
           isOpen: 1,
           header: '提示:',
-          content: '无可选标签!'
+          content: '无可选文章!'
         })
       }
 

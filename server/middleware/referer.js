@@ -10,13 +10,10 @@ module.exports = function (ctx, next) {
   // === 1.1 发送条件: 当协议为 file / data / 当前网站为非安全协议而源网站为安全协议时 不会被发送 === //
   // === 1.2 值: 绝对路径或者相对路径 === //
   if (
-    (config.ISDEV && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
+    ((config.ISDEV || config.ISTEST) && /^http:\/\/(?:\w+?\.|)localhost\.cn/.test(referer)) ||
     (config.ISPROD && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
   ) {
     return true
   }
-
-  ctx.status = 401
-  ctx.body = errorMsg[401]
   return false
 }
