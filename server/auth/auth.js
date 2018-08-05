@@ -19,7 +19,10 @@ module.exports = function (...role) {
   return async function (ctx, next) {
 
     // referer校验
-    await referer(ctx, next)
+    const isLegalReferer = referer(ctx, next)
+    if (!isLegalReferer) {
+      return
+    }
 
     // authorization头校验
     let authorizationHeader = ctx.headers.authorization

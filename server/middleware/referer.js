@@ -1,7 +1,7 @@
 const errorMsg = require('./errorMsg')
 const config = require('../../config')
 
-module.exports = async function (ctx, next) {
+module.exports = function (ctx, next) {
 
   const referer =  ctx.request.headers.referer
 
@@ -13,10 +13,10 @@ module.exports = async function (ctx, next) {
     (config.ISDEV && /^http:(?:\w+?\.|)localhost\.cn/.test(referer)) ||
     (config.ISPROD && /^https:\/\/(?:\w+?\.|)hellojm\.cn/.test(referer))
   ) {
-    return await next()
+    return true
   }
 
   ctx.status = 401
   ctx.body = errorMsg[401]
-
+  return false
 }

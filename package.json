@@ -12,7 +12,7 @@
     "dev:client": "npm run clean && cross-env NODE_ENV=development node ./build/dev/devServer.js",
     "dev:server": "cross-env NODE_ENV=development nodemon ./app-myblog.js",
 
-    "test:build": "npm run clean && parallel-webpack --config ./build/prod/webpack.config.prod.js --display-used-exports --optimize-dedupe",
+    "test:build": "npm run clean && parallel-webpack --config ./build/test/webpack.config.test.js --display-used-exports --optimize-dedupe",
     "test:server": "cross-env NODE_ENV=production test=test nodemon ./app-myblog.js",
     "test:run": "npm run test:build && npm run test:server",
 
