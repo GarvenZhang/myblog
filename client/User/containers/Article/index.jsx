@@ -96,7 +96,7 @@ export default class Article extends Component {
    * @return {String}
    */
   changeImgUrl (content) {
-    return content.replace(/!\[(.+?)\]\((.+?)\)/, `![$1](${config.ISDEV ? config.FILE_SERVER_DOMAIN : config.FILE_SERVER_DOMAIN}$2)`)
+    return content.replace(/!\[(.+?)\]\((.+?)\)/g, `![$1](${config.FILE_SERVER_DOMAIN}$2)`)
   }
 
   /**
