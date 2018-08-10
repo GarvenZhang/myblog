@@ -36,8 +36,9 @@
 
 ### 计算机基础
 
-+ [补码/反码](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js)
++ [补码/反码](./client/User/components/Header/math.js)
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [回车?换行?](./doc/curl.md)
 + [图片](./build/webpack.config.base.js)
 + **正则**:
   [边界](./client/lib/reg.js) /
@@ -102,7 +103,8 @@
   [值得引用传递] /
   [数组函数参数] /
 + [字符串]
-+ [结构体]
++ **结构体**:
+  [基础](https://github.com/GarvenZhang/C-study-note/tree/master/4.1chu_shi_jie_gou_ti/main.c) /
 
 ### 计算机网络
 
@@ -133,7 +135,8 @@
   [可靠传输] /
   [流量控制] /
   [拥塞控制] /
-  [运输连接管理]
+  [运输连接管理] /
+  [UDP与TCP的对比总结](./doc/计算机网络/5.传输层/5.9%20UDP与TCP的对比总结.md)
 + **应用层**:
   [DNS](./server/views/Layout.js) /
   [DHCP] /
@@ -155,18 +158,23 @@
 + [栈](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/stack.js)
 + [队列](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/queue.js)
 + [字典](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/dictionary.js)
-+ [BST](./client/lib/bst.js)
++ [T/BT/BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
 + [图](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/graph.js)
 + [Set与Map]
 
 ### 算法
 
++ [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?](./client/User/components/Header/math.js)
++ [复杂度分析]
 + **选择排序**:
-  [JS版] /
-  [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.1selection-sort/main.c)
+  [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.1selection_sort/main.c)
++ **插入排序**:
+  [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.2insertion_sort/main.c)
+  
 + **排序**:
-  [插入排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [选择排序 - JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
@@ -188,6 +196,7 @@
 
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js)
++ [状态模式]()
 + [模板方法模式]
 + [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
 + [MVC]
@@ -246,7 +255,6 @@
 ### javascript
 
 + **基础**:
-  [位运算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
   [判断类型](./client/lib/type.js) /
   [词法作用域,动态作用域] /
   [变量对象] /
@@ -302,6 +310,7 @@
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
 + [ajax实现](client/User/fetch/ajax.js)
 + **es6**:
+  [const与freeze](./client/Admin/redux/Article.js) /
   [rest参数] /
   [函数-与解构赋值默认值结合使用](./client/lib/cookie.js)
   [类-静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) /
@@ -361,7 +370,6 @@
 ### Redis
 
 
-
 ### Mysql
 
 + [数据库设计](./doc/mysql/1.数据库设计.md)
@@ -383,12 +391,13 @@
 
 ### React
 
-+ [生命周期](./client/User/containers/Home/index.jsx)
-+ [React直出开发环境热更新优化方案](build/dev/devServer.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
++ [生命周期](./client/User/containers/Home/index.jsx)
 + [高阶组件](./client/Admin/components/TipsBar/index.jsx)
-+ [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js)
-+ [Diff]
++ [React直出开发环境热更新优化方案](build/dev/devServer.js)
++ **核心**:
+  [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
+  [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
   [shouldComponentUpdate](./client/Admin/components/Icon/index.jsx) /
@@ -476,6 +485,7 @@
 + [波浪形进度条]
 + [瀑布流]
 + [回文](./client/User/components/Header/index.jsx)
++ [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
 
 ### git
 
@@ -489,7 +499,9 @@
   
 ### wireshark
 
-+ [抓包原理] /
++ [抓包原理](./doc/wireshark/1%20抓包原理.md)
++ 
+
   
 
 ### 常用命令

@@ -1,6 +1,8 @@
 import { api } from '../fetch/axios'
 import { actions as PopupActions } from './Popup'
 
+// === const: 对于简单类型值就是比那辆指向的那个内存地址, 因此等同于常量; 对于复合类型, 变量指向的内存地址保存的是一个指向实际数据的指针, const只保证这个指针时固定的, 即 const obj = {}; obj = {}l 会报错, 至于指向的数据结构是否可变不能控制 === //
+// === Object.freeze(): 冻结一个对象, 如 var obj = Object.freeze({bar: {}}) 后, obj对象无法添加新属性等操作但 obj.bar 可以 === //
 const initialState = {
   title: '',
   summary: '',

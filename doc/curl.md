@@ -78,3 +78,17 @@ CRLF: 回车换行
 如 curl --header "Content-Type:application/json" https://www.hellojm.cn
 
 9 curl --user [name]:[password] [url]: http认证
+
+## CRLF
+
+回车: CR，Carriage Return, 用符号'\r'表示, 十进制ASCII代码是 13, 十六进制代码为 0x0D
+
+换行: LF，Line Feed, 使用'\n'符号表示，ASCII代码是 10, 十六制为 0x0A
+
+在文本处理中, CR, LF, CR/LF 是不同操作系统上使用的换行符
+
+1 Dos 和 windows 采用“回车+换行，CR/LF”表示下一行
+
+2 UNIX/Linux 采用“换行符，LF”表示下一行
+
+3 苹果机(MAC OS 系统)则采用“回车符，CR”表示下一行

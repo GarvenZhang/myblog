@@ -61,7 +61,7 @@ export default class Home extends Component {
 
   }
   
-  // === 提供默认值，当父组件没有提供相应的props时就使用此 === //
+  // === defaultProps: 提供默认值，当父组件没有提供相应的props时就使用此 === //
   static defaultProps = {
     data: [{}],
     page_num: 0,
@@ -139,7 +139,7 @@ export default class Home extends Component {
   }
 }
 
-// === propTypes 会在 defaultProps 之后执行，因此对 defaultProps 也会检查 === //
+// === propTypes: 会在 defaultProps 之后执行，因此对 defaultProps 也会检查 === //
 if (config.ISDEV) {
   Home.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,

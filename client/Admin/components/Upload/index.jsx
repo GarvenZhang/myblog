@@ -17,6 +17,15 @@ const ImgItem = function (props) {
   )
 }
 
+// === 上传漏洞: 用户上传文件后可通过url访问, 上传的文件在后端被当做程序解析, 攻击者的逻辑在服务器端被执行 === //
+// === 1 场景: php/asp中尤其严重, 文件可直接通过url访问, 若上传的是php文件会执行, 而nodejs中可设置路由防止真实路径暴露, 不会去主动执行js文件 === //
+// === 2 防御: === //
+// === 2.1 限制上传后缀: 因后端语言而异后缀处理不一致, 且可欺骗, 不能彻底防御 === //
+// === 2.2 文件类型检查: type 是浏览器给的, 但可通过非浏览器发送请求, 达到欺骗效果 === //
+// === 2.3 文件内容检查: 不同类型的文件的开头有一定的特征 === //
+// === 2.4 程序输出 === //
+// === 2.5 权限控制 - 可写可执行互斥 === //
+
 // === 上传拖放： === //
 // === 1.目标元素：被拖放元素，dragstart[按下鼠标并开始移动鼠标时触发] - drag[被拖动期间持续触发] - dragend[释放鼠标停止拖动时触发] === //
 // === 2.释放区域：dragenter[拖动到其身上时触发] - dragover[在其范围持续拖动时持续触发】 - drop[在其范围释放时触发] - dragleave[离开其范围时触发] === //
@@ -267,7 +276,7 @@ export default class Upload extends Component {
             ))
           }
         </ul>
-        <span className={style['upload-tips']}>Upload File</span>
+        <span className={style['upload-tips']}>Upload File: png/jpg/jpeg/webp/gif </span>
         <div className={style['upload-inp-wrap']}>
           <input type='file' className={style['upload-inp']} />
         </div>
