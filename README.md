@@ -533,11 +533,11 @@
 ### 对比归纳
 
 + [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
-+ [DOM0 <-> DOM2 <-> DOM3]()
-+ [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排]()
-+ [队列 <-> 栈 <-> 堆]()
-+ [观察者 <-> MVC <-> MVP <-> MVVM]()
-+ [UDP <-> TCP]()
-+ [Promise <-> Generator <-> Async]()
-+ [React <-> Vue <-> Angular]()
++ [DOM0 <-> DOM2 <-> DOM3]
++ [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排]
++ [队列 <-> 栈 <-> 堆]
++ [观察者 <-> MVC <-> MVP <-> MVVM]
++ [UDP <-> TCP]
++ [Promise <-> Generator <-> Async]
++ [React <-> Vue <-> Angular]
 + [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)

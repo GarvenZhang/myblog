@@ -1,5 +1,7 @@
 # 跨域知识归纳
 
+> [学习笔记](https://garvenzhang.github.io/2017/09/07/cross-domain/#%E4%B8%83-%E9%80%9A%E8%BF%87windowname%E8%B7%A8%E5%9F%9F)
+
 |    \       |       jsonp       |       cors        |       xdm     |       window.name         |       document.domain         |           location.hash           |
 |:----------|:------------------|:------------------|:--------------|:--------------------------|:------------------------------|:----------------------------------|
 |  原理      | 因为通过`script`标签引入的js是不受同源策略的限制的, 所以我们可以通过script标签引入一个js或者是一个其他后缀形式`(如php，jsp等)`的文件, 此文件返回一个js函数的调用 |   使用自定义的HTTP头部让浏览器与服务器进行沟通, 从而决定请求或响应是应该成功还是失败  | 向另一个地方(对于 XDM 而言，“另一个地方”指的是包含在当前页面中的<iframe>元素，或者由当前页面弹出的窗口)传递数据    |  在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的  |   把 `http://www.damonare.cn/a.html` 和 `http://damonare.cn/b.html` 这两个页面的 `document.domain` 都设成相同的域名   |   改变URL的hash部分来进行双向通信 |
