@@ -540,4 +540,4 @@
 + [UDP <-> TCP]()
 + [Promise <-> Generator <-> Async]()
 + [React <-> Vue <-> Angular]()
-+ [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳)
++ [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
