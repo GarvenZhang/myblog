@@ -8,18 +8,15 @@
     "jest": "jest",
     "clean": "rimraf ./dist/*",
     "seeSize": "webpack --display-modules --sort-modules-by size",
-
     "dev:client": "npm run clean && cross-env NODE_ENV=development node ./build/dev/devServer.js",
     "dev:server": "cross-env NODE_ENV=development nodemon ./app-myblog.js",
-
     "test:build": "npm run clean && parallel-webpack --config ./build/test/webpack.config.test.js --display-used-exports --optimize-dedupe",
     "test:server": "cross-env NODE_ENV=production test=test nodemon ./app-myblog.js",
     "test:run": "npm run test:build && npm run test:server",
-
+    "cdn": "node ./build/prod/cdn.upload.js",
     "prod:build": "npm run clean && parallel-webpack --config ./build/prod/webpack.config.prod.js --display-used-exports --optimize-dedupe",
     "prod:server": "cross-env NODE_ENV=production nodemon ./app-myblog.js",
     "prod:run": "npm run prod:build && npm run prod:server",
-
     "pm2": "cross-env NODE_ENV=production pm2 start app-myblog.js"
   },
   "dependencies": {
@@ -96,6 +93,7 @@
     "postcss-icss-values": "^2.0.1",
     "postcss-loader": "^2.1.5",
     "precss": "^3.1.2",
+    "qiniu": "^7.2.1",
     "react-hot-loader": "^4.0.0",
     "react-test-renderer": "^16.3.2",
     "should": "^13.2.1",

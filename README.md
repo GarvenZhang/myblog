@@ -69,7 +69,7 @@
 + **计算机体系结构和内存分层体系**:
 + **非连续内存分配**:
 + **虚拟内存的起因**:
-+ **算法**:
++ **算法**: 
 + **进程与线程**:
   [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
 + **调度**:
@@ -127,6 +127,7 @@
   [MAC层和帧]
 + **网络层**:
 + **传输层**:
+  [抓包原理](./doc/wireshark/1%20抓包原理.md) /
   [简介](./doc/计算机网络/5.传输层/5.1%20简介.md) /
   [UDP首部](./doc/计算机网络/5.传输层/5.3%20UDP首部.md) /
   [TCP首部] /
@@ -134,10 +135,11 @@
   [网络安全] /
   [可靠传输] /
   [流量控制] /
-  [拥塞控制] /
-  [运输连接管理] /
+  [拥塞控制](./doc/计算机网络/5.传输层/5.10%20拥塞控制.md) /
+  [运输连接管理](./doc/计算机网络/5.传输层/5.8%20TCP传输连接管理.md) /
   [UDP与TCP的对比总结](./doc/计算机网络/5.传输层/5.9%20UDP与TCP的对比总结.md)
 + **应用层**:
+  [域名](./config.js)
   [DNS](./server/views/Layout.js) /
   [DHCP] /
   [TELNET] /
@@ -149,8 +151,6 @@
   [http - get, post] /
   [http - 基本验证] /
   [http - restful架构](./server/routes/router-index.js) /
-  [http2.0](./server/app-myblog.prod.js) /
-  [HTTPS] /
   [SMTP] /
   
 ### 数据结构
@@ -165,15 +165,15 @@
 
 ### 算法
 
-+ [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?](./client/User/components/Header/math.js)
-+ [复杂度分析]
++ [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?进制?](./client/User/components/Header/math.js)
++ [高中数学常用公式](./doc/数据结构与算法/高中数学常用公式.md)
++ [复杂度分析](./client/Admin/containers/GeneralCatalogue/sort.js)
 + **选择排序**:
   [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.1selection_sort/main.c)
 + **插入排序**:
   [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.2insertion_sort/main.c)
-  
 + **排序**:
   [选择排序 - JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
   [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
@@ -181,16 +181,17 @@
   [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
 + **查找**:
   [线性查找] /
-  [二分查找] /
+  [二分查找](./client/Admin/containers/GeneralCatalogue/binarySearch.js) /
   [公共项查找]
 + [A*寻路](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/Astar.js)
++ **动态规划**:
+  [背包问题] /
 + [八皇后]
 + [螺旋矩阵]
 + [行列互换矩阵]
 + [排列组合]
 + [概率]
 + [约瑟夫环]
-+ [背包问题]  
 
 ### 设计模式
 
@@ -324,7 +325,7 @@
   [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
   [碰撞检测]
 + **跨域**:
-  [同源策略](client/Admin/containers/Home/index.jsx)
+  [同源策略](client/User/containers/Home/index.jsx)
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
   [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js) /
@@ -429,8 +430,8 @@
 + [工作原理](./build/webpack.config.base.js)
 + **源码分析**:
   [输出文件](https://github.com/GarvenZhang/blog-file/blob/development/package/webpack-output/dist/bundle.js) /
-+ [css模块化](./build/webpack.config.base.js)
-+ [cdn](./build/webpack.config.base.js)
++ [css模块化](./build/dev/webpack.config.dev.base.js)
++ [cdn](./build/prod/webpack.config.prod.base.js)
 + [css前缀兼容处理](./build/webpack.config.base.js)
 + [ImageInline](./build/webpack.config.base.js)
 + [提取第三方库](build/utils/webpack.config.dll.js)
@@ -496,13 +497,6 @@
   [功能分支工作流] /
   [gitflow工作流] /
   [forking工作流]
-  
-### wireshark
-
-+ [抓包原理](./doc/wireshark/1%20抓包原理.md)
-+ 
-
-  
 
 ### 常用命令
 
@@ -535,3 +529,15 @@
 + [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
 + [webpack在开发环境转为线上环境时应注意的事项.md](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)
 + [https站点中有http资源](./client/Admin/components/TipsBar/index.jsx)
+
+### 对比归纳
+
++ [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
++ [DOM0 <-> DOM2 <-> DOM3]()
++ [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排]()
++ [队列 <-> 栈 <-> 堆]()
++ [观察者 <-> MVC <-> MVP <-> MVVM]()
++ [UDP <-> TCP]()
++ [Promise <-> Generator <-> Async]()
++ [React <-> Vue <-> Angular]()
++ [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳)
