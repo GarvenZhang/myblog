@@ -487,6 +487,7 @@
 + [瀑布流]
 + [回文](./client/User/components/Header/index.jsx)
 + [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
++ [github第三方登录](./server/auth/github.js)
 
 ### git
 

@@ -11,6 +11,14 @@ const sso = require('../views/server-render').sso
 const GITHUB = config.GITHUB
 const ISDEV = commonConfig.ISDEV
 
+// === github第三方登录: https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/ === //
+// === 1 用户打开我的博客后，我想要通过GitHub获取改用户的基本信息 === //
+// === 2 在转跳到GitHub的授权页面后，用户同意我获取他的基本信息 === //
+// === 3 博客获得GitHub提供的授权码，使用该授权码向GitHub申请一个令牌 === //
+// === 4 GitHub对博客提供的授权码进行验证，验证无误后，发放一个令牌给博客端 === //
+// === 5 博客端使用令牌，向GitHub获取用户信息 === //
+// === 6 GitHub 确认令牌无误，返回给我基本的用户信息 === //
+
 module.exports = async function (ctx, next) {
 
   const postData = querystring.stringify({
@@ -65,7 +73,6 @@ module.exports = async function (ctx, next) {
       // }
 
       ctx.redirect(redirect_url)
-
 
     })
 
