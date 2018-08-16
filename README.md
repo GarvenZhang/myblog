@@ -69,7 +69,7 @@
 + **计算机体系结构和内存分层体系**:
 + **非连续内存分配**:
 + **虚拟内存的起因**:
-+ **算法**: 
++ **算法**:
 + **进程与线程**:
   [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
 + **调度**:
@@ -168,17 +168,18 @@
 + [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?进制?](./client/User/components/Header/math.js)
 + [高中数学常用公式](./doc/数据结构与算法/高中数学常用公式.md)
 + [复杂度分析](./client/Admin/containers/GeneralCatalogue/sort.js)
++ **冒泡排序**:
+  [JS版](./client/Admin/containers/GeneralCatalogue/bubbleSort.js)
 + **选择排序**:
-  [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [JS版](./client/Admin/containers/GeneralCatalogue/selectSort.js) /
   [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.1selection_sort/main.c)
 + **插入排序**:
-  [JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
+  [JS版](./client/Admin/containers/GeneralCatalogue/insertionSort.js) /
   [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.2insertion_sort/main.c)
 + **排序**:
-  [选择排序 - JS版](./client/Admin/containers/GeneralCatalogue/sort.js) /
-  [快速排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
-  [归并排序](./client/Admin/containers/GeneralCatalogue/sort.js) /
-  [希尔排序](./client/Admin/containers/GeneralCatalogue/sort.js)
+  [快速排序](./client/Admin/containers/GeneralCatalogue/quickSort.js) /
+  [归并排序](./client/Admin/containers/GeneralCatalogue/mergeSort.js) /
+  [希尔排序](./client/Admin/containers/GeneralCatalogue/shellSort.js)
 + **查找**:
   [线性查找] /
   [二分查找](./client/Admin/containers/GeneralCatalogue/binarySearch.js) /
@@ -257,12 +258,13 @@
 
 + **基础**:
   [判断类型](./client/lib/type.js) /
+  [浅比较](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/shallowEqual.js) /
   [词法作用域,动态作用域] /
   [变量对象] /
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
   [new本质](./client/lib/new.js)
-  [严格模式](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js)
+  [严格模式](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js)
 + **this**:
   [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
   [箭头函数](./client/Admin/containers/Info/index.jsx) /
@@ -303,7 +305,7 @@
   [深拷贝](./client/lib/deepCopy.js) /
   [预加载](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/preload.js) /
   [懒加载] /
-  [函数组合](https://github.com/GarvenZhang/blog-file/blob/development/package/redux/src/compose.js)/
+  [函数组合](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/redux/src/compose.js)/
   [函数记忆] /
   [去重] /
   [纯函数](./client/User/redux/Popup.js) /
@@ -361,12 +363,12 @@
 
 ### koa
 
-+ [阅读源码技巧](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js)
++ [阅读源码技巧](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js)
 + **源码解读**:
-  [Application](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/application.js) /
-  [Context](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/context.js) /
-  [Request/Response](https://github.com/GarvenZhang/blog-file/blob/development/package/koa/lib/request.js) /
-  [Middlewares](https://github.com/GarvenZhang/blog-file/blob/development/package/koa-compose/index.js)
+  [Application](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js) /
+  [Context](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/context.js) /
+  [Request/Response](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/request.js) /
+  [Middlewares](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa-compose/index.js)
 
 ### Redis
 
@@ -392,20 +394,26 @@
 
 ### React
 
++ **组件声明方式**:
+  [无状态组件](./client/User/components/LoadMore/index.jsx) /
+  [React.createClass] /
+  [extends React.Component] /
+  [高阶组件](./client/Admin/router/asyncLoad.js)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 + [生命周期](./client/User/containers/Home/index.jsx)
-+ [高阶组件](./client/Admin/components/TipsBar/index.jsx)
 + [React直出开发环境热更新优化方案](build/dev/devServer.js)
 + **核心**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
   [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
+  [生命周期] /
+  [setState]
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
-  [shouldComponentUpdate](./client/Admin/components/Icon/index.jsx) /
+  [shouldComponentUpdate](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/ReactComponentWithPureRenderMixin.js) /
+  [PureComponent] /
   [immutablejs](./client/User/components/Popup/index.jsx) /
   [key] /
   [同构](./server/views/server-render.js) /
-  
 
 ### React-Router
 
@@ -429,7 +437,7 @@
   [mode](build/prod/webpack.config.prod.js)  
 + [工作原理](./build/webpack.config.base.js)
 + **源码分析**:
-  [输出文件](https://github.com/GarvenZhang/blog-file/blob/development/package/webpack-output/dist/bundle.js) /
+  [输出文件](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/webpack-output/dist/bundle.js) /
 + [css模块化](./build/dev/webpack.config.dev.base.js)
 + [cdn](./build/prod/webpack.config.prod.base.js)
 + [css前缀兼容处理](./build/webpack.config.base.js)
@@ -533,13 +541,43 @@
 
 ### 对比归纳
 
-+ [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
-+ [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的]
-+ [DOM0 <-> DOM2 <-> DOM3]
-+ [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排]
-+ [队列 <-> 栈 <-> 堆]
-+ [观察者 <-> MVC <-> MVP <-> MVVM]
-+ [UDP <-> TCP]
-+ [Promise <-> Generator <-> Async]
-+ [React <-> Vue <-> Angular]
-+ [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
++ **http系列**: [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
++ **授权与SSO系列**: [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
++ **常见算法系列**: [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md)
++ **设计模式系列**:
+  [观察者 <-> MVC <-> MVP <-> MVVM]() /
+  [观察者 <-> 脏检查 <-> 数据劫持]()
++ **TCP/IP系列**[UDP <-> TCP]()
++ **异步处理系列**: [传统异步处理 <->Promise <-> Generator <-> Async]()
++ **框架系列**: [React <-> Vue <-> Angular]()
++ **跨域系列**: [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
++ **css布局系列**:
+  [IFC <-> BFC]() /
+  [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
++ **数据比较系列**: [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
++ **循环遍历系列**: [while <-> for <-> for..in <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys() <-> Iterator]()
++ **数据结构系列**:
+  [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /
+  [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
++ **css动画系列**: [transform <-> transiton <-> animation]()
++ **字符编码系列**: [ASCII <-> Unicode <-> gbk <-> utf8]()
++ **继承系列**: [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 计生组合继承 <-> extend]()
++ **this系列**: [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]()
++ **存储方式系列**: [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
++ **数组api系列**:
+  [concat() <-> slice() <-> splice()]() /
+  [forEach() <-> every() <-> some() <-> filter() <-> map()]() /
+  [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()]()
++ **字符api系列**:
+  [slice() <-> substring() <-> substr() <-> replace()]() 
++ **事件系列**:
+  [DOM0 <-> DOM2 <-> DOM3]() /
+  [preventDefault <-> return false <-> returnValue]() /
+  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble]() /
+  [target <-> currentTarget <-> relativeTarget]()
++ **图片格式系列**: [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]()  
++ **测试系列**: [单元测试 <-> TDD <-> BDD]() 
++ **操作符系列**:
+  [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数]() /
++ **模块化系列**:
+  [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module]()

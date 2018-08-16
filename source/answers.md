@@ -659,6 +659,22 @@ https://cloud.tencent.com/developer/article/1005459
 
 https://juejin.im/post/5aa8a07cf265da238a3022a4
 
+https://www.cnblogs.com/melon-h/archive/2012/09/20/2694941.html
+
+http://shiyanjun.cn/archives/798.html
+
+https://blog.csdn.net/yuzhihui_no1/article/details/44198701#t2
+
+https://blog.csdn.net/YuZhiHui_No1/article/details/44223225
+
+https://lemon23.github.io/2016/12/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/
+
+https://www.cnblogs.com/nannanITeye/archive/2013/04/11/3013737.html
+
+https://www.jianshu.com/p/dfcfe667687b
+
+https://michaelyou.github.io/2015/03/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/
+
 111. koa出来的app， 在module.exports的时候是导出app 还是  app.listen?  现在是后者可行，前者不可行
 
 112. webpack打包后css文件中嵌入了js的问题
@@ -975,3 +991,12 @@ https://www.oschina.net/translate/http-partial-content-in-node-js?lang=chs&page=
 https://www.jianshu.com/p/8d33019d1c69
 
 169 https://ke.qq.com/course/list/cdn
+
+170 浅比较  http://imweb.io/topic/598973c2c72aa8db35d2e291
+
+171 immutablejs
+
+https://github.com/camsong/blog/issues/3
+
+https://tech.youzan.com/purecomponent-immutablejs/
+
