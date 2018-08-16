@@ -6,6 +6,7 @@
 
 2 常见类数组: arguments / NodeList
 
+
 3 判断: 
 
 ```

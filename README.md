@@ -536,7 +536,7 @@
 + [sql中查询语句不应有计算值](./server/models/comment.js)
 + [redux中reducer不应做什么](./client/User/redux/Comment.js)
 + [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
-+ [webpack在开发环境转为线上环境时应注意的事项.md](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)
++ [webpack在开发环境转为线上环境时应注意的事项](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)
 + [https站点中有http资源](./client/Admin/components/TipsBar/index.jsx)
 
 ### 对比归纳
@@ -547,7 +547,7 @@
 + **设计模式系列**:
   [观察者 <-> MVC <-> MVP <-> MVVM]() /
   [观察者 <-> 脏检查 <-> 数据劫持]()
-+ **TCP/IP系列**[UDP <-> TCP]()
++ **TCP/IP系列**: [UDP <-> TCP]()
 + **异步处理系列**: [传统异步处理 <->Promise <-> Generator <-> Async]()
 + **框架系列**: [React <-> Vue <-> Angular]()
 + **跨域系列**: [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
@@ -555,7 +555,7 @@
   [IFC <-> BFC]() /
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **数据比较系列**: [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
-+ **循环遍历系列**: [while <-> for <-> for..in <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys() <-> Iterator]()
++ **循环遍历系列**: [while <-> for <-> in <-> for..in <-> 枚举 <-> hasOwnProperty <-> getOwnPropertyNames <-> keys <-> Iterator <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys()](./doc/对比归纳/11.while%20%3C-%3E%20for%20%3C-%3E%20for..in%20%3C-%3E%20for..of%20%3C-%3E%20forEach%20%3C-%3E%20arr.entries()%20%3C-%3E%20arr.keys()%20%3C-%3E%20arr.values()%20%3C-%3E%20Object.keys()%20%3C-%3E%20Iterator.md)
 + **数据结构系列**:
   [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
