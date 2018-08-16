@@ -578,6 +578,6 @@
 + **图片格式系列**: [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]()  
 + **测试系列**: [单元测试 <-> TDD <-> BDD]() 
 + **操作符系列**:
-  [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数]() /
+  [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:
   [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module]()
