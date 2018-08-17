@@ -259,9 +259,7 @@
 + **基础**:
   [判断类型](./client/lib/type.js) /
   [浅比较](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/shallowEqual.js) /
-  [变量对象] /
   [闭包](./client/User/components/Header/index.jsx) /
-  [执行上下文] /
   [new本质](./client/lib/new.js)
   [严格模式](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js)
 + **this**:
@@ -542,18 +540,22 @@
 
 ### 对比归纳
 
++ **javascript精华系列**:
+  [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() /
+  [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() /
+  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md)
 + **http系列**: [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
 + **授权与SSO系列**: [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
 + **常见算法系列**: [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md)
 + **设计模式系列**:
   [观察者 <-> MVC <-> MVP <-> MVVM]() /
-  [观察者 <-> 脏检查 <-> 数据劫持]()
+  [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding)
 + **TCP/IP系列**: [UDP <-> TCP]()
 + **异步处理系列**: [同步 <-> 异步 <-> Promise <-> Generator <-> Async]()
-+ **框架系列**: [React <-> Vue <-> Angular]()
++ **框架系列**: [React <-> Vue <-> Angular]
 + **跨域系列**: [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**:
-  [IFC <-> BFC]() /
+  [IFC <-> BFC <-> GFC <-> FFC]() /
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **数据比较系列**: [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**: [while <-> for <-> in <-> for..in <-> 枚举 <-> hasOwnProperty <-> getOwnPropertyNames <-> keys <-> Iterator <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys()](./doc/对比归纳/11.while%20%3C-%3E%20for%20%3C-%3E%20for..in%20%3C-%3E%20for..of%20%3C-%3E%20forEach%20%3C-%3E%20arr.entries()%20%3C-%3E%20arr.keys()%20%3C-%3E%20arr.values()%20%3C-%3E%20Object.keys()%20%3C-%3E%20Iterator.md)
@@ -562,8 +564,6 @@
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
 + **css动画系列**: [transform <-> transiton <-> animation]()
 + **字符编码系列**: [ASCII <-> Unicode <-> gbk <-> utf8]()
-+ **继承系列**: [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 计生组合继承 <-> extend]()
-+ **this系列**: [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]()
 + **存储方式系列**: [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
 + **数组api系列**:
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /
