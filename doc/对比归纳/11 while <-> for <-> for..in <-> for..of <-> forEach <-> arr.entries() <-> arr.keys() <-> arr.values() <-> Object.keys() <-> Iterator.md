@@ -84,6 +84,21 @@ for (初始化; 判断; 改变) {
 
 4 原生具备 Iterator 接口的数据结构: Array, Map, Set, String, TypedArray, arguments, NodeList
 
+5 部署Iterator接口:
+
+```
+let obj = {}
+obj[Symbol.iterator] = function* () {
+    yield 1;
+    yield 2;
+    yield3;
+}
+
+for(let value of obj) {
+    console.log(value)
+}
+```
+
 ## 十.for..of
 
 1 定义: 作为遍历所有数据结构的统一的方法
@@ -106,5 +121,5 @@ for (初始化; 判断; 改变) {
 |:------|:----------|:--------------|:--------------|:----------|
 | 主要应用场景  |   数组  |   数组         | 对象         |  具有iterator的数据结构  |
 | 语法   |  `for(初始化;判断;更新) {}`  | `arr.forEach((item, i, arr) => {})` |  `for(const prop in obj) {}` | `for(const item of arr)` |
-| 参数   |        | item -> 子项, i -> 索引, arr -> 数组 |  prop -> 键名, `obj[prop]` -> 键值 |     item -> 子项  |
+| 参数   |        | item -> 子项, <br>i -> 索引, <br>arr -> 数组 |  prop -> 键名, <br>`obj[prop]` -> 键值 |     item -> 子项  |
 | 跳出循环  | break/return  |   throw new Error()   |   break/return |  break/return    |

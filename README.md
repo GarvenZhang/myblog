@@ -259,7 +259,6 @@
 + **基础**:
   [判断类型](./client/lib/type.js) /
   [浅比较](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/shallowEqual.js) /
-  [词法作用域,动态作用域] /
   [变量对象] /
   [闭包](./client/User/components/Header/index.jsx) /
   [执行上下文] /
@@ -516,6 +515,8 @@
 + [curl](./doc/curl.md)
 + [cmake](https://github.com/GarvenZhang/C-study-note/tree/master/CMakeLists.txt)
 
+## 三.原创点滴
+
 ### 采坑心得
 
 + [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)
@@ -548,7 +549,7 @@
   [观察者 <-> MVC <-> MVP <-> MVVM]() /
   [观察者 <-> 脏检查 <-> 数据劫持]()
 + **TCP/IP系列**: [UDP <-> TCP]()
-+ **异步处理系列**: [传统异步处理 <->Promise <-> Generator <-> Async]()
++ **异步处理系列**: [同步 <-> 异步 <-> Promise <-> Generator <-> Async]()
 + **框架系列**: [React <-> Vue <-> Angular]()
 + **跨域系列**: [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**:
@@ -565,9 +566,9 @@
 + **this系列**: [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]()
 + **存储方式系列**: [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
 + **数组api系列**:
-  [concat() <-> slice() <-> splice()]() /
-  [forEach() <-> every() <-> some() <-> filter() <-> map()]() /
-  [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()]()
+  [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /
+  [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /
+  [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型)
 + **字符api系列**:
   [slice() <-> substring() <-> substr() <-> replace()]() 
 + **事件系列**:
@@ -581,3 +582,4 @@
   [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:
   [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module]()
++ **作用域系列**: [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]()  
