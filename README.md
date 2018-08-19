@@ -23,7 +23,7 @@
 + 链接: [https://game.hellojm.cn](https://game.hellojm.cn/game.html)
 + github: [https://github.com/GarvenZhang/shooting-game](https://github.com/GarvenZhang/shooting-game)
 
-### 博客[早期 - 学习笔记较详细]:
+### gitblog版博客[早期 - 学习笔记较详细]:
 
 + 链接: [https://garvenzhang.github.io](https://garvenzhang.github.io)
 + github: [https://github.com/GarvenZhang/GarvenZhang.github.io](https://github.com/GarvenZhang/GarvenZhang.github.io)
@@ -32,7 +32,7 @@
 
 + 链接: [https://garvenzhang.github.io/effects/demo/demo-shooting-game/](https://garvenzhang.github.io/effects/demo/demo-shooting-game/)
 
-## 二 知识点笔记:
+## 二 计算机通识学习笔记:
 
 ### 计算机基础
 
@@ -54,7 +54,7 @@
 + **指令系统**:
 + **控制器和CPU组织**:
 + **存储系统**:
-+ **输入输出**:  
++ **输入输出**:
 
 ### 计算机操作系统
 
@@ -166,6 +166,7 @@
 ### 算法
 
 + [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?进制?](./client/User/components/Header/math.js)
++ [0.1 + 0.2 === 0.3?](https://garvenzhang.github.io/2017/11/15/0.1+0.2===0.3/)
 + [高中数学常用公式](./doc/数据结构与算法/高中数学常用公式.md)
 + [复杂度分析](./client/Admin/containers/GeneralCatalogue/sort.js)
 + **冒泡排序**:
@@ -223,6 +224,8 @@
 
 + [BDD]
 + [TDD](./test/client/lib/type.test.js)
+
+## 三.前端知识点实践
 
 ### HTML5
 
@@ -357,6 +360,9 @@
 + [session]
 + [微型http服务器]
 + [webp支持](./client/lib/detectWebp.js)
++ **socket.io**:
+  [socket.io(一)](https://garvenzhang.github.io/2018/01/24/socket.io-01/) /
+  [socket.io(二)](https://garvenzhang.github.io/2018/01/25/socket.io-02/) /
 
 ### koa
 
@@ -366,6 +372,9 @@
   [Context](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/context.js) /
   [Request/Response](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/request.js) /
   [Middlewares](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa-compose/index.js)
++ **直出**:
+  [方案](https://garvenzhang.github.io/2018/02/09/%E7%9B%B4%E5%87%BA/) /
+  [react-ssr](./server/views/server-render.js)
 
 ### Redis
 
@@ -480,20 +489,6 @@
 + [DDOS](./server/app-myblog.base.js)
 + [重放攻击]
 
-### 常见功能[原生实现]
-
-+ [上传图片插件](./client/Admin/components/Upload/index.jsx)
-+ [分页插件]
-+ [拖放插件](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
-+ [隐藏滚动条](client/Admin/router/index.css)
-+ [加载更多](./client/User/containers/Home/index.jsx)
-+ [纯CSS实现三角形]
-+ [波浪形进度条]
-+ [瀑布流]
-+ [回文](./client/User/components/Header/index.jsx)
-+ [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
-+ [github第三方登录](./server/auth/github.js)
-
 ### git
 
 + [常用命令](./doc/git/常用命令.md)
@@ -513,8 +508,37 @@
 + [curl](./doc/curl.md)
 + [cmake](https://github.com/GarvenZhang/C-study-note/tree/master/CMakeLists.txt)
 
-## 三.原创点滴
+## 四.原创点滴
 
+### 常见功能[原生实现]
+
++ [上传图片插件](./client/Admin/components/Upload/index.jsx)
++ [分页插件]
++ **拖放**:
+  [原生拖放](https://garvenzhang.github.io/2017/12/07/drag/) /
+  [HTML5图片上传及预览](https://garvenzhang.github.io/2017/12/03/FilerReader/) /
+  [拖拽上传文件](https://garvenzhang.github.io/2017/12/07/drag-and-upload/) /
+  [保存上传图片到本地](https://garvenzhang.github.io/2017/12/18/keep-img-to-local/) /
+  [拖放插件](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
++ [隐藏滚动条](client/Admin/router/index.css)
++ [加载更多](./client/User/containers/Home/index.jsx)
++ [满屏滑动](https://garvenzhang.github.io/2017/10/15/fullscreen-scroll/) /
+
++ [纯CSS实现三角形]
++ [波浪形进度条]
++ [瀑布流]
++ [回文](./client/User/components/Header/index.jsx)
++ [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
++ [github第三方登录](./server/auth/github.js)
++ [css3动画实践 - 太阳系](https://garvenzhang.github.io/2017/11/11/animation-practice-01/)
++ **html+css进阶**:
+  [常见进度动画](https://garvenzhang.github.io/2018/02/14/common-animation/) /
+  [音乐播放界面](https://garvenzhang.github.io/2018/02/13/music-play-UI/) /
+  [朋友圈信息流](https://garvenzhang.github.io/2018/02/13/moment-msgs/) /
+  [柱状图](https://garvenzhang.github.io/2018/03/14/bar-chart/)
+  [波浪球形进度条](https://garvenzhang.github.io/2017/10/15/wave-ball-animation/) /
+  [水滴型价格标牌](https://garvenzhang.github.io/2017/11/18/price-tag/)
+  
 ### 采坑心得
 
 + [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)
@@ -537,13 +561,26 @@
 + [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
 + [webpack在开发环境转为线上环境时应注意的事项](./doc/踩坑心得/webpack在开发环境转为线上环境时应注意的事项.md)
 + [https站点中有http资源](./client/Admin/components/TipsBar/index.jsx)
++ [p元素中为什么不能有div元素](https://garvenzhang.github.io/2018/02/02/p-element-child-limit/)
++ [如何去重新运行一次动画呢?](https://garvenzhang.github.io/2017/11/06/restart-animation/)
++ [img为什么可设置宽高?](https://garvenzhang.github.io/2017/12/05/why-img-has-width-and-height/)
++ [百分比到底怎么计算的?](https://garvenzhang.github.io/2018/03/04/percentage/)
++ [直接把script标签赋值给innerHTML不起作用](https://garvenzhang.github.io/2017/10/26/script-in-innerHTML/)
++ [数据库中存外键还是数组?](https://garvenzhang.github.io/2018/01/16/foreign-key-or-array/)
++ [登陆后重定向由谁做?](https://garvenzhang.github.io/2018/01/20/login-and-redirect/)
++ [通过DOM操作CSS的那些事儿](https://garvenzhang.github.io/2017/11/04/CSSStyleDeclaration/)
++ [当构造函数中有返回值](https://garvenzhang.github.io/2017/11/28/return-value-in-constructor/)
 
 ### 对比归纳
 
 + **javascript精华系列**:
   [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() /
   [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() /
-  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md)
+  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /
+  [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]() /
+  [作用域链 <-> 原型链]()
+  [执行上下文 <-> 全局上下文 <-> 层叠上下文]() /
+  [var <-> let <-> const <-> window <-> global]()
 + **http系列**: [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
 + **授权与SSO系列**: [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
 + **常见算法系列**: [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md)
@@ -563,7 +600,9 @@
   [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
 + **css动画系列**: [transform <-> transiton <-> animation]()
-+ **字符编码系列**: [ASCII <-> Unicode <-> gbk <-> utf8]()
++ **字符编码系列**:
+  [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() /
+  [encodeURI <-> encodeURIComponent](https://garvenzhang.github.io/2017/10/24/encode/)
 + **存储方式系列**: [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
 + **数组api系列**:
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /
@@ -576,10 +615,25 @@
   [preventDefault <-> return false <-> returnValue]() /
   [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble]() /
   [target <-> currentTarget <-> relativeTarget]()
-+ **图片格式系列**: [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]()  
++ **图片选择系列**: 
+  [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]() /
+  [img <-> background-image]()  
 + **测试系列**: [单元测试 <-> TDD <-> BDD]() 
 + **操作符系列**:
   [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:
-  [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module]()
-+ **作用域系列**: [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]()  
+  [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module](./doc/对比归纳/16%20IIFE%20%3C-%3E%20CommonJs%20%3C-%3E%20AMD%20%3C-%3E%20RequireJS%20%3C-%3E%20r.js%20%3C-%3E%20Module.md)
++ **浏览器系列**  :
+  [DOM Tree <-> Render Tree <-> Layout <-> Painting]() /
+  [首屏 <-> 白屏]()
++ **位置系列**: [screenLeft <-> screenTop <-> screenX <-> screenY <-> innerHeight <-> innerWidth <-> outerHeight <-> outerWidth <-> clientWidth <-> clientHeight <-> offsetLeft <-> offsetTop <-> scrollHeight <-> scrollWidth <-> scrollLeft <-> scrollTop <-> getBoundingClientRect()]()
++ **操作系统**:
+  [进程 <-> 线程 <-> 协程]()
++ **响应式系列**:
+  [响应式图片 <-> 响应式图片 <-> 响应式组件 <-> 响应式框架]()
++ **命名系列**:
+  [混沌阶段 <-> 原子类阶段 <-> 模块阶段 <-> BEM]()
++ **值系列**:
+  [应用值 <-> 继承值 <-> 初始值 <-> 默认值 <-> 计算值]()
++ **DOM系列**:
+  [children <-> childNodes <-> 静态NodeList <-> 动态NodeList <-> firstChild <-> firstElementChild <-> nextSibling <-> nextElementSibling <-> childELementCount](https://garvenzhang.github.io/2017/10/21/node-some-difference/)
