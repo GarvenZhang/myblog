@@ -1,6 +1,6 @@
 # 张益铭的前端小博客
 
-## 一 项目:
+## 一.项目:
 
 ### 博客主页
 
@@ -32,7 +32,7 @@
 
 + 链接: [https://garvenzhang.github.io/effects/demo/demo-shooting-game/](https://garvenzhang.github.io/effects/demo/demo-shooting-game/)
 
-## 二 计算机通识学习笔记:
+## 二.计算机通识学习笔记:
 
 ### 计算机基础
 
@@ -71,7 +71,7 @@
 + **虚拟内存的起因**:
 + **算法**:
 + **进程与线程**:
-  [进程/线程](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/worker.js) /
+  [定义/组成/特点/与程序关系/PCB/生命周期/进程切换/三状态模型/挂起模型/状态队列](./doc/操作系统/7.进程与线程/进程.md) /
 + **调度**:
 + **临界区**:
 + **信号量**:
@@ -390,6 +390,7 @@
   [删](./server/models/article.js) /
   [查](./server/models/article.js) /
   [改](./server/models/article.js)
++ [优化方案]
 
 ### Angular
 
@@ -480,14 +481,14 @@
 + **SQL注入**:
   [注入过程] /
 + **上传漏洞**: 
-  [过程] /
-  [防御 - 限制上传后缀] /
-  [防御 - 文件类型检查] /
-  [防御 - 文件内容检查] /
-  [防御 - 程序输出控制] /
-  [防御 - 权限控制] 
+  [过程](./client/Admin/components/Upload/index.jsx) /
+  [防御 - 限制上传后缀](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js) /
+  [防御 - 文件类型检查](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js) /
+  [防御 - 文件内容检查](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js) /
+  [防御 - 程序输出控制](./client/Admin/components/Upload/index.jsx) /
+  [防御 - 权限控制](./client/Admin/components/Upload/index.jsx)
 + [DDOS](./server/app-myblog.base.js)
-+ [重放攻击]
++ [重放攻击](./client/Admin/components/Lottery/index.jsx)
 
 ### git
 
@@ -523,9 +524,7 @@
 + [隐藏滚动条](client/Admin/router/index.css)
 + [加载更多](./client/User/containers/Home/index.jsx)
 + [满屏滑动](https://garvenzhang.github.io/2017/10/15/fullscreen-scroll/) /
-
 + [纯CSS实现三角形]
-+ [波浪形进度条]
 + [瀑布流]
 + [回文](./client/User/components/Header/index.jsx)
 + [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
@@ -535,7 +534,7 @@
   [常见进度动画](https://garvenzhang.github.io/2018/02/14/common-animation/) /
   [音乐播放界面](https://garvenzhang.github.io/2018/02/13/music-play-UI/) /
   [朋友圈信息流](https://garvenzhang.github.io/2018/02/13/moment-msgs/) /
-  [柱状图](https://garvenzhang.github.io/2018/03/14/bar-chart/)
+  [柱状图](https://garvenzhang.github.io/2018/03/14/bar-chart/) /
   [波浪球形进度条](https://garvenzhang.github.io/2017/10/15/wave-ball-animation/) /
   [水滴型价格标牌](https://garvenzhang.github.io/2017/11/18/price-tag/)
   
