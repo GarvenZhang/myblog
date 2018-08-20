@@ -39,7 +39,7 @@
 + [补码/反码](./client/User/components/Header/math.js)
 + [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
 + [回车?换行?](./doc/curl.md)
-+ [图片](./build/webpack.config.base.js)
++ [图片](./build/dev/webpack.config.dev.base.js)
 + **正则**:
   [边界](./client/lib/reg.js) /
   [环视](./client/lib/reg.js)
