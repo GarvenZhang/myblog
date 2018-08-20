@@ -70,8 +70,9 @@
 + **非连续内存分配**:
 + **虚拟内存的起因**:
 + **算法**:
-+ **进程与线程**:
++ **进程**:
   [定义/组成/特点/与程序关系/PCB/生命周期/进程切换/三状态模型/挂起模型/状态队列](./doc/操作系统/7.进程与线程/进程.md) /
++ **线程**:
 + **调度**:
 + **临界区**:
 + **信号量**:
@@ -161,7 +162,6 @@
 + [T/BT/BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
 + [图](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/graph.js)
-+ [Set与Map]
 
 ### 算法
 
@@ -611,9 +611,9 @@
   [slice() <-> substring() <-> substr() <-> replace()]() 
 + **事件系列**:
   [DOM0 <-> DOM2 <-> DOM3]() /
-  [preventDefault <-> return false <-> returnValue]() /
-  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble]() /
-  [target <-> currentTarget <-> relativeTarget]()
+  [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /
+  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /
+  [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
 + **图片选择系列**: 
   [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]() /
   [img <-> background-image]()  
