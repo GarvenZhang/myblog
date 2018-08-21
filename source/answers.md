@@ -754,6 +754,10 @@ https://zhuanlan.zhihu.com/p/26229293
 
 https://juejin.im/post/58cf180b0ce4630057d6727c
 
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
+
+http://www.dailichun.com/2018/01/21/js_singlethread_eventloop.html
+
 126. 语义化
 
 https://segmentfault.com/a/1190000002695791
@@ -1003,3 +1007,7 @@ https://tech.youzan.com/purecomponent-immutablejs/
 172. return false
 
 https://yiyingloveart.blogspot.com/2013/08/eventpreventdefaultreturn-false.html
+
+173 浏览器进程
+
+https://zhuanlan.zhihu.com/p/33230026
