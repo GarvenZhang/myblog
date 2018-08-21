@@ -5,7 +5,7 @@ __MACOSX
 
 whistle.log
 
-// 部署
+## 部署
 dist/
 
 ## 安全
