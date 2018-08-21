@@ -571,15 +571,15 @@
 ### 对比归纳
 
 + **javascript精华系列**: 
-  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) / 
-  [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() / 
-  [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() / 
-  [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]() / 
-  [作用域链 <-> 原型链]() / 
-  [执行上下文 <-> 全局上下文 <-> 层叠上下文]() / 
+  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
+  [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() /  
+  [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() /  
+  [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]() /  
+  [作用域链 <-> 原型链]() /  
+  [执行上下文 <-> 全局上下文 <-> 层叠上下文]() /  
   [var <-> let <-> const <-> window <-> global]()
 + **浏览器系列**  : 
-  [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) / 
+  [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
 + **http系列**: 
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
@@ -599,35 +599,35 @@
 + **跨域系列**: 
   [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**: 
-  [IFC <-> BFC <-> GFC <-> FFC]() / 
+  [IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **数据比较系列**: 
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**: 
   [while <-> for <-> in <-> for..in <-> 枚举 <-> hasOwnProperty <-> getOwnPropertyNames <-> keys <-> Iterator <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys()](./doc/对比归纳/11.while%20%3C-%3E%20for%20%3C-%3E%20for..in%20%3C-%3E%20for..of%20%3C-%3E%20forEach%20%3C-%3E%20arr.entries()%20%3C-%3E%20arr.keys()%20%3C-%3E%20arr.values()%20%3C-%3E%20Object.keys()%20%3C-%3E%20Iterator.md)
 + **数据结构系列**: 
-  [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) / 
+  [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /   
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
 + **css动画系列**: 
   [transform <-> transiton <-> animation]()
 + **字符编码系列**: 
-  [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() / 
+  [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() /  
   [encodeURI <-> encodeURIComponent](https://garvenzhang.github.io/2017/10/24/encode/)
 + **存储方式系列**: 
   [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
 + **数组api系列**: 
-  [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) / 
-  [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) / 
+  [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /  
+  [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
   [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型)
 + **字符api系列**: 
   [slice() <-> substring() <-> substr() <-> replace()]() 
 + **事件系列**: 
-  [DOM0 <-> DOM2 <-> DOM3]() / 
-  [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) / 
-  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) / 
+  [DOM0 <-> DOM2 <-> DOM3]() /  
+  [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /   
+  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /   
   [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
 + **图片选择系列**: 
-  [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]() / 
+  [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]() /  
   [img <-> background-image]()  
 + **测试系列**: 
   [单元测试 <-> TDD <-> BDD]()
