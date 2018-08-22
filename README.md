@@ -492,11 +492,13 @@
 
 + [常用命令](./doc/git/常用命令.md)
 + [基本操作](./doc/git/基本操作.md)
++ [冲突解决](./doc/git/冲突解决.md)
++ [保存进度](./doc/git/保存进度.md)
 + **团队合作**:
   [集中式工作流] /
   [功能分支工作流] /
-  [gitflow工作流] /
-  [forking工作流]
+  [gitflow工作流](./doc/git/gitflow.md) /
+  [forking工作流](./doc/git/forking.md)
 
 ### 常用命令
 
@@ -645,3 +647,5 @@
   [应用值 <-> 继承值 <-> 初始值 <-> 默认值 <-> 计算值]()
 + **DOM系列**:  
   [children <-> childNodes <-> 静态NodeList <-> 动态NodeList <-> firstChild <-> firstElementChild <-> nextSibling <-> nextElementSibling <-> childELementCount](https://garvenzhang.github.io/2017/10/21/node-some-difference/)
++ **git系列**:  
+  [git reset <-> git revert <-> git checkout <-> git rebase <-> git merge](./doc/对比归纳/22%20git%20add%20%3C-%3E%20git%20stage%20%3C-%3E%20git%20reset%20%3C-%3E%20git%20revert%20%3C-%3E%20git%20checkout%20%3C-%3E%20git%20rebase.md)
