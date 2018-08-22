@@ -249,8 +249,8 @@
   [float实现两栏布局](./client/User/containers/Article/index.css) /
   [position + transform居中](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + **响应式**:
-+ [动画优化](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
-+ [重排/重绘](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
++ [动画优化](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
++ [重排/重绘](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + **优化**:
   [css绘制代替图片](./client/Admin/components/Slidebar/index.css)
   [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css) /
@@ -576,10 +576,10 @@
   [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
   [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() /  
   [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() /  
-  [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 块级作用域]() /  
+  [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 函数作用域 <-> 块级作用域]() /  
   [作用域链 <-> 原型链]() /  
   [执行上下文 <-> 全局上下文 <-> 层叠上下文]() /  
-  [var <-> let <-> const <-> window <-> global]()
+  [var <-> let <-> const <-> window <-> global <-> self <-> undifined](./doc/对比归纳/23%20var%20%3C-%3E%20let%20%3C-%3E%20const%20%3C-%3E%20window%20%3C-%3E%20global%20%3C-%3E%20undifined.md)
 + **浏览器系列**  :  
   [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
@@ -642,7 +642,7 @@
 + **响应式系列**:  
   [响应式图片 <-> 响应式图片 <-> 响应式组件 <-> 响应式框架]()
 + **命名系列**:  
-  [混沌阶段 <-> 原子类阶段 <-> 模块阶段 <-> BEM <-> CSS Module]()
+  [混沌阶段 <-> 原子类阶段 <-> 模块阶段 <-> BEM <-> CSS Module](https://garvenzhang.github.io/2018/02/20/class-name/)
 + **值系列**:  
   [应用值 <-> 继承值 <-> 初始值 <-> 默认值 <-> 计算值]()
 + **DOM系列**:  
