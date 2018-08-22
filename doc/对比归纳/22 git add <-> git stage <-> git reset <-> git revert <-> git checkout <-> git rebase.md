@@ -4,7 +4,10 @@
 
 Git 仓库有三个主要组成——工作目录，缓存区和提交历史
 
-![git命令对比归纳-1.png](git命令对比归纳-1.png)![git命令对比归纳-2.png](git命令对比归纳-2.png)
+<figure class='half'>
+    <img src='git命令对比归纳-1.png' alt='git命令对比归纳-1.png'/>
+    <img src='git命令对比归纳-2.png' alt='git命令对比归纳-2.png'/>
+</figure>
 
 ## 二.代码回滚 - 提交层面的操作
 
@@ -23,7 +26,10 @@ git reset HEAD~2
 
 hotfix 分支末端的两个提交现在变成了悬挂提交。也就是说，下次 Git 执行垃圾回收的时候，这两个提交会被删除。换句话说，如果你想扔掉这两个提交，你可以这么做
 
-![git命令对比归纳-3.png](git命令对比归纳-3.png)![git命令对比归纳-4.png](git命令对比归纳-4.png)
+<figure class='half'>
+    <img src='git命令对比归纳-3.png' alt='git命令对比归纳-3.png'/>
+    <img src='git命令对比归纳-4.png' alt='git命令对比归纳-4.png'/>
+</figure>
 
 除了在当前分支上操作，你还可以通过传入这些标记来修改你的缓存区或工作目录:
 
@@ -43,7 +49,10 @@ hotfix 分支末端的两个提交现在变成了悬挂提交。也就是说，�
 
 1 `git checkout hotfix`: 将HEAD移到一个新的分支，然后更新工作目录
 
-![git命令对比归纳-6.png](git命令对比归纳-6.png)![git命令对比归纳-7.png](git命令对比归纳-7.png)
+<figure class='half'>
+    <img src='git命令对比归纳-6.png' alt='git命令对比归纳-6.png'/>
+    <img src='git命令对比归纳-7.png' alt='git命令对比归纳-7.png'/>
+</figure>
 
 ### 2.3 git revert
 
@@ -56,7 +65,10 @@ git checkout hotfix
 git revert HEAD~2
 ```
 
-![git命令对比归纳-8.png](git命令对比归纳-8.png)![git命令对比归纳-9.png](git命令对比归纳-9.png)
+<figure class='half'>
+    <img src='git命令对比归纳-8.png' alt='git命令对比归纳-8.png'/>
+    <img src='git命令对比归纳-9.png' alt='git命令对比归纳-9.png'/>
+</figure>
 
 相比 git reset，它不会改变现在的提交历史。因此，git revert 可以用在公共分支上，git reset 应该用在私有分支上
 
