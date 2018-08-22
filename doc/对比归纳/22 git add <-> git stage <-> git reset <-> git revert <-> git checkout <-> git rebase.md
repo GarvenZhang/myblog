@@ -88,7 +88,7 @@ git reset HEAD~2 foo.py
 
 和带文件路径 git reset 非常像，除了它更改的是工作目录而不是缓存区
 
-![git命令对比归纳-11.png](git命令对比归纳-11.png){:width='50%'}
+![git命令对比归纳-11.png](git命令对比归纳-11.png){:width="50%"}
 
 ```
 git checkout HEAD~2 foo.py
