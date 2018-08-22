@@ -47,10 +47,8 @@ hotfix 分支末端的两个提交现在变成了悬挂提交。也就是说，�
 
 1 `git checkout hotfix`: 将HEAD移到一个新的分支，然后更新工作目录
 
-<figure class='half'>
-    <img src='git命令对比归纳-6.png' alt='git命令对比归纳-6.png' width='50%'/>
-    <img src='git命令对比归纳-7.png' alt='git命令对比归纳-7.png' width='50%'/>
-</figure>
+<img src='git命令对比归纳-6.png' alt='git命令对比归纳-6.png' width='50%'/>
+<img src='git命令对比归纳-7.png' alt='git命令对比归纳-7.png' width='50%'/>
 
 ### 2.3 git revert
 
@@ -63,10 +61,8 @@ git checkout hotfix
 git revert HEAD~2
 ```
 
-<figure class='half'>
-    <img src='git命令对比归纳-8.png' alt='git命令对比归纳-8.png' width='50%'/>
-    <img src='git命令对比归纳-9.png' alt='git命令对比归纳-9.png' width='50%'/>
-</figure>
+<img src='git命令对比归纳-8.png' alt='git命令对比归纳-8.png' width='50%'/>
+<img src='git命令对比归纳-9.png' alt='git命令对比归纳-9.png' width='50%'/>
 
 相比 git reset，它不会改变现在的提交历史。因此，git revert 可以用在公共分支上，git reset 应该用在私有分支上
 
@@ -92,7 +88,7 @@ git reset HEAD~2 foo.py
 
 和带文件路径 git reset 非常像，除了它更改的是工作目录而不是缓存区
 
-![git命令对比归纳-11.png](git命令对比归纳-11.png)
+![git命令对比归纳-11.png](git命令对比归纳-11.png){:width='50%'}
 
 ```
 git checkout HEAD~2 foo.py
