@@ -305,7 +305,7 @@
   [懒加载] /
   [函数组合](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/redux/src/compose.js)/
   [函数记忆] /
-  [去重] /
+  [去重](./client/lib/unique.js) /
   [纯函数](./client/User/redux/Popup.js) /
   [斐波那契/尾递归](./client/lib/fibonacci.js) /
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
@@ -337,10 +337,6 @@
   [存储 - IndexedDB]
 + [Service WOrker, PWA]
 + [BOM]
-+ **异步**:
-  [Promise] /
-  [Generator] /
-  [Async] /
 + **模块化**:
   [IIFE](./client/User/components/Header/eventloop.js) /
   [AMD] /
@@ -403,7 +399,7 @@
   [无状态组件](./client/User/components/LoadMore/index.jsx) /
   [React.createClass] /
   [extends React.Component] /
-  [高阶组件](./client/Admin/router/asyncLoad.js)
+  [高阶组件](./client/Admin/components/Hoc/index.jsx)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 + [生命周期](./client/User/containers/Home/index.jsx)
 + [React直出开发环境热更新优化方案](build/dev/devServer.js)
@@ -590,7 +586,7 @@
 + **常见算法系列**:  
   [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md)
 + **设计模式系列**:  
-  [观察者 <-> MVC <-> MVP <-> MVVM]() / 
+  [观察者 <-> MVC <-> MVP <-> MVVM]() /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 
 + **TCP/IP系列**:  
   [UDP <-> TCP]()

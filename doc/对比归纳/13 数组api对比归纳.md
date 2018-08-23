@@ -25,10 +25,10 @@
 
 ## 三.查找类型
 
-|   |   语法  |   功能  |   返回  |
-|:---|:---|:---|:---|
-|   find    |   `arr.find((item, i, arr) => {}, this)` |  |   回数组中满足提供的测试函数的第一个元素的值, 否则返回 undefined   |
-|   findIndex  |   `arr.findIndex((item, i, arr) => {}, this)`    |   |   返回数组中满足提供的测试函数的第一个元素的索引, 否则返回-1   |
-|   includes    |   `arr.includes(searchElement[, fromIndex])`  |   判断一个数组是否包含一个指定的值   |   包含则返回 true，否则返回false |
-|   indexOf     |   `arr.indexOf(searchElement[, fromIndex])`   |   |   返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1  |
-|   lastIndexOf |   `arr.indexOf(searchElement[, fromIndex])`   |   |   返回指定元素在数组中的最后一个的索引，如果不存在则返回 -1, 从数组的后面向前查找    |
+|   |   语法  |   功能  |   返回  |   原理  |
+|:---|:---|:---|:---|:---|
+|   find    |   `arr.find((item, i, arr) => {}, this)` |  |   回数组中满足提供的测试函数的第一个元素的值, 否则返回 undefined   | |
+|   findIndex  |   `arr.findIndex((item, i, arr) => {}, this)`    |   |   返回数组中满足提供的测试函数的第一个元素的索引, 否则返回-1   |   |
+|   includes    |   `arr.includes(searchElement[, fromIndex])`  |   判断一个数组是否包含一个指定的值   |   包含则返回 true，否则返回false |   |
+|   indexOf     |   `arr.indexOf(searchElement[, fromIndex])`   |   |   返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1  |   通过 全等 === 比较    |
+|   lastIndexOf |   `arr.indexOf(searchElement[, fromIndex])`   |   |   返回指定元素在数组中的最后一个的索引，如果不存在则返回 -1, 从数组的后面向前查找    | 通过 全等 === 比较    |

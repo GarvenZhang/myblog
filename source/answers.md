@@ -1011,3 +1011,15 @@ https://yiyingloveart.blogspot.com/2013/08/eventpreventdefaultreturn-false.html
 173 浏览器进程
 
 https://zhuanlan.zhihu.com/p/33230026
+
+174 高阶组件
+
+https://www.jianshu.com/p/0aae7d4d9bc1
+
+https://blog.csdn.net/xuchaobei123/article/details/75143881
+
+https://juejin.im/post/5b7666b1e51d45560c1554a3
+
+https://blog.rsuitejs.com/2017/08/24/react-hoc-simple-analysis/
+
+https://github.com/sunyongjian/blog/issues/25
