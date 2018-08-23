@@ -592,6 +592,7 @@
   [UDP <-> TCP]()
 + **异步处理系列**:  
   [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md)
+  [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md)
 + **框架系列**:  
   [React <-> Vue <-> Angular]
 + **跨域系列**:  
