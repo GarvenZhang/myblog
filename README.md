@@ -240,7 +240,7 @@
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **盒模型**:
-  [BFC] /
+  [BFC](https://garvenzhang.github.io/2018/03/03/interview-of-box-model/#%E5%85%ADbfc%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88) /
   [IFC] /
   [清浮动]
 + **布局**:
@@ -312,7 +312,6 @@
 + [ajax实现](client/User/fetch/ajax.js)
 + **es6**:
   [const与freeze](./client/Admin/redux/Article.js) /
-  [rest参数] /
   [函数-与解构赋值默认值结合使用](./client/lib/cookie.js)
   [类-静态属性](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/event.js) /
   [类-静态方法](./server/models/user.js)
@@ -591,14 +590,14 @@
 + **TCP/IP系列**:  
   [UDP <-> TCP]()
 + **异步处理系列**:  
-  [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md)
+  [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md) /  
   [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md)
 + **框架系列**:  
   [React <-> Vue <-> Angular]
 + **跨域系列**:  
   [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**:  
-  [IFC <-> BFC <-> GFC <-> FFC]() /  
+  [IFC <-> BFC <-> GFC <-> FFC] /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
@@ -646,3 +645,7 @@
   [children <-> childNodes <-> 静态NodeList <-> 动态NodeList <-> firstChild <-> firstElementChild <-> nextSibling <-> nextElementSibling <-> childELementCount](https://garvenzhang.github.io/2017/10/21/node-some-difference/)
 + **git系列**:  
   [git reset <-> git revert <-> git checkout <-> git rebase <-> git merge](./doc/对比归纳/22%20git%20add%20%3C-%3E%20git%20stage%20%3C-%3E%20git%20reset%20%3C-%3E%20git%20revert%20%3C-%3E%20git%20checkout%20%3C-%3E%20git%20rebase.md)
++ **react系列**:
+  [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
+  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md)
+  
