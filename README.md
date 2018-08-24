@@ -396,12 +396,12 @@
 
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
 + [生命周期](./doc/对比归纳/27%20react生命周期.md)
-+ [React直出开发环境热更新优化方案](build/dev/devServer.js)
++ [组件间通讯](./doc/对比归纳/29%20组件间通信.md)
 + [高阶组件](./client/Admin/components/Hoc/index.jsx)
 + **核心**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
   [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
-  [fiber](./doc/对比归纳/React%20Fiber.xmind)
+  [fiber](./doc/对比归纳/28%20react%20fiber.md)
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
   [shouldComponentUpdate](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/ReactComponentWithPureRenderMixin.js) /
@@ -530,6 +530,7 @@
   
 ### 采坑心得
 
++ [React直出开发环境热更新优化方案](build/dev/devServer.js)
 + [在本地自定义多个域名模拟线上环境](./doc/踩坑心得/本地自定义域名与ip映射.md)
 + [inline-block元素设置overflow:hidden属性导致相邻行内元素向下偏移](./client/Admin/components/TipsBar/index.css)
 + [float或absolute后宽度自适应](./client/Admin/components/TipsBar/index.css)
