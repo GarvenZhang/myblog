@@ -405,8 +405,7 @@
 + **核心**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
   [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
-  [生命周期] /
-  [setState]
+  [fiber](./doc/对比归纳/React%20Fiber.xmind)
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
   [shouldComponentUpdate](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/ReactComponentWithPureRenderMixin.js) /
