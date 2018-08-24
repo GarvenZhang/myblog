@@ -400,7 +400,7 @@
   [extends React.Component] /
   [高阶组件](./client/Admin/components/Hoc/index.jsx)
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
-+ [生命周期](./client/User/containers/Home/index.jsx)
++ [生命周期](./doc/对比归纳/27%20react生命周期.md)
 + [React直出开发环境热更新优化方案](build/dev/devServer.js)
 + **核心**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
@@ -645,7 +645,7 @@
   [children <-> childNodes <-> 静态NodeList <-> 动态NodeList <-> firstChild <-> firstElementChild <-> nextSibling <-> nextElementSibling <-> childELementCount](https://garvenzhang.github.io/2017/10/21/node-some-difference/)
 + **git系列**:  
   [git reset <-> git revert <-> git checkout <-> git rebase <-> git merge](./doc/对比归纳/22%20git%20add%20%3C-%3E%20git%20stage%20%3C-%3E%20git%20reset%20%3C-%3E%20git%20revert%20%3C-%3E%20git%20checkout%20%3C-%3E%20git%20rebase.md)
-+ **react系列**:
++ **react系列**:  
   [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
-  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md)
+  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md)
   
