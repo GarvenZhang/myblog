@@ -254,7 +254,6 @@
 ### javascript
 
 + **基础**:
-  [判断类型](./client/lib/type.js) /
   [浅比较](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/shallowEqual.js) /
   [闭包](./client/User/components/Header/index.jsx) /
   [new本质](./client/lib/new.js)
@@ -331,11 +330,8 @@
   [sessionStorage](./client/User/components/Comment/index.jsx) /
   [存储 - IndexedDB]
 + [Service WOrker, PWA]
-+ [BOM]
-+ **模块化**:
-  [IIFE](./client/User/components/Header/eventloop.js) /
-  [AMD] /
-  [CMD] /
++ [BOM](./doc/对比归纳/32%20BOM.md)
++ [IIFE](./client/User/components/Header/eventloop.js)
 + **代码级别优化**:
   [达夫设备] /
     
@@ -391,7 +387,7 @@
 + [生命周期](./doc/对比归纳/27%20react生命周期.md)
 + [组件间通讯](./doc/对比归纳/29%20组件间通信.md)
 + [高阶组件](./client/Admin/components/Hoc/index.jsx)
-+ **核心**:
++ **核心原理**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
   [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
   [fiber](./doc/对比归纳/28%20react%20fiber.md)
@@ -406,7 +402,7 @@
 ### React-Router
 
 + [基础]
-+ [核心原理]
++ [核心原理](./doc/对比归纳/32%20前端理由实现原理.md)
 + [组件外路由跳转](./client/Admin/router/history.js)
 
 ### Redux
@@ -564,6 +560,8 @@
   [作用域链 <-> 原型链]() /  
   [执行上下文 <-> 全局上下文 <-> 层叠上下文]() /  
   [var <-> let <-> const <-> window <-> global <-> self <-> undifined](./doc/对比归纳/23%20var%20%3C-%3E%20let%20%3C-%3E%20const%20%3C-%3E%20window%20%3C-%3E%20global%20%3C-%3E%20undifined.md)
++ **javascript工具系列**:  
+  [typeof <-> instanceof <-> Object.prototype.toString.call() <-> 纯对象 <-> 空对象](./client/lib/type.js)
 + **浏览器系列**  :  
   [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
@@ -621,7 +619,7 @@
 + **操作符系列**:  
   [类数组 <-> Array.from() <-> 数组的扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数 <-> 对象的扩展运算符 <-> 解构赋值](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:  
-  [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module](./doc/对比归纳/16%20IIFE%20%3C-%3E%20CommonJs%20%3C-%3%20AMD%20%3C-%3E%20RequireJS%20%3C-%3E%20r.js%20%3C-%3E%20Module.md)
+  [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module](./doc/对比归纳/16%20IIFE%20%3C-%3E%20CommonJs%20%3C-%3E%20AMD%20%3C-%3E%20RequireJS%20%3C-%3E%20r.js%20%3C-%3E%20Module.md)
 + **位置系列**:  
   [screenLeft <-> screenTop <-> screenX <-> screenY <-> innerHeight <-> innerWidth <-> outerHeight <-> outerWidth <-> clientWidth <-> clientHeight <-> offsetLeft <-> offsetTop <-> scrollHeight <-> scrollWidth <-> scrollLeft <-> scrollTop <-> getBoundingClientRect()]()
 + **响应式系列**:  
@@ -637,5 +635,6 @@
 + **react系列**:  
   [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
   [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /  
-  [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md)
+  [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md) /  
+  [React核心原理 <-> Redux核心原理]()
   
