@@ -239,10 +239,6 @@
   [BEM] /
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
-+ **盒模型**:
-  [BFC](https://garvenzhang.github.io/2018/03/03/interview-of-box-model/#%E5%85%ADbfc%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88) /
-  [IFC] /
-  [清浮动]
 + **布局**:
   [双飞翼布局](./client/User/containers/Article/index.css) /
   [圣杯布局](./client/User/containers/Article/index.css) /
@@ -365,9 +361,6 @@
   [Context](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/context.js) /
   [Request/Response](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/request.js) /
   [Middlewares](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa-compose/index.js)
-+ **直出**:
-  [方案](https://garvenzhang.github.io/2018/02/09/%E7%9B%B4%E5%87%BA/) /
-  [react-ssr](./server/views/server-render.js)
 
 ### Redis
 
@@ -593,7 +586,7 @@
 + **跨域系列**:  
   [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**:  
-  [IFC <-> BFC <-> GFC <-> FFC] /  
+  [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
@@ -626,7 +619,7 @@
 + **测试系列**:  
   [单元测试 <-> TDD <-> BDD]()
 + **操作符系列**:  
-  [类数组 <-> Array.from() <-> 扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
+  [类数组 <-> Array.from() <-> 数组的扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数 <-> 对象的扩展运算符 <-> 解构赋值](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:  
   [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module](./doc/对比归纳/16%20IIFE%20%3C-%3E%20CommonJs%20%3C-%3%20AMD%20%3C-%3E%20RequireJS%20%3C-%3E%20r.js%20%3C-%3E%20Module.md)
 + **位置系列**:  
@@ -643,5 +636,6 @@
   [git reset <-> git revert <-> git checkout <-> git rebase <-> git merge](./doc/对比归纳/22%20git%20add%20%3C-%3E%20git%20stage%20%3C-%3E%20git%20reset%20%3C-%3E%20git%20revert%20%3C-%3E%20git%20checkout%20%3C-%3E%20git%20rebase.md)
 + **react系列**:  
   [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
-  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md)
+  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /  
+  [直出 <-> 同构 <-> 数据直出 <-> ssr]()
   

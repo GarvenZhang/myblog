@@ -18,21 +18,6 @@ import './index.css'
 const { get_latest_list } = ArticleActions
 const { get_storage } = StorageActions
 
-// === 生命周期: === //
-// === 1 挂载或卸载: === //
-// === 1.1 constructor(props): 初始化组件, 绑定函数到this === //
-// === 1.2 componentWillMount(): 挂载前, 无法进行dom操作, 不能更新state, 一般用于配置根组件, 除此外能做的都可以在 constructor 中完成 === //
-// === 1.3 render(): 将虚拟dom插到到真实dom === //
-// === 1.4 componentDidMount(): 挂载后, 进行异步请求等 === //
-// === 1.5 componentWillUnMount(): 卸载前, 通常做的是 释放内存, 重置选项等
-//  === //
-// === 2 更新: === //
-// === 2.1 componentWillReceiveProps(nextProps) === //
-// === 2.2 shouldComponentUpdate(nextProps, nextState): 判断是否应该更新 === //
-// === 2.3 componentWillUpdate(nextProps, nextState): 更新前 === //
-// === 2.4 render(): 将虚拟dom中改变了的反映到真实dom === //
-// === 2.5 componentDidUpdate(): 更新后 === //
-
 // === 装饰器: === //
 // === 1 类的装饰: 必须在类的上一行写，用来修改类的行为, 将对象(函数/类)传入, 通过内部加强返回新的对象(函数/类) === //
 // === 1.1 例子: @connect === //

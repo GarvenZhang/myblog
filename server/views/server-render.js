@@ -20,16 +20,6 @@ import csp from '../middleware/csp'
 import config from '../../config'
 import Search from '../../client/User/components/Header/index'
 
-// === ssr: 在服务器将数据(也可以有css,js)整合到html中发到浏览器而避免了拿到html后再请求数据的情况 === //
-// === 1 优点: === //
-// === 1.1 降低首屏时间 === //
-// === 1.2 利于SEO === //
-// === 2 缺点: === //
-// === 2.1 加大了服务器端工作量和开发效率 === //
-// === 3 实现: === //
-// === 3.1 服务器: 在model中拿到数据后放进redux的store中，并存储到一个window对象上的数据埋点, 再通过renderToString将jsx转换成html字符串(注意生命周期只能到componentWillMount, 因为没有document)， === //
-// === 3.2 浏览器: 从数据埋点中获取数据放进store中以保持与服务器的redux数据同步 === //
-
 /**
  * 将jsx转成string
  * @param {Object} ctx - koa上下文

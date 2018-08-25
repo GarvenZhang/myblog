@@ -40,7 +40,7 @@ Array.from({ length: 2 }, () => 'jack')
 // ['jack', 'jack']
 ```
 
-## 三.扩展运算符
+## 三.数组扩展运算符
 
 1 语法: `...`
 
@@ -197,10 +197,116 @@ function sortNumbers() {
 const sortNumbers = (...numbers) => numbers.sort();
 ```
 
-## 十.rest参数 与 扩展运算符
+## 十.对象扩展运算符
 
-|       |   rest参数    |  扩展运算符   |
-|:------|:------------------|:--------------|
-|  范畴   | 函数参数      |       数组      |
-|  关系   |   互逆    |
-|  之后能否再有其他参数 | 不行 | 当 用于数组赋值时 不行   |
+1 语法: `{...obj}`
+
+2 功能: 用于取出参数对象的所有可遍历属性，拷贝到当前对象之中, 相当于Object.assign()
+
+```
+let z = { a: 3, b: 4 };
+let n = { ...z };
+n // { a: 3, b: 4 }
+
+let aClone = { ...a };
+// 等同于
+let aClone = Object.assign({}, a);
+```
+
+### 10.1 应用场景:
+
+1 克隆整个对象(包括原型)
+
+```
+// 写法二
+const clone2 = Object.assign(
+  Object.create(Object.getPrototypeOf(obj)),
+  obj
+);
+
+// 写法三
+const clone3 = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+)
+```
+
+2 合并两个对象
+
+```
+let ab = { ...a, ...b };
+// 等同于
+let ab = Object.assign({}, a, b);
+```
+
+3 修改现有对象部分的属性
+
+```
+let newVersion = {
+  ...previousVersion,
+  name: 'New Name' // Override the name property
+};
+```
+
+### 10.2 get
+
+扩展运算符的参数对象之中，如果有取值函数get，这个函数是会执行的
+
+```
+// 并不会抛出错误，因为 x 属性只是被定义，但没执行
+let aWithXGetter = {
+  ...a,
+  get x() {
+    throw new Error('not throw yet');
+  }
+};
+
+// 会抛出错误，因为 x 属性被执行了
+let runtimeError = {
+  ...a,
+  ...{
+    get x() {
+      throw new Error('throw now');
+    }
+  }
+};
+```
+
+## 十一.解构赋值
+
+1 功能: 用于从一个对象取值，相当于将目标对象自身的所有可遍历的（enumerable）、但尚未被读取的属性，分配到指定的对象上面
+
+```
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+x // 1
+y // 2
+z // { a: 3, b: 4 }
+```
+
+2 应用: 扩展某个函数的参数，引入其他操作
+
+```
+function baseFunction({ a, b }) {
+  // ...
+}
+function wrapperFunction({ x, y, ...restConfig }) {
+  // 使用 x 和 y 参数进行操作
+  // 其余参数传给原始函数
+  return baseFunction(restConfig);
+}
+```
+
+### 11.1 特点
+
+1 解构赋值的拷贝是浅拷贝
+
+2 不能复制继承自原型对象的属性
+
+## 十.rest参数 与 数组扩展运算符 与 对象扩展运算符
+
+|       |   rest参数    |  数组扩展运算符   |  对象扩展运算符   |
+|:------|:------------------|:--------------|:---|
+|  范畴   | 函数参数      |       数组      |   对象  |
+|  关系   |   互逆    |     |       |
+|  之后能否再有其他参数 | 不行 | 当 用于数组赋值时 不行   |   可以  |
+|  原理   |       |   调用遍历器接口 |   相当于Object.assign()  |
