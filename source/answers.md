@@ -1029,3 +1029,7 @@ https://github.com/sunyongjian/blog/issues/25
 https://github.com/kaola-fed/blog/issues/137
 
 https://github.com/joeyguo/blog/issues/2
+
+176 长连接
+
+https://www.zhoulujun.cn/html/webfront/SGML/web/2015_1016_317.html

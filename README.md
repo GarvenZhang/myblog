@@ -148,8 +148,6 @@
   [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
   [http - 状态码 - 类别](client/User/fetch/axios.js) /
   [http - 状态码 - 常用](./server/routes/router-index.js) /
-  [http - get, post] /
-  [http - 基本验证] /
   [http - restful架构](./server/routes/router-index.js) /
   [SMTP] /
   
@@ -193,6 +191,8 @@
 + [排列组合]
 + [概率]
 + [约瑟夫环]
++ **剑指offer经典编程题**:
+  
 
 ### 设计模式
 
@@ -230,7 +230,6 @@
 
 + [语义化](./client/User/containers/Article/index.jsx)
 + [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
-+ [Websocket]
 + [svg]
 + [script异步加载](https://github.com/GarvenZhang/blog-file/blob/development/source/class-contact/index.html)
 
@@ -567,7 +566,8 @@
   [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
 + **http系列**:  
-  [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md)
+  [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
+  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md)
 + **授权与SSO系列**:  
   [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
 + **常见算法系列**:  
@@ -637,5 +637,7 @@
   [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
   [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /  
   [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md) /  
-  [React核心原理 <-> Redux核心原理]()
+  [React核心原理 <-> Redux核心原理]
++ **后端系列**:
+  [SSE <-> websocket <-> http2.0]()
   
