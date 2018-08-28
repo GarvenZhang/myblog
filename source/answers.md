@@ -1033,3 +1033,15 @@ https://github.com/joeyguo/blog/issues/2
 176 长连接
 
 https://www.zhoulujun.cn/html/webfront/SGML/web/2015_1016_317.html
+
+177 即时通讯
+
+https://cloud.tencent.com/developer/article/1076547
+
+178 开发模式
+
+https://segmentfault.com/a/1190000011154120
+
+179 vary
+
+http://www.maixj.net/ict/http-vary-user-agent-9017

@@ -145,7 +145,7 @@
   [TELNET] /
   [DRP] /
   [http - 报文结构](./doc/curl.md) /
-  [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/middleware/httpCache.js) /
+  [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/httpCache.js) /
   [http - 状态码 - 类别](client/User/fetch/axios.js) /
   [http - 状态码 - 常用](./server/routes/router-index.js) /
   [http - restful架构](./server/routes/router-index.js) /
@@ -567,11 +567,16 @@
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
 + **http系列**:  
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
-  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md)
+  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
+  [max-age <-> s-max-age <-> expires <-> vary <-> pragma <-> age <-> if-range <-> location <-> via <-> WWW-Authenticate <-> Authorization]() /  
+  [http缓存 <-> 强缓存 <-> 协商缓存 <-> ]()
++ **html系列**:
+  [doctype <-> SGML <-> meta <-> viewport <-> robots <-> http-equiv <-> renderer <-> X-UA-Compatible <-> pragma](./doc/对比归纳/35%20head标签内容对比归纳.md)  
 + **授权与SSO系列**:  
   [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
-+ **常见算法系列**:  
-  [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md)
++ **算法系列**:  
+  [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md) /  
+  [斐波那契 <-> 函数记忆 <-> 尾递归 <-> 动态规划 <-> 0-1背包]()
 + **设计模式系列**:  
   [观察者 <-> MVC <-> MVP <-> MVVM]() /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 
@@ -587,6 +592,8 @@
 + **css布局系列**:  
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
++ **css动画系列**:  
+  [transform <-> transiton <-> animation]()
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**:  
@@ -594,13 +601,11 @@
 + **数据结构系列**:  
   [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /   
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
-+ **css动画系列**:  
-  [transform <-> transiton <-> animation]()
 + **字符编码系列**:  
   [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() /  
   [encodeURI <-> encodeURIComponent](https://garvenzhang.github.io/2017/10/24/encode/)
 + **存储方式系列**:  
-  [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql]()
+  [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql <-> PWA]()
 + **数组api系列**:  
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /  
   [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
@@ -640,4 +645,7 @@
   [React核心原理 <-> Redux核心原理]
 + **后端系列**:
   [SSE <-> websocket <-> http2.0]()
++ **app开发模式**:  
+  [Native <-> Web App <-> Hybrid <-> React Native <-> Weex <-> 小程序 <-> PWA](./doc/对比归纳/34%20Native%20%3C-%3E%20Web%20App%20%3C-%3E%20Hybrid%20%3C-%3E%20React%20Native%20%3C-%3E%20Weex%20%3C-%3E%20小程序%20%3C-%3E%20PWA.md)
+  
   

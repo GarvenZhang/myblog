@@ -29,72 +29,22 @@
 </div>
 
 <script>
-  // 1 有个字母对应的数字集合
-  // 2 特殊值判断
-  // 3 拆分字符串为单个字符串
-  // 4 树形问题用递归
+  let ret = []
 
-  const maps = {
-    '2': 'abc',
-    '3': 'def',
-    '4': 'ghi',
-    '5': 'jkl',
-    '6': 'mno',
-    '7': 'pqrs',
-    '8': 'tuv',
-    '9': 'wxyz'
-  }
+  function fib (n) {
 
-  const ret = []
+    ret[0] = 0
+    ret[1] = 1
 
-  /**
-   *
-   *
-   */
-  function combinateEach (digits, index, letter) {
-
-    if (index === digits.length) {
-      ret.push(letter)
-      return
+    for (let i = 2; i <= n; ++i) {
+      ret[i] = ret[i - 1] + ret[i - 2]
     }
-    const key = digits[index]
-    const value = maps[key]
 
-    for (let i = 0; i < value.length; ++i) {
-      console.log(digits, index, letter)
-
-      combinateEach(digits, index + 1, letter + value[i])
-
-    }
+    return ret[n]
 
   }
-
-  /**
-   * @param {string} digits
-   * @return {string[]}
-   */
-  var letterCombinations = function(digits) {
-
-    if (typeof digits !== 'string') {
-      throw new Error('参数必须为字符')
-    }
-
-    if (!/^[2-9]+$/.test(digits)) {
-      throw new Error('参数必须为2-9')
-    }
-
-    digits = digits.split('')
-
-    combinateEach(digits, 0, '')
-
-    return ret
-
-  };
-
-  letterCombinations('234')
-
-  console.log(ret)
-
+  
+  console.log(fib(10), ret)
 </script>
 
 <!--<iframe src="http://www.baidu.com" frameborder="0"></iframe>-->
