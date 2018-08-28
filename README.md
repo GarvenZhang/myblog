@@ -191,7 +191,9 @@
 + [排列组合]
 + [概率]
 + [约瑟夫环]
-+ **剑指offer经典编程题**:
++ **leetCode经典编程题**: /  
+  [递归分析 <-> 回溯 <-> 全排列 <-> 组合](./doc/对比归纳/39%20递归分析%20%3C-%3E%20回溯%20%3C-%3E%20全排列%20%3C-%3E%20组合.md) /  
+  [动态规划 <-> 0-1背包]()  
   
 
 ### 设计模式
@@ -235,8 +237,6 @@
 
 ### CSS
 
-+ **class命名**:
-  [BEM] /
 + [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **布局**:
@@ -605,7 +605,7 @@
   [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() /  
   [encodeURI <-> encodeURIComponent](https://garvenzhang.github.io/2017/10/24/encode/)
 + **存储方式系列**:  
-  [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql <-> PWA]()
+  [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql <-> PWA](./doc/对比归纳/38%20浏览器存储技术对比归纳.md)
 + **数组api系列**:  
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /  
   [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
