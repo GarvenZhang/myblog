@@ -258,11 +258,6 @@
   [闭包](./client/User/components/Header/index.jsx) /
   [new本质](./client/lib/new.js)
   [严格模式](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js)
-+ **this**:
-  [call/apply/bind](./client/Admin/containers/Info/index.jsx) /
-  [箭头函数](./client/Admin/containers/Info/index.jsx) /
-  [箭头函数 - 多重箭头函数](./client/lib/curring.js) /
-  [双冒号运算符](./client/Admin/containers/Info/index.jsx)
 + **类型**:
   [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
   [求数组最值] /
@@ -553,8 +548,8 @@
 ### 对比归纳
 
 + **javascript精华系列**:  
-  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> this <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
-  [call/apply/bind <-> 箭头函数 <-> 双冒号运算符]() /  
+  [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
+  [this <-> call/apply/bind <-> 箭头函数 <-> 双冒号运算符](./doc/对比归纳/41%20this.md) /  
   [构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extend]() /  
   [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 函数作用域 <-> 块级作用域]() /  
   [作用域链 <-> 原型链]() /  

@@ -273,7 +273,7 @@ export default class AdminAccount extends Component {
     // === 2 箭头函数: 使用 => 定义函数 === //
     // === 2.1 特点: === //
     // === 2.1.a 参数加括号，一个参数可不加 === //
-    // === 2.1.b 返回值为对象要加括号, 不许返回值加voie === //
+    // === 2.1.b 返回值为对象要加括号, 不许返回值加void === //
     // === 2.1.c 没有this, 所以this为外层代码块的this, 没有this则不可用作构造函数, 关于this的特点都没用 === //
     // === 2.1.d 没有arguments, super, new.target, 函数体内需用rest参数代替arguments === //
     // === 2.1.e 不能用作Generator函数 === //
