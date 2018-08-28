@@ -1042,6 +1042,18 @@ https://cloud.tencent.com/developer/article/1076547
 
 https://segmentfault.com/a/1190000011154120
 
-179 vary
+179 http请求头
 
 http://www.maixj.net/ict/http-vary-user-agent-9017
+
+https://zhuanlan.zhihu.com/p/34908942
+
+180 http缓存
+
+http://imweb.io/topic/5795dcb6fb312541492eda8c
+
+http://imweb.io/topic/55c6f9bac222e3af6ce235b9
+
+181 manifest
+
+http://imweb.io/topic/5703a99606f2400432c1397b

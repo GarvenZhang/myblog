@@ -568,8 +568,8 @@
 + **http系列**:  
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
   [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
-  [max-age <-> s-max-age <-> expires <-> vary <-> pragma <-> age <-> if-range <-> location <-> via <-> WWW-Authenticate <-> Authorization]() /  
-  [http缓存 <-> 强缓存 <-> 协商缓存 <-> ]()
+  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
+  [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/对比归纳/36%20缓存归纳对比.md)
 + **html系列**:
   [doctype <-> SGML <-> meta <-> viewport <-> robots <-> http-equiv <-> renderer <-> X-UA-Compatible <-> pragma](./doc/对比归纳/35%20head标签内容对比归纳.md)  
 + **授权与SSO系列**:  
