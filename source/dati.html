@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="id=edge">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 整个为一位数组, 长度为 N*M
+  // 数据结构为[{B: 0, Y, 0, i: 0}]
+  // 0为没有, 1为有, 2为已计算过, i为数组下标
+  // G转化成B和Y表示
+  // B能划下去的条件是下标间隔为5
+  // Y能划下去的条件是下标间隔为3
+
+  // 获取N,M
+  const line1 = readline().split(' ')
+  const N = parseInt(line1)
+  const M = parseInt(line1)
+  const l = N * M
+
+  // 整合数据结构
+  const arr = []
+  for (let i = 0; i < N; ++i) {
+
+    let line = readline().split(' ')
+
+    for (let j = 0; j < M; ++j) {
+
+      const str = line[j]
+
+      switch (str) {
+        case 'B':
+          arr.push({
+            B: 1,
+            Y: 0,
+            i: i * N + j
+          })
+        case 'Y':
+          arr.push({
+            B: 0,
+            Y: 1,
+            i: i * N + j
+          })
+        case 'G':
+          arr.push({
+            B: 1,
+            Y: 1,
+            i: i * N + j
+          })
+      }
+
+    }
+
+  }
+
+  // 计算次数
+  let count = 0
+  for (let i = 0; i < l; ++i) {
+
+    const obj = arr[i]
+
+    if (obj.B === 1) {
+
+      obj.B = 2
+
+      let j = i
+      while (j < l) {
+
+        l += 5
+
+        if (obj.B === 1) {
+          obj.B = 2
+        }
+
+      }
+
+      ++acount
+
+    }
+
+    if (obj.Y === 1) {
+      obj.Y = 2
+
+      let j = i
+      while (j < l) {
+
+        l += 3
+
+        if (obj.Y === 1) {
+          obj.Y = 2
+        }
+
+      }
+
+      ++acount
+    }
+
+
+  }
+
+  print(count)
+
+</script>
+</body>
+</html>
