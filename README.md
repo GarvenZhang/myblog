@@ -315,7 +315,7 @@
   [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
   [碰撞检测]
 + **跨域**:
-  [同源策略](client/User/containers/Home/index.jsx)
+  [同源策略](client/SSO/index.js)
   [jsonp](./client/Admin/containers/Info/index.jsx) /
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
   [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js) /
@@ -576,7 +576,7 @@
   [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md) /  
   [斐波那契 <-> 函数记忆 <-> 尾递归 <-> 动态规划 <-> 0-1背包]()
 + **设计模式系列**:  
-  [观察者 <-> MVC <-> MVP <-> MVVM]() /  
+  [观察者 <-> MVC <-> MVP <-> MVVM] /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 
 + **TCP/IP系列**:  
   [UDP <-> TCP]()
@@ -586,7 +586,7 @@
 + **框架系列**:  
   [React <-> Vue <-> Angular]
 + **跨域系列**:  
-  [jsonp <-> cors <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
+  [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css布局系列**:  
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
