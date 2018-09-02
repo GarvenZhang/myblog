@@ -611,7 +611,7 @@
 + **字符api系列**:  
   [slice() <-> substring() <-> substr() <-> replace()]() 
 + **事件系列**:  
-  [DOM0 <-> DOM2 <-> DOM3]() /  
+  [DOM0 <-> DOM2 <-> DOM3 <-> 事件流 <-> 冒泡捕获 <-> 代理委托 <-> React事件](./) /  
   [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /   
   [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /   
   [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
