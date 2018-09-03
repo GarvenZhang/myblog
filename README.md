@@ -296,7 +296,6 @@
   [懒加载] /
   [函数组合](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/redux/src/compose.js)/
   [函数记忆] /
-  [去重](./client/lib/unique.js) /
   [纯函数](./client/User/redux/Popup.js) /
   [斐波那契/尾递归](./client/lib/fibonacci.js) /
   [链式调用](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js)
@@ -434,8 +433,8 @@
   [防御 - 转义](./client/lib/xss.js) /
   [防御 - 富文本过滤](./client/User/containers/Article/index.jsx)
   [防御 - csp](./server/middleware/csp.js)
-+ **scrf**:
-  [攻击过程](client/Admin/containers/Home/index.jsx) /
++ **csrf**:
+  [攻击过程](client/SSO/index.js) /
   [防御 - referer验证](./server/middleware/referer.js) /
   [防御 - sameSite](./server/controller/user.js) /
   [防御 - token](./server/middleware/csrf_token.js) /
@@ -487,6 +486,10 @@
 
 ### 常见功能[原生实现]
 
++ [回文](./client/User/components/Header/palindrome.js) /
++ [去重](./client/lib/unique.js) /
++ [千分位](./client/lib/toThousands.js) /
++ [解析url为json](./client/lib/url.js) /
 + [上传图片插件](./client/Admin/components/Upload/index.jsx)
 + [分页插件]
 + **拖放**:
@@ -500,7 +503,6 @@
 + [满屏滑动](https://garvenzhang.github.io/2017/10/15/fullscreen-scroll/) /
 + [纯CSS实现三角形]
 + [瀑布流]
-+ [回文](./client/User/components/Header/index.jsx)
 + [断点续传](https://github.com/GarvenZhang/blog-file/blob/development/server/controller/file.js)
 + [github第三方登录](./server/auth/github.js)
 + [css3动画实践 - 太阳系](https://garvenzhang.github.io/2017/11/11/animation-practice-01/)

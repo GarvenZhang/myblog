@@ -25,6 +25,7 @@ const path = require('path')
 const Redis = require('ioredis')
 const serve = require('koa-static')
 const Router = require('koa-router')
+require('url')
 
 const config = require('./auth/config')
 const commonConfig = require('../config')

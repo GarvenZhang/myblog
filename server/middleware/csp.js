@@ -7,7 +7,7 @@
 // === 2.1 default-src: 各个选项的默认值, 当同时设置某个单选项和default-sec, 前者会覆盖后者 === //
 // === 2.2 frame-ancestors：限制嵌入框架的网页 === //
 // === 2.3 base-uri：限制<base#href> === //
-// === 2.4 form-action：限制<form#action>=== //
+// === 2.4 form-action：限制<form#action> === //
 // === 2.5 report-uri: 浏览器会使用POST方法，发送一个JSON对象, 将注入行为报告给指定的uri === //
 // === 2.6 connect-src: <a> ping, Fetch, XMLHttpRequest, WebSocket, EventSource. === //
 // === 3 选项值: 多个值也可以并列，用空格分隔; 如果不设置某个限制选项，就是默认允许任何值 === //
@@ -33,7 +33,7 @@
 Content-Security-Policy: script-src 'nonce-xxxx'
 
 */
-// === 2.2 用hash: 计算出script标签中内容的值的hash，然后转化为base64放到 sha256- 后面 === //
+// === 用hash: 计算出script标签中内容的值的hash，然后转化为base64放到 sha256- 后面 === //
 
 const crypto = require('crypto')
 const config = require('../../config')
