@@ -605,7 +605,8 @@
 + **数组api系列**:  
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /  
   [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
-  [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型)
+  [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型) /  
+  [sort() <-> reverse() <-> reduce <-> reduceRight](./doc/对比归纳/47%20sort()%20%3C-%3E%20reverse()%20%3C-%3E%20reduce%20%3C-%3E%20reduceRight.md)
 + **字符api系列**:  
   [slice() <-> substring() <-> substr() <-> replace()]() 
 + **事件系列**:  
