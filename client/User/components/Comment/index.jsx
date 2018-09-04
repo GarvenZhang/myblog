@@ -16,10 +16,6 @@ import img from './github-default-avatar.png'
 const { get_user, logout } = UserActions
 const { send_message } = IframeActions
 
-// === sessionStorage: 会话级别的浏览器存储 === //
-// === 1 特点：5M左右, 仅存在客户端, 当前tab关闭后消失 === //
-// === 2 使用：表单信息的维护(防止页面 刷新后/跳转后 已填写的表单数据丢失)，是否支持webp等 === //
-
 @connect(
   state => state.UserReducer,
   {get_user, logout}

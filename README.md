@@ -319,11 +319,6 @@
   [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
   [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js) /
   [iframe+window.name](./client/Admin/components/Form/index.jsx)
-+ **存储**:
-  [cookie](./client/lib/cookie.js) /
-  [localStorage](./client/Admin/components/Slidebar/index.jsx) /
-  [sessionStorage](./client/User/components/Comment/index.jsx) /
-  [存储 - IndexedDB]
 + [Service WOrker, PWA]
 + [BOM](./doc/对比归纳/32%20BOM.md)
 + [IIFE](./client/User/components/Header/eventloop.js)
@@ -446,7 +441,7 @@
   [防御-X-Frame-Options](./server/app-myblog.base.js) /
   [防御-js禁止内嵌](./client/User/index.jsx)
 + **传输安全**:
-  [窃听及原理](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js) /
+  [窃听及原理] /
   [nginx部署](./doc/nginx.md)
 + [密码安全](./server/controller/user.js)
 + **SQL注入**:
@@ -490,6 +485,7 @@
 + [去重](./client/lib/unique.js) /
 + [千分位](./client/lib/toThousands.js) /
 + [解析url为json](./client/lib/url.js) /
++ [cookie读写](./client/lib/cookie.js) /
 + [上传图片插件](./client/Admin/components/Upload/index.jsx)
 + [分页插件]
 + **拖放**:

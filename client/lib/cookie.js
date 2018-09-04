@@ -1,8 +1,9 @@
 /**
  * 获取cookie
  * // === 思路: 从字符串中获取特定字符   === //
- * // === 1 用例: "supportWebp=true; csrf_token=1530792624239" === //
+ * // === 1 用例: "supportWebp=true; csrf_token=1530792624239", 读取时只会返回 key=value; 分割的cookie而不会有expires等属性 === //
  * // === 2 获取如 csrf_token= 后面的位置, 截取到 ; 或者 结尾 === //
+ * // === 3 encodeURIComponent的目的: 防止出现cookie中的特殊字符, 破坏cookie的结构 === //
  * @param {String} name - cookie名称
  * @return {String}
  */
@@ -28,6 +29,7 @@ function get (name) {
 
 /**
  * 设置cookie
+ * // === 思路: document.cookie = 'key=value; expires=xxxx; ....' === //
  * @param {String} name - cookie名称
  * @param {String} value - 值
  * @param {[Object]} options - 选项
@@ -101,9 +103,8 @@ m2({z: 3}) // [undefined, undefined]
 
 /**
  * 删除cookie
- * // === 删除cookie: 不同的域、不同的路径下可以存在同样名字的cookie, 因此一定要相同才能删除 === //
+ * // === 思路: 使用相同的路径、域和安全选项再次设置 cookie，并 将失效时间设置为过去的时间 new Date(0) === //
  * @param {String} name - cookie名称
- * @param {String} value - 值
  * @param {[Object]} options - 选项
  */
 function unset (name, options) {
