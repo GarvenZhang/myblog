@@ -37,7 +37,7 @@
 ### 计算机基础
 
 + [补码/反码](./client/User/components/Header/math.js)
-+ [字符编码](https://github.com/GarvenZhang/blog-file/blob/development/app-fileServer.js)
++ [字符编码](./doc/对比归纳/48%20字符编码.md)
 + [回车?换行?](./doc/curl.md)
 + [图片](./build/dev/webpack.config.dev.base.js)
 + **正则**:
@@ -163,7 +163,7 @@
 
 ### 算法
 
-+ [位运算?奇偶?质合数?求整?最值?随机?换位?千分位?保留小数?进制?](./client/User/components/Header/math.js)
++ [位运算?奇偶?质合数?求整?最值?随机?换位?进制?](./client/User/components/Header/math.js)
 + [0.1 + 0.2 === 0.3?](https://garvenzhang.github.io/2017/11/15/0.1+0.2===0.3/)
 + [高中数学常用公式](./doc/数据结构与算法/高中数学常用公式.md)
 + [复杂度分析](./client/Admin/containers/GeneralCatalogue/sort.js)
@@ -261,7 +261,6 @@
   [严格模式](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/koa/lib/application.js)
 + **类型**:
   [String - 解析多层级变量访问](https://github.com/GarvenZhang/blog-file/blob/development/client/game-login/mvvm/compileUtil.js)
-  [求数组最值] /
 + **函数**:
   [创建方式](./client/User/components/Header/eventloop.js)
 + **面向对象**:
@@ -547,7 +546,8 @@
 
 + **✨✨javascript精华系列✨✨**:  
   [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
-  [this <-> call/apply/bind <-> 箭头函数 <-> 双冒号运算符 <-> new操作符](./doc/对比归纳/41%20this.md) /  
+  [this <-> call/apply/bind <-> 箭头函数 <-> 双冒号运算符 <-> new操作符](./doc/对比归纳/41%20this.md) /
+  [强制类型装换 <-> Number() <-> String() <-> Boolean() <-> 隐式类型转换](./doc/对比归纳/50%20强制类型装换%20%3C-%3E%20Number()%20%3C-%3E%20String()%20%3C-%3E%20Boolean()%20%3C-%3E%20隐式类型转换.md) /    
   [生命周期 <-> 垃圾回收 <-> 标记清除 <-> 内存泄露](./doc/对比归纳/43%20生命周期%20%3C-%3E%20垃圾回收%20%3C-%3E%20标记清除%20%3C-%3E%20内存泄露.md) /  
   [面向对象 <-> 多态 <-> 封装 <-> 抽象 <-> 继承 <-> 构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extends <-> class](./doc/对比归纳/44%20面向对象%20%3C-%3E%20多态%20%3C-%3E%20封装%20%3C-%3E%20抽象%20%3C-%3E%20继承%20%3C-%3E%20构造函数继承%20%3C-%3E%20原型链继承%20%3C-%3E%20组合继承%20%3C-%3E%20寄生组合继承%20%3C-%3E%20extends%20%3C-%3E%20class.md) /  
   [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 函数作用域 <-> 块级作用域] /  
@@ -585,6 +585,8 @@
   [React <-> Vue <-> Angular]
 + **跨域系列**:  
   [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
++ **css基础系列**:  
+  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc]()  
 + **css布局系列**:  
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
@@ -593,7 +595,7 @@
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**:  
-  [while <-> for <-> in <-> for..in <-> 枚举 <-> hasOwnProperty <-> getOwnPropertyNames <-> keys <-> Iterator <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys()](./doc/对比归纳/11.while%20%3C-%3E%20for%20%3C-%3E%20for..in%20%3C-%3E%20for..of%20%3C-%3E%20forEach%20%3C-%3E%20arr.entries()%20%3C-%3E%20arr.keys()%20%3C-%3E%20arr.values()%20%3C-%3E%20Object.keys()%20%3C-%3E%20Iterator.md)
+  [while <-> for <-> in <-> for..in <-> 枚举 <-> hasOwnProperty <-> getOwnPropertyNames <-> keys <-> Iterator <-> for..of <-> forEach <-> arr.entries() <-> arr.keys() <-> arr.values() <-> Object.keys()](./doc/对比归纳/11%20while%20%3C-%3E%20for%20%3C-%3E%20for..in%20%3C-%3E%20for..of%20%3C-%3E%20forEach%20%3C-%3E%20arr.entries()%20%3C-%3E%20arr.keys()%20%3C-%3E%20arr.values()%20%3C-%3E%20Object.keys()%20%3C-%3E%20Iterator.md)
 + **数据结构系列**:  
   [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /   
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
@@ -603,6 +605,7 @@
 + **存储方式系列**:  
   [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql <-> PWA](./doc/对比归纳/38%20浏览器存储技术对比归纳.md)
 + **数组api系列**:  
+  [unshift() <-> push() <-> shift() <-> pop()](./doc/对比归纳/51%20unshift()%20%3C-%3E%20push()%20%3C-%3E%20shift()%20%3C-%3E%20pop().md) /  
   [concat() <-> slice() <-> splice()](./doc/对比归纳/13%20数组api对比归纳.md#一操作类型) /  
   [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
   [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型) /  
