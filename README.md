@@ -586,7 +586,7 @@
 + **跨域系列**:  
   [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css基础系列**:  
-  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc]()  
+  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md)  
 + **css布局系列**:  
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
@@ -599,8 +599,8 @@
 + **数据结构系列**:  
   [Object <-> Array <-> Map <-> WeakMap <-> Set <-> WeakSet](./doc/对比归纳/7%20Object%20%3C-%3E%20Array%20%3C-%3E%20Map%20%3C-%3E%20WeakMap%20%3C-%3E%20Set%20%3C-%3E%20WeakSet.md) /   
   [List <-> Queue <-> Stack <-> Heap <-> LinkList <-> Directory <-> Tree <-> Graph]()
-+ **字符编码系列**:  
-  [ASCII <-> Unicode <-> gbk <-> utf8 <-> utf16]() /  
++ **字符系列**:  
+  [16进制Ox <-> js中的Unicode <-> UTF-16 <-> charAt <-> indexOf <-> search <-> slice <-> substring <-> substr <-> replace](./doc/对比归纳/52%2016进制Ox%20%3C-%3E%20js中的Unicode%20%3C-%3E%20UTF-16%20%3C-%3E%20charAt%20%3C-%3E%20indexOf%20%3C-%3E%20search%20%3C-%3E%20slice%20%3C-%3E%20substring%20%3C-%3E%20substr%20%3C-%3E%20replace.md) /   
   [encodeURI <-> encodeURIComponent](https://garvenzhang.github.io/2017/10/24/encode/)
 + **存储方式系列**:  
   [cookie <-> session <-> localStorage <-> sessionStorage <-> IndexedDB <-> redis <-> mysql <-> PWA](./doc/对比归纳/38%20浏览器存储技术对比归纳.md)
