@@ -8,16 +8,71 @@
 </head>
 <body>
 <script>
-  function Fibonacci2 (n , ac1, ac2) {
-    'use strict';
-    if( n <= 1 ) {return ac2};
 
-    return Fibonacci2 (n - 1, ac2, ac1 + ac2);
+  const str = readline()
+  const arr = str.split('')
+  let bCount = 0
+  let wCount = 0
+  let maxLen = 0
+
+  // 统计b w次数
+  arr.forEach(item => {
+    if (item === 'w') {
+      ++wCount
+    } else if (item === 'b') {
+      ++bCount
+    }
+  })
+
+  // 间隔, 统计次数
+  if (bCount === 0 || wCount === 0) {
+    maxLen = 0
+  } else if (bCount > wCount) {
+    maxLen = (wCount << 1) + 1
+  } else if (bCount < wCount) {
+    maxLen = (bCount << 1) + 1
+  } else {
+    maxLen = wCount << 1
   }
 
-  Fibonacci2(100, 1, 1) // 573147844013817200000
-//  console.log(Fibonacci2(1000, 1, 1)) // 7.0330367711422765e+208
-  console.log(Fibonacci2(10000, 1, 1)) // Infinity
+  print(maxLen)
+
+</script>
+<script>
+
+//  const x = parseInt(readline())
+//  // 假设最大
+//  let times = 1000000
+//  let memory = []
+//
+//  // 记录次数, 比较, 取较小的
+//  // 记录步数, 比较x, 是否到了
+//  // 重复 -> 函数记忆
+//
+//  const calc = (walkedCount, walkedTimes) => {
+//
+//    if (walkedCount >= x) {
+//      times = Math.min(times, walkedTimes)
+//      return
+//    }
+//
+//    for (let i = 1; i <= 5; ++i) {
+//
+//      calc(walkedCount + i, walkedTimes + 1)
+//
+//    }
+//
+//  }
+//
+//  const getCount = () => {
+//
+//    calc(0, 0)
+//
+//  }
+//
+//  getCount()
+//
+//  print(times)
 
 </script>
 </body>
