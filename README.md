@@ -175,10 +175,11 @@
 + **插入排序**:
   [JS版](./client/Admin/containers/GeneralCatalogue/insertionSort.js) /
   [C版](https://github.com/GarvenZhang/C-study-note/tree/master/100.2insertion_sort/main.c)
-+ **排序**:
++ **高级排序**:
   [快速排序](./client/Admin/containers/GeneralCatalogue/quickSort.js) /
   [归并排序](./client/Admin/containers/GeneralCatalogue/mergeSort.js) /
-  [希尔排序](./client/Admin/containers/GeneralCatalogue/shellSort.js)
+  [希尔排序](./client/Admin/containers/GeneralCatalogue/shellSort.js) /
+  [堆排序]()
 + **查找**:
   [线性查找] /
   [二分查找](./client/Admin/containers/GeneralCatalogue/binarySearch.js) /
@@ -550,6 +551,7 @@
   [强制类型装换 <-> Number() <-> String() <-> Boolean() <-> 隐式类型转换](./doc/对比归纳/50%20强制类型装换%20%3C-%3E%20Number()%20%3C-%3E%20String()%20%3C-%3E%20Boolean()%20%3C-%3E%20隐式类型转换.md) /    
   [生命周期 <-> 垃圾回收 <-> 标记清除 <-> 内存泄露](./doc/对比归纳/43%20生命周期%20%3C-%3E%20垃圾回收%20%3C-%3E%20标记清除%20%3C-%3E%20内存泄露.md) /  
   [面向对象 <-> 多态 <-> 封装 <-> 抽象 <-> 继承 <-> 构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extends <-> class](./doc/对比归纳/44%20面向对象%20%3C-%3E%20多态%20%3C-%3E%20封装%20%3C-%3E%20抽象%20%3C-%3E%20继承%20%3C-%3E%20构造函数继承%20%3C-%3E%20原型链继承%20%3C-%3E%20组合继承%20%3C-%3E%20寄生组合继承%20%3C-%3E%20extends%20%3C-%3E%20class.md) /  
+  [尾调用 <-> 调用栈 <-> 调用帧 <-> 尾递归 <-> 尾递归优化 <-> 蹦床函数 <-> tco](./doc/对比归纳/53%20尾调用%20%3C-%3E%20调用栈%20%3C-%3E%20调用帧%20%3C-%3E%20尾递归%20%3C-%3E%20尾递归优化%20%3C-%3E%20蹦床函数%20%3C-%3E%20tco.md) /    
   [作用域 <-> 词法作用域 <-> 动态作用域 <-> 局部作用域 <-> 全局作用域 <-> 函数作用域 <-> 块级作用域] /  
   [作用域链 <-> 原型链] /  
   [执行上下文 <-> 全局上下文 <-> 层叠上下文] /  
@@ -572,7 +574,7 @@
   [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
 + **算法系列**:  
   [冒泡 <-> 选择 <-> 插入 <-> 希尔 <-> 归并 <-> 快排 <-> 基排](./doc/对比归纳/9%20冒泡%20%3C-%3E%20选择%20%3C-%3E%20插入%20%3C-%3E%20希尔%20%3C-%3E%20归并%20%3C-%3E%20快排%20%3C-%3E%20基排.md) /  
-  [斐波那契 <-> 函数记忆 <-> 尾递归 <-> 动态规划 <-> 0-1背包]()
+  [斐波那契 <-> 函数记忆 <-> 尾递归 <-> 动态规划 <-> 0-1背包]
 + **设计模式系列**:  
   [观察者 <-> MVC <-> MVP <-> MVVM] /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 

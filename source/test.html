@@ -1,46 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Draw B-Tree</title>
-  <style>
-
-  </style>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./test.js"></script>
 </head>
 <body>
+<script>
+  function Fibonacci2 (n , ac1, ac2) {
+    'use strict';
+    if( n <= 1 ) {return ac2};
 
-<div class="wrap">
-  <style>
-    .wrap {
-      position: absolute;
-      top: 300px;
-      left: 100px;
-    }
-    .wrap > * {
-      height: 250px;
-    }
-    h2 {
-      position: sticky;
-      top: 0px;
-    }
-  </style>
-  <small>nonono</small>
-  <h2>A</h2>
-  <p>Ar</p>
-  <p>Ai</p>
-  <p>Av</p>
-  <h2>B</h2>
-  <p>Br</p>
-  <p>Be</p>
-  <p>Bf</p>
-</div>
+    return Fibonacci2 (n - 1, ac2, ac1 + ac2);
+  }
 
+  Fibonacci2(100, 1, 1) // 573147844013817200000
+//  console.log(Fibonacci2(1000, 1, 1)) // 7.0330367711422765e+208
+  console.log(Fibonacci2(10000, 1, 1)) // Infinity
 
-<!--<iframe src="http://www.baidu.com" frameborder="0"></iframe>-->
-<!--<script src='./test.js' charset="GB2312"></script>-->
-<!--<script>-->
-  <!--const $iframe = document.querySelector('iframe')-->
-  <!--console.log($iframe.contentWindow.document)-->
-<!--</script>-->
+</script>
 </body>
 </html>
