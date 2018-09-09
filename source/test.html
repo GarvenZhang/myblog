@@ -9,33 +9,9 @@
 <body>
 <script>
 
-  const str = readline()
-  const arr = str.split('')
-  let bCount = 0
-  let wCount = 0
-  let maxLen = 0
-
-  // 统计b w次数
-  arr.forEach(item => {
-    if (item === 'w') {
-      ++wCount
-    } else if (item === 'b') {
-      ++bCount
-    }
-  })
-
-  // 间隔, 统计次数
-  if (bCount === 0 || wCount === 0) {
-    maxLen = 0
-  } else if (bCount > wCount) {
-    maxLen = (wCount << 1) + 1
-  } else if (bCount < wCount) {
-    maxLen = (bCount << 1) + 1
-  } else {
-    maxLen = wCount << 1
-  }
-
-  print(maxLen)
+document.body.onbeforeunload = () => {
+  return '你确定要离开吗'
+}
 
 </script>
 <script>

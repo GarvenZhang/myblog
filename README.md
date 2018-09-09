@@ -557,7 +557,7 @@
   [执行上下文 <-> 全局上下文 <-> 层叠上下文] /  
   [var <-> let <-> const <-> window <-> global <-> self <-> undifined](./doc/对比归纳/23%20var%20%3C-%3E%20let%20%3C-%3E%20const%20%3C-%3E%20window%20%3C-%3E%20global%20%3C-%3E%20undifined.md)
 + **✨✨浏览器系列✨✨**  :  
-  [DOM Tree <-> Render Tree <-> Layout <-> Painting <-> DOMContentLoaded <-> load <-> 普通图层 <-> 复合图层 <-> 硬件加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
+  [浏览器渲染 <-> DOM Tree <-> Render Tree <-> Layout <-> Painting <-> 生命周期 <-> DOMContentLoaded <-> load <-> beforeunload <-> readyState <-> async <-> defer <-> 渲染性能优化 <-> Performance <-> 图层 <-> GPU加速](./doc/对比归纳/20%20DOM%20Tree%20%3C-%3E%20Render%20Tree%20%3C-%3E%20Layout%20%3C-%3E%20Painting%20%3C-%3E%20DOMContentLoaded%20%3C-%3E%20load%20%3C-%3E%20普通图层%20%3C-%3E%20复合图层%20%3C-%3E%20硬件加速.md) /  
   [浏览器多进程 <-> 浏览器单or多线程 <-> GUI <-> 事件循环 <-> 事件队列 <-> 任务队列 <-> setTimeout <-> macrotask <-> microtask](./doc/对比归纳/21%20浏览器多进程%20%3C-%3E%20浏览器单or多线程%20%3C-%3E%20GUI%20%3C-%3E%20事件循环%20%3C-%3E%20事件队列%20%3C-%3E%20任务队列%20%3C-%3E%20setTimeout%20%3C-%3E%20macrotask%20%3C-%3E%20microtask.md)
 + **✨✨性能优化✨✨**:  
   [前端性能优化](./doc/对比归纳/42%20前端性能优化.md)   
