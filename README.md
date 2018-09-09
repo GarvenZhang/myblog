@@ -239,7 +239,6 @@
 
 ### CSS
 
-+ [选择器]
 + [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **布局**:
   [双飞翼布局](./client/User/containers/Article/index.css) /
@@ -547,7 +546,7 @@
 
 + **✨✨javascript精华系列✨✨**:  
   [变量对象 <-> 执行上下文 <-> 内存空间 <-> 作用域 <-> 作用域链 <-> 闭包](./doc/对比归纳/15%20变量对象%20%3C-%3E%20执行上下文%20%3C-%3E%20内存空间%20%3C-%3E%20作用域%20%3C-%3E%20this%20%3C-%3E%20作用域链%20%3C-%3E%20闭包.md) /   
-  [this <-> call/apply/bind <-> 箭头函数 <-> 双冒号运算符 <-> new操作符](./doc/对比归纳/41%20this.md) /
+  [this <-> call/apply/bind <-> 箭头函数 <-> 双冒号运算符 <-> new操作符](./doc/对比归纳/41%20this.md) /  
   [强制类型装换 <-> Number() <-> String() <-> Boolean() <-> 隐式类型转换](./doc/对比归纳/50%20强制类型装换%20%3C-%3E%20Number()%20%3C-%3E%20String()%20%3C-%3E%20Boolean()%20%3C-%3E%20隐式类型转换.md) /      
   [生命周期 <-> 垃圾回收 <-> 标记清除 <-> 内存泄露](./doc/对比归纳/43%20生命周期%20%3C-%3E%20垃圾回收%20%3C-%3E%20标记清除%20%3C-%3E%20内存泄露.md) /  
   [面向对象 <-> 多态 <-> 封装 <-> 抽象 <-> 继承 <-> 构造函数继承 <-> 原型链继承 <-> 组合继承 <-> 寄生组合继承 <-> extends <-> class](./doc/对比归纳/44%20面向对象%20%3C-%3E%20多态%20%3C-%3E%20封装%20%3C-%3E%20抽象%20%3C-%3E%20继承%20%3C-%3E%20构造函数继承%20%3C-%3E%20原型链继承%20%3C-%3E%20组合继承%20%3C-%3E%20寄生组合继承%20%3C-%3E%20extends%20%3C-%3E%20class.md) /  
@@ -589,7 +588,8 @@
 + **跨域系列**:  
   [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css基础系列**:  
-  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md)  
+  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
+  [选择器种类 <-> 优先级 <-> 优化 <-> 命名]()  
 + **css布局系列**:  
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC]() /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
