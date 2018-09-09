@@ -307,7 +307,6 @@
   [类-静态方法](./server/models/user.js)
   [promise模拟](./client/lib/promise.js) /
   [Decorator](./client/User/containers/Home/index.jsx) /
-  [module加载] /
 + **动画**:
   [setTimeout，setInterval与requestAnimationFrame] /
   [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
@@ -563,7 +562,8 @@
 + **✨✨性能优化✨✨**:  
   [前端性能优化](./doc/对比归纳/42%20前端性能优化.md)   
 + **javascript工具系列**:  
-  [typeof <-> instanceof <-> Object.prototype.toString.call() <-> 纯对象 <-> 空对象](./client/lib/type.js)
+  [typeof <-> instanceof <-> Object.prototype.toString.call() <-> 纯对象 <-> 空对象](./client/lib/type.js) /  
+  [GMT <-> UTC <-> 格林尼治 <-> 世界标准 <-> 本地时间 <-> Date()参数 <-> getXXXX系列 <-> 时间格式化 <-> 倒计时](./doc/对比归纳/54%20Date.md)
 + **http系列**:  
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
   [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
