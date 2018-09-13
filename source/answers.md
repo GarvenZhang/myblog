@@ -1079,3 +1079,23 @@ http://www.cnblogs.com/coco1s/p/6402723.html
 185 sort
 
 http://imweb.io/topic/565cf7253ad940357eb99881
+
+186 js执行过程
+
+https://wanghan0.github.io/2017/05/07/closure5/
+
+http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html
+
+http://www.nowamagic.net/librarys/veda/detail/1579
+
+https://blog.csdn.net/lq15310444798/article/details/77574320
+
+https://halfrost.com/javascript_scope/
+
+https://github.com/mqyqingfeng/Blog/issues/3
+
+187 table
+
+http://web.jobbole.com/85965/
+
+https://www.zhihu.com/question/19738661
