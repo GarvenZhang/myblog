@@ -540,6 +540,7 @@
 + [通过DOM操作CSS的那些事儿](https://garvenzhang.github.io/2017/11/04/CSSStyleDeclaration/)
 + [当构造函数中有返回值](https://garvenzhang.github.io/2017/11/28/return-value-in-constructor/)
 + [为什么面试题要考坑爹的with?](./doc/踩坑心得/为什么面试题要考坑爹的with%3F.md)
++ [被坑了2次的异步编程题](./doc/踩坑心得/被坑了2次的异步编程题.md)
 
 ### 对比归纳
 

@@ -125,10 +125,4 @@ const asyncReadFile = async function () {
 
 > [xmind](异步处理对比归纳.xmind)
 
-![异步处理对比归纳.webp](异步处理对比归纳.webp)
-
-
-
-
-
-
+![异步处理对比归纳.png](异步处理对比归纳.png)

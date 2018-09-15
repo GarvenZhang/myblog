@@ -1,3 +1,5 @@
+
+
 /**
  * typeof: 可判断基本类型(null 为 'object' / 引用类型中的'function')
  * instanceof: 可判断数组，自定义对象, 但引用类型 instanceof Object 都为true
