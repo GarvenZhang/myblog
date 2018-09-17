@@ -39,7 +39,6 @@
 + [补码/反码](./client/User/components/Header/math.js)
 + [字符编码](./doc/对比归纳/48%20字符编码.md)
 + [回车?换行?](./doc/curl.md)
-+ [图片](./build/dev/webpack.config.dev.base.js)
 + **正则**:
   [边界](./client/lib/reg.js) /
   [环视](./client/lib/reg.js)
@@ -239,7 +238,6 @@
 
 ### CSS
 
-+ [雪碧图](https://github.com/GarvenZhang/shooting-game/blob/development/source/spriteHandle.js)
 + **布局**:
   [双飞翼布局](./client/User/containers/Article/index.css) /
   [圣杯布局](./client/User/containers/Article/index.css) /
@@ -249,7 +247,6 @@
 + [动画优化](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + **优化**:
-  [css绘制代替图片](./client/Admin/components/Slidebar/index.css)
   [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css) /
 
 ### javascript
@@ -590,6 +587,7 @@
   [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css基础系列**:  
   [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
+  [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
   [选择器种类 <-> 优先级 <-> 优化 <-> 命名](./doc/对比归纳/55%20选择器种类%20%3C-%3E%20优先级%20%3C-%3E%20优化%20%3C-%3E%20命名.md)  
 + **css布局系列**:  
   [float <-> 清浮动 <-> position <-> flex <-> table <-> table-layout <-> grid](./doc/对比归纳/57%20float%20%3C-%3E%20清浮动%20%3C-%3E%20position%20%3C-%3E%20flex%20%3C-%3E%20table%20%3C-%3E%20table-layout%20%3C-%3E%20grid.md) /  
@@ -621,7 +619,7 @@
   [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /   
   [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
 + **图片选择系列**:  
-  [base64 <-> png <-> jpg <-> jpeg <-> gif <-> webp]() /  
+  [bitmap <-> datauri <-> png <-> jpg <-> jpeg <-> gif <-> webp <-> svg <-> sprite <-> @font-face <-> CSS绘图](./doc/对比归纳/58%20图片归纳.md) /  
   [img <-> background-image]()  
 + **测试系列**:  
   [单元测试 <-> TDD <-> BDD]()

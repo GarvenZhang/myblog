@@ -10,44 +10,164 @@
 <script>
 
 
+  const S = readline()
+  const P = readline()
+
+  let prev = 0
+  let now = 0
+  const PL = P.length
+
+  for (let i = S.indexOf(P), l = S.length; i < l; ) {
+
+    now += PL
+    i += PL
+
+    if (S.indexOf(P, i) !== i) {
+      prev = Math.max(prev, now)
+      now = 0
+    }
+
+  }
+
+  print(Math.pow(prev, 2))
+
 
 </script>
-<script>
 
-//  const x = parseInt(readline())
-//  // 假设最大
-//  let times = 1000000
-//  let memory = []
-//
-//  // 记录次数, 比较, 取较小的
-//  // 记录步数, 比较x, 是否到了
-//  // 重复 -> 函数记忆
-//
-//  const calc = (walkedCount, walkedTimes) => {
-//
-//    if (walkedCount >= x) {
-//      times = Math.min(times, walkedTimes)
-//      return
-//    }
-//
-//    for (let i = 1; i <= 5; ++i) {
-//
-//      calc(walkedCount + i, walkedTimes + 1)
-//
-//    }
-//
-//  }
-//
-//  const getCount = () => {
-//
-//    calc(0, 0)
-//
-//  }
-//
-//  getCount()
-//
-//  print(times)
 
-</script>
+
+
+
+
+
+
+
+
+
+
+<!--<script>-->
+
+  <!--// 土豪 多个小号-->
+  <!--// 主播 找 土豪小号-->
+  <!--// 26 a~z 直播间类型-->
+  <!--// 输入 不超过2年 日程表-->
+  <!--// 小号日程 改成 土豪日程 需修改次数 能 删除、插入-->
+  <!--// 土豪A: abcd  小号a: acc-->
+  <!--// 插入b 插入d 删除c 3次-->
+
+  <!--// 1 转化为数组-->
+  <!--// 2 相同位置的依次放到结果数组, 并从原数组中移除-->
+  <!--// 3 次数为剩下的两个数组的长度之和-->
+
+  <!--// 比如有集合 A, B, C, D, 遍历新集合节点, 与旧集合中的进行对比, 用一个变量记录遍历过的节点在旧集合中的最右值,-->
+  <!--// 若本次遍历时节点在旧集合中的位置大于最右值, 则表明对其它节点没影响, 则不进行移动,-->
+  <!--// 若小于此最右值, 则表明会影响到已经排好序的节点, 则进行移动;-->
+  <!--// 其中对于新增节点, 直接新增;-->
+  <!--// 将新集合中的节点遍历完后发现旧集合还有未处理的节点则直接删除-->
+<!--//-->
+<!--//-->
+<!--//  const tuhao = readline().split('')-->
+<!--//  const xiaohao = readline().split('')-->
+<!--//-->
+<!--//  let indexRight = 0-->
+<!--//  let count = 0-->
+<!--//-->
+<!--//  for (let i = 0, l = xiaohao.length; i < l; ++i) {-->
+<!--//-->
+<!--//    const item = xiaohao[i]-->
+<!--//    const _i = tuhao.indexOf(item)-->
+<!--//-->
+<!--//    if (_i >= indexRight) {-->
+<!--//      indexRight = _i-->
+<!--//    } else {-->
+<!--//      ++count-->
+<!--//    }-->
+<!--//-->
+<!--//    if (_i > -1) {-->
+<!--//-->
+<!--//      tuhao.splice(i, 1)-->
+<!--//      xiaohao.splice(_i, 1)-->
+<!--//      i = 0-->
+<!--//      l = tuhao.length-->
+<!--//-->
+<!--//    }-->
+<!--//-->
+<!--//    console.log(tuhao, xiaohao)-->
+<!--//-->
+<!--//  }-->
+<!--//-->
+<!--//  print(tuhao.length + xiaohao.length)-->
+
+
+
+
+
+
+
+
+<!--//  const tuhao = readline().split('')-->
+<!--//  const xiaohao = readline().split('')-->
+<!--//-->
+<!--//  const ret = []-->
+<!--//-->
+<!--//  for (let i = 0, l = tuhao.length; i < l; ++i) {-->
+<!--//-->
+<!--//    const item = tuhao[i]-->
+<!--//    const _i = xiaohao.indexOf(item)-->
+<!--//-->
+<!--//    if (_i > -1) {-->
+<!--//-->
+<!--//      tuhao.splice(i, 1)-->
+<!--//      xiaohao.splice(_i, 1)-->
+<!--//      i = 0-->
+<!--//      l = tuhao.length-->
+<!--//-->
+<!--//    }-->
+<!--//-->
+<!--//    console.log(tuhao, xiaohao)-->
+<!--//-->
+<!--//  }-->
+<!--//-->
+<!--//  print(tuhao.length + xiaohao.length)-->
+
+
+<!--</script>-->
+<!--<script>-->
+
+<!--//  const x = parseInt(readline())-->
+<!--//  // 假设最大-->
+<!--//  let times = 1000000-->
+<!--//  let memory = []-->
+<!--//-->
+<!--//  // 记录次数, 比较, 取较小的-->
+<!--//  // 记录步数, 比较x, 是否到了-->
+<!--//  // 重复 -> 函数记忆-->
+<!--//-->
+<!--//  const calc = (walkedCount, walkedTimes) => {-->
+<!--//-->
+<!--//    if (walkedCount >= x) {-->
+<!--//      times = Math.min(times, walkedTimes)-->
+<!--//      return-->
+<!--//    }-->
+<!--//-->
+<!--//    for (let i = 1; i <= 5; ++i) {-->
+<!--//-->
+<!--//      calc(walkedCount + i, walkedTimes + 1)-->
+<!--//-->
+<!--//    }-->
+<!--//-->
+<!--//  }-->
+<!--//-->
+<!--//  const getCount = () => {-->
+<!--//-->
+<!--//    calc(0, 0)-->
+<!--//-->
+<!--//  }-->
+<!--//-->
+<!--//  getCount()-->
+<!--//-->
+<!--//  print(times)-->
+
+<!--</script>-->
 </body>
 </html>
