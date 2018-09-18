@@ -1111,3 +1111,15 @@ https://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalu
 189 小图标
 
 https://juejin.im/post/59c5d2e6f265da0658152ab0
+
+190 NaN
+
+https://www.zcfy.cc/article/nan-and-typeof
+
+191 数据类型
+
+https://harttle.land/2015/09/18/js-type-checking.html
+
+https://www.cnblogs.com/onepixel/p/5126046.html
+
+https://segmentfault.com/a/1190000005863067

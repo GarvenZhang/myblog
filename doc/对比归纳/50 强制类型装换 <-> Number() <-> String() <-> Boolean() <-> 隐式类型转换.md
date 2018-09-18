@@ -1,5 +1,5 @@
 # 类型转换
 
-> [xmind](类型转换.xmind)
+> [xmind](数据类型.xmind)
 
-![类型转换.png](类型转换.png)
+![js数据类型归纳.png](js数据类型归纳.png)

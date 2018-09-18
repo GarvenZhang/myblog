@@ -26,7 +26,7 @@ type.isPlainObject = function (obj) {
 
   // === 1 通过{}.toString: Object.prototype.toString.call(obj) 返回的是 [object Object] 格式 === //
   function byToString (obj) {
-    return Object.prototype.toString.call(target) === `[object Object]`
+    return Object.prototype.toString.call(obj) === `[object Object]`
   }
 
   // === 2 通过原型链: 根据原型链, 如果是'object'类型, 原型链终点肯定是null, 第二个肯定是Object, 而其他的Function/Array都是继承与Object的, 所以只需判断 对象的原型 与 它的原型链上null的子类 的地址是否相等即可 === //
