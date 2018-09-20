@@ -593,7 +593,7 @@
   [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC] /  
   [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **css动画系列**:  
-  [transform <-> transiton <-> animation]()
+  [transform <-> transiton <-> animation](./doc/对比归纳/60%20transform%20%3C-%3E%20transiton%20%3C-%3E%20animation.md)
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**:  
@@ -644,6 +644,8 @@
   [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md) /  
 + **后端系列**:  
   [SSE <-> websocket <-> http2.0]
++ **调试系列**:  
+  [console]()  
 + **app开发模式**:  
   [Native <-> Web App <-> Hybrid <-> React Native <-> Weex <-> 小程序 <-> PWA](./doc/对比归纳/34%20Native%20%3C-%3E%20Web%20App%20%3C-%3E%20Hybrid%20%3C-%3E%20React%20Native%20%3C-%3E%20Weex%20%3C-%3E%20小程序%20%3C-%3E%20PWA.md)
   
