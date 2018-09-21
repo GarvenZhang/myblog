@@ -520,7 +520,7 @@
   [OpenId协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#五openid协议) /
   [jwt协议](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#六jwt协议) /
   [单点登录SSO](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#七ssosingle-sign-on) /
-  [自己的实现](./doc/踩坑心得/为了实现SSO我踩了这些坑.md#八自己的实战经验)
+  [自己的实现 + 阿里sso分析](./doc/踩坑心得/sso方案分析与实践.md)
 + [sql中查询语句不应有计算值](./server/models/comment.js)
 + [redux中reducer不应做什么](./client/User/redux/Comment.js)
 + [react中原生Image对象被覆盖的坑](./client/User/components/Img/index.jsx)
@@ -563,7 +563,7 @@
 + **http系列**:  
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
   [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
-  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
+  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match <-> Referer](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
   [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/对比归纳/36%20缓存归纳对比.md)
 + **html系列**:  
   [doctype <-> SGML <-> meta <-> viewport <-> robots <-> http-equiv <-> renderer <-> X-UA-Compatible <-> pragma](./doc/对比归纳/35%20head标签内容对比归纳.md)  
@@ -648,5 +648,10 @@
   [console]()  
 + **app开发模式**:  
   [Native <-> Web App <-> Hybrid <-> React Native <-> Weex <-> 小程序 <-> PWA](./doc/对比归纳/34%20Native%20%3C-%3E%20Web%20App%20%3C-%3E%20Hybrid%20%3C-%3E%20React%20Native%20%3C-%3E%20Weex%20%3C-%3E%20小程序%20%3C-%3E%20PWA.md)
+  
+### 杂谈
+
++ [职业规划](./doc/杂谈/1%20职业规划.md)
++ [对公司的选择](./doc/杂谈/2%20对公司的选择.md)
   
   

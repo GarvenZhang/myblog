@@ -980,6 +980,10 @@ https://bestqliang.com/2018/06/02/%E4%BD%BF%E7%94%A8jwt%E5%AE%8C%E6%88%90sso%E5%
 
 https://juejin.im/post/5b3b870a5188251ac85826b8
 
+https://www.jianshu.com/p/7c852e294a76
+
+https://sanii.cn/article/232
+
 166 用户权限: 
 
 https://cnodejs.org/topic/551802d3687c387d2f5b2906
@@ -1123,3 +1127,9 @@ https://harttle.land/2015/09/18/js-type-checking.html
 https://www.cnblogs.com/onepixel/p/5126046.html
 
 https://segmentfault.com/a/1190000005863067
+
+192 referer
+
+https://www.sojson.com/blog/58.html
+
+https://bindog.github.io/blog/2014/11/18/http-referer-security-and-anti-anti-hotlink/
