@@ -79,6 +79,8 @@
   [基本同步方法/信号量/生产者消费者问题/管程/条件变量/哲学家就餐问题/读者写者问题](./doc/操作系统/10.信号量与管程/信号量与管程.md)
 + **死锁**:
 + **文件系统**:
++ [重点总结](./doc/操作系统/重点总结.md)
+  
 
 ### C语言
 
@@ -148,7 +150,11 @@
   [http - 状态码 - 类别](client/User/fetch/axios.js) /
   [http - 状态码 - 常用](./server/routes/router-index.js) /
   [http - restful架构](./server/routes/router-index.js) /
-  [SMTP] /
+  [SMTP] /  
+  [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
+  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
+  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match <-> Referer](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
+  [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/对比归纳/36%20缓存归纳对比.md)
   
 ### 数据结构
 
@@ -230,17 +236,22 @@
 
 ### HTML5
 
++ [doctype <-> SGML <-> meta <-> viewport <-> robots <-> http-equiv <-> renderer <-> X-UA-Compatible <-> pragma](./doc/对比归纳/35%20head标签内容对比归纳.md)  
 + [语义化](./client/User/containers/Article/index.jsx)
 + [浏览器渲染](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css)
 + [svg]
 + [script异步加载](https://github.com/GarvenZhang/blog-file/blob/development/source/class-contact/index.html)
 
-### CSS
+### CSS3
 
++ [混沌阶段 <-> 原子类阶段 <-> 模块阶段 <-> BEM <-> CSS Module](https://garvenzhang.github.io/2018/02/20/class-name/)
 + **布局**:
-  [双飞翼布局](./client/User/containers/Article/index.css) /
-  [圣杯布局](./client/User/containers/Article/index.css) /
-  [float实现两栏布局](./client/User/containers/Article/index.css) /
+  [float <-> 清浮动 <-> position <-> flex <-> table <-> table-layout <-> grid](./doc/对比归纳/57%20float%20%3C-%3E%20清浮动%20%3C-%3E%20position%20%3C-%3E%20flex%20%3C-%3E%20table%20%3C-%3E%20table-layout%20%3C-%3E%20grid.md) /  
+  [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC] /  
+  [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)  
+  [双飞翼布局](./client/User/containers/Article/index.css) /  
+  [圣杯布局](./client/User/containers/Article/index.css) /  
+  [float实现两栏布局](./client/User/containers/Article/index.css) /  
   [position + transform居中](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + **响应式**:
 + [动画优化](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
@@ -275,11 +286,15 @@
   [生成text](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/main.js) /
   [attribute和property](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + **事件**:
-  [target与currentTarget](./client/User/components/Comment/index.jsx)
-  [事件循环机制](./client/User/components/Header/eventloop.js) /
-  [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
-  [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /
-  [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx)
+  [target与currentTarget](./client/User/components/Comment/index.jsx) /  
+  [事件循环机制](./client/User/components/Header/eventloop.js) /  
+  [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /  
+  [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /  
+  [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx) /  
+  [DOM0 <-> DOM2 <-> DOM3 <-> 事件流 <-> 冒泡捕获 <-> 代理委托 <-> React事件](./) /  
+  [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /  
+  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /  
+  [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
 + **高级**:
   [惰性函数](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /
   [偏函数](./client/lib/partial.js) /
@@ -367,20 +382,22 @@
 ### React
 
 + [propTypes/defaultProps](./client/User/containers/Home/index.jsx)
++ [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md)
 + [生命周期](./doc/对比归纳/27%20react生命周期.md)
 + [组件间通讯](./doc/对比归纳/29%20组件间通信.md)
++ [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /
 + [高阶组件](./client/Admin/components/Hoc/index.jsx)
 + **核心原理**:
   [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
-  [Diff](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/renderers/shared/stack/reconciler/ReactMultiChild.js) /
+  [Diff](./doc/对比归纳/61%20diff.md) /
   [fiber](./doc/对比归纳/28%20react%20fiber.md)
 + **性能优化**:
-  [组件内优化](./client/Admin/components/TipsBar/index.jsx) /
-  [shouldComponentUpdate](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/ReactComponentWithPureRenderMixin.js) /
-  [PureComponent] /
-  [immutablejs](./client/User/components/Popup/index.jsx) /
-  [key] /
-  [同构](./server/views/server-render.js) /
+  [组件内优化](./client/Admin/components/TipsBar/index.jsx) /  
+  [shouldComponentUpdate](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/react/src/addons/ReactComponentWithPureRenderMixin.js) /  
+  [PureComponent] /  
+  [immutablejs](./client/User/components/Popup/index.jsx) /  
+  [key] /  
+  [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md) 
 
 ### React-Router
 
@@ -560,13 +577,6 @@
 + **javascript工具系列**:  
   [typeof <-> instanceof <-> Object.prototype.toString.call() <-> 纯对象 <-> 空对象](./client/lib/type.js) /  
   [GMT <-> UTC <-> 格林尼治 <-> 世界标准 <-> 本地时间 <-> Date()参数 <-> getXXXX系列 <-> 时间格式化 <-> 倒计时](./doc/对比归纳/54%20Date.md)
-+ **http系列**:  
-  [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
-  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
-  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match <-> Referer](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
-  [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/对比归纳/36%20缓存归纳对比.md)
-+ **html系列**:  
-  [doctype <-> SGML <-> meta <-> viewport <-> robots <-> http-equiv <-> renderer <-> X-UA-Compatible <-> pragma](./doc/对比归纳/35%20head标签内容对比归纳.md)  
 + **授权与SSO系列**:  
   [session <-> cookie <-> token <-> cas <-> oauth 2.0 <-> smal 2.0 <-> openId <-> 自己实现的](./doc/对比归纳/4%20session%20%3C-%3E%20cookie%20%3C-%3E%20token%20%3C-%3E%20cas%20%3C-%3E%20oauth%202.0%20%3C-%3E%20smal%202.0%20%3C-%3E%20openId%20%3C-%3E%20自己实现的.md)
 + **算法系列**:  
@@ -575,11 +585,10 @@
 + **设计模式系列**:  
   [观察者 <-> MVC <-> MVP <-> MVVM] /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 
-+ **TCP/IP系列**:  
-  [UDP <-> TCP]()
 + **异步处理系列**:  
   [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md) /  
-  [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md)
+  [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md) /  
+  [ajax <-> axios <-> Fetch]()
 + **框架系列**:  
   [React <-> Vue <-> Angular]
 + **跨域系列**:  
@@ -588,10 +597,6 @@
   [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
   [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
   [选择器种类 <-> 优先级 <-> 优化 <-> 命名](./doc/对比归纳/55%20选择器种类%20%3C-%3E%20优先级%20%3C-%3E%20优化%20%3C-%3E%20命名.md)  
-+ **css布局系列**:  
-  [float <-> 清浮动 <-> position <-> flex <-> table <-> table-layout <-> grid](./doc/对比归纳/57%20float%20%3C-%3E%20清浮动%20%3C-%3E%20position%20%3C-%3E%20flex%20%3C-%3E%20table%20%3C-%3E%20table-layout%20%3C-%3E%20grid.md) /  
-  [盒模型 <-> 获取元素宽高 <-> IFC <-> BFC <-> GFC <-> FFC] /  
-  [居中 <-> 两栏 <-> 三栏 <-> 多栏](https://garvenzhang.github.io/2018/03/06/css-layout/)
 + **css动画系列**:  
   [transform <-> transiton <-> animation](./doc/对比归纳/60%20transform%20%3C-%3E%20transiton%20%3C-%3E%20animation.md)
 + **数据比较系列**:  
@@ -612,40 +617,29 @@
   [forEach() <-> every() <-> some() <-> filter() <-> map() <-> entries() <-> keys() <-> values()](./doc/对比归纳/13%20数组api对比归纳.md#二迭代类型) /  
   [find() <-> findIndex() <-> includes() <-> indexOf() <-> lastIndexOf()](./doc/对比归纳/13%20数组api对比归纳.md#三查找类型) /  
   [sort() <-> reverse() <-> reduce <-> reduceRight](./doc/对比归纳/47%20sort()%20%3C-%3E%20reverse()%20%3C-%3E%20reduce%20%3C-%3E%20reduceRight.md)
-+ **事件系列**:  
-  [DOM0 <-> DOM2 <-> DOM3 <-> 事件流 <-> 冒泡捕获 <-> 代理委托 <-> React事件](./) /  
-  [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /   
-  [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /   
-  [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
 + **图片选择系列**:  
   [bitmap <-> datauri <-> png <-> jpg <-> jpeg <-> gif <-> webp <-> svg <-> sprite <-> @font-face <-> CSS绘图](./doc/对比归纳/58%20图片归纳.md) /  
-  [img <-> background-image]()  
+  [img <-> background-image]
 + **测试系列**:  
-  [单元测试 <-> TDD <-> BDD]()
+  [单元测试 <-> TDD <-> BDD]
 + **操作符系列**:  
   [类数组 <-> Array.from() <-> 数组的扩展运算符 <-> Array.of() <-> Array() <-> [].slice.call() <-> rest参数 <-> 对象的扩展运算符 <-> 解构赋值](./doc/对比归纳/10%20类数组%20%3C-%3E%20Array.from()%20%3C-%3E%20Array.of()%20%3C-%3E%20%5B%5D.slice.call()%20%3C-%3E%20扩展运算符%20%3C-%3E%20rest参数.md) /
 + **模块化系列**:  
   [IIFE <-> CommonJs <-> AMD <-> RequireJS <-> r.js <-> Module](./doc/对比归纳/16%20IIFE%20%3C-%3E%20CommonJs%20%3C-%3E%20AMD%20%3C-%3E%20RequireJS%20%3C-%3E%20r.js%20%3C-%3E%20Module.md)
 + **位置系列**:  
-  [screenLeft <-> screenTop <-> screenX <-> screenY <-> innerHeight <-> innerWidth <-> outerHeight <-> outerWidth <-> clientWidth <-> clientHeight <-> offsetLeft <-> offsetTop <-> scrollHeight <-> scrollWidth <-> scrollLeft <-> scrollTop <-> getBoundingClientRect()]()
+  [screenLeft <-> screenTop <-> screenX <-> screenY <-> innerHeight <-> innerWidth <-> outerHeight <-> outerWidth <-> clientWidth <-> clientHeight <-> offsetLeft <-> offsetTop <-> scrollHeight <-> scrollWidth <-> scrollLeft <-> scrollTop <-> getBoundingClientRect()]
 + **响应式系列**:  
-  [响应式图片 <-> 响应式图片 <-> 响应式组件 <-> 响应式框架]()
-+ **命名系列**:  
-  [混沌阶段 <-> 原子类阶段 <-> 模块阶段 <-> BEM <-> CSS Module](https://garvenzhang.github.io/2018/02/20/class-name/)
+  [响应式图片 <-> 响应式图片 <-> 响应式组件 <-> 响应式框架]
 + **值系列**:  
-  [应用值 <-> 继承值 <-> 初始值 <-> 默认值 <-> 计算值]()
+  [应用值 <-> 继承值 <-> 初始值 <-> 默认值 <-> 计算值]
 + **DOM系列**:  
   [children <-> childNodes <-> 静态NodeList <-> 动态NodeList <-> firstChild <-> firstElementChild <-> nextSibling <-> nextElementSibling <-> childELementCount](https://garvenzhang.github.io/2017/10/21/node-some-difference/)
 + **git系列**:  
   [git reset <-> git revert <-> git checkout <-> git rebase <-> git merge](./doc/对比归纳/22%20git%20add%20%3C-%3E%20git%20stage%20%3C-%3E%20git%20reset%20%3C-%3E%20git%20revert%20%3C-%3E%20git%20checkout%20%3C-%3E%20git%20rebase.md)
-+ **react系列**:  
-  [props <-> state <-> setState](./doc/对比归纳/25%20react的state与props.md) /  
-  [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /  
-  [直出 <-> 同构 <-> 数据直出 <-> ssr](./doc/对比归纳/31%20直出%20%3C-%3E%20同构%20%3C-%3E%20数据直出%20%3C-%3E%20ssr.md) /  
 + **后端系列**:  
   [SSE <-> websocket <-> http2.0]
 + **调试系列**:  
-  [console]()  
+  [console]
 + **app开发模式**:  
   [Native <-> Web App <-> Hybrid <-> React Native <-> Weex <-> 小程序 <-> PWA](./doc/对比归纳/34%20Native%20%3C-%3E%20Web%20App%20%3C-%3E%20Hybrid%20%3C-%3E%20React%20Native%20%3C-%3E%20Weex%20%3C-%3E%20小程序%20%3C-%3E%20PWA.md)
   
