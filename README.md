@@ -134,9 +134,8 @@
   [简介](./doc/计算机网络/5.传输层/5.1%20简介.md) /
   [UDP首部](./doc/计算机网络/5.传输层/5.3%20UDP首部.md) /
   [TCP首部](./doc/计算机网络/5.传输层/5.6%20TCP首部.md) /
-  [可靠传输]() /
-  [流量控制]() /
-  [拥塞控制](./doc/计算机网络/5.传输层/5.10%20拥塞控制.md) /
+  [可靠传输](./doc/计算机网络/5.传输层/5.5%20可靠传输.md) /
+  [拥塞控制 <-> 流量控制](./doc/计算机网络/5.传输层/5.10%20拥塞控制.md) /
   [运输连接管理](./doc/计算机网络/5.传输层/5.8%20TCP传输连接管理.md) /
   [UDP与TCP的对比总结](./doc/计算机网络/5.传输层/5.9%20UDP与TCP的对比总结.md)
 + **应用层**:
@@ -145,21 +144,17 @@
   [DHCP] /
   [TELNET] /
   [DRP] /
-  [http - 报文结构](./doc/curl.md) /
-  [http - 缓存](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/httpCache.js) /
-  [http - 状态码 - 类别](client/User/fetch/axios.js) /
-  [http - 状态码 - 常用](./server/routes/router-index.js) /
-  [http - restful架构](./server/routes/router-index.js) /
   [SMTP] /  
+  [http报文结构](./doc/curl.md) /
+  [restful架构 <-> 状态码分类 <-> 常用状态码 <-> http动词](./doc/计算机网络/6.应用层/6.9%20RESTFUL.md)
   [http1.1 <-> https <-> spdy <-> http2.0](./doc/计算机网络/6.应用层/6.6%20超文本传输协议HTTP.md) /  
-  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/对比归纳/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
-  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match <-> Referer](./doc/对比归纳/37%20http易混淆字段对比归纳.md) /  
-  [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/对比归纳/36%20缓存归纳对比.md)
+  [长连接 <-> 短连接 <-> 持久连接 <-> 长轮询 <-> 短轮询 <-> 管线化 <-> 断点续传](./doc/计算机网络/6.应用层/33%20长连接%20%3C-%3E%20短连接%20%3C-%3E%20持久连接%20%3C-%3E%20长轮询%20%3C-%3E%20短轮询%20%3C-%3E%20管线化%20%3C-%3E%20断点续传.md) /  
+  [Cookie <-> Set-Cookie <-> vary <-> age <-> Location <-> via <-> WWW-Authenticate <-> Authorization <-> If-Unmodified-Since <-> If-Match <-> Referer](./doc/计算机网络/6.应用层/37%20http易混淆字段对比归纳.md) /  
+  [http缓存 <-> 强缓存 <-> 协商缓存 <-> 刷新行为 <-> Manifest <-> cdn缓存 <-> max-age <-> s-max-age <-> pragma](./doc/计算机网络/6.应用层/36%20缓存归纳对比.md)
   
 ### 数据结构
 
-+ [栈](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/stack.js)
-+ [队列](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/queue.js)
++ [栈 <-> 队列](./doc/对比归纳/51%20unshift()%20%3C-%3E%20push()%20%3C-%3E%20shift()%20%3C-%3E%20pop().md)
 + [字典](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/dictionary.js)
 + [T/BT/BST](./client/lib/bst.js)
 + [TrieTree](./client/Admin/containers/Info/trieTree.js)
@@ -183,7 +178,7 @@
   [快速排序](./client/Admin/containers/GeneralCatalogue/quickSort.js) /
   [归并排序](./client/Admin/containers/GeneralCatalogue/mergeSort.js) /
   [希尔排序](./client/Admin/containers/GeneralCatalogue/shellSort.js) /
-  [堆排序]()
+  [堆排序]
 + **查找**:
   [线性查找] /
   [二分查找](./client/Admin/containers/GeneralCatalogue/binarySearch.js) /
@@ -201,12 +196,11 @@
   [递归分析 <-> 回溯 <-> 全排列 <-> 组合](./doc/对比归纳/39%20递归分析%20%3C-%3E%20回溯%20%3C-%3E%20全排列%20%3C-%3E%20组合.md) /  
   [动态规划 <-> 0-1背包]()  
   
-
 ### 设计模式
 
 + [单例模式](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js)
 + [装饰器模式](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js)
-+ [状态模式]()
++ [状态模式]
 + [模板方法模式]
 + [发布-订阅模式](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/event.js)
 + [MVC]
@@ -225,7 +219,7 @@
 + [中介者模式]
 + [适配器模式]
 + [享元模式]
-+ [责任链模式]  
++ [责任链模式]
 
 ### 测试
 
@@ -254,7 +248,6 @@
   [float实现两栏布局](./client/User/containers/Article/index.css) /  
   [position + transform居中](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/index.css)
 + **响应式**:
-+ [动画优化](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + [重排/重绘](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + **优化**:
   [性能优化调试工具](https://github.com/GarvenZhang/blog-file/blob/development/dist/resume/css/resume-0-1799.css) /
@@ -291,7 +284,7 @@
   [事件处理](https://github.com/GarvenZhang/blog-file/blob/development/client/lib/event.js) /  
   [事件委托](https://github.com/GarvenZhang/blog-file/blob/development/client/Popup/Dragdrop.js) /  
   [原生键盘类事件触发顺序](./client/User/components/Header/index.jsx) /  
-  [DOM0 <-> DOM2 <-> DOM3 <-> 事件流 <-> 冒泡捕获 <-> 代理委托 <-> React事件](./) /  
+  [DOM0 <-> DOM2 <-> DOM3 <-> 事件流 <-> 冒泡捕获 <-> 代理委托 <-> React事件] /  
   [preventDefault <-> return false <-> returnValue](./doc/对比归纳/19%20preventDefault%20%3C-%3E%20return%20false%20%3C-%3E%20returnValue.md) /  
   [stopPropagation <-> stopImmediatePropagation() <-> cancelBubble](./doc/对比归纳/18%20stopPropagation%20%3C-%3E%20stopImmediatePropagation()%20%3C-%3E%20cancelBubble.md) /  
   [target <-> currentTarget <-> relativeTarget](./doc/对比归纳/17%20target%20%3C-%3E%20currentTarget%20%3C-%3E%20relativeTarget.md)
@@ -316,18 +309,13 @@
   [类-静态方法](./server/models/user.js)
   [promise模拟](./client/lib/promise.js) /
   [Decorator](./client/User/containers/Home/index.jsx) /
-+ **动画**:
-  [setTimeout，setInterval与requestAnimationFrame] /
-  [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /
-  [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /
-  [碰撞检测]
-+ **跨域**:
-  [同源策略](client/SSO/index.js)
-  [jsonp](./client/Admin/containers/Info/index.jsx) /
-  [CORS](https://github.com/GarvenZhang/blog-file/blob/development/server/middleware/crossSite.js) /
-  [XDM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/index.js) /
-  [iframe+window.name](./client/Admin/components/Form/index.jsx)
++ **跨域**:  
+  [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + [Service WOrker, PWA]
++ **异步处理系列**:  
+  [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md) /  
+  [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md) /  
+  [ajax <-> axios <-> Fetch]
 + [BOM](./doc/对比归纳/32%20BOM.md)
 + [IIFE](./client/User/components/Header/eventloop.js)
 + **代码级别优化**:
@@ -371,6 +359,7 @@
   [查](./server/models/article.js) /
   [改](./server/models/article.js)
 + [优化方案]
++ [事务](./doc/mysql/5%20事务.md)
 
 ### Angular
 
@@ -386,10 +375,10 @@
 + [生命周期](./doc/对比归纳/27%20react生命周期.md)
 + [组件间通讯](./doc/对比归纳/29%20组件间通信.md)
 + [智能组件 <-> 木偶组件 <-> 受控组件 <-> 非受控组件 <-> 无状态组件 <-> 状态组件](./doc/对比归纳/26%20智能组件%20%3C-%3E%20木偶组件%20%3C-%3E%20受控组件%20%3C-%3E%20非受控组件.md) /
-+ [高阶组件](./client/Admin/components/Hoc/index.jsx)
-+ **核心原理**:
-  [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /
-  [Diff](./doc/对比归纳/61%20diff.md) /
++ [高阶组件](./doc/对比归纳/62%20高阶组件.md)
++ **核心原理**:  
+  [虚拟DOM](https://github.com/GarvenZhang/blog-file/blob/development/client/secret-login/vdom/velement.js) /  
+  [Diff](./doc/对比归纳/61%20diff.md) /  
   [fiber](./doc/对比归纳/28%20react%20fiber.md)
 + **性能优化**:
   [组件内优化](./client/Admin/components/TipsBar/index.jsx) /  
@@ -422,7 +411,7 @@
 + **源码分析**:
   [输出文件](https://github.com/GarvenZhang/blog-file/blob/some-stuff/package/webpack-output/dist/bundle.js) /
 + [css模块化](./build/dev/webpack.config.dev.base.js)
-+ [cdn](./build/prod/cdn.upload.js)
++ [cdn](./doc/计算机网络/6.应用层/6.8%20CDN.md)
 + [css前缀兼容处理](./build/webpack.config.base.js)
 + [ImageInline](./build/dev/webpack.config.dev.base.js)
 + [提取第三方库](build/utils/webpack.config.dll.js)
@@ -432,28 +421,16 @@
 
 ### 安全
 
-+ **xss**:
-  [攻击过程](./client/lib/xss.js) /
-  [防御 - X-XSS-Protection](./server/app-myblog.base.js) /
-  [防御 - 转义](./client/lib/xss.js) /
-  [防御 - 富文本过滤](./client/User/containers/Article/index.jsx)
-  [防御 - csp](./server/middleware/csp.js)
-+ **csrf**:
-  [攻击过程](client/SSO/index.js) /
-  [防御 - referer验证](./server/middleware/referer.js) /
-  [防御 - sameSite](./server/controller/user.js) /
-  [防御 - token](./server/middleware/csrf_token.js) /
-  [防御 - 验证码](./server/middleware/captcha.js)
++ [xss](./doc/安全/1%20xss.md)
++ [csrf](./doc/安全/2%20csrf.md)
++ [密码安全](./doc/安全/3%20密码.md)
++ [点击劫持](./doc/安全/4%20点击劫持.md)
 + **cookie**:
   [基础](./server/controller/user.js) /
   [客户端读写cookie](./client/lib/cookie.js)
-+ **点击劫持**:
-  [防御-X-Frame-Options](./server/app-myblog.base.js) /
-  [防御-js禁止内嵌](./client/User/index.jsx)
 + **传输安全**:
   [窃听及原理] /
   [nginx部署](./doc/nginx.md)
-+ [密码安全](./server/controller/user.js)
 + **SQL注入**:
   [注入过程] /
 + **上传漏洞**: 
@@ -465,6 +442,7 @@
   [防御 - 权限控制](./client/Admin/components/Upload/index.jsx)
 + [DDOS](./server/app-myblog.base.js)
 + [重放攻击](./client/Admin/components/Lottery/index.jsx)
++ [重点总结]
 
 ### git
 
@@ -585,20 +563,19 @@
 + **设计模式系列**:  
   [观察者 <-> MVC <-> MVP <-> MVVM] /  
   [观察者 <-> 脏检查 <-> 数据劫持](https://garvenzhang.github.io/2018/02/20/the-principle-of-two-way-binding) 
-+ **异步处理系列**:  
-  [同步 <-> 异步 <-> Promise <-> Generator <-> Async](./doc/对比归纳/12%20传统异步处理%20%3C-%3EPromise%20%3C-%3E%20Generator%20%3C-%3E%20Async.md) /  
-  [Generator <-> thunk <-> co](./doc/对比归纳/24%20generator%20%3C-%3E%20thunk%20%3C-%3E%20co.md) /  
-  [ajax <-> axios <-> Fetch]()
++ **动画**:  
+  [setTimeout，setInterval与requestAnimationFrame] /  
+  [fps计算](https://github.com/GarvenZhang/shooting-game/blob/development/client/lib/fps.js) /  
+  [动画循环](https://github.com/GarvenZhang/shooting-game/blob/development/client/game/js/engine/scene.js) /  
+  [transform <-> transiton <-> animation](./doc/对比归纳/60%20transform%20%3C-%3E%20transiton%20%3C-%3E%20animation.md) /    
+  [碰撞检测] /  
+  [动画优化](https://github.com/GarvenZhang/blog-file/tree/development/client/resume/css/resume-0-1799.css)
 + **框架系列**:  
   [React <-> Vue <-> Angular]
-+ **跨域系列**:  
-  [jsonp <-> cors <-> 简单请求 <-> 预检请求 <-> withCredentials <-> xdm <-> window.name <-> document.domain <-> location.hash](./doc/对比归纳/2%20jsonp%20%3C-%3E%20cors%20%3C-%3E%20xdm%20%3C-%3E%20window.name%20%3C-%3E%20document.domain%20%3C-%3E%20location.hash.md)
 + **css基础系列**:  
   [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
   [px <-> em <-> rem <-> % <-> vh <-> vw <-> calc](./doc/对比归纳/49%20px%20%3C-%3E%20em%20%3C-%3E%20rem%20%3C-%3E%20%25%20%3C-%3E%20vh%20%3C-%3E%20vw%20%3C-%3E%20calc.md) /  
   [选择器种类 <-> 优先级 <-> 优化 <-> 命名](./doc/对比归纳/55%20选择器种类%20%3C-%3E%20优先级%20%3C-%3E%20优化%20%3C-%3E%20命名.md)  
-+ **css动画系列**:  
-  [transform <-> transiton <-> animation](./doc/对比归纳/60%20transform%20%3C-%3E%20transiton%20%3C-%3E%20animation.md)
 + **数据比较系列**:  
   [浅拷贝 <-> Object.create() <-> 深拷贝 <-> 浅比较 <-> immutableJs <-> shouldComponentUpdate <-> PureComponent](./doc/对比归纳/5%20浅拷贝%20%3C-%3E%20Object.create()%20%3C-%3E%20深拷贝%20%3C-%3E%20immutableJs%20%3C-%3E%20shouldComponentUpdate%20%3C-%3E%20PureComponent.md)
 + **循环遍历系列**:  

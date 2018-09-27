@@ -10,26 +10,31 @@
 <script>
 
 
-  const S = readline()
-  const P = readline()
+  function count(start, end) {
 
-  let prev = 0
-  let now = 0
-  const PL = P.length
+    let _start = start
+    let _end = end
 
-  for (let i = S.indexOf(P), l = S.length; i < l; ) {
+    console.log(_start)
 
-    now += PL
-    i += PL
+    let timer = setInterval(() => {
+      if (_start < _end) {
+        ++_start
+        console.log(_start)
+      }
+    }, 100)
 
-    if (S.indexOf(P, i) !== i) {
-      prev = Math.max(prev, now)
-      now = 0
+    const cancel = () => {
+      clearInterval(timer)
+    }
+
+    return {
+      cancel
     }
 
   }
 
-  print(Math.pow(prev, 2))
+  const cancel = count(1, 4).cancel
 
 
 </script>
