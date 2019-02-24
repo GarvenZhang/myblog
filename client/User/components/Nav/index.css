@@ -1,9 +1,0 @@
-:global(.icon-magic),
-:global(.icon-medal_light),
-:global(.icon-circle),
-:global(.icon-selection) {
-  font-size: 1.1em;
-}
-:global(.icon-circle) {
-  vertical-align: -1px;
-}

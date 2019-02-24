@@ -1,1 +1,0 @@
-const articleMock = {'retCode': 1, 'data': '我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我我jfak3290cm是我'}; export default articleMock
