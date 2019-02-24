@@ -1,0 +1,59 @@
+@value hackGreen, shadowGreen from '../../../common.css';
+
+.article-list {
+  height: calc(75vh - 36px);
+}
+
+.article-item {
+  padding: 10px;
+  background: linear-gradient(to right, transparent 0%, hackGreen 50%, transparent 100%) no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+}
+.item-tt {
+  color: #927777;
+  font: 22px/1 cursive;
+}
+.item-info {
+  font-size: 14px;
+}
+.info-tag {
+  margin-left: 20px;
+  text-decoration: line-through;
+}
+
+/* LatestList */
+.item-cover--LatestList {
+  width: 100px;
+  height: 75px;
+  margin: 20px 20px 0;
+  box-shadow: 0 0 3px 1px shadowGreen;
+}
+.item-summary {
+  font-size: 12px;
+  height: 54px;
+  overflow-y: hidden;
+  margin-bottom: 4px;
+}
+
+/* BestList */
+.data-read,
+.data-comments {
+  margin-right: 10px;
+}
+
+/* WorksList */
+.works--list {
+  text-align: center;
+}
+.item-cover--WorksItem {
+  display: block;
+  width: 400px;
+  height: 200px;
+  margin: 20px auto;
+  box-shadow: 0 0 3px 1px shadowGreen;
+}
+.link {
+  display: inline-block;
+  width: 33.3%;
+}

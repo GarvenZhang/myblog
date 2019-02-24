@@ -1,0 +1,58 @@
+module.exports = redirectUrl => {
+  let html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="id=edge">
+      <title>张益铭的前端小博客 - sso认证中心</title>
+    <link href="/reset-17250e6abc62e2970840.css" rel="stylesheet"><link href="/sso-17250e6abc62e2970840.css" rel="stylesheet"></head>
+    <body>
+  `
+
+  html += redirectUrl ? `
+    <div class="login-page">
+      <h1 class="title">SSO认证中心</h1>
+      <form class="login-form">
+        <div class="field">
+          <div class="field-inner">
+            tips: <span class="tips"></span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-inner">
+            <span class="title">账号：</span>
+            <input type="text" name="account" class="inp-account" placeholder="请输入账号">
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-inner">
+            <span class="title">密码：</span>
+            <input type="password" name="password" class="inp-password" placeholder="请输入密码">
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-inner">
+            <img class="img img--captcha" src="xxxHTMLLINKxxx0.63389340635507850.00881821969113683xxx" alt="图片验证码">
+            <input type="text" name="captchaTxt" class="inp-captcah">
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-inner">
+            <a class="link link--github" href="">github登录</a>
+            <input type="button" class="btn-submit" value="登录">
+          </div>
+        </div>
+      </form>
+      <iframe src="${redirectUrl}" class="iframe" frameborder="0"></iframe>
+    </div>
+  ` : ''
+
+  html += `
+    <script type="text/javascript" src="/sso-17250e6abc62e2970840.js"></script></body>
+    </html>
+  `
+
+  return html
+}
